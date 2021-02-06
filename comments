@@ -1,0 +1,24 @@
+To list all the servers the bot is in: 
+
+client.guilds.cache.forEach((guild) => {
+		console.log(guild.name);
+	});
+
+To leave all the servers that the bot is in:
+
+client.guilds.cache.forEach(guild => {
+        guild.leave();
+    });
+
+-------------------
+
+Commands that needed work:                                              
+
+kick.js
+status.js
+terminate.js
+
+-------------------
+
+Paste Code Lines here to keep it for further use...
+
