@@ -9,9 +9,9 @@
 Welcome to the official repository for our Discord bot. This is currently still a private project by JavaRuntime#2847. Our bot is currently running locally for test on a command terminal. Future update will ensure that the bot will run 24/7 through Cloud Computing services like Microsoft Azure or Heroku.
 
 ###### Current Bot Version
-0.1.0-alpha
+*0.1.0-alpha*
 
-###### **Command List (v0.1.0-alpha)**
+###### Command List (v0.1.0-alpha)
 
 * avatar
 * ban
@@ -31,6 +31,6 @@ Welcome to the official repository for our Discord bot. This is currently still 
 * voice-disconnect
 * whois
 
-###### **Add our bot to your Discord Server!**
+###### Add our bot to your Discord Server!
 
 > https://discord.com/api/oauth2/authorize?client_id=531811937244151808&permissions=8&scope=bot
