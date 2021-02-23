@@ -6,16 +6,13 @@
 
 ## Official SkyElements Bot for Discord running on Discord.js v12
 
-```
 Welcome to the official repository for our Discord bot. This is currently still a private project by JavaRuntime#2847. Our bot is currently running locally for test on a command terminal. Future update will ensure that the bot will run 24/7 through Cloud Computing services like Microsoft Azure or Heroku.
-```
 
 ###### Current Bot Version
-`<*0.1.0-alpha>`
+> *0.1.0-alpha
 
 ###### Command List (v0.1.0-alpha)
 
-```
 * avatar
 * ban
 * beep
@@ -23,7 +20,7 @@ Welcome to the official repository for our Discord bot. This is currently still 
 * delete
 * help
 * kick
-* kill (unavailable, as of now)
+* kill *(unavailable, as of now)*
 * message
 * ping
 * react
@@ -33,6 +30,5 @@ Welcome to the official repository for our Discord bot. This is currently still 
 * voice-connect
 * voice-disconnect
 * whois
-```
 
 ###### 
