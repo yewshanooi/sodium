@@ -1,6 +1,6 @@
 {
   "name": "skyelementsbot",
-  "version": "0.2.2",
+  "version": "0.1.0",
   "description": "SkyElements Official Discord Bot",
   "main": "index.js",
   "author": "JavaRuntime#2847",
