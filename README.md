@@ -30,7 +30,3 @@ Welcome to the official repository for our Discord bot. This is currently still 
 * voice-connect
 * voice-disconnect
 * whois
-
-###### Add our bot to your Discord Server!
-
-> https://discord.com/api/oauth2/authorize?client_id=531811937244151808&permissions=8&scope=bot
