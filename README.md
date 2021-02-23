@@ -1,6 +1,6 @@
 # skyelementsbot
 
-https://img.shields.io/github/languages/top/javaruntimemc/skyelementsbot
+![Languages](https://img.shields.io/github/languages/top/javaruntimemc/skyelementsbot)
 https://img.shields.io/github/repo-size/javaruntimemc/skyelementsbot
 https://img.shields.io/github/license/javaruntimemc/skyelementsbot
 https://img.shields.io/github/v/release/javaruntimemc/skyelementsbot?include_prereleases
