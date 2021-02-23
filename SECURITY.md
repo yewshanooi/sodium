@@ -1,6 +1,6 @@
-# Security Policy
+## Security Policy
 
-## Supported Versions
+###### Supported Versions
 
 |    Version     |      Supported     |
 | -------------- | ------------------ |
@@ -8,7 +8,7 @@
 | 0.2.2-alpha    | :white_check_mark: |
 
 
-## Reporting a Vulnerability
+###### Reporting a Vulnerability
 
 If you find any vulnerability that are present in the code files, kindly submit it to the Issues tab with proof and description regarding it.
 We will check and patch the vulnerability after it's been verified by our team of in house developers.

@@ -13,7 +13,7 @@ Welcome to the official repository for our Discord bot. This is currently a priv
 * delete
 * help
 * kick
-* kill (not finished yet)
+* kill (unavailable, as of now)
 * message
 * ping
 * react
