@@ -14,9 +14,8 @@ client.guilds.cache.forEach(guild => {
 
 Commands that needed work:                                              
 
-kick.js
-status.js
-terminate.js
+ban.js
+kill.js
 
 -------------------
 

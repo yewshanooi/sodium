@@ -30,16 +30,16 @@ module.exports = {
 		const command = commands.get(name) || commands.find(com => com.aliases && com.aliases.includes(name));
 
 		if (!command) {
-			return message.reply('That\'s not a valid command!');
+			return message.reply('That is not a valid command!');
 		}
 
-		data.push(`**Name:** ${command.name}`);
+		data.push(`**Name:** \`${command.name}\``);
 
-		if (command.aliases) data.push(`**Aliases:** ${command.aliases.join(', ')}`);
-		if (command.description) data.push(`**Description:** ${command.description}`);
-		if (command.usage) data.push(`**Usage:** ${prefix}${command.name} ${command.usage}`);
+		if (command.aliases) data.push(`**Aliases:** \`${command.aliases.join(', ')}\``);
+		if (command.description) data.push(`**Description:** \`${command.description}\``);
+		if (command.usage) data.push(`**Usage:** \`${prefix}${command.name} ${command.usage}\``);
 
-		data.push(`**Cooldown:** ${command.cooldown || 3} second(s)`);
+		data.push(`**Cooldown:** \`${command.cooldown || 3} second(s)\``);
 
 		message.channel.send(data, { split: true });
 	}
