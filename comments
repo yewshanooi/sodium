@@ -1,23 +1,24 @@
 To list all the servers the bot is in: 
 
-client.guilds.cache.forEach((guild) => {
-		console.log(guild.name);
-	});
+    client.guilds.cache.forEach((guild) => {
+		    console.log(guild.name);
+	    });
 
 To leave all the servers that the bot is in:
 
-client.guilds.cache.forEach(guild => {
-        guild.leave();
-    });
+    client.guilds.cache.forEach(guild => {
+            guild.leave();
+        });
+
+To update existing repository
+
+    git add .
+    git commit -m "Add Existing File"
+    git pull origin master
+    git push origin master
 
 -------------------
 
 Commands that needed work:                                              
 
-ban.js
-kill.js
-
--------------------
-
-Paste Code Lines here to keep it for further use...
-
+    kill.js

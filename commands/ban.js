@@ -1,18 +1,17 @@
 module.exports = {
 	name: 'ban',
 	description: 'Tag a user to ban them',
+	cooldown: '20',
 	execute (message, args) {
-		if (!message.member.hasPermission('BAN_MEMBERS')) return message.channel.send('Invalid Permissions');
-			const User = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
-		if (!User) return message.channel.send('Invalid User');
-		if (User.hasPermission('BAN_MEMBERS')) return message.reply('Invalid Permissions');
-			let banReason = args.join(' ').slice(22);
-		if (!banReason) {
-			banReason = 'None';
-		}
+		if (!message.member.hasPermission('BAN_MEMBERS')) return message.channel.send('You have no permission to use this command.');
+			const user = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
+		if (user.hasPermission('BAN_MEMBERS')) return message.reply('You have no permission to use this command.');
 
-		User.ban({ reason: banReason });
+		let banReason = args.join(' ').slice(22);
+			if (!banReason) {
+				banReason = 'None';
+			}
+		user.ban({ reason: banReason });
+			message.channel.send(`User ${user} have been banned for**${banReason}**`);
 		}
 	};
-
-// ban command currently not finish yet, must do test before launching it
