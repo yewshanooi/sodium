@@ -1,10 +1,6 @@
 # skyelementsbot
 
-![Languages](https://img.shields.io/github/languages/top/javaruntimemc/skyelementsbot)
-https://img.shields.io/github/repo-size/javaruntimemc/skyelementsbot
-https://img.shields.io/github/license/javaruntimemc/skyelementsbot
-https://img.shields.io/github/v/release/javaruntimemc/skyelementsbot?include_prereleases
-https://img.shields.io/github/last-commit/javaruntimemc/skyelementsbot
+![Languages](https://img.shields.io/github/languages/top/javaruntimemc/skyelementsbot) ![Repository Size](https://img.shields.io/github/repo-size/javaruntimemc/skyelementsbot) ![License](https://img.shields.io/github/license/javaruntimemc/skyelementsbot) ![Release Version](https://img.shields.io/github/v/release/javaruntimemc/skyelementsbot?include_prereleases) ![Last Commit](https://img.shields.io/github/last-commit/javaruntimemc/skyelementsbot)
 
 ## Official SkyElements Bot for Discord running on Discord.js v12
 
