@@ -6,8 +6,6 @@
 | -------------- | ------------------ |
 | v0.1.0-alpha   | :white_check_mark: |
 
-###### Reporting a Vulnerability
+**Reporting a Vulnerability**
 
-If you find any vulnerability that are present in the code files, kindly submit it to the Issues tab with proof and description regarding it.
-We will check and patch the vulnerability after it's been verified by our team of in house developers.
-Individual who submit a confirmed vulnerability will be rewarded with a custom role in our Official Discord Server.
+Any vulnerability present in the codes must be submitted to our Dev Team through any means. Those who do so will be credited with a custom Discord Role, and their username will be listed on the README.md file. If theres a significant flaw in the codes but was misused against the EULA and License, we may take any type of action against the offender with or without their consent. Misuse of our code may led to serious consequence as our code is protected through License(s) which enable others to fair use the code without reverse-engineering it.
