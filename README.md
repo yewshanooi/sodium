@@ -12,8 +12,8 @@ Welcome to the official repository for our Discord bot. This is currently still 
 
 * **Command List *(v0.1.0-alpha)***
 
-> avatar
-> ban
+* avatar
+* ban
 > beep
 > bot-status
 > delete
