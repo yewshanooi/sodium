@@ -7,7 +7,7 @@
 Welcome to the official repository for our Discord bot. This is currently still a private project by JavaRuntime#2847. Our bot is currently running locally for test on a command terminal. Future update will ensure that the bot will run 24/7 through Cloud Computing services like Microsoft Azure or Heroku.
 
 **Current Bot Version**
-*v0.1.0-alpha*
+\n*v0.1.0-alpha*
 
 **Command List *(v0.1.0-alpha)***
 
