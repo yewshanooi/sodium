@@ -2,7 +2,7 @@
 
 <div align="center">
   <p>
-	  <a href="https://img.shields.io/github/languages/top/javaruntimemc/skyelements">...</a>
+	  <a href="https://img.shields.io/github/languages/top/javaruntimemc/skyelements"></a>
   </p>
 </div>
 
