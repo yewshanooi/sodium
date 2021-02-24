@@ -33,5 +33,5 @@ Welcome to the official repository for our Discord bot. This is currently still 
 ## Author
 
 **SkyElementsBot** © [JavaRuntime](https://github.com/javaruntimemc).  
-Authored and maintained by JavaRuntime.\
+Authored and maintained by JavaRuntime.
 > GitHub [@javaruntimemc](https://github.com/javaruntimemc)
