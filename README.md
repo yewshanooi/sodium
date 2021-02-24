@@ -1,8 +1,6 @@
 # skyelementsbot
 
-<div class="myWrapper" markdown="1">
 ![Languages](https://img.shields.io/github/languages/top/javaruntimemc/skyelements) ![Repository Size](https://img.shields.io/github/repo-size/javaruntimemc/skyelements) ![License](https://img.shields.io/github/license/javaruntimemc/skyelements) ![Release Version](https://img.shields.io/github/v/release/javaruntimemc/skyelements?include_prereleases) ![Last Commit](https://img.shields.io/github/last-commit/javaruntimemc/skyelements)
-</div>
 
 ###### Official SkyElements Bot for Discord running on Discord.js v12
 
