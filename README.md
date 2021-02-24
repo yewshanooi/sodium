@@ -19,7 +19,7 @@ Welcome to the official repository for our Discord bot. This is currently still 
 * delete
 * help
 * kick
-* kill (unavailable, as of now)
+* kill *(unavailable, as of now)*
 * message
 * ping
 * react
@@ -29,3 +29,4 @@ Welcome to the official repository for our Discord bot. This is currently still 
 * voice-connect
 * voice-disconnect
 * whois
+
