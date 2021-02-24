@@ -14,18 +14,18 @@ Welcome to the official repository for our Discord bot. This is currently still 
 
 * avatar
 * ban
-> beep
-> bot-status
-> delete
-> help
-> kick
-> kill (unavailable, as of now)
-> message
-> ping
-> react
-> reload
-> say
-> server-status
-> voice-connect
-> voice-disconnect
-> whois
+* beep
+* bot-status
+* delete
+* help
+* kick
+* kill (unavailable, as of now)
+* message
+* ping
+* react
+* reload
+* say
+* server-status
+* voice-connect
+* voice-disconnect
+* whois
