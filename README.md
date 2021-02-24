@@ -10,7 +10,7 @@ Welcome to the official repository for our Discord bot. This is currently still 
 
 *v0.1.0-alpha*
 
-## Command List *(v0.1.0-alpha)
+## Command List
 
 * avatar
 * ban
