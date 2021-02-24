@@ -1,6 +1,5 @@
 const newLocal = require('fs');
 const fs = newLocal;
-// fs is discord.js's official const for getting module.exports from other files
 const Discord = require('discord.js');
 const { prefix, token } = require('./config.json');
 
