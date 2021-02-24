@@ -8,7 +8,7 @@ Welcome to the official repository for our discord bot. This is currently still 
 
 ## Current Version
 
-*v0.1.0-alpha*
+*v0.1.5-alpha*
 
 ## Command List
 
@@ -19,7 +19,7 @@ Welcome to the official repository for our discord bot. This is currently still 
 * delete
 * help
 * kick
-* kill *(unavailable, as of now)*
+* kill
 * message
 * ping
 * react
