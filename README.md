@@ -17,6 +17,7 @@ Welcome to the official repository for our discord bot. This is currently still 
 * kick
 * kill
 * message
+* nick *(new command!)*
 * ping
 * react
 * reload

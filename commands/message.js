@@ -2,6 +2,7 @@ module.exports = {
 	name: 'message',
 	description: 'Sends a private message to the user specified',
     cooldown: '10',
+    usage: '{@user} {message}',
 	execute (message, args) {
         let msg = '';
         args.forEach(element => {

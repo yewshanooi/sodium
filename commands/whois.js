@@ -2,6 +2,7 @@ module.exports = {
 	name: 'whois',
 	description: 'Display info about the tagged user(s), or your own information',
 	cooldown: '5',
+	usage: '{@user}',
 	execute (message) {
 		if (!message.mentions.users.size) {
 			return message.channel.send(`Username: \`${message.author.username}\`\nUser Tag: \`${message.author.tag}\`\nUser ID: \`${message.author.id}\`\nUser Creation Date: \`${message.author.createdAt}\``);
