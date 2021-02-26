@@ -14,5 +14,6 @@ module.exports = {
             }
 
         user.setNickname(nickname);
+            message.channel.send(`User ${user}'s nickname has been changed!`);
         }
     };

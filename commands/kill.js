@@ -3,7 +3,7 @@ module.exports = {
 	description: 'Terminates the bot',
 	cooldown: '300',
 	execute (message) {
-			message.channel.send('Terminating bot...');
+		message.channel.send('Terminating bot...');
 			message.client.destroy();
 			process.exit(0);
 	}

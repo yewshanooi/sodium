@@ -1,6 +1,7 @@
 module.exports = {
 	name: 'voice-disconnect',
 	description: 'Bot disconnects from a voice channel',
+	cooldown: '5',
 	execute (message) {
 		if (message.member.voice.channel) {
             message.member.voice.channel.leave();

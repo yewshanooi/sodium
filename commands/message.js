@@ -5,9 +5,9 @@ module.exports = {
     usage: '{@user} {message}',
 	execute (message, args) {
         let msg = '';
-        args.forEach(element => {
-            msg += ` ${element}`;
-        });
+            args.forEach(element => {
+                msg += ` ${element}`;
+            });
         message.mentions.users.first().send(msg);
         message.delete();
 	}

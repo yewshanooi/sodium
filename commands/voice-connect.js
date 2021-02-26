@@ -1,6 +1,7 @@
 module.exports = {
 	name: 'voice-connect',
 	description: 'Bot connects to a voice channel',
+	cooldown: '5',
 	execute (message) {
 		if (message.member.voice.channel) {
 			message.member.voice.channel.join();
