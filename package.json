@@ -1,9 +1,9 @@
 {
   "name": "skyelementsbot",
-  "version": "0.1.5",
+  "version": "0.2.0",
   "description": "Official Discord Bot for SkyElements",
   "main": "index.js",
-  "author": "JavaRuntime#2847",
+  "author": "JavaRuntime",
   "license": "ISC",
   "dependencies": {
     "discord.js": "^12.3.1",
