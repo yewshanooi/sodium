@@ -1,5 +1,5 @@
 module.exports = {
-	name: 'voice-connect',
+	name: 'vconnect',
 	description: 'Bot connects to a voice channel',
 	cooldown: '5',
 	execute (message) {

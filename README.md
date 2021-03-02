@@ -12,7 +12,7 @@ Welcome to the official repository for our discord bot. This is currently still 
 * avatar
 * ban
 * beep
-* bot-status
+* botstatus
 * coinflip *(new command!)*
 * delete
 * help
@@ -25,9 +25,9 @@ Welcome to the official repository for our discord bot. This is currently still 
 * reload
 * roll *(new command!)*
 * say
-* server-status
-* voice-connect
-* voice-disconnect
+* serverstatus
+* vconnect
+* vdisconnect
 * whois
 
 ## Author

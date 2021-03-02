@@ -1,5 +1,5 @@
 module.exports = {
-	name: 'voice-disconnect',
+	name: 'vdisconnect',
 	description: 'Bot disconnects from a voice channel',
 	cooldown: '5',
 	execute (message) {

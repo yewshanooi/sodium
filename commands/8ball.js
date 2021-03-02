@@ -29,13 +29,11 @@ module.exports = {
     usage: '{question}',
     execute (message, args) {
         const question = args.join(' ');
-        if (!question) return this.sendErrorMessage(message, 0, 'Please provide a question to ask');
+        if (!question) return message.channel.send('Error! Please provide a question to ask.');
             const embed = new MessageEmbed()
-            .setTitle('🎱  The Magic 8-Ball  🎱')
+            .setTitle('The Magic 8-Ball')
             .addField('Question', question)
             .addField('Answer', `${answers[Math.floor(Math.random() * answers.length)]}`)
-            .setFooter(message.member.displayName, message.author.displayAvatarURL({ dynamic: true }))
-            .setTimestamp()
             .setColor(message.guild.me.displayHexColor);
             message.channel.send(embed);
         }

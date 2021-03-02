@@ -19,5 +19,5 @@ module.exports = {
 			.setDescription(`Username: \`${taggedUser.username}\`\nUser Tag: \`${taggedUser.tag}\`\nUser ID: \`${taggedUser.id}\`\nUser Creation Date: \`${taggedUser.createdAt}\``)
 			.setColor(message.guild.me.displayHexColor);
 		message.channel.send(embed2);
-}
+	}
 };
