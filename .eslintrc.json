@@ -84,7 +84,6 @@
         ],
         "indent": "off",
         "indent-legacy": "off",
-        "init-declarations": "error",
         "jsx-quotes": "error",
         "key-spacing": "error",
         "keyword-spacing": [
@@ -152,7 +151,6 @@
         "no-loop-func": "error",
         "no-loss-of-precision": "error",
         "no-magic-numbers": "off",
-        "no-mixed-operators": "error",
         "no-mixed-requires": "error",
         "no-multi-assign": "error",
         "no-multi-spaces": "error",
