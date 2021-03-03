@@ -8,22 +8,21 @@ Welcome to the official repository for our discord bot. This is currently still 
 
 ## Command List
 
-* 8ball *(new command!)*
+* 8ball
 * avatar
 * ban
 * beep
 * botstatus
-* coinflip *(new command!)*
+* coinflip
 * delete
 * help
 * kick
-* kill
 * message
 * nick
 * ping
 * react
 * reload
-* roll *(new command!)*
+* roll
 * say
 * serverstatus
 * vconnect
