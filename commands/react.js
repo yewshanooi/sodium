@@ -1,9 +1,13 @@
+const { MessageEmbed } = require('discord.js');
+
 module.exports = {
     name: 'react',
     description: 'Reacts then reply to your message',
-    execute (message, args) {
-        if (!args.length) {
-            message.react('😄').then(message.channel.send('Hey there!'));
-        }
+    execute (message) {
+        message.react('😄');
+        const embed = new MessageEmbed()
+            .setTitle('Hey there!')
+            .setColor(message.guild.me.displayHexColor);
+        message.channel.send(embed);
     }
 };
