@@ -7,7 +7,7 @@ module.exports = {
 	execute (message) {
 		const embed = new MessageEmbed()
 		.setTitle('Server Status')
-		.setDescription(`Server Name: \`${message.guild.name}\`\nServer Region: \`${message.guild.region}\`\nTotal Members \`${message.guild.memberCount}\`\nCreation Date & Time: \`${message.guild.createdAt}\``)
+		.setDescription(`Server Name : \`${message.guild.name}\`\nServer Region : \`${message.guild.region}\`\nTotal Members : \`${message.guild.memberCount}\`\nCreation Date & Time : \`${message.guild.createdAt}\``)
 		.setColor(message.guild.me.displayHexColor);
 	message.channel.send(embed);
 	}

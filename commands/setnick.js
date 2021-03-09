@@ -1,5 +1,5 @@
 module.exports = {
-    name: 'nick',
+    name: 'setnick',
     description: 'Change other user\'s nickname',
     cooldown: '3',
     usage: '{@user} {nickname}',

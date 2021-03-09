@@ -19,14 +19,16 @@ Welcome to the official repository for our discord bot. This is currently still 
 * help
 * kick
 * message
-* nick
 * ping
 * react
 * reload
 * say
 * serverstats
+* setnick
+* uptime
 * vconnect
 * vdisconnect
+* warn
 * whois
 
 ## Author
