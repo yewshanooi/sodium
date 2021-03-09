@@ -21,9 +21,9 @@ client.once('ready', () => {
 	client.user.setPresence({
 		status: 'online',
 		activity: {
-			name: 'with JavaRuntime',
+			name: '!help',
 			type: 'STREAMING',
-			url: 'https://www.twitch.tv/javaruntimemc'
+			url: 'https://www.twitch.tv/directory'
 		}
 	});
 });
