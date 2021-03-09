@@ -8,28 +8,28 @@ Welcome to the official repository for our discord bot. This is currently still 
 
 ## Command List
 
-* 8ball
-* avatar
-* ban
-* beep
-* botstats
-* coinflip
-* delete
-* diceroll
-* help
-* kick
-* message
-* ping
-* react
-* reload
-* say
-* serverstats
-* setnick
-* uptime
-* vconnect
-* vdisconnect
-* warn
-* whois
+* `8ball`
+* `avatar`
+* `ban`
+* `beep`
+* `botstats`
+* `coinflip`
+* `delete`
+* `diceroll`
+* `help`
+* `kick`
+* `message`
+* `ping`
+* `react`
+* `reload`
+* `say`
+* `serverstats`
+* `setnick`
+* `uptime`
+* `vconnect`
+* `vdisconnect`
+* `warn`
+* `whois`
 
 ## Author
 
