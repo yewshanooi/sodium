@@ -12,9 +12,10 @@ Welcome to the official repository for our discord bot. This is currently still 
 * avatar
 * ban
 * beep
-* botstatus
+* botstats
 * coinflip
 * delete
+* diceroll
 * help
 * kick
 * message
@@ -22,9 +23,8 @@ Welcome to the official repository for our discord bot. This is currently still 
 * ping
 * react
 * reload
-* roll
 * say
-* serverstatus
+* serverstats
 * vconnect
 * vdisconnect
 * whois

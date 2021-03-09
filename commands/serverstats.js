@@ -1,7 +1,7 @@
 const { MessageEmbed } = require('discord.js');
 
 module.exports = {
-	name: 'serverstatus',
+	name: 'serverstats',
 	description: 'Display info about this server',
 	cooldown: '5',
 	execute (message) {
