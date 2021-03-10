@@ -6,9 +6,9 @@ module.exports = {
 	cooldown: '30',
 	usage: '{@user} {reason}',
 	execute (message, args) {
-            if (!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('You have no permission to use this command.');
-                const user = message.mentions.users.first();
-            if (message.mentions.users.size < 1) return message.reply('You must mention someone to warn them.');
+        if (!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('You have no permission to use this command.');
+            const user = message.mentions.users.first();
+        if (message.mentions.users.size < 1) return message.reply('You must mention someone to warn them.');
 
             let warnReason = args.slice(1).join(' ');
 			if (!warnReason) {
