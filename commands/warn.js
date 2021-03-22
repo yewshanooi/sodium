@@ -5,6 +5,7 @@ module.exports = {
 	description: 'Warn\'s a tagged user',
 	cooldown: '30',
 	usage: '{@user} {reason}',
+    guildOnly: true,
 	execute (message, args) {
         if (!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('You have no permission to use this command.');
             const user = message.mentions.users.first();

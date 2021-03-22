@@ -5,6 +5,7 @@ module.exports = {
 	description: 'Tag a user to kick them',
     cooldown: '30',
 	usage: '{@user} {reason}',
+	guildOnly: true,
 	execute (message, args) {
 		if (!message.member.hasPermission('KICK_MEMBERS')) return message.channel.send('You have no permission to use this command.');
 			const user = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
