@@ -8,28 +8,30 @@ module.exports = {
 	execute (message, args) {
         if (!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('You have no permission to use this command.');
             const user = message.mentions.users.first();
-        if (message.mentions.users.size < 1) return message.reply('You must mention someone to warn them.');
+        if (message.mentions.users.size < 1) return message.reply('You must mention someone to Warn them.');
 
             let warnReason = args.slice(1).join(' ');
 			if (!warnReason) {
 				warnReason = 'None';
 			}
 
-			const embed = new MessageEmbed()
+			const embedUserSend = new MessageEmbed()
                 .setTitle('Warn')
-                .setDescription(`You have been warned on server \`${message.guild.name}\``)
+                .setDescription(`You have been Warned on Server \`${message.guild.name}\``)
                 .addField('Warned by', message.author.tag)
                 .addField('Reason', warnReason)
-                .setColor('#FF0000');
-            user.send(embed);
+                .setColor('#FF0000')
+                .setTimestamp();
+            user.send(embedUserSend);
 
-            const embed2 = new MessageEmbed()
+            const embedChannelSend = new MessageEmbed()
                 .setTitle('Warn')
-                .setDescription(`User ${user} have been warned!`)
+                .setDescription(`User ${user} have been Warned!`)
                 .addField('Warned by', message.author.tag)
                 .addField('Reason', warnReason)
-                .setColor(message.guild.me.displayHexColor);
-            message.channel.send(embed2);
+                .setColor('#FF0000')
+                .setTimestamp();
+            message.channel.send(embedChannelSend);
 
             message.delete();
         }

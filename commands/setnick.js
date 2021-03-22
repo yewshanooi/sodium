@@ -1,3 +1,5 @@
+const { MessageEmbed } = require('discord.js');
+
 module.exports = {
     name: 'setnick',
     description: 'Change other user\'s nickname',
@@ -13,7 +15,10 @@ module.exports = {
                 return message.channel.send('Please enter a valid username to change.');
             }
 
-        user.setNickname(nickname);
-            message.channel.send(`User ${user}'s nickname has been changed!`);
+            const embed = new MessageEmbed()
+                .setDescription(`User ${user}'s nickname has been changed!`)
+                .setColor(message.guild.me.displayHexColor)
+                .setTimestamp();
+            message.channel.send(embed).then(user.setNickname(nickname));
         }
     };

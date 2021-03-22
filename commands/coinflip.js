@@ -10,8 +10,8 @@ module.exports = {
         if (flip === 1) result = 'heads';
         else result = 'tails';
             const embed = new MessageEmbed()
-            .setTitle('Coinflip')
-            .setDescription(`I flipped a coin for you, ${message.member}. It was **${result}**!`)
+            .setTitle('Coin Flip')
+            .setDescription(`I flipped a coin for you, ${message.member}!\n It was **${result}**.`)
             .setColor(message.guild.me.displayHexColor);
             message.channel.send(embed);
         }

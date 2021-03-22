@@ -1,3 +1,5 @@
+const { MessageEmbed } = require('discord.js');
+
 module.exports = {
 	name: 'ban',
 	description: 'Tag a user to ban them',
@@ -13,7 +15,15 @@ module.exports = {
 				banReason = 'None';
 			}
 
-		user.ban({ reason: banReason });
-			message.channel.send(`User ${user} have been banned for**${banReason}**`);
+		const embedChannelSend = new MessageEmbed()
+			.setTitle('Ban')
+			.setDescription(`User ${user} have been Banned!`)
+			.addField('Banned by', message.author.tag)
+			.addField('Reason', banReason)
+			.setColor('#FF0000')
+			.setTimestamp();
+		message.channel.send(embedChannelSend);
+
+		message.delete().then(user.ban({ reason: banReason }));
 		}
 	};

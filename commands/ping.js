@@ -5,13 +5,17 @@ module.exports = {
 	description: 'Calculates the API\'s Latency',
 	cooldown: '3',
 	execute (message) {
-		message.channel.send('*Calculating latency...*').then(msg => {
-			const ping = msg.createdTimestamp - message.createdTimestamp;
-			const embed = new MessageEmbed();
-				embed.setTitle('Pong!')
-				.setDescription(`API Latency is \`${ping}\``)
+		const embedLatency = new MessageEmbed();
+				embedLatency.setTitle('Discord API')
+				.setDescription('*Calculating Latency...*')
 				.setColor(message.guild.me.displayHexColor);
-			message.channel.send(embed);
+			message.channel.send(embedLatency).then(msg => {
+				const ping = msg.createdTimestamp - message.createdTimestamp;
+				const embedCalculated = new MessageEmbed();
+					embedCalculated.setDescription(`API Latency is \`${ping}\`ms`)
+					.setColor(message.guild.me.displayHexColor)
+					.setTimestamp();
+				message.channel.send(embedCalculated);
 			});
 		}
 	};

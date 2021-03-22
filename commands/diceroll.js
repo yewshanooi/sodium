@@ -2,7 +2,7 @@ const { MessageEmbed } = require('discord.js');
 
 module.exports = {
 	name: 'diceroll',
-	description: 'Rolls a random dice with x sides',
+	description: 'Rolls a random dice with x amount of sides',
 	cooldown: '3',
 	usage: '{sides}',
 	execute (message, args) {

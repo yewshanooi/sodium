@@ -1,3 +1,5 @@
+const { MessageEmbed } = require('discord.js');
+
 module.exports = {
 	name: 'kick',
 	description: 'Tag a user to kick them',
@@ -13,7 +15,15 @@ module.exports = {
 				kickReason = 'None';
 			}
 
-		user.kick({ reason: kickReason });
-			message.channel.send(`User ${user} have been kicked for**${kickReason}**`);
+		const embedChannelSend = new MessageEmbed()
+			.setTitle('Kick')
+			.setDescription(`User ${user} have been Kicked!`)
+			.addField('Kicked by', message.author.tag)
+			.addField('Reason', kickReason)
+			.setColor('#FF0000')
+			.setTimestamp();
+		message.channel.send(embedChannelSend);
+
+		message.delete().then(user.kick());
 		}
 	};
