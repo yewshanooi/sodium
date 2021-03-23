@@ -6,13 +6,13 @@
 Welcome to the official repository for our discord bot. This is currently still a small-scale project by JavaRuntime#2847. Our bot is currently running locally on a command terminal for test and debugging purposes. We will ensure that the bot will run 24/7 through Cloud Computing services like Microsoft Azure or Heroku in the near future.
 
 ## Commands
-*Fun*
+*Fun*  
 `8ball`, `beep`, `coinflip`, `diceroll`, `react`, `say`
 
-*Utility*
+*Utility*  
 `avatar`, `botinfo`, `delete`, `help`, `message`, `ping`, `reload`, `serverinfo`, `uptime`, `vconnect`, `vdisconnect`, `whois`
 
-*Moderation*
+*Moderation*  
 `ban`, `kick`, `setnick`, `warn`
 
 ## License
