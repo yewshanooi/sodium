@@ -17,13 +17,12 @@ for (const file of commandFiles) {
 
 client.once('ready', () => {
 	console.log(`>> Logged in as ${client.user.tag}! <<`);
-	console.log(`>> Bot currently started with ${client.users.cache.size} users, ${client.channels.cache.size} channels of ${client.guilds.cache.size} guilds. <<`);
+	console.log(`>> Bot currently started with ${client.users.cache.size} users, ${client.channels.cache.size} channels in ${client.guilds.cache.size} guilds. <<`);
 	client.user.setPresence({
 		status: 'online',
 		activity: {
-			name: '!help',
-			type: 'STREAMING',
-			url: 'https://www.twitch.tv/directory'
+			name: `!help | ${client.users.cache.size} users, ${client.channels.cache.size} channels in ${client.guilds.cache.size} guilds.`,
+			type: 'PLAYING'
 		}
 	});
 });
