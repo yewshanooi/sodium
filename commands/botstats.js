@@ -3,7 +3,7 @@ const { MessageEmbed } = require('discord.js');
 module.exports = {
 	name: 'botstats',
 	description: 'Get the bot\'s current status',
-	cooldown: '5',
+	cooldown: '10',
 	execute (message) {
 		const embed = new MessageEmbed()
 			.setTitle('Bot Status')

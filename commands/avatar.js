@@ -3,7 +3,7 @@ const { MessageEmbed } = require('discord.js');
 module.exports = {
 	name: 'avatar',
 	description: 'Get the avatar URL of the tagged user(s), or your own avatar',
-	cooldown: '5',
+	cooldown: '10',
 	usage: '{@user}',
 	execute (message) {
 		if (!message.mentions.users.size) {

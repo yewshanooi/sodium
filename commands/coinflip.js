@@ -3,7 +3,7 @@ const { MessageEmbed } = require('discord.js');
 module.exports = {
     name: 'coinflip',
     description: 'Flips a coin',
-    cooldown: '3',
+    cooldown: '5',
     execute (message) {
         const flip = Math.floor(Math.random() * 2);
         let result;

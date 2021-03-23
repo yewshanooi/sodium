@@ -25,7 +25,7 @@ const answers = [
 module.exports = {
     name: '8ball',
     description: 'Asks the Magic 8-Ball for some psychic wisdom',
-    cooldown: '10',
+    cooldown: '5',
     usage: '{question}',
     execute (message, args) {
         const question = args.join(' ');

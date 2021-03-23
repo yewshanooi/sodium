@@ -3,7 +3,7 @@ const { MessageEmbed } = require('discord.js');
 module.exports = {
 	name: 'whois',
 	description: 'Display info about the tagged user(s), or your own information',
-	cooldown: '5',
+	cooldown: '10',
 	usage: '{@user}',
 	execute (message) {
 		if (!message.mentions.users.size) {

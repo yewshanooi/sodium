@@ -4,8 +4,8 @@ module.exports = {
 	name: 'help',
 	description: 'List every commands or info about a specific command',
 	aliases: ['commands'],
-	usage: '{command}',
 	cooldown: '0',
+	usage: '{command}',
 	execute (message, args) {
 		const data = [];
 		const { commands } = message.client;

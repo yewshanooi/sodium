@@ -3,7 +3,7 @@ const { MessageEmbed } = require('discord.js');
 module.exports = {
 	name: 'diceroll',
 	description: 'Rolls a random dice with x amount of sides',
-	cooldown: '3',
+	cooldown: '5',
 	usage: '{sides}',
 	execute (message, args) {
 		let [limit] = args;

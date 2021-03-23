@@ -1,6 +1,7 @@
 module.exports = {
 	name: 'delete',
 	description: 'Delete up to 99 messages at one time',
+	cooldown: '0',
 	usage: '{amount}',
 	execute (message, args) {
 		const amount = parseInt(args[0]) + 1;
