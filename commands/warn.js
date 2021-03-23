@@ -3,7 +3,7 @@ const { MessageEmbed } = require('discord.js');
 module.exports = {
     name: 'warn',
 	description: 'Warn\'s a tagged user',
-	cooldown: '20',
+	cooldown: '15',
 	usage: '{@user} {reason}',
     guildOnly: true,
 	execute (message, args) {
