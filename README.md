@@ -13,6 +13,7 @@ Welcome to the official repository for our discord bot. This is currently still 
 Distributed under the MIT License. See [LICENSE](https://github.com/javaruntimemc/skyelementsbot/blob/master/LICENSE) for more information.
 
 ## Author
-**SkyElementsBot** 
+
+**SkyElementsBot**  
 Authored and maintained by JavaRuntime.
 > GitHub [@javaruntimemc](https://github.com/javaruntimemc)
