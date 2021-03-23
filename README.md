@@ -7,11 +7,12 @@
 Welcome to the official repository for our discord bot. This is currently still a small-scale project by JavaRuntime#2847. Our bot is currently running locally on a command terminal for test and debugging purposes. We will ensure that the bot will run 24/7 through Cloud Computing services like Microsoft Azure or Heroku in the near future.
 
 ## Commands
-
 `8ball`, `avatar`, `ban`, `beep`, `botinfo`, `coinflip`, `delete`, `diceroll`, `help`, `kick`, `message`, `ping`, `react`, `reload`, `say`, `serverinfo`, `setnick`, `uptime`, `vconnect`, `vdisconnect`, `warn`, `whois`
 
-## Author
+## License
+Distributed under the MIT License. See [LICENSE](https://github.com/javaruntimemc/skyelementsbot/blob/master/LICENSE) for more information.
 
-**SkyElementsBot** © [JavaRuntime](https://github.com/javaruntimemc).  
+## Author
+**SkyElementsBot** 
 Authored and maintained by JavaRuntime.
 > GitHub [@javaruntimemc](https://github.com/javaruntimemc)
