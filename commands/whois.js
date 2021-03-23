@@ -15,11 +15,11 @@ module.exports = {
 	}
 		if (message.mentions.users.size) {
 		const taggedUser = message.mentions.users.first();
-		const embed2 = new MessageEmbed()
+		const taggedUserEmbed = new MessageEmbed()
 			.setTitle('Whois')
 			.setDescription(`Username : \`${taggedUser.username}\`\nUser Tag : \`${taggedUser.tag}\`\nUser ID : \`${taggedUser.id}\`\nUser Creation Date : \`${taggedUser.createdAt}\``)
 			.setColor(message.guild.me.displayHexColor);
-		message.channel.send(embed2);
+		message.channel.send(taggedUserEmbed);
 		}
 	}
 };

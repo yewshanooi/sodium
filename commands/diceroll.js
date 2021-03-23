@@ -9,7 +9,7 @@ module.exports = {
 		let [limit] = args;
         if (!limit) limit = 6;
         const rand = Math.floor(Math.random() * limit + 1);
-        if (!rand || limit <= 0) return this.sendErrorMessage(message, 0, 'Please provide a valid number of dice sides');
+        if (!rand || limit <= 0) return message.channel.send('Please provide a valid number of dice sides.');
             const embed = new MessageEmbed()
             .setTitle('Dice Roll')
             .setDescription(`${message.member}, you rolled a **${rand}**!`)

@@ -14,7 +14,7 @@ module.exports = {
         const seconds = Math.floor(totalSeconds % 60);
 
         const embed = new MessageEmbed()
-           .setTitle('Uptime')
+           .setTitle('Bot Uptime')
            .setDescription(`Days : \`${days}\`\n Hours : \`${hours}\`\n Minutes : \`${minutes}\`\n Seconds : \`${seconds}\``)
            .setColor(message.guild.me.displayHexColor);
        message.channel.send(embed);

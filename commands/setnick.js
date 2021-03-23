@@ -12,7 +12,7 @@ module.exports = {
 
             const nickname = args.join(' ').slice(22);
             if (!nickname) {
-                return message.channel.send('Please enter a valid username to change.');
+                return message.channel.send('Please enter a username to change.');
             }
 
             const embed = new MessageEmbed()

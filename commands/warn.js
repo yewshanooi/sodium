@@ -3,7 +3,7 @@ const { MessageEmbed } = require('discord.js');
 module.exports = {
     name: 'warn',
 	description: 'Warn\'s a tagged user',
-	cooldown: '30',
+	cooldown: '20',
 	usage: '{@user} {reason}',
     guildOnly: true,
 	execute (message, args) {
@@ -16,23 +16,23 @@ module.exports = {
 				warnReason = 'None';
 			}
 
-			const embedUserSend = new MessageEmbed()
+			const userSendEmbed = new MessageEmbed()
                 .setTitle('Warn')
                 .setDescription(`You have been Warned on Server \`${message.guild.name}\``)
                 .addField('Warned by', message.author.tag)
                 .addField('Reason', warnReason)
                 .setColor('#FF0000')
                 .setTimestamp();
-            user.send(embedUserSend);
+            user.send(userSendEmbed);
 
-            const embedChannelSend = new MessageEmbed()
+            const channelSendEmbed = new MessageEmbed()
                 .setTitle('Warn')
                 .setDescription(`User ${user} have been Warned!`)
                 .addField('Warned by', message.author.tag)
                 .addField('Reason', warnReason)
                 .setColor('#FF0000')
                 .setTimestamp();
-            message.channel.send(embedChannelSend);
+            message.channel.send(channelSendEmbed);
 
             message.delete();
         }
