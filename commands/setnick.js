@@ -1,9 +1,10 @@
 const { MessageEmbed } = require('discord.js');
+const { embedColor } = require('../config.json');
 
 module.exports = {
     name: 'setnick',
     description: 'Change other user\'s nickname',
-    cooldown: '10',
+    cooldown: '8',
     usage: '{@user} {nickname}',
     guildOnly: true,
     execute (message, args) {
@@ -18,7 +19,7 @@ module.exports = {
 
             const embed = new MessageEmbed()
                 .setDescription(`User ${user}'s nickname has been changed!`)
-                .setColor(message.guild.me.displayHexColor)
+                .setColor(embedColor)
                 .setTimestamp();
             message.channel.send(embed).then(user.setNickname(nickname));
         }

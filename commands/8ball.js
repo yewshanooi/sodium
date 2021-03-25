@@ -1,4 +1,6 @@
 const { MessageEmbed } = require('discord.js');
+const { embedColor } = require('../config.json');
+
 const answers = [
   'It is certain.',
   'It is decidedly so.',
@@ -34,7 +36,7 @@ module.exports = {
               .setTitle('The Magic 8-Ball')
               .addField('Question', question)
               .addField('Answer', `${answers[Math.floor(Math.random() * answers.length)]}`)
-              .setColor(message.guild.me.displayHexColor);
+              .setColor(embedColor);
             message.channel.send(embed);
         }
 };

@@ -1,4 +1,5 @@
 const { MessageEmbed } = require('discord.js');
+const { embedColor } = require('../config.json');
 
 module.exports = {
 	name: 'diceroll',
@@ -12,8 +13,8 @@ module.exports = {
         if (!rand || limit <= 0) return message.channel.send('Please provide a valid number of dice sides.');
             const embed = new MessageEmbed()
             .setTitle('Dice Roll')
-            .setDescription(`${message.member}, you rolled a **${rand}**!`)
-            .setColor(message.guild.me.displayHexColor);
+            .setDescription(`<@${message.author.id}>, you rolled a **${rand}**!`)
+            .setColor(embedColor);
             message.channel.send(embed);
         }
 };

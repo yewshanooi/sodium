@@ -26,5 +26,5 @@ module.exports = {
 		message.channel.send(embedChannelSend);
 
 		message.delete().then(user.kick());
-		}
-	};
+	}
+};

@@ -1,4 +1,5 @@
 const { MessageEmbed } = require('discord.js');
+const { embedColor } = require('../config.json');
 
 module.exports = {
     name: 'react',
@@ -8,7 +9,7 @@ module.exports = {
         message.react('😄');
         const embed = new MessageEmbed()
             .setTitle('Hey there!')
-            .setColor(message.guild.me.displayHexColor);
+            .setColor(embedColor);
         message.channel.send(embed);
     }
 };

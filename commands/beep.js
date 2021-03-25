@@ -1,4 +1,5 @@
 const { MessageEmbed } = require('discord.js');
+const { embedColor } = require('../config.json');
 
 module.exports = {
 	name: 'beep',
@@ -7,7 +8,7 @@ module.exports = {
 	execute (message) {
 		const embed = new MessageEmbed()
 			.setTitle('Boop.')
-			.setColor(message.guild.me.displayHexColor);
+			.setColor(embedColor);
 		message.channel.send(embed);
 	}
 };
