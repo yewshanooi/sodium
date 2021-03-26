@@ -8,7 +8,10 @@ module.exports = {
 	execute (message) {
 		const embed = new MessageEmbed()
 			.setTitle('Bot Info')
-			.setDescription(`Bot Discriminator : \`${message.client.user.tag}\`\nTotal Users \`${message.client.users.cache.size}\`, Total Channels \`${message.client.channels.cache.size}\`, Total Guilds \`${message.client.guilds.cache.size}\``)
+			.setDescription(`Discriminator : \`${message.client.user.tag}\``)
+			.addField('Total Users', `\`${message.client.users.cache.size}\``)
+			.addField('Total Channels', `\`${message.client.channels.cache.size}\``)
+			.addField('Total Guilds', `\`${message.client.guilds.cache.size}\``)
 			.setColor(embedColor);
         message.channel.send(embed);
 	}

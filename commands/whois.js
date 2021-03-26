@@ -10,7 +10,8 @@ module.exports = {
 		if (!message.mentions.users.size) {
 		const embed = new MessageEmbed()
 			.setTitle('Whois')
-			.setDescription(`Username : \`${message.author.username}\`\nUser Tag : \`${message.author.tag}\`\nUser ID : \`${message.author.id}\`\nUser Creation Date : \`${message.author.createdAt}\``)
+			.setDescription(`Name : \`${message.author.username}\`\nDiscriminator : \`${message.author.tag}\`\nCreation Date : \`${message.author.createdAt}\``)
+			.addField('User ID', `\`${message.author.id}\``)
 			.setColor(embedColor);
 		message.channel.send(embed);
 	}
@@ -18,7 +19,8 @@ module.exports = {
 		const taggedUser = message.mentions.users.first();
 		const taggedUserEmbed = new MessageEmbed()
 			.setTitle('Whois')
-			.setDescription(`Username : \`${taggedUser.username}\`\nUser Tag : \`${taggedUser.tag}\`\nUser ID : \`${taggedUser.id}\`\nUser Creation Date : \`${taggedUser.createdAt}\``)
+			.setDescription(`Name : \`${taggedUser.username}\`\nDiscriminator : \`${taggedUser.tag}\`\nCreation Date : \`${taggedUser.createdAt}\``)
+			.addField('User ID', `\`${taggedUser.id}\``)
 			.setColor(embedColor);
 		message.channel.send(taggedUserEmbed);
 		}

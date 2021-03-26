@@ -16,7 +16,10 @@ module.exports = {
 
         const embed = new MessageEmbed()
            .setTitle('Bot Uptime')
-           .setDescription(`Days : \`${days}\`\n Hours : \`${hours}\`\n Minutes : \`${minutes}\`\n Seconds : \`${seconds}\``)
+           .addField('Day(s)', `\`${days}\``)
+           .addField('Hour(s)', `\`${hours}\``)
+           .addField('Minute(s)', `\`${minutes}\``)
+           .addField('Second(s)', `\`${seconds}\``)
            .setColor(embedColor);
        message.channel.send(embed);
     }

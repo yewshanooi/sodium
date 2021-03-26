@@ -10,12 +10,14 @@ module.exports = {
 		if (message.member.voice.channel) {
 			message.member.voice.channel.join();
 			const embed = new MessageEmbed()
+				.setTitle('Voice Connect')
 				.setDescription(`<@${message.author.id}>, I've successfully joined the Voice Channel!`)
 				.setColor(embedColor);
 			message.channel.send(embed);
 		}
 		if (!message.member.voice.channel) {
 			const errorEmbed = new MessageEmbed()
+				.setTitle('Voice Connect')
 				.setDescription(`<@${message.author.id}>, It seems that you are not in a Voice Channel!`)
 				.setColor(embedColor);
 			message.channel.send(errorEmbed);

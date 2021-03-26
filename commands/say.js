@@ -10,7 +10,7 @@ module.exports = {
 	execute (message, args) {
 		const sayMsg = args.join(' ');
 			const embed = new MessageEmbed()
-			.setDescription(`${message.author.username} said: ${sayMsg}`)
+			.addField(`${message.author.username} said:`, `${sayMsg}`)
 			.setColor(embedColor);
         message.delete();
         message.channel.send(embed);

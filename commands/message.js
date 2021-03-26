@@ -12,7 +12,8 @@ module.exports = {
         const receiver = message.mentions.users.first();
         const embed = new MessageEmbed()
             .setTitle('Incoming message from')
-            .setDescription(`User : \`${message.author.tag}\`\n Server : \`${message.guild.name}\`\n Message : \`${msg}\``)
+            .setDescription(`User : \`${message.author.tag}\`\n Server : \`${message.guild.name}\``)
+            .addField('Message', `\`${msg}\``)
             .setColor(embedColor)
             .setTimestamp();
         message.delete();

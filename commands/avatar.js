@@ -9,17 +9,19 @@ module.exports = {
 	execute (message) {
 		if (!message.mentions.users.size) {
 		const embed = new MessageEmbed()
-			.setDescription('Your Avatar:')
+			.setTitle('Avatar')
+			.setDescription(`Your Avatar:\n https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.jpeg`)
 			.setImage(`${message.author.displayAvatarURL({ dynamic: true })}`)
 			.setColor(embedColor);
 		message.channel.send(embed);
 	}
 		if (message.mentions.users.size) {
-		const taggedUser = message.mentions.users.map(user => `${user.displayAvatarURL({ dynamic: true })}`);
-		const taggedUserName = message.mentions.users.first();
+		const taggedUser = message.mentions.users.first();
+		const userAvatar = message.mentions.users.map(user => `${user.displayAvatarURL({ dynamic: true })}`);
 		const embed2 = new MessageEmbed()
-			.setDescription(`${taggedUserName}'s Avatar:`)
-			.setImage(`${taggedUser}`)
+			.setTitle('Avatar')
+			.setDescription(`${taggedUser}'s Avatar:\n https://cdn.discordapp.com/avatars/${taggedUser.id}/${taggedUser.avatar}.jpeg`)
+			.setImage(`${userAvatar}`)
 			.setColor(embedColor);
 		message.channel.send(embed2);
 		}

@@ -10,12 +10,14 @@ module.exports = {
 		if (message.member.voice.channel) {
             message.member.voice.channel.leave();
 			const embed = new MessageEmbed()
+				.setTitle('Voice Disconnect')
 				.setDescription(`<@${message.author.id}>, I've successfully left the voice channel!`)
 				.setColor(embedColor);
 			message.channel.send(embed);
         }
         if (!message.member.voice.channel) {
 			const errorEmbed = new MessageEmbed()
+				.setTitle('Voice Disconnect')
 				.setDescription(`<@${message.author.id}>, It seems that you are not in a Voice Channel!`)
 				.setColor(embedColor);
 			message.channel.send(errorEmbed);
