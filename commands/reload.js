@@ -1,3 +1,6 @@
+const { MessageEmbed } = require('discord.js');
+const { embedColor } = require('../config.json');
+
 module.exports = {
 	name: 'reload',
 	description: 'Reloads a command',
@@ -18,10 +21,14 @@ module.exports = {
 		try {
 			const newCommand = require(`./${command.name}.js`);
 			message.client.commands.set(newCommand.name, newCommand);
-			message.channel.send(`Command \`${command.name}\` was reloaded!`);
+			const embed = new MessageEmbed()
+				.setTitle('Reload')
+				.setDescription(`Command \`${command.name}\` was reloaded!`)
+				.setTimestamp()
+				.setColor(embedColor);
+			message.channel.send(embed);
 		}
 		catch (error) {
-			console.error(error);
 			message.channel.send(`There was an error while reloading a command \`${command.name}\`:\n\`${error.message}\``);
 		}
 	}
