@@ -2,9 +2,9 @@ const { MessageEmbed } = require('discord.js');
 const { embedColor } = require('../config.json');
 
 module.exports = {
-    name: 'setnick',
+    name: 'nick',
     description: 'Change user\'s nickname',
-    usage: 'setnick {@user} {nickname}',
+    usage: 'nick {@user} {nickname}',
     cooldown: '8',
     guildOnly: true,
     execute (message, args) {

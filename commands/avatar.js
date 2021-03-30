@@ -3,7 +3,7 @@ const { embedColor } = require('../config.json');
 
 module.exports = {
 	name: 'avatar',
-	description: 'Get the avatar URL of the tagged user(s), or your own avatar',
+	description: 'Get your own avatar or the tagged user(s) avatar',
 	usage: 'avatar || {@user}',
 	cooldown: '5',
 	execute (message) {
