@@ -20,8 +20,7 @@ client.once('ready', () => {
 	client.user.setPresence({
 		status: 'online',
 		activity: {
-			name: '!help | Updated commands to be more aesthetically pleasing.',
-			// ${client.users.cache.size} users, ${client.channels.cache.size} channels in ${client.guilds.cache.size} guilds.
+			name: `${prefix}help | ${client.users.cache.size} users, ${client.channels.cache.size} channels in ${client.guilds.cache.size} guilds.`,
 			type: 'PLAYING'
 		}
 	});
