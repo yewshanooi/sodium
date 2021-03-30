@@ -13,7 +13,7 @@ module.exports = {
 		if (!args.length) {
 			const embedUserSend = new MessageEmbed()
 				.setTitle('Help')
-				.setDescription(`You can send \`${prefix}help {command name}\` to get info on a specific command!`)
+				.setDescription(`You can send \`${prefix}help {command}\` to get info on a specific command!`)
 				.addField('Commands', commands.map(command => command.name).join(', '))
 				.setColor(embedColor);
 
@@ -33,9 +33,7 @@ module.exports = {
 		const name = args[0].toLowerCase();
 		const command = commands.get(name);
 
-			if (!command) {
-				return message.reply('That is not a valid command!');
-			}
+			if (!command) return message.reply('That is not a valid command!');
 
 			const embedCommandHelp = new MessageEmbed()
 				.setTitle('Help')
@@ -44,7 +42,6 @@ module.exports = {
 				.addField('Usage', `\`${prefix}${command.usage}\``)
 				.addField('Cooldown', `\`${command.cooldown || 3} second(s)\``)
 				.setColor(embedColor);
-
 			message.channel.send(embedCommandHelp);
 		}
 	};
