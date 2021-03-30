@@ -12,7 +12,7 @@ module.exports = {
 		const command = message.client.commands.get(commandName);
 
 		if (!command) {
-			return message.channel.send(`There is no such command with name \`${commandName}\`, ${message.author}!`);
+			return message.channel.send(`Error: There is no such command with name \`${commandName}\`, ${message.author}!`);
 		}
 
 		delete require.cache[require.resolve(`./${command.name}.js`)];
@@ -28,7 +28,7 @@ module.exports = {
 			message.channel.send(embed);
 		}
 		catch (error) {
-			message.channel.send(`There was an error while reloading command \`${command.name}\`:\n\`${error.message}\``);
+			message.channel.send(`Error: There was an error while reloading command \`${command.name}\`:\n\`${error.message}\``);
 		}
 	}
 };

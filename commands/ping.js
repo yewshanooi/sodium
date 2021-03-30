@@ -7,17 +7,17 @@ module.exports = {
 	usage: 'ping',
 	cooldown: '3',
 	execute (message) {
-		const embedLatency = new MessageEmbed()
+		const embed = new MessageEmbed()
 				.setTitle('Discord API')
 				.setDescription('*Calculating.......*')
 				.setColor(embedColor);
-			message.channel.send(embedLatency).then(msg => {
+			message.channel.send(embed).then(msg => {
 				const ping = msg.createdTimestamp - message.createdTimestamp;
-				const embedCalculated = new MessageEmbed()
+				const embedAPI = new MessageEmbed()
 					.addField('API Latency', `\`${ping}\`ms`)
-					.setColor(embedColor)
-					.setTimestamp();
-				message.channel.send(embedCalculated);
+					.setTimestamp()
+					.setColor(embedColor);
+				message.channel.send(embedAPI);
 			});
 		}
 	};

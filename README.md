@@ -10,7 +10,7 @@ Official Repository for SkyElementsBot. Bot currently runs locally on a terminal
 `8ball`, `beep`, `coinflip`, `diceroll`, `react`, `say`
 
 ###### Utility 
-`avatar`, `botinfo`, `delete`, `help`, `invite`, `message`, `ping`, `reload`, `serverinfo`, `uptime`, `vconnect`, `vdisconnect`, `whois`
+`avatar`, `botinfo`, `covid`, `delete`, `help`, `invite`, `message`, `ping`, `reload`, `serverinfo`, `uptime`, `vconnect`, `vdisconnect`, `whois`
 
 ###### Moderation
 `ban`, `kick`, `nick`, `warn`

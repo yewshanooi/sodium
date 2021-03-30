@@ -31,7 +31,7 @@ module.exports = {
     cooldown: '5',
     execute (message, args) {
         const question = args.join(' ');
-        if (!question) return message.channel.send('Please provide a question to ask.');
+        if (!question) return message.channel.send('Error: Please provide a question to ask.');
             const embed = new MessageEmbed()
               .setTitle('The Magic 8-Ball')
               .addField('Question', question)

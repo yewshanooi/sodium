@@ -18,12 +18,12 @@ module.exports = {
 		if (message.mentions.users.size) {
 		const taggedUser = message.mentions.users.first();
 		const userAvatar = message.mentions.users.map(user => `${user.displayAvatarURL({ dynamic: true })}`);
-		const embed2 = new MessageEmbed()
+		const embed = new MessageEmbed()
 			.setTitle('Avatar')
 			.setDescription(`${taggedUser}'s Avatar:\n https://cdn.discordapp.com/avatars/${taggedUser.id}/${taggedUser.avatar}.jpeg`)
 			.setImage(`${userAvatar}`)
 			.setColor(embedColor);
-		message.channel.send(embed2);
+		message.channel.send(embed);
 		}
 	}
 };

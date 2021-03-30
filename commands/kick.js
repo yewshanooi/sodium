@@ -7,23 +7,23 @@ module.exports = {
 	cooldown: '30',
 	guildOnly: true,
 	execute (message, args) {
-		if (!message.member.hasPermission('KICK_MEMBERS')) return message.channel.send('You have no permission to use this command.');
+		if (!message.member.hasPermission('KICK_MEMBERS')) return message.channel.send('Error: You have no permission to use this command.');
 			const user = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
-				if (user.hasPermission('KICK_MEMBERS')) return message.channel.send('This user cannot be kicked.');
+				if (user.hasPermission('KICK_MEMBERS')) return message.channel.send('Error: This user cannot be kicked.');
 
 		let kickReason = args.join(' ').slice(22);
 			if (!kickReason) {
 				kickReason = 'None';
 			}
 
-		const embedChannelSend = new MessageEmbed()
+		const embed = new MessageEmbed()
 			.setTitle('Kick')
 			.setDescription(`User ${user} have been Kicked!`)
 			.addField('Kicked by', message.author.tag)
 			.addField('Reason', kickReason)
-			.setColor('#FF0000')
-			.setTimestamp();
-		message.channel.send(embedChannelSend);
+			.setTimestamp()
+            .setColor('#FF0000');
+		message.channel.send(embed);
 
 		message.delete().then(user.kick());
 	}

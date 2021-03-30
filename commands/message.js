@@ -9,14 +9,14 @@ module.exports = {
     guildOnly: true,
 	execute (message, args) {
         const msg = args.splice(1).join(' ');
-        if (!msg) return message.channel.send('Please provide a message to send.');
+        if (!msg) return message.channel.send('Error: Please provide a message to send.');
             const receiver = message.mentions.users.first();
             const embed = new MessageEmbed()
                 .setTitle('Incoming message from')
                 .setDescription(`User : \`${message.author.tag}\`\n Server : \`${message.guild.name}\``)
                 .addField('Message', `\`${msg}\``)
-                .setColor(embedColor)
-                .setTimestamp();
+                .setTimestamp()
+                .setColor(embedColor);
             message.delete();
         receiver.send(embed);
 	}

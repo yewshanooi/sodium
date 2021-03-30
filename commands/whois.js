@@ -19,14 +19,14 @@ module.exports = {
 	}
 		if (message.mentions.users.size) {
 		const taggedUser = message.mentions.users.first();
-		const taggedUserEmbed = new MessageEmbed()
+		const embed = new MessageEmbed()
 			.setTitle('Whois')
 			.setDescription(`Username : \`${taggedUser.username}\`\nStatus : \`${taggedUser.presence.status}\`\nCreation Date & Time : \`${taggedUser.createdAt}\``)
 			.addField('User Tag', `\`${taggedUser.tag}\``, true)
 			.addField('User Discriminator', `\`${taggedUser.discriminator}\``, true)
 			.addField('User ID', `\`${taggedUser.id}\``, true)
 			.setColor(embedColor);
-		message.channel.send(taggedUserEmbed);
+		message.channel.send(embed);
 		}
 	}
 };
