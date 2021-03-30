@@ -4,6 +4,7 @@ const { embedColor } = require('../config.json');
 module.exports = {
 	name: 'vconnect',
 	description: 'Bot connects to a voice channel',
+	usage: 'vconnect',
 	cooldown: '3',
 	guildOnly: true,
 	execute (message) {

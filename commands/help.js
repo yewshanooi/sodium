@@ -4,10 +4,9 @@ const { embedColor } = require('../config.json');
 
 module.exports = {
 	name: 'help',
-	aliases: ['commands'],
 	description: 'List every commands or info about a specific command',
+	usage: 'help || {command}',
 	cooldown: '0',
-	usage: '{command}',
 	execute (message, args) {
 		const { commands } = message.client;
 
@@ -31,20 +30,21 @@ module.exports = {
 				});
 			}
 
-		const data = [];
 		const name = args[0].toLowerCase();
-		const command = commands.get(name) || commands.find(com => com.aliases && com.aliases.includes(name));
+		const command = commands.get(name);
 
 			if (!command) {
 				return message.reply('That is not a valid command!');
 			}
 
-			if (command.name) data.push(`**Name** - \`${command.name}\``);
-			if (command.aliases) data.push(`**Aliases** - \`${command.aliases.join(', ')}\``);
-			if (command.description) data.push(`**Description** - \`${command.description}\``);
-			if (command.cooldown) data.push(`**Cooldown** - \`${command.cooldown || 3} second(s)\``);
-			if (command.usage) data.push(`**Usage** - \`${prefix}${command.name} ${command.usage}\``);
+			const embedCommandHelp = new MessageEmbed()
+				.setTitle('Help')
+				.addField('Name', `\`${command.name}\``)
+				.addField('Description', `\`${command.description}\``)
+				.addField('Usage', `\`${prefix}${command.usage}\``)
+				.addField('Cooldown', `\`${command.cooldown || 3} second(s)\``)
+				.setColor(embedColor);
 
-			message.channel.send(data, { split: true });
+			message.channel.send(embedCommandHelp);
 		}
 	};

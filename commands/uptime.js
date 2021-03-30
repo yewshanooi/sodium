@@ -4,6 +4,7 @@ const { embedColor } = require('../config.json');
 module.exports = {
     name: 'uptime',
     description: 'Shows current uptime of Bot',
+    usage: 'uptime',
     cooldown: '5',
     execute (message) {
         let totalSeconds = message.client.uptime / 1000;

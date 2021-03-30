@@ -3,7 +3,8 @@ const { embedColor } = require('../config.json');
 
 module.exports = {
     name: 'coinflip',
-    description: 'Flips a coin',
+    description: 'Flips a coin for you',
+    usage: 'coinflip',
     cooldown: '5',
     execute (message) {
         const flip = Math.floor(Math.random() * 2);

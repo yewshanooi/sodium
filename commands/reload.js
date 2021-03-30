@@ -4,16 +4,15 @@ const { embedColor } = require('../config.json');
 module.exports = {
 	name: 'reload',
 	description: 'Reloads a command',
+	usage: 'reload {command}',
 	cooldown: '0',
-	usage: '{command}',
 	args: true,
 	execute (message, args) {
 		const commandName = args[0].toLowerCase();
-		const command = message.client.commands.get(commandName)
-			|| message.client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
+		const command = message.client.commands.get(commandName);
 
 		if (!command) {
-			return message.channel.send(`There is no command with name or alias \`${commandName}\`, ${message.author}!`);
+			return message.channel.send(`There is no such command with name \`${commandName}\`, ${message.author}!`);
 		}
 
 		delete require.cache[require.resolve(`./${command.name}.js`)];
@@ -29,7 +28,7 @@ module.exports = {
 			message.channel.send(embed);
 		}
 		catch (error) {
-			message.channel.send(`There was an error while reloading a command \`${command.name}\`:\n\`${error.message}\``);
+			message.channel.send(`There was an error while reloading command \`${command.name}\`:\n\`${error.message}\``);
 		}
 	}
 };

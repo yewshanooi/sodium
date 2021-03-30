@@ -2,16 +2,16 @@ const { MessageEmbed } = require('discord.js');
 
 module.exports = {
     name: 'warn',
-	description: 'Warn\'s a tagged user',
-	cooldown: '15',
-	usage: '{@user} {reason}',
+	description: 'Tag a user to warn them with or without reason',
+	usage: 'warn {@user} || {reason}',
+    cooldown: '20',
     guildOnly: true,
 	execute (message, args) {
-        if (!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('You have no permission to use this command.');
-            const user = message.mentions.users.first();
-                if (message.mentions.users.size < 1) return message.reply('You must mention someone to Warn them.');
+        if (!message.member.hasPermission('MANAGE_MESSAGES')) return message.channel.send('You have no permission to use this command.');
+			const user = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
+				if (user.hasPermission('MANAGE_MESSAGES')) return message.channel.send('This user cannot be warned.');
 
-        let warnReason = args.slice(1).join(' ');
+        let warnReason = args.join(' ').slice(22);
 			if (!warnReason) {
 				warnReason = 'None';
 			}

@@ -3,7 +3,8 @@ const { embedColor } = require('../config.json');
 
 module.exports = {
 	name: 'ping',
-	description: 'Calculates Discord API\'s latency',
+	description: 'Calculates Discord API\'s server latency',
+	usage: 'ping',
 	cooldown: '3',
 	execute (message) {
 		const embedLatency = new MessageEmbed()

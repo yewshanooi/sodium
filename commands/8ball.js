@@ -27,8 +27,8 @@ const answers = [
 module.exports = {
     name: '8ball',
     description: 'Asks the Magic 8-Ball for some psychic wisdom',
+    usage: '8ball {question}',
     cooldown: '5',
-    usage: '{question}',
     execute (message, args) {
         const question = args.join(' ');
         if (!question) return message.channel.send('Please provide a question to ask.');

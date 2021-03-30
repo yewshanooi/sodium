@@ -4,8 +4,8 @@ const { embedColor } = require('../config.json');
 module.exports = {
 	name: 'avatar',
 	description: 'Get the avatar URL of the tagged user(s), or your own avatar',
+	usage: 'avatar || {@user}',
 	cooldown: '5',
-	usage: '{@user}',
 	execute (message) {
 		if (!message.mentions.users.size) {
 		const embed = new MessageEmbed()

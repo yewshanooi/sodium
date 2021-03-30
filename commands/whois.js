@@ -3,15 +3,17 @@ const { embedColor } = require('../config.json');
 
 module.exports = {
 	name: 'whois',
-	description: 'Display info about the tagged user(s), or your own information',
+	description: 'Display your own info or the tagged user(s)',
+	usage: 'whois || {@user}',
 	cooldown: '5',
-	usage: '{@user}',
 	execute (message) {
 		if (!message.mentions.users.size) {
 		const embed = new MessageEmbed()
 			.setTitle('Whois')
-			.setDescription(`Name : \`${message.author.username}\`\nDiscriminator : \`${message.author.tag}\`\nCreation Date : \`${message.author.createdAt}\``)
-			.addField('User ID', `\`${message.author.id}\``)
+			.setDescription(`Username : \`${message.author.username}\`\nStatus : \`${message.author.presence.status}\`\nCreation Date & Time : \`${message.author.createdAt}\``)
+			.addField('User Tag', `\`${message.author.tag}\``, true)
+			.addField('User Discriminator', `\`${message.author.discriminator}\``, true)
+			.addField('User ID', `\`${message.author.id}\``, true)
 			.setColor(embedColor);
 		message.channel.send(embed);
 	}
@@ -19,8 +21,10 @@ module.exports = {
 		const taggedUser = message.mentions.users.first();
 		const taggedUserEmbed = new MessageEmbed()
 			.setTitle('Whois')
-			.setDescription(`Name : \`${taggedUser.username}\`\nDiscriminator : \`${taggedUser.tag}\`\nCreation Date : \`${taggedUser.createdAt}\``)
-			.addField('User ID', `\`${taggedUser.id}\``)
+			.setDescription(`Username : \`${taggedUser.username}\`\nStatus : \`${taggedUser.presence.status}\`\nCreation Date & Time : \`${taggedUser.createdAt}\``)
+			.addField('User Tag', `\`${taggedUser.tag}\``, true)
+			.addField('User Discriminator', `\`${taggedUser.discriminator}\``, true)
+			.addField('User ID', `\`${taggedUser.id}\``, true)
 			.setColor(embedColor);
 		message.channel.send(taggedUserEmbed);
 		}

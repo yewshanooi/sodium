@@ -3,7 +3,8 @@ const { embedColor } = require('../config.json');
 
 module.exports = {
 	name: 'beep',
-	description: 'Boop!',
+	description: 'Boops back at you!',
+	usage: 'beep',
 	cooldown: '0',
 	execute (message) {
 		const embed = new MessageEmbed()

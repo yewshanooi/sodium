@@ -16,8 +16,7 @@ for (const file of commandFiles) {
 }
 
 client.once('ready', () => {
-	console.log(`>> Logged in as ${client.user.tag}! <<`);
-	console.log(`>> Bot currently started with ${client.users.cache.size} users, ${client.channels.cache.size} channels in ${client.guilds.cache.size} guilds. <<`);
+	console.log(`>> Logged in as ${client.user.tag}! <<\n>> Bot currently started with ${client.users.cache.size} users, ${client.channels.cache.size} channels in ${client.guilds.cache.size} guilds. <<`);
 	client.user.setPresence({
 		status: 'online',
 		activity: {
@@ -33,8 +32,7 @@ client.on('message', message => {
 	const args = message.content.slice(prefix.length).trim().split(/ +/);
 	const commandName = args.shift().toLowerCase();
 
-	const command = client.commands.get(commandName)
-		|| client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
+	const command = client.commands.get(commandName);
 
 	/* =================================================================================================== */
 
@@ -83,7 +81,7 @@ client.on('message', message => {
 	}
 	catch (error) {
 		console.error(error);
-		message.reply('There was an error trying to execute that command!');
+		message.channel.send('There was an error trying to execute that command!');
 	}
 });
 

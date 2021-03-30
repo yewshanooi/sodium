@@ -4,6 +4,7 @@ const { embedColor } = require('../config.json');
 module.exports = {
 	name: 'vdisconnect',
 	description: 'Bot disconnects from a voice channel',
+	usage: 'vdisconnect',
 	cooldown: '3',
 	guildOnly: true,
 	execute (message) {
