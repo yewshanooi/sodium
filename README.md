@@ -1,5 +1,4 @@
-<img src=".github/READMEicon.png" width="100" height="100" class="center"/>
-
+<img src=".github/READMEicon.png" width="100" height="100"/>
 
 # skybot
 
