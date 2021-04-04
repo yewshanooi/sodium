@@ -16,7 +16,7 @@ Official Repository for SkyBot. Bot currently runs locally on a terminal for tes
 `ban`, `kick`, `nick`, `warn`
 
 ## License
-Distributed under the MIT License. See [LICENSE](https://github.com/javaruntimemc/skyelementsbot/blob/master/LICENSE) for more information.
+Distributed under the MIT License. See [LICENSE](https://github.com/javaruntimemc/skybot/blob/master/LICENSE) for more information.
 
 ## Author
 **SkyBot**  
