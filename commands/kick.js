@@ -25,6 +25,6 @@ module.exports = {
             .setColor('#FF0000');
 		message.channel.send(embed);
 
-		message.delete().then(user.kick());
+		user.kick();
 	}
 };

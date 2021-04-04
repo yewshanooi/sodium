@@ -23,7 +23,7 @@ module.exports = {
             .addField('Reason', warnReason)
             .setTimestamp()
             .setColor('#FF0000');
-        message.delete().then(user.send(embedUser));
+        user.send(embedUser);
 
         const embed = new MessageEmbed()
             .setTitle('Warn')
