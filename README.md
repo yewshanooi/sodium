@@ -1,5 +1,6 @@
-<img src=".github/READMEicon.png" width="100" height="100">
-![](.github/READMEicon.png)
+<p class="aligncenter">
+    <img src=".github/READMEicon.png" width="100" height="100"/>
+</p>
 
 # skybot
 
