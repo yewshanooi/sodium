@@ -1,7 +1,7 @@
 {
-  "name": "skyelementsbot",
+  "name": "skybot",
   "version": "0.2.9",
-  "description": "Official Discord Bot for SkyElements",
+  "description": "SkyBot by SkyElements",
   "main": "index.js",
   "author": "JavaRuntime",
   "license": "ISC",
