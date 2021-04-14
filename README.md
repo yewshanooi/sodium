@@ -10,20 +10,20 @@
 <h4 align="center">A multi use Discord Bot. Simple Commands and User Friendly UI for server moderation and fun</h4>
 
 <p align="center">
-    <a href="https://img.shields.io/github/languages/top/javaruntimemc/skyelements">
-        <img alt="Languages" src="https://img.shields.io/github/languages/top/javaruntimemc/skyelements">
+    <a href="https://github.com/javaruntime/skybot">
+        <img alt="Languages" src="https://img.shields.io/github/languages/top/javaruntime/skybot">
     </a>
-    <a href="https://img.shields.io/github/repo-size/javaruntimemc/skyelements">
-  	    <img alt="Repository Size" src="https://img.shields.io/github/repo-size/javaruntimemc/skyelements">
+    <a href="https://github.com/javaruntime/skybot">
+  	    <img alt="Repository Size" src="https://img.shields.io/github/repo-size/javaruntime/skybot">
     </a>
-    <a href="https://img.shields.io/github/license/javaruntimemc/skyelements">
-        <img alt="License" src="https://img.shields.io/github/license/javaruntimemc/skyelements">
+    <a href="https://github.com/javaruntime/skybot">
+        <img alt="License" src="https://img.shields.io/github/license/javaruntime/skybot">
     </a>
-    <a href="https://img.shields.io/github/v/release/javaruntimemc/skyelements?include_prereleases">
-        <img alt="Release Version" src="https://img.shields.io/github/v/release/javaruntimemc/skyelements?include_prereleases">
+    <a href="https://github.com/javaruntime/skybot">
+        <img alt="Release Version" src="https://img.shields.io/github/v/release/javaruntime/skybot?include_prereleases">
     </a>
-    <a href="https://img.shields.io/github/last-commit/javaruntimemc/skyelements">
-        <img alt="Last Commit" src="https://img.shields.io/github/last-commit/javaruntimemc/skyelements">
+    <a href="https://github.com/javaruntime/skybot">
+        <img alt="Last Commit" src="https://img.shields.io/github/last-commit/javaruntime/skybot">
     </a>
 </p>
 
@@ -38,7 +38,7 @@
 `ban`, `kick`, `nick`, `warn`
 
 ## License
-This project is licensed under the [MIT License](https://github.com/javaruntimemc/skybot/blob/master/LICENSE).
+This project is licensed under the [MIT License](https://github.com/javaruntime/skybot/blob/master/LICENSE).
 
 ```
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
@@ -51,4 +51,4 @@ THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ## Author
 **SkyBot**  
 Authored and maintained by JavaRuntime
-> GitHub [@javaruntimemc](https://github.com/javaruntimemc)
+> GitHub [@javaruntimemc](https://github.com/javaruntime)
