@@ -11,9 +11,7 @@ module.exports = {
 		const commandName = args[0].toLowerCase();
 		const command = message.client.commands.get(commandName);
 
-		if (!command) {
-			return message.channel.send(`Error: There is no such command with name \`${commandName}\`, ${message.author}!`);
-		}
+		if (!command) return message.channel.send(`Error: There is no such command with name \`${commandName}\`, ${message.author}!`);
 
 		delete require.cache[require.resolve(`./${command.name}.js`)];
 
