@@ -1,6 +1,6 @@
 {
   "name": "skybot",
-  "version": "0.3.1",
+  "version": "0.3.1-beta",
   "description": "SkyBot by SkyElements",
   "main": "index.js",
   "author": "JavaRuntime",
