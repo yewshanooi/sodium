@@ -21,6 +21,7 @@ module.exports = {
 				.then(() => {
 					if (message.channel.type === 'dm') return;
 					const embedDM = new MessageEmbed()
+						.setTitle('Help')
 						.setDescription(`<@${message.author.id}>, I've sent you a DM with all the commands!`)
 						.setColor(embedColor);
 					message.reply(embedDM);
@@ -33,7 +34,7 @@ module.exports = {
 		const name = args[0].toLowerCase();
 		const command = commands.get(name);
 
-			if (!command) return message.reply('Error: That is not a valid command!');
+			if (!command) return message.channel.send('Error: That is not a valid command!');
 
 			const embed = new MessageEmbed()
 				.setTitle('Help')

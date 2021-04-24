@@ -33,7 +33,7 @@ module.exports = {
         const question = args.join(' ');
         if (!question) return message.channel.send('Error: Please provide a question to ask.');
             const embed = new MessageEmbed()
-              .setTitle('The Magic 8-Ball')
+              .setTitle('8-Ball')
               .addField('Question', question)
               .addField('Answer', `${answers[Math.floor(Math.random() * answers.length)]}`)
               .setColor(embedColor);

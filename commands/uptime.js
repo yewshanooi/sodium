@@ -3,7 +3,7 @@ const { embedColor } = require('../config.json');
 
 module.exports = {
     name: 'uptime',
-    description: 'Shows current uptime of Bot',
+    description: 'Shows current uptime of the bot',
     usage: 'uptime',
     cooldown: '5',
     execute (message) {

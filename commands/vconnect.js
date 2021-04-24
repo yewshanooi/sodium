@@ -5,7 +5,7 @@ module.exports = {
 	name: 'vconnect',
 	description: 'Bot connects to a voice channel',
 	usage: 'vconnect',
-	cooldown: '3',
+	cooldown: '0',
 	guildOnly: true,
 	execute (message) {
 		if (message.member.voice.channel) {

@@ -10,9 +10,11 @@ module.exports = {
 	execute (message) {
 		const embed = new MessageEmbed()
 			.setTitle('Server Info')
-			.setDescription(`Server Name : \`${message.guild.name}\`\nServer Region : \`${message.guild.region}\`\nCreation Date & Time : \`${message.guild.createdAt}\``)
-			.addField('Total Members', `\`${message.guild.memberCount}\``, true)
-			.addField('Total Channels', `\`${message.guild.channels.cache.filter(ch => ch.type !== 'category').size}\``, true)
+			.addField('Name', `\`${message.guild.name}\``, true)
+			.addField('Region', `\`${message.guild.region}\``, true)
+			.addField('Creation Date & Time', `\`${message.guild.createdAt}\``)
+			.addField('Members', `\`${message.guild.memberCount}\``, true)
+			.addField('Channels', `\`${message.guild.channels.cache.filter(ch => ch.type !== 'category').size}\``, true)
 			.setColor(embedColor);
 		message.channel.send(embed);
 	}

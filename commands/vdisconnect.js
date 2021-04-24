@@ -5,7 +5,7 @@ module.exports = {
 	name: 'vdisconnect',
 	description: 'Bot disconnects from a voice channel',
 	usage: 'vdisconnect',
-	cooldown: '3',
+	cooldown: '0',
 	guildOnly: true,
 	execute (message) {
 		if (message.member.voice.channel) {

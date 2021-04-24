@@ -8,10 +8,10 @@ module.exports = {
 		const amount = parseInt(args[0]) + 1;
 
 		if (isNaN(amount)) {
-			return message.reply('Error: That doesn\'t seem to be a valid number.');
+			return message.channel.send('Error: That doesn\'t seem to be a valid number.');
 		}
 			else if (amount <= 1 || amount > 100) {
-			return message.reply('Error: You need to input a number between `1` and `99`.');
+			return message.channel.send('Error: You need to input a number between `1` and `99`.');
 		}
 
 		message.channel.bulkDelete(amount, true).catch(err => {

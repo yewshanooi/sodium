@@ -29,13 +29,13 @@
 
 ## Commands
 ###### Fun
-`8ball`, `beep`, `coinflip`, `diceroll`, `react`, `say`
+`8ball`, `beep`, `coinflip`, `compliment`, `diceroll`, `invert`, `meme`, `react`, `say`
 
 ###### Utility 
-`avatar`, `botinfo`, `covid`, `delete`, `help`, `invite`, `message`, `ping`, `reload`, `serverinfo`, `uptime`, `vconnect`, `vdisconnect`, `whois`
+`announce`, `avatar`, `botinfo`, `covid`, `delete`, `help`, `invite`, `message`, `nick`, `ping`, `reload`, `serverinfo`, `uptime`, `userinfo`, `vconnect`, `vdisconnect`
 
 ###### Moderation
-`ban`, `kick`, `nick`, `warn`
+`ban`, `kick`, `warn`
 
 ## License
 This project is licensed under the [MIT License](https://github.com/javaruntime/skybot/blob/master/LICENSE).
@@ -49,6 +49,6 @@ THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ```
 
 ## Author
-**SkyBot**  
+**SkyBot**
 Authored and maintained by JavaRuntime
-> GitHub [@javaruntimemc](https://github.com/javaruntime)
+> GitHub [@javaruntime](https://github.com/javaruntime)

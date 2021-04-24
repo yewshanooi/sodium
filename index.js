@@ -16,12 +16,11 @@ for (const file of commandFiles) {
 }
 
 client.once('ready', () => {
-	console.log(`→ Logged in as ${client.user.tag}!\n→ Bot currently started with ${client.users.cache.size} users, ${client.channels.cache.size} channels in ${client.guilds.cache.size} guilds.`);
+	console.log(`→ Logged in as ${client.user.tag}\n→ Bot currently started with ${client.users.cache.size} users, ${client.channels.cache.size} channels in ${client.guilds.cache.size} guilds`);
 	client.user.setPresence({
 		status: 'online',
 		activity: {
-			name: `${prefix}help ∙ skyelements.weebly.com`,
-			// ${client.users.cache.size} users, ${client.channels.cache.size} channels in ${client.guilds.cache.size} guilds.
+			name: `${prefix}help ∙ ${client.users.cache.size} users, ${client.channels.cache.size} channels in ${client.guilds.cache.size} guilds`,
 			type: 'PLAYING'
 		}
 	});
@@ -35,12 +34,12 @@ client.on('message', message => {
 
 	const command = client.commands.get(commandName);
 
-	/* =================================================================================================== */
+	/* ============================================= */
 
 	if (!command) return;
 
 	if (command.guildOnly && message.channel.type === 'dm') {
-		return message.reply('Error: I can\'t execute that command inside DMs!');
+		return message.channel.send('Error: I can\'t execute that command inside DMs!');
 	}
 
 	if (command.args && !args.length) {
@@ -53,7 +52,7 @@ client.on('message', message => {
 		return message.channel.send(reply);
 	}
 
-	/* =================================================================================================== */
+	/* ============================================= */
 
 	if (!cooldowns.has(command.name)) {
 		cooldowns.set(command.name, new Discord.Collection());
@@ -68,21 +67,21 @@ client.on('message', message => {
 
 		if (now < expirationTime) {
 			const timeLeft = (expirationTime - now) / 1000;
-			return message.reply(`Please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${command.name}\` command.`);
+			return message.channel.send(`Error: Please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${command.name}\` command.`);
 		}
 	}
 
 	timestamps.set(message.author.id, now);
 	setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
 
-	/* =================================================================================================== */
+	/* ============================================= */
 
 	try {
 		command.execute(message, args);
 	}
 	catch (error) {
 		console.error(error);
-		message.channel.send('There was an error trying to execute that command!');
+		message.channel.send('Error: There was a problem trying to execute that command!');
 	}
 });
 

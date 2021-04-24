@@ -5,7 +5,7 @@ module.exports = {
     name: 'nick',
     description: 'Change user\'s nickname',
     usage: 'nick {@user} {nickname}',
-    cooldown: '8',
+    cooldown: '10',
     guildOnly: true,
     execute (message, args) {
 		if (!message.member.hasPermission('MANAGE_NICKNAMES')) return message.channel.send('Error: You have no permission to use this command.');

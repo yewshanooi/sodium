@@ -8,7 +8,7 @@ module.exports = {
 	cooldown: '0',
 	execute (message) {
 		const embed = new MessageEmbed()
-			.setTitle('Boop.')
+			.setDescription('Boop!')
 			.setColor(embedColor);
 		message.channel.send(embed);
 	}

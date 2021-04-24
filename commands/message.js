@@ -12,9 +12,8 @@ module.exports = {
         if (!msg) return message.channel.send('Error: Please provide a message to send.');
             const receiver = message.mentions.users.first();
             const embed = new MessageEmbed()
-                .setTitle('Incoming message from')
-                .setDescription(`User : \`${message.author.tag}\`\n Server : \`${message.guild.name}\``)
-                .addField('Message', `\`${msg}\``)
+                .setTitle(`Incoming message from **${message.author.tag}**`)
+                .setDescription(`\`${msg}\``)
                 .setTimestamp()
                 .setColor(embedColor);
             message.delete();
