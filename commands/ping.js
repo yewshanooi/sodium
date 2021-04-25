@@ -9,7 +9,7 @@ module.exports = {
 	execute (message) {
 		const embed = new MessageEmbed()
 				.setTitle('Discord API')
-				.setDescription('*Calculating.......*')
+				.setDescription('*Calculating ......*')
 				.setColor(embedColor);
 			message.channel.send(embed).then(msg => {
 				const ping = msg.createdTimestamp - message.createdTimestamp;

@@ -49,6 +49,5 @@ THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ```
 
 ## Author
-**SkyBot**
-Authored and maintained by JavaRuntime
+Authored and maintained by **JavaRuntime**
 > GitHub [@javaruntime](https://github.com/javaruntime)
