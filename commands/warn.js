@@ -2,7 +2,7 @@ const { MessageEmbed } = require('discord.js');
 
 module.exports = {
     name: 'warn',
-	description: 'Tag a user to warn them with or without reason',
+	description: 'Tag a user to warn them with or without a reason',
 	usage: 'warn {@user} || {reason}',
     cooldown: '20',
     guildOnly: true,
@@ -19,7 +19,7 @@ module.exports = {
 		const embedUser = new MessageEmbed()
             .setTitle('Warn')
             .setDescription(`You have been Warned on Server \`${message.guild.name}\``)
-            .addField('Warned by', message.author.tag)
+            .addField('By', message.author.tag)
             .addField('Reason', warnReason)
             .setTimestamp()
             .setColor('#FF0000');
@@ -28,7 +28,7 @@ module.exports = {
         const embed = new MessageEmbed()
             .setTitle('Warn')
             .setDescription(`User ${user} have been Warned!`)
-            .addField('Warned by', message.author.tag)
+            .addField('By', message.author.tag)
             .addField('Reason', warnReason)
             .setTimestamp()
             .setColor('#FF0000');

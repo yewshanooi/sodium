@@ -21,7 +21,8 @@ module.exports = {
                 const deaths = data.deaths.value.toLocaleString();
 
                 const embed = new MessageEmbed()
-                    .setTitle('Worldwide Covid-19 Statistics')
+                    .setTitle('Covid-19')
+                    .setDescription('Worldwide Statistics')
                     .addField('Confirmed', `\`${confirmed}\``)
                     .addField('Recovered', `\`${recovered}\``)
                     .addField('Deaths', `\`${deaths}\``)
@@ -39,7 +40,8 @@ module.exports = {
                 const deaths = data.deaths.value.toLocaleString();
 
                 const embed = new MessageEmbed()
-                    .setTitle(`Covid-19 Statistics for **${countries}**`)
+                    .setTitle('Covid-19')
+                    .setDescription(`Statistics for **${countries}**`)
                     .addField('Confirmed', `\`${confirmed}\``)
                     .addField('Recovered', `\`${recovered}\``)
                     .addField('Deaths', `\`${deaths}\``)

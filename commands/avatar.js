@@ -10,7 +10,7 @@ module.exports = {
 		if (!message.mentions.users.size) {
 		const embed = new MessageEmbed()
 			.setTitle('Avatar')
-			.setDescription(`[*discordapp.com*](https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.jpeg)`)
+			.setDescription(`Link - [*discordapp.com*](https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.jpeg)`)
 			.setImage(`${message.author.displayAvatarURL({ dynamic: true })}`)
 			.setColor(embedColor);
 		message.channel.send(embed);
@@ -20,7 +20,7 @@ module.exports = {
 		const userAvatar = message.mentions.users.map(user => `${user.displayAvatarURL({ dynamic: true })}`);
 		const embed = new MessageEmbed()
 			.setTitle('Avatar')
-			.setDescription(`[*discordapp.com*](https://cdn.discordapp.com/avatars/${taggedUser.id}/${taggedUser.avatar}.jpeg)`)
+			.setDescription(`Link - [*discordapp.com*](https://cdn.discordapp.com/avatars/${taggedUser.id}/${taggedUser.avatar}.jpeg)`)
 			.setImage(`${userAvatar}`)
 			.setColor(embedColor);
 		message.channel.send(embed);

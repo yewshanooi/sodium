@@ -2,7 +2,7 @@ const { MessageEmbed } = require('discord.js');
 
 module.exports = {
 	name: 'ban',
-	description: 'Tag a user to ban them with or without reason',
+	description: 'Tag a user to ban them with or without a reason',
 	usage: 'ban {@user} || {reason}',
 	cooldown: '30',
 	guildOnly: true,
@@ -19,7 +19,7 @@ module.exports = {
 		const embed = new MessageEmbed()
 			.setTitle('Ban')
 			.setDescription(`User ${user} have been Banned!`)
-			.addField('Banned by', message.author.tag)
+			.addField('By', message.author.tag)
 			.addField('Reason', banReason)
 			.setTimestamp()
             .setColor('#FF0000');

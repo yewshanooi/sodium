@@ -3,7 +3,7 @@ const { embedColor } = require('../config.json');
 
 module.exports = {
     name: 'invite',
-    description: 'Invite this bot to your own Discord Server',
+    description: 'Invite the bot to your own Discord Server',
     usage: 'invite',
     cooldown: '0',
     execute (message) {

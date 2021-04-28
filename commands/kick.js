@@ -2,7 +2,7 @@ const { MessageEmbed } = require('discord.js');
 
 module.exports = {
 	name: 'kick',
-	description: 'Tag a user to kick them with or without reason',
+	description: 'Tag a user to kick them with or without a reason',
     usage: 'kick {@user} || {reason}',
 	cooldown: '30',
 	guildOnly: true,
@@ -19,7 +19,7 @@ module.exports = {
 		const embed = new MessageEmbed()
 			.setTitle('Kick')
 			.setDescription(`User ${user} have been Kicked!`)
-			.addField('Kicked by', message.author.tag)
+			.addField('By', message.author.tag)
 			.addField('Reason', kickReason)
 			.setTimestamp()
             .setColor('#FF0000');

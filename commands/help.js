@@ -13,7 +13,7 @@ module.exports = {
 		if (!args.length) {
 			const embed = new MessageEmbed()
 				.setTitle('Help')
-				.setDescription(`You can send \`${prefix}help {command}\` to get info on a specific command!`)
+				.setDescription(`Use \`${prefix}help {command}\` to get info on a specific command.`)
 				.addField('Commands', commands.map(command => command.name).join(', '))
 				.setColor(embedColor);
 

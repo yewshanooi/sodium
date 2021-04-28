@@ -7,11 +7,13 @@ module.exports = {
     usage: 'invert {text}',
     cooldown: '5',
     execute (message, args) {
-        const text = args.join(' ').split('').reverse().join('');
-        if (!text) return message.channel.send('Error: Please enter text to invert.');
+        const original = args.join(' ');
+        const inverted = args.join(' ').split('').reverse().join('');
+        if (!inverted) return message.channel.send('Error: Please provide a text to invert.');
             const embed = new MessageEmbed()
-              .setTitle('Inverted Text')
-              .setDescription(`${text}`)
+              .setTitle('Text Inverter')
+              .addField('Original', `${original}`)
+              .addField('Inverted', `${inverted}`)
               .setColor(embedColor);
           message.channel.send(embed);
         }

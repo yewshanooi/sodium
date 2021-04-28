@@ -14,7 +14,6 @@ module.exports = {
             const embed = new MessageEmbed()
                 .setTitle(`Incoming message from **${message.author.tag}**`)
                 .setDescription(`\`${msg}\``)
-                .setTimestamp()
                 .setColor(embedColor);
             message.delete();
         receiver.send(embed);

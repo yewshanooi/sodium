@@ -20,12 +20,11 @@ module.exports = {
 			const embed = new MessageEmbed()
 				.setTitle('Reload')
 				.setDescription(`Command \`${command.name}\` was reloaded!`)
-				.setTimestamp()
 				.setColor(embedColor);
 			message.channel.send(embed);
 		}
 		catch (error) {
-			message.channel.send(`Error: There was an error while reloading command \`${command.name}\`:\n\`${error.message}\``);
+			message.channel.send(`Error: There was an error while reloading command \`${command.name}\`\n Error: \`${error.message}\``);
 		}
 	}
 };
