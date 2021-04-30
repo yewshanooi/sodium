@@ -38,7 +38,7 @@
 `ban`, `kick`, `warn`
 
 ## License
-This project is licensed under the [MIT License](https://github.com/javaruntime/skybot/blob/master/LICENSE).
+This project is licensed under the [MIT License](https://github.com/javaruntime/skybot/blob/main/LICENSE).
 
 ```
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
