@@ -18,7 +18,7 @@ module.exports = {
 
 		const embedUser = new MessageEmbed()
             .setTitle('Warn')
-            .setDescription(`You have been Warned on Server \`${message.guild.name}\``)
+            .setDescription(`You have been Warned on guild \`${message.guild.name}\``)
             .addField('By', message.author.tag)
             .addField('Reason', warnReason)
             .setTimestamp()

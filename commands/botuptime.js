@@ -2,9 +2,9 @@ const { MessageEmbed } = require('discord.js');
 const { embedColor } = require('../config.json');
 
 module.exports = {
-    name: 'uptime',
+    name: 'botuptime',
     description: 'Shows current uptime of the bot',
-    usage: 'uptime',
+    usage: 'botuptime',
     cooldown: '5',
     execute (message) {
         let totalSeconds = message.client.uptime / 1000;

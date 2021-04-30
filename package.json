@@ -1,7 +1,7 @@
 {
   "name": "skybot",
-  "version": "0.3.2-beta",
-  "description": "A multi use Discord Bot. Simple Commands and User Friendly UI for server moderation and fun",
+  "version": "0.3.3-beta",
+  "description": "A multi use Discord Bot. Simple Commands and User Friendly UI for guild moderation and fun",
   "main": "index.js",
   "author": "JavaRuntime",
   "license": "MIT",

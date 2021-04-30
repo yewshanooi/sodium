@@ -7,7 +7,7 @@
     <br>
 </h1>
 
-<h4 align="center">A multi use Discord Bot. Simple Commands and User Friendly UI for server moderation and fun</h4>
+<h4 align="center">A multi use Discord Bot. Simple Commands and User Friendly UI for guild moderation and fun</h4>
 
 <p align="center">
     <a href="https://github.com/javaruntime/skybot">
@@ -32,7 +32,7 @@
 `8ball`, `beep`, `coinflip`, `compliment`, `diceroll`, `invert`, `meme`, `react`, `say`
 
 ###### Utility 
-`announce`, `avatar`, `botinfo`, `covid`, `delete`, `help`, `invite`, `message`, `nick`, `ping`, `reload`, `serverinfo`, `uptime`, `userinfo`, `vconnect`, `vdisconnect`
+`announce`, `avatar`, `botinfo`, `covid`, `delete`, `help`, `invite`, `message`, `nick`, `ping`, `reload`, `guildinfo`, `botuptime`, `userinfo`, `vconnect`, `vdisconnect`
 
 ###### Moderation
 `ban`, `kick`, `warn`
@@ -49,5 +49,5 @@ THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ```
 
 ## Author
-Authored and maintained by **JavaRuntime**
+###### Authored and maintained by JavaRuntime
 > GitHub [@javaruntime](https://github.com/javaruntime)

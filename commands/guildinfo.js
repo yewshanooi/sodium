@@ -2,14 +2,14 @@ const { MessageEmbed } = require('discord.js');
 const { embedColor } = require('../config.json');
 
 module.exports = {
-	name: 'serverinfo',
-	description: 'Display info about this server',
-	usage: 'serverinfo',
+	name: 'guildinfo',
+	description: 'Display info about this guild',
+	usage: 'guildinfo',
 	cooldown: '5',
 	guildOnly: true,
 	execute (message) {
 		const embed = new MessageEmbed()
-			.setTitle('Server Info')
+			.setTitle('Guild Info')
 			.addField('Name', `\`${message.guild.name}\``, true)
 			.addField('Region', `\`${message.guild.region}\``, true)
 			.addField('Creation Date & Time', `\`${message.guild.createdAt}\``)
