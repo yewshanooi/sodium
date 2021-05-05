@@ -118,7 +118,6 @@ module.exports = {
               .setTitle('Compliment')
               .setDescription(`${compliments[Math.floor(Math.random() * compliments.length)]}\n *from \`${message.author.tag}\`*`)
               .setColor(embedColor);
-            message.delete();
-            user.send(embed);
+            message.delete().then(user.send(embed));
         }
 };

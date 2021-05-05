@@ -12,9 +12,9 @@ module.exports = {
         const rand = Math.floor(Math.random() * limit + 1);
         if (!rand || limit <= 0) return message.channel.send('Error: Please provide a valid number of dice sides.');
             const embed = new MessageEmbed()
-            .setTitle('Dice Roll')
-            .setDescription(`<@${message.author.id}>, you rolled a **${rand}**!`)
-            .setColor(embedColor);
+                .setTitle('Dice Roll')
+                .setDescription(`<@${message.author.id}>, you rolled a **${rand}**!`)
+                .setColor(embedColor);
             message.channel.send(embed);
         }
 };

@@ -8,12 +8,11 @@ module.exports = {
 	cooldown: '10',
 	guildOnly: true,
 	execute (message, args) {
-		const sayMsg = args.join(' ');
-		if (!sayMsg) return message.channel.send('Error: Please provide a message to say.');
+		const msg = args.join(' ');
+		if (!msg) return message.channel.send('Error: Please provide a message to say.');
 			const embed = new MessageEmbed()
-			.setDescription(`**${message.author.username} said: ${sayMsg}**`)
-			.setColor(embedColor);
-        message.delete();
-        message.channel.send(embed);
-	}
+				.setDescription(`**${message.author.username} said: ${msg}**`)
+				.setColor(embedColor);
+			message.delete().then(message.channel.send(embed));
+		}
 };

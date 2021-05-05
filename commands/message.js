@@ -8,14 +8,14 @@ module.exports = {
     cooldown: '10',
     guildOnly: true,
 	execute (message, args) {
-        const msg = args.splice(1).join(' ');
-        if (!msg) return message.channel.send('Error: Please provide a message to send.');
-            const receiver = message.mentions.users.first();
-            const embed = new MessageEmbed()
-                .setTitle(`Incoming message from **${message.author.tag}**`)
-                .setDescription(`\`${msg}\``)
-                .setColor(embedColor);
-            message.delete();
-        receiver.send(embed);
-	}
-};
+        const user = message.mentions.users.first();
+        if (!user) return message.channel.send('Error: Please provide a valid user to message.');
+            const msg = args.splice(1).join(' ');
+            if (!msg) return message.channel.send('Error: Please provide a message to send.');
+                const embed = new MessageEmbed()
+                    .setTitle(`Incoming message from **${message.author.tag}**`)
+                    .setDescription(`\`${msg}\``)
+                    .setColor(embedColor);
+                message.delete().then(user.send(embed));
+            }
+    };

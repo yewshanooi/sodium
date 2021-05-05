@@ -16,11 +16,11 @@ for (const file of commandFiles) {
 }
 
 client.once('ready', () => {
-	console.log(`→ Logged in as ${client.user.tag}\n→ Bot currently started with ${client.users.cache.size} users, ${client.channels.cache.size} channels in ${client.guilds.cache.size} guilds`);
+	console.log(`User : ${client.user.tag}\nTotal : ${client.users.cache.size} users, ${client.channels.cache.size} channels, ${client.guilds.cache.size} guilds`);
 	client.user.setPresence({
 		status: 'online',
 		activity: {
-			name: `${prefix}help ∙ ${client.users.cache.size} users, ${client.channels.cache.size} channels in ${client.guilds.cache.size} guilds`,
+			name: `${prefix}help ∙ ${client.users.cache.size} users, ${client.channels.cache.size} channels, ${client.guilds.cache.size} guilds`,
 			type: 'PLAYING'
 		}
 	});

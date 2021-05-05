@@ -2,7 +2,7 @@ const { MessageEmbed } = require('discord.js');
 
 module.exports = {
 	name: 'kick',
-	description: 'Tag a user to kick them with or without a reason',
+	description: 'Kick a user with or without a reason',
     usage: 'kick {@user} || {reason}',
 	cooldown: '30',
 	guildOnly: true,
@@ -11,20 +11,19 @@ module.exports = {
 			const user = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
 				if (user.hasPermission('KICK_MEMBERS')) return message.channel.send('Error: This user cannot be kicked.');
 
-		let kickReason = args.join(' ').slice(22);
+		let kickReason = args.splice(1).join(' ');
 			if (!kickReason) {
 				kickReason = 'None';
 			}
 
 		const embed = new MessageEmbed()
 			.setTitle('Kick')
-			.setDescription(`User ${user} have been Kicked!`)
-			.addField('By', message.author.tag)
-			.addField('Reason', kickReason)
+			.addField('User', user)
+			.addField('By', `\`${message.author.tag}\``)
+			.addField('Reason', `\`${kickReason}\``)
 			.setTimestamp()
             .setColor('#FF0000');
-		message.channel.send(embed);
 
-		user.kick();
+		message.channel.send(embed).then(user.kick());
 	}
 };

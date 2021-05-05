@@ -21,6 +21,7 @@ module.exports = {
                 .setDescription(`**${users.username}**'s nickname successfully changed to **${nickname}**!`)
                 .setTimestamp()
                 .setColor(embedColor);
+
             message.channel.send(embed).then(user.setNickname(nickname));
         }
     };

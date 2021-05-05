@@ -12,8 +12,8 @@ module.exports = {
         if (!inverted) return message.channel.send('Error: Please provide a text to invert.');
             const embed = new MessageEmbed()
               .setTitle('Text Inverter')
-              .addField('Original', `${original}`)
-              .addField('Inverted', `${inverted}`)
+              .addField('Original', original)
+              .addField('Inverted', inverted)
               .setColor(embedColor);
           message.channel.send(embed);
         }

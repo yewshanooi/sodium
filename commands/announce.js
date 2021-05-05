@@ -8,15 +8,14 @@ module.exports = {
     cooldown: '5',
     guildOnly: true,
     execute (message, args) {
-        const annTxt = args.join(' ');
-        if (!annTxt) return message.channel.send('Error: Please provide a message to say.');
+        const announcement = args.join(' ');
+        if (!announcement) return message.channel.send('Error: Please provide a message to say.');
             const embed = new MessageEmbed()
               .setTitle('Announcement')
               .setAuthor(message.author.username, message.author.displayAvatarURL({ size: 64 }))
-              .setDescription(`${annTxt}`)
+              .setDescription(announcement)
               .setTimestamp()
               .setColor(embedColor);
-          message.delete();
-          message.channel.send(embed);
+          message.delete().then(message.channel.send(embed));
       }
 };

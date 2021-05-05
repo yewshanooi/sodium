@@ -2,7 +2,7 @@ const { MessageEmbed } = require('discord.js');
 
 module.exports = {
 	name: 'ban',
-	description: 'Tag a user to ban them with or without a reason',
+	description: 'Ban a user with or without a reason',
 	usage: 'ban {@user} || {reason}',
 	cooldown: '30',
 	guildOnly: true,
@@ -11,20 +11,19 @@ module.exports = {
 			const user = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
 				if (user.hasPermission('BAN_MEMBERS')) return message.channel.send('Error: This user cannot be banned.');
 
-		let banReason = args.join(' ').slice(22);
+		let banReason = args.splice(1).join(' ');
 			if (!banReason) {
 				banReason = 'None';
 			}
 
 		const embed = new MessageEmbed()
 			.setTitle('Ban')
-			.setDescription(`User ${user} have been Banned!`)
-			.addField('By', message.author.tag)
-			.addField('Reason', banReason)
+			.addField('User', user)
+			.addField('By', `\`${message.author.tag}\``)
+			.addField('Reason', `\`${banReason}\``)
 			.setTimestamp()
             .setColor('#FF0000');
-		message.channel.send(embed);
 
-		user.ban({ reason: banReason });
+		message.channel.send(embed).then(user.ban({ reason: banReason }));
 	}
 };
