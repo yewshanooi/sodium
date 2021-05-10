@@ -1,11 +1,11 @@
-const url = 'https://www.reddit.com/r/memes/hot/.json?limit=100';
+const url = 'https://www.reddit.com/r/meme/hot/.json?limit=100';
 const https = require('https');
 const { MessageEmbed } = require('discord.js');
 const { embedColor } = require('../config.json');
 
 module.exports = {
     name: 'meme',
-    description: 'Get memes from the r/memes subreddit',
+    description: 'Get memes from the r/meme subreddit',
     usage: 'meme',
     cooldown: '5',
     execute (message) {
@@ -30,14 +30,16 @@ module.exports = {
                 .setColor(embedColor);
             message.channel.send(imageMeme);
 
-            if (index.post_hint !== 'image') {
-                const text = index.selftext;
-                const textMeme = new MessageEmbed()
-                    .setTitle('Meme')
-                    .setDescription(`[${title}](${link})\n\n ${text}`)
-                    .setColor(embedColor);
-                message.channel.send(textMeme);
-                }
+            /*
+             * if (index.post_hint !== 'image') {
+             *  const text = index.selftext;
+             *  const textMeme = new MessageEmbed()
+             *      .setTitle('Meme')
+             *      .setDescription(`[${title}](${link})\n\n ${text}`)
+             *      .setColor(embedColor);
+             *  message.channel.send(textMeme);
+             *  }
+             */
             });
         });
     }
