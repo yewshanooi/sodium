@@ -14,7 +14,6 @@ module.exports = {
               .setTitle('Announcement')
               .setAuthor(message.author.username, message.author.displayAvatarURL({ size: 64 }))
               .setDescription(announcement)
-              .setTimestamp()
               .setColor(embedColor);
           message.delete().then(message.channel.send(embed));
       }

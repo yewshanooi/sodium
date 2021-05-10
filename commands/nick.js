@@ -18,7 +18,7 @@ module.exports = {
 
             const embed = new MessageEmbed()
                 .setTitle('Nickname')
-                .setDescription(`**${users.username}**'s nickname successfully changed to **${nickname}**!`)
+                .setDescription(`**${users.username}**'s nickname successfully changed to **${nickname}**`)
                 .setTimestamp()
                 .setColor(embedColor);
 
