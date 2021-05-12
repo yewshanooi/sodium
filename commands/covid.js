@@ -48,7 +48,7 @@ module.exports = {
                     .setTimestamp()
                     .setColor(embedColor);
                 message.channel.send(embed);
-            }).catch(() => message.channel.send('Error: Invalid country provided.'));
+            }).catch(() => message.channel.send('Error: Please provide a valid country.'));
         }
     }
 };

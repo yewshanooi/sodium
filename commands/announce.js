@@ -9,7 +9,7 @@ module.exports = {
     guildOnly: true,
     execute (message, args) {
         const announcement = args.join(' ');
-        if (!announcement) return message.channel.send('Error: Please provide a message to say.');
+        if (!announcement) return message.channel.send('Error: Please provide a valid message.');
             const embed = new MessageEmbed()
               .setTitle('Announcement')
               .setAuthor(message.author.username, message.author.displayAvatarURL({ size: 64 }))

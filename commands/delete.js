@@ -8,15 +8,14 @@ module.exports = {
 		const amount = parseInt(args[0]) + 1;
 
 		if (isNaN(amount)) {
-			return message.channel.send('Error: That doesn\'t seem to be a valid number.');
+			return message.channel.send('Error: Please provide a valid number.');
 		}
 			else if (amount <= 1 || amount > 100) {
 			return message.channel.send('Error: You need to input a number between `1` and `99`.');
 		}
 
-		message.channel.bulkDelete(amount, true).catch(err => {
-			console.error(err);
-			message.channel.send('Error: There was an error trying to delete messages in this channel!');
+		message.channel.bulkDelete(amount, true).catch(error => {
+			message.channel.send(`Error: There was an error trying to delete messages in this channel!\n Error: \`${error.message}\``);
 		});
 	}
 };

@@ -34,7 +34,7 @@ module.exports = {
 		const name = args[0].toLowerCase();
 		const command = commands.get(name);
 
-			if (!command) return message.channel.send('Error: That is not a valid command!');
+			if (!command) return message.channel.send('Error: Please provide a valid command.');
 
 			const embed = new MessageEmbed()
 				.setTitle('Help')

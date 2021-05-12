@@ -109,11 +109,11 @@ module.exports = {
     name: 'compliment',
     description: 'Compliment the tagged user',
     usage: 'compliment {@user}',
-    cooldown: '10',
+    cooldown: '15',
     guildOnly: true,
     execute (message) {
         const user = message.mentions.users.first();
-        if (!user) return message.channel.send('Error: Please provide a valid user to compliment.');
+          if (!user) return message.channel.send('Error: Please provide a valid user.');
             const embed = new MessageEmbed()
               .setTitle('Compliment')
               .setDescription(`${compliments[Math.floor(Math.random() * compliments.length)]}\n *from \`${message.author.tag}\`*`)

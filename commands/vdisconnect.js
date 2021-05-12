@@ -9,12 +9,11 @@ module.exports = {
 	guildOnly: true,
 	execute (message) {
 		if (message.member.voice.channel) {
-            message.member.voice.channel.leave();
 			const embed = new MessageEmbed()
 				.setTitle('Voice Disconnect')
 				.setDescription(`<@${message.author.id}>, I've successfully left the voice channel!`)
 				.setColor(embedColor);
-			message.channel.send(embed);
+			message.channel.send(embed).then(message.member.voice.channel.leave());
         }
         if (!message.member.voice.channel) {
 			const embed = new MessageEmbed()

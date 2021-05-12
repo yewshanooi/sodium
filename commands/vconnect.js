@@ -9,12 +9,11 @@ module.exports = {
 	guildOnly: true,
 	execute (message) {
 		if (message.member.voice.channel) {
-			message.member.voice.channel.join();
 			const embed = new MessageEmbed()
 				.setTitle('Voice Connect')
 				.setDescription(`<@${message.author.id}>, I've successfully joined the Voice Channel!`)
 				.setColor(embedColor);
-			message.channel.send(embed);
+			message.channel.send(embed).then(message.member.voice.channel.join());
 		}
 		if (!message.member.voice.channel) {
 			const embed = new MessageEmbed()

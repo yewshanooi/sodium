@@ -14,7 +14,7 @@ module.exports = {
                 if (user.hasPermission('MANAGE_NICKNAMES')) return message.channel.send('Error: This user\'s nickname cannot be changed.');
 
             const nickname = args.join(' ').slice(22);
-                if (!nickname) return message.channel.send('Error: Please enter a username to change.');
+                if (!nickname) return message.channel.send('Error: Please provide a valid username.');
 
             const embed = new MessageEmbed()
                 .setTitle('Nickname')

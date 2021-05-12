@@ -4,7 +4,7 @@ module.exports = {
     name: 'warn',
 	description: 'Warn a user with or without a reason',
 	usage: 'warn {@user} || {reason}',
-    cooldown: '20',
+    cooldown: '25',
     guildOnly: true,
 	execute (message, args) {
         if (!message.member.hasPermission('MANAGE_MESSAGES')) return message.channel.send('Error: You have no permission to use this command.');

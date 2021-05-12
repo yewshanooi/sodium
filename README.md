@@ -29,7 +29,7 @@
 
 ## Commands
 ###### Fun
-`8ball`, `beep`, `coinflip`, `compliment`, `diceroll`, `invert`, `meme`, `react`, `say`
+`8ball`, `achievement`, `beep`, `coinflip`, `compliment`, `diceroll`, `invert`, `meme`, `react`, `say`
 
 ###### Utility 
 `announce`, `avatar`, `botinfo`, `botnick`, `botuptime`, `covid`, `delete`, `guildinfo`, `help`, `invite`, `message`, `nick`, `ping`, `reload`, `userinfo`, `vconnect`, `vdisconnect`
