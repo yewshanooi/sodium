@@ -9,7 +9,7 @@ module.exports = {
 	guildOnly: true,
 	execute (message, args) {
 		const msg = args.join(' ');
-		if (!msg) return message.channel.send('Error: Please provide a valid message.');
+          if (!msg) return message.channel.send('Error: Please provide a valid message.');
 			const embed = new MessageEmbed()
 				.setDescription(`**${message.author.username} said: ${msg}**`)
 				.setColor(embedColor);
