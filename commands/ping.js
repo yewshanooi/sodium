@@ -8,13 +8,14 @@ module.exports = {
 	cooldown: '0',
 	execute (message) {
 		const embed = new MessageEmbed()
-				.setTitle('Discord API')
-				.setDescription('*Calculating ......*')
+				.setTitle('Ping')
+				.setDescription('*Calculating Latency.*')
 				.setColor(embedColor);
 			message.channel.send(embed).then(msg => {
 				const ping = msg.createdTimestamp - message.createdTimestamp;
 				const embedAPI = new MessageEmbed()
 					.addField('API Latency', `\`${ping}\`ms`)
+					.addField('WebSocket Latency', `\`${message.client.ws.ping}\`ms`)
 					.setTimestamp()
 					.setColor(embedColor);
 				message.channel.send(embedAPI);
