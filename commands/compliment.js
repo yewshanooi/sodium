@@ -107,7 +107,7 @@ const compliments = [
 
 module.exports = {
     name: 'compliment',
-    description: 'Compliment the tagged user',
+    description: 'Sends the tagged user a random compliment',
     usage: 'compliment {@user}',
     cooldown: '15',
     guildOnly: true,

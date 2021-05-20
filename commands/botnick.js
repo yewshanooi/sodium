@@ -3,8 +3,8 @@ const { embedColor } = require('../config.json');
 
 module.exports = {
     name: 'botnick',
-    description: 'Change bot\'s nickname',
-    usage: 'nick {nickname}',
+    description: 'Change bot\'s nickname in the current server',
+    usage: 'botnick {nickname}',
     cooldown: '25',
     guildOnly: true,
     execute (message, args) {

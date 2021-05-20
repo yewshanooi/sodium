@@ -2,8 +2,8 @@ const { MessageEmbed } = require('discord.js');
 
 module.exports = {
     name: 'warn',
-	description: 'Warn a user with or without a reason',
-	usage: 'warn {@user} || {reason}',
+	description: 'Warn the tagged user with or without a reason',
+	usage: 'warn {@user} <reason>',
     cooldown: '25',
     guildOnly: true,
 	execute (message, args) {

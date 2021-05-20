@@ -5,8 +5,8 @@ const { embedColor } = require('../config.json');
 
 module.exports = {
     name: 'covid',
-    description: 'Check a country or worldwide Covid-19 cases',
-    usage: 'covid {all || country}',
+    description: 'Show latest cases worldwide or in a particular country',
+    usage: 'covid all / {country}',
     cooldown: '0',
     execute (message, args) {
         const countries = args.join(' ');

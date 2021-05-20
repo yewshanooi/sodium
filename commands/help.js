@@ -4,8 +4,8 @@ const { embedColor } = require('../config.json');
 
 module.exports = {
 	name: 'help',
-	description: 'List every commands or info about a specific command',
-	usage: 'help || {command}',
+	description: 'List every commands or detailed info about a specific command',
+	usage: 'help <command>',
 	cooldown: '0',
 	execute (message, args) {
 		const { commands } = message.client;

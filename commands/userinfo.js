@@ -3,8 +3,8 @@ const { embedColor } = require('../config.json');
 
 module.exports = {
 	name: 'userinfo',
-	description: 'Display your own or the tagged user(s) info',
-	usage: 'userinfo || {@user}',
+	description: 'Display your own or the tagged user\'s information(s)',
+	usage: 'userinfo <@user>',
 	cooldown: '5',
 	execute (message) {
 		if (!message.mentions.users.size) {

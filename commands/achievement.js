@@ -117,7 +117,7 @@ const achievements = [
 
 module.exports = {
     name: 'achievement',
-    description: 'Gives the tagged user a random achievement',
+    description: 'Reward the tagged user with a random achievement',
     usage: 'achievement {@user}',
     cooldown: '15',
     guildOnly: true,

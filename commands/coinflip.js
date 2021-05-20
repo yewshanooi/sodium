@@ -3,7 +3,7 @@ const { embedColor } = require('../config.json');
 
 module.exports = {
     name: 'coinflip',
-    description: 'Flips a coin for you',
+    description: 'Flips a two sided coin for you',
     usage: 'coinflip',
     cooldown: '5',
     execute (message) {

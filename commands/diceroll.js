@@ -3,8 +3,8 @@ const { embedColor } = require('../config.json');
 
 module.exports = {
 	name: 'diceroll',
-	description: 'Rolls a random dice with x amount of sides',
-	usage: 'diceroll {sides}',
+	description: 'Rolls a dice with up to 6 sides',
+	usage: 'diceroll <sides>',
     cooldown: '5',
 	execute (message, args) {
 		let [limit] = args;

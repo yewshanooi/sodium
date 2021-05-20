@@ -3,7 +3,7 @@ const { embedColor } = require('../config.json');
 
 module.exports = {
     name: 'nick',
-    description: 'Change user\'s nickname',
+    description: 'Change the tagged user\'s nickname',
     usage: 'nick {@user} {nickname}',
     cooldown: '10',
     guildOnly: true,

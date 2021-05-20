@@ -3,7 +3,7 @@ const { embedColor } = require('../config.json');
 
 module.exports = {
 	name: 'message',
-	description: 'Sends a private message to the user specified',
+	description: 'Sends a private message to the tagged user',
     usage: 'message {@user} {message}',
     cooldown: '10',
     guildOnly: true,

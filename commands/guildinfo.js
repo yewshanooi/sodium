@@ -3,7 +3,7 @@ const { embedColor } = require('../config.json');
 
 module.exports = {
 	name: 'guildinfo',
-	description: 'Display info about this guild',
+	description: 'Display information(s) about the guild',
 	usage: 'guildinfo',
 	cooldown: '5',
 	guildOnly: true,

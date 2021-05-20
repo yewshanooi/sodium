@@ -2,8 +2,8 @@ const { MessageEmbed } = require('discord.js');
 
 module.exports = {
 	name: 'ban',
-	description: 'Ban a user with or without a reason',
-	usage: 'ban {@user} || {reason}',
+	description: 'Ban the tagged user with or without a reason',
+	usage: 'ban {@user} <reason>',
 	cooldown: '30',
 	guildOnly: true,
 	execute (message, args) {

@@ -4,7 +4,7 @@ const { embedColor } = require('../config.json');
 module.exports = {
 	name: 'avatar',
 	description: 'Get your own avatar or the tagged user\'s avatar',
-	usage: 'avatar || {@user}',
+	usage: 'avatar <@user>',
 	cooldown: '5',
 	execute (message) {
 		if (!message.mentions.users.size) {

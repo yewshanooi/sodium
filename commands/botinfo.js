@@ -3,7 +3,7 @@ const { embedColor } = require('../config.json');
 
 module.exports = {
 	name: 'botinfo',
-	description: 'Display info about the bot',
+	description: 'Display information(s) about the bot',
 	usage: 'botinfo',
 	cooldown: '5',
 	execute (message) {

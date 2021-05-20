@@ -3,7 +3,7 @@ const { embedColor } = require('../config.json');
 
 module.exports = {
 	name: 'reload',
-	description: 'Reloads a command',
+	description: 'Reload and delete command caches',
 	usage: 'reload {command}',
 	cooldown: '0',
 	execute (message, args) {

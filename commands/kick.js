@@ -2,8 +2,8 @@ const { MessageEmbed } = require('discord.js');
 
 module.exports = {
 	name: 'kick',
-	description: 'Kick a user with or without a reason',
-    usage: 'kick {@user} || {reason}',
+	description: 'Kick the tagged user with or without a reason',
+    usage: 'kick {@user} <reason>',
 	cooldown: '30',
 	guildOnly: true,
 	execute (message, args) {

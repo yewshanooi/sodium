@@ -1,11 +1,11 @@
-const url = 'https://www.reddit.com/r/meme/hot/.json?limit=100';
+const url = 'https://www.reddit.com/r/memes/hot/.json?limit=100';
 const https = require('https');
 const { MessageEmbed } = require('discord.js');
 const { embedColor } = require('../config.json');
 
 module.exports = {
     name: 'meme',
-    description: 'Get memes from the r/meme subreddit',
+    description: 'Get fresh new memes from the r/memes subreddit',
     usage: 'meme',
     cooldown: '5',
     execute (message) {

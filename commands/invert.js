@@ -3,7 +3,7 @@ const { embedColor } = require('../config.json');
 
 module.exports = {
     name: 'invert',
-    description: 'Reverses your text',
+    description: 'Reverse your text(s)',
     usage: 'invert {text}',
     cooldown: '5',
     execute (message, args) {
