@@ -21,7 +21,7 @@ module.exports = {
                     .setTimestamp()
                     .setColor(embedColor);
 
-                message.channel.send(embed).then(bot.setNickname(nickname));
+                bot.setNickname(nickname).then(message.channel.send(embed));
             }
             else {
                 return message.channel.send('Error: Nickname must be 32 characters or fewer.');
