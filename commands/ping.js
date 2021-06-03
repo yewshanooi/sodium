@@ -5,7 +5,7 @@ module.exports = {
 	name: 'ping',
 	description: 'Calculates Discord API\'s and WebSocket\'s latency',
 	usage: 'ping',
-	cooldown: '0',
+	cooldown: '3',
 	execute (message) {
 		const embed = new MessageEmbed()
 				.setTitle('Ping')
