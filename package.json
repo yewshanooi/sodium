@@ -1,7 +1,7 @@
 {
-  "name": "skybot",
+  "name": "skye",
   "version": "0.3.4-beta",
-  "description": "A multi use Discord Bot. Simple Commands and User Friendly UI for guild moderation and fun",
+  "description": "Multi use discord bot with simple commands and a user-friendly interface",
   "main": "index.js",
   "author": "JavaRuntime",
   "license": "MIT",

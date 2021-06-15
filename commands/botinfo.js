@@ -11,8 +11,9 @@ module.exports = {
 			.setTitle('Bot Info')
 			.addField('Name', `\`${message.client.user.username}\``, true)
 			.addField('Discriminator', `\`${message.client.user.discriminator}\``, true)
-			.addField('Users', `\`${message.client.users.cache.size}\``)
-			.addField('Channels', `\`${message.client.channels.cache.size}\``)
+			.addField('Embed Color (Hex)', `\`#${embedColor}\``)
+			.addField('Users', `\`${message.client.users.cache.size}\``, true)
+			.addField('Channels', `\`${message.client.channels.cache.size}\``, true)
 			.addField('Guilds', `\`${message.client.guilds.cache.size}\``)
 			.setColor(embedColor);
         message.channel.send(embed);
