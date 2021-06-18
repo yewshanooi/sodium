@@ -6,6 +6,7 @@ module.exports = {
     description: 'Change bot\'s current status globally',
     usage: 'botstatus {status}',
     cooldown: '25',
+    guildOnly: true,
     execute (message) {
         const setStatus = message.content.split(' ');
 

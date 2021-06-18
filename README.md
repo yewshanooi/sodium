@@ -32,7 +32,7 @@
 `8ball`, `achievement`, `beep`, `coinflip`, `compliment`, `diceroll`, `invert`, `meme`, `react`, `say`
 
 ###### Utility 
-`announce`, `avatar`, `botinfo`, `botnick`, `botstatus`, `botuptime`, `covid`, `delete`, `guildinfo`, `help`, `invite`, `message`, `nick`, `ping`, `reload`, `userinfo`, `vconnect`, `vdisconnect`
+`announce`, `avatar`, `botinfo`, `botnick`, `botstatus`, `botuptime`, `covid`, `delete`, `guildinfo`, `help`, `invite`, `leave`, `message`, `nick`, `ping`, `reload`, `userinfo`, `vconnect`, `vdisconnect`
 
 ###### Moderation
 `ban`, `kick`, `warn`
