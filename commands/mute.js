@@ -25,6 +25,7 @@ module.exports = {
                     name: 'Muted',
                     color: '#FFFFFF',
                     permissions: []
+                    // Add code to make sure that Bot-Created Muted role has proper "no speaking" permissions
                     }
                 });
             user.roles.add(mutedRole);
