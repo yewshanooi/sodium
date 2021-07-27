@@ -5,7 +5,7 @@ module.exports = {
 	name: 'delete',
 	description: 'Delete up to 99 messages at one time',
 	usage: 'delete {amount}',
-	cooldown: '0',
+	cooldown: '5',
 	guildOnly: true,
 	execute (message, args) {
 		if (!message.member.hasPermission('MANAGE_MESSAGES')) return message.channel.send('Error: You have no permission to use this command.');

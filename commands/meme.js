@@ -30,16 +30,14 @@ module.exports = {
                 .setColor(embedColor);
             message.channel.send(imageMeme);
 
-            /*
-             * if (index.post_hint !== 'image') {
-             *  const text = index.selftext;
-             *  const textMeme = new MessageEmbed()
-             *      .setTitle('Meme')
-             *      .setDescription(`[${title}](${link})\n\n ${text}`)
-             *      .setColor(embedColor);
-             *  message.channel.send(textMeme);
-             *  }
-             */
+             if (index.post_hint !== 'image') {
+                const text = index.selftext;
+                const textMeme = new MessageEmbed()
+                    .setTitle('Meme')
+                    .setDescription(`[${title}](${link})\n\n ${text}`)
+                    .setColor(embedColor);
+                message.channel.send(textMeme);
+                }
             });
         });
     }

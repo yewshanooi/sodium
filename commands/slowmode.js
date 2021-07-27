@@ -15,7 +15,7 @@ module.exports = {
 
         const embed = new MessageEmbed()
             .setTitle('Channel Slowmode')
-            .setDescription(`Successfully enabled slowmode on channel to **${duration}** second(s)`)
+            .setDescription(`Successfully set slowmode to **${duration}** second(s)`)
             .setTimestamp()
             .setColor(embedColor);
         message.channel.send(embed).then(message.channel.setRateLimitPerUser(duration));

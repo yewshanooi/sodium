@@ -4,8 +4,7 @@ module.exports = {
     name: 'mute',
 	description: 'Mute the tagged user with or without a reason',
 	usage: 'mute {@user} <reason>',
-    cooldown: '0',
-    // 25
+    cooldown: '25',
     guildOnly: true,
 	execute (message, args) {
         if (!message.member.hasPermission('MUTE_MEMBERS')) return message.channel.send('Error: You have no permission to use this command.');
