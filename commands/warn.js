@@ -9,6 +9,7 @@ module.exports = {
 	execute (message, args) {
         if (!message.member.hasPermission('MANAGE_MESSAGES')) return message.channel.send('Error: You have no permission to use this command.');
 			const user = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
+                if (user === message.member) return message.channel.send('Error: You cannot warn yourself.');
 				if (user.hasPermission('MANAGE_MESSAGES')) return message.channel.send('Error: This user cannot be warned.');
 
         let warnReason = args.splice(1).join(' ');

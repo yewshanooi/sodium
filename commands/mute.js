@@ -10,6 +10,7 @@ module.exports = {
 	execute (message, args) {
         if (!message.member.hasPermission('MUTE_MEMBERS')) return message.channel.send('Error: You have no permission to use this command.');
 			const user = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
+                if (user === message.member) return message.channel.send('Error: You cannot mute yourself.');
 				if (user.hasPermission('MUTE_MEMBERS')) return message.channel.send('Error: This user cannot be muted.');
 
         let muteReason = args.splice(1).join(' ');
@@ -25,11 +26,19 @@ module.exports = {
                     name: 'Muted',
                     color: '#FFFFFF',
                     permissions: []
-                    // Add code to make sure that Bot-Created Muted role has proper "no speaking" permissions
+                    // Add code to make sure that Bot-Created mutedRole has proper "no speaking" permissions
                     }
                 });
-            user.roles.add(mutedRole);
+                message.guild.channels.cache.forEach(channel => {
+                    channel.createOverwrite(mutedRole, {
+                        SEND_MESSAGES: false,
+                        ADD_REACTIONS: false,
+                        SPEAK: false,
+                        CONNECT: false
+                    });
+                });
         }
+        // WARNING: mutedRole still doesn't have proper permissions
 
 		const embedUser = new MessageEmbed()
             .setTitle('Mute')

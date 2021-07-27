@@ -9,6 +9,7 @@ module.exports = {
 	execute (message, args) {
 		if (!message.member.hasPermission('BAN_MEMBERS')) return message.channel.send('Error: You have no permission to use this command.');
 			const user = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
+				if (user === message.member) return message.channel.send('Error: You cannot ban yourself.');
 				if (user.hasPermission('BAN_MEMBERS')) return message.channel.send('Error: This user cannot be banned.');
 
 		let banReason = args.splice(1).join(' ');

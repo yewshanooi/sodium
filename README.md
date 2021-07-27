@@ -29,13 +29,13 @@
 
 ## Commands
 ###### Fun
-`8ball`, `achievement`, `beep`, `coinflip`, `compliment`, `diceroll`, `invert`, `meme`, `react`, `say`
+`8ball`, `achievement`, `beep`, `coinflip`, `color`, `compliment`, `diceroll`, `invert`, `meme`, `react`, `say`
 
 ###### Utility 
-`announce`, `avatar`, `botinfo`, `botnick`, `botstatus`, `botuptime`, `covid`, `delete`, `guildinfo`, `help`, `invite`, `leave`, `message`, `nick`, `ping`, `reload`, `userinfo`, `vconnect`, `vdisconnect`
+`announce`, `avatar`, `botinfo`, `botnick`, `botstatus`, `botuptime`, `channelname`, `covid`, `delete`, `guildinfo`, `help`, `invite`, `leave`, `message`, `nick`, `ping`, `reload`, `userinfo`, `vconnect`, `vdisconnect`
 
 ###### Moderation
-`ban`, `kick`, `warn`
+`ban`, `kick`, `mute`, `slowmode`, `warn`
 
 ## License
 This project is licensed under the [MIT License](https://github.com/javaruntime/skye/blob/main/LICENSE).

@@ -1,6 +1,6 @@
 {
   "name": "skye",
-  "version": "0.3.4-beta",
+  "version": "0.3.5-beta",
   "description": "Multi use discord bot with simple commands and a user-friendly interface",
   "main": "index.js",
   "author": "JavaRuntime",
