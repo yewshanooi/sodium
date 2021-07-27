@@ -6,6 +6,7 @@ module.exports = {
     description: 'Enable slowmode for the current channel',
     usage: 'slowmode {seconds}',
     cooldown: '15',
+    guildOnly: true,
     execute (message, args) {
         if (!message.member.hasPermission('MANAGE_CHANNELS')) return message.channel.send('Error: You have no permission to use this command.');
 

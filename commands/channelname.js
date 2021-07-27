@@ -6,6 +6,7 @@ module.exports = {
     description: 'Renames the current channel',
     usage: 'channelname {name}',
     cooldown: '20',
+    guildOnly: true,
     execute (message, args) {
         if (!message.member.hasPermission('MANAGE_CHANNELS')) return message.channel.send('Error: You have no permission to use this command.');
 

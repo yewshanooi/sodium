@@ -16,7 +16,7 @@ for (const file of commandFiles) {
 }
 
 client.once('ready', () => {
-	console.log(`User : ${client.user.tag}\nTotal : ${client.users.cache.size} users, ${client.channels.cache.size} channels, ${client.guilds.cache.size} guilds`);
+	console.log(`User : ${client.user.tag}\n${client.users.cache.size} users, ${client.channels.cache.size} channels, ${client.guilds.cache.size} guilds`);
 	client.user.setPresence({
 		status: 'online',
 		activity: {
@@ -42,15 +42,21 @@ client.on('message', message => {
 		return message.channel.send('Error: I can\'t execute that command inside DMs!');
 	}
 
-	if (command.args && !args.length) {
-		let reply = `You didn't provide any arguments, ${message.author}!`;
+	/* eslint-disable no-tabs */
 
-		if (command.usage) {
-			reply += `\nThe proper usage would be: \`${prefix}${command.name} ${command.usage}\``;
-		}
-
-		return message.channel.send(reply);
-	}
+	/*
+	 * if (command.args && !args.length) {
+	 * 	let reply = `You didn't provide any arguments, ${message.author}!`;
+	 *
+	 *
+	 * 	if (command.usage) {
+	 * 		reply += `\nThe proper usage would be: \`${prefix}${command.name} ${command.usage}\``;
+	 * 	}
+	 *
+	 *
+	 * 	return message.channel.send(reply);
+	 * }
+	 */
 
 	/* ============================================= */
 

@@ -8,7 +8,7 @@ module.exports = {
     cooldown: '0',
     execute (message) {
         const embed = new MessageEmbed()
-            .setDescription('Hey there, Im a bot created by **JavaRuntime**!')
+            .setDescription('Hey there, Im a bot that can react to your message!')
             .setColor(embedColor);
         message.channel.send(embed).then(message.react('😄'));
     }

@@ -10,20 +10,20 @@
 <h4 align="center">Multi use discord bot with simple commands and a user-friendly interface</h4>
 
 <p align="center">
-    <a href="https://github.com/javaruntime/skye">
-        <img alt="Languages" src="https://img.shields.io/github/languages/top/javaruntime/skye">
+    <a href="https://github.com/yewshanooi/skye">
+        <img alt="Languages" src="https://img.shields.io/github/languages/top/yewshanooi/skye">
     </a>
-    <a href="https://github.com/javaruntime/skye">
-  	    <img alt="Repository Size" src="https://img.shields.io/github/repo-size/javaruntime/skye">
+    <a href="https://github.com/yewshanooi/skye">
+  	    <img alt="Repository Size" src="https://img.shields.io/github/repo-size/yewshanooi/skye">
     </a>
-    <a href="https://github.com/javaruntime/skye">
-        <img alt="License" src="https://img.shields.io/github/license/javaruntime/skye">
+    <a href="https://github.com/yewshanooi/skye">
+        <img alt="License" src="https://img.shields.io/github/license/yewshanooi/skye">
     </a>
-    <a href="https://github.com/javaruntime/skye">
-        <img alt="Release Version" src="https://img.shields.io/github/v/release/javaruntime/skye?include_prereleases">
+    <a href="https://github.com/yewshanooi/skye">
+        <img alt="Release Version" src="https://img.shields.io/github/v/release/yewshanooi/skye?include_prereleases">
     </a>
-    <a href="https://github.com/javaruntime/skye">
-        <img alt="Last Commit" src="https://img.shields.io/github/last-commit/javaruntime/skye">
+    <a href="https://github.com/yewshanooi/skye">
+        <img alt="Last Commit" src="https://img.shields.io/github/last-commit/yewshanooi/skye">
     </a>
 </p>
 
@@ -38,7 +38,7 @@
 `ban`, `kick`, `mute`, `slowmode`, `warn`
 
 ## License
-This project is licensed under the [MIT License](https://github.com/javaruntime/skye/blob/main/LICENSE).
+This project is licensed under the [MIT License](https://github.com/yewshanooi/skye/blob/main/LICENSE).
 
 ```
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
@@ -49,5 +49,5 @@ THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ```
 
 ## Author
-Authored and maintained by **JavaRuntime**
-> GitHub [@javaruntime](https://github.com/javaruntime)
+Authored and maintained by **Ooi Yew Shan**
+> GitHub [@yewshanooi](https://github.com/yewshanooi)

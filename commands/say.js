@@ -8,10 +8,10 @@ module.exports = {
 	cooldown: '10',
 	guildOnly: true,
 	execute (message, args) {
-		const txt = args.join(' ');
-          if (!txt) return message.channel.send('Error: Please provide a valid message.');
+		const text = args.join(' ');
+          if (!text) return message.channel.send('Error: Please provide a valid message.');
 			const embed = new MessageEmbed()
-				.setDescription(`**${message.author.username} said: ${txt}**`)
+				.setDescription(`**${message.author.username} said: ${text}**`)
 				.setColor(embedColor);
 			message.delete().then(message.channel.send(embed));
 		}
