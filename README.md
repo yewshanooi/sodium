@@ -11,19 +11,19 @@
 
 <p align="center">
     <a href="https://github.com/yewshanooi/skye">
-        <img alt="Languages" src="https://img.shields.io/github/languages/top/yewshanooi/skye">
+        <img alt="Languages" src="https://img.shields.io/github/languages/top/yewshanooi/skye?style=flat-square">
     </a>
     <a href="https://github.com/yewshanooi/skye">
-  	    <img alt="Repository Size" src="https://img.shields.io/github/repo-size/yewshanooi/skye">
+  	    <img alt="Repository Size" src="https://img.shields.io/github/repo-size/yewshanooi/skye?style=flat-square">
     </a>
     <a href="https://github.com/yewshanooi/skye">
-        <img alt="License" src="https://img.shields.io/github/license/yewshanooi/skye">
+        <img alt="License" src="https://img.shields.io/github/license/yewshanooi/skye?style=flat-square">
     </a>
     <a href="https://github.com/yewshanooi/skye">
-        <img alt="Release Version" src="https://img.shields.io/github/v/release/yewshanooi/skye?include_prereleases">
+        <img alt="Release Version" src="https://img.shields.io/github/v/release/yewshanooi/skye?include_prereleases&style=flat-square">
     </a>
     <a href="https://github.com/yewshanooi/skye">
-        <img alt="Last Commit" src="https://img.shields.io/github/last-commit/yewshanooi/skye">
+        <img alt="Last Commit" src="https://img.shields.io/github/last-commit/yewshanooi/skye?style=flat-square">
     </a>
 </p>
 
@@ -40,6 +40,7 @@
 ## License
 This project is licensed under the [MIT License](https://github.com/yewshanooi/skye/blob/main/LICENSE).
 
+###### Disclaimer
 ```
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
 INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
@@ -49,5 +50,5 @@ THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ```
 
 ## Author
-Authored and maintained by **Ooi Yew Shan**
+Authored and maintained by **yewshanooi**
 > GitHub [@yewshanooi](https://github.com/yewshanooi)
