@@ -42,9 +42,6 @@
 `ban`, `kick`, `mute`, `slowmode`, `warn`
 
 ## License
-###### This project is licensed under the 
-> [MIT License](https://github.com/yewshanooi/skye/blob/main/LICENSE)
-
 ###### Disclaimer
 ```
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
@@ -53,6 +50,8 @@ IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMA
 WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR 
 THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ```
+
+###### This project is licensed under the MIT License
 
 ## Author
 ###### Authored and maintained by
