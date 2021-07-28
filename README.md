@@ -13,15 +13,19 @@
     <a href="https://github.com/yewshanooi/skye">
         <img alt="Languages" src="https://img.shields.io/github/languages/top/yewshanooi/skye?style=flat-square">
     </a>
+    &nbsp;
     <a href="https://github.com/yewshanooi/skye">
   	    <img alt="Repository Size" src="https://img.shields.io/github/repo-size/yewshanooi/skye?style=flat-square">
     </a>
+    &nbsp;
     <a href="https://github.com/yewshanooi/skye">
         <img alt="License" src="https://img.shields.io/github/license/yewshanooi/skye?style=flat-square">
     </a>
+    &nbsp;
     <a href="https://github.com/yewshanooi/skye">
         <img alt="Release Version" src="https://img.shields.io/github/v/release/yewshanooi/skye?include_prereleases&style=flat-square">
     </a>
+    &nbsp;
     <a href="https://github.com/yewshanooi/skye">
         <img alt="Last Commit" src="https://img.shields.io/github/last-commit/yewshanooi/skye?style=flat-square">
     </a>
@@ -38,8 +42,6 @@
 `ban`, `kick`, `mute`, `slowmode`, `warn`
 
 ## License
-This project is licensed under the [MIT License](https://github.com/yewshanooi/skye/blob/main/LICENSE).
-
 ###### Disclaimer
 ```
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
@@ -49,6 +51,8 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
 THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ```
 
+This project is licensed under the [MIT License](https://github.com/yewshanooi/skye/blob/main/LICENSE).
+
 ## Author
-Authored and maintained by **yewshanooi**
+###### Authored and maintained by
 > GitHub [@yewshanooi](https://github.com/yewshanooi)
