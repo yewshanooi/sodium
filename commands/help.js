@@ -27,7 +27,7 @@ module.exports = {
 					message.reply(embedDM);
 				})
 				.catch(error => {
-					message.channel.send(`Error: It seems like I can't DM you!\n Error: \`${error.message}\``);
+					message.channel.send(`Error: It seems like I can't DM you!\nError: \`${error.message}\``);
 				});
 			}
 

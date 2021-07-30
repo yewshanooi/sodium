@@ -24,7 +24,7 @@ module.exports = {
 			message.channel.send(embed);
 		}
 		catch (error) {
-			message.channel.send(`Error: There was an error while reloading command \`${command.name}\`.\n Error: \`${error.message}\``);
+			message.channel.send(`Error: There was an error while reloading command \`${command.name}\`.\nError: \`${error.message}\``);
 		}
 	}
 };

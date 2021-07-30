@@ -18,26 +18,29 @@ module.exports = {
             }
 
         const mutedRole = message.guild.roles.cache.find(mR => mR.name === 'Muted');
+            if (!mutedRole) return message.channel.send('Error: No existing mute role found. Create a new role, **Muted** in `Server settings > Roles` to use this command.');
 
-        if (!mutedRole) {
-            message.guild.roles.create({
-                data: {
-                    name: 'Muted',
-                    color: '#FFFFFF',
-                    permissions: []
-                    // Add code to make sure that Bot-Created mutedRole has proper "no speaking" permissions
-                    }
-                });
-                message.guild.channels.cache.forEach(channel => {
-                    channel.createOverwrite(mutedRole, {
-                        SEND_MESSAGES: false,
-                        ADD_REACTIONS: false,
-                        SPEAK: false,
-                        CONNECT: false
-                    });
-                });
-        }
-        // WARNING: mutedRole still doesn't have proper permissions
+        /*
+         * if (!mutedRole) {
+         *     message.guild.roles.create({
+         *         data: {
+         *             name: 'Muted',
+         *             color: '#FFFFFF',
+         *             permissions: []
+         *             }
+         *         });
+         *         message.guild.channels.cache.forEach(channel => {
+         *             channel.createOverwrite(mutedRole, {
+         *                 SEND_MESSAGES: false,
+         *                 ADD_REACTIONS: false,
+         *                 SPEAK: false,
+         *                 CONNECT: false
+         *             });
+         *         });
+         * }
+         */
+
+        // Bot will create new 'mutedRole' if guild doesn't have existing role in a future update.
 
 		const embedUser = new MessageEmbed()
             .setTitle('Mute')
@@ -59,5 +62,3 @@ module.exports = {
         user.send(embedUser).then(user.roles.add(mutedRole));
     }
 };
-
-// Current bot created 'mutedRole' doesn't have proper permissions to prevent the muted user from speaking
