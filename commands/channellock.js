@@ -3,7 +3,7 @@ const { embedColor } = require('../config.json');
 
 module.exports = {
     name: 'channellock',
-    description: 'Locks the current channe;',
+    description: 'Locks the current channel',
     usage: 'channellock',
     cooldown: '25',
     guildOnly: true,
