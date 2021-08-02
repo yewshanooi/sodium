@@ -36,7 +36,7 @@
 `8ball`, `achievement`, `beep`, `coinflip`, `color`, `compliment`, `diceroll`, `invert`, `meme`, `react`, `say`
 
 ###### Utility 
-`announce`, `avatar`, `botinfo`, `botnick`, `botstatus`, `botuptime`, `channelname`, `covid`, `delete`, `guildinfo`, `help`, `invite`, `leave`, `message`, `nick`, `ping`, `reload`, `userinfo`, `vconnect`, `vdisconnect`
+`announce`, `avatar`, `botinfo`, `botnick`, `botstatus`, `botuptime`, `channellock`, `channelname`, `channelunlock`, `covid`, `delete`, `guildinfo`, `help`, `invite`, `leave`, `message`, `nick`, `ping`, `reload`, `roleinfo`, `userinfo`, `vconnect`, `vdisconnect`
 
 ###### Moderation
 `ban`, `kick`, `mute`, `slowmode`, `warn`
