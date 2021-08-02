@@ -5,7 +5,7 @@ module.exports = {
     name: 'leave',
     description: 'Remove the bot from the current guild',
     usage: 'leave',
-    cooldown: '35',
+    cooldown: '45',
     guildOnly: true,
     execute (message) {
         if (!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('Error: You have no permission to use this command.');

@@ -22,6 +22,6 @@ module.exports = {
 				.setColor(embedColor);
 
 			message.channel.bulkDelete(amount, true);
-			message.channel.send(embed).then(msg => msg.delete({ timeout: 8000 }));
+			message.channel.send(embed).then(msg => msg.delete({ timeout: 7000 }));
 		}
 };

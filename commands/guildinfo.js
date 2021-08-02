@@ -13,7 +13,7 @@ module.exports = {
 			if (MFA === 1) resultMFA = 'Enabled';
 			else resultMFA = 'Disabled';
 
-		const { partnered } = message.guild;
+		const partnered = message.guild;
 		let resultPartner;
 			if (partnered === true) resultPartner = 'Yes';
 			else resultPartner = 'No';
