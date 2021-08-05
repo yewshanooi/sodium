@@ -24,5 +24,6 @@ module.exports = {
                     ADD_REACTIONS: true
                 });
             }));
+        // Current channelunlock command will override existing staff & muted role permissions.
     }
 };
