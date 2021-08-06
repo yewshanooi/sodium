@@ -4,7 +4,7 @@ const { embedColor } = require('../config.json');
 module.exports = {
     name: 'botstatus',
     description: 'Change bot\'s current status globally',
-    usage: 'botstatus {status}',
+    usage: 'botstatus {online | idle | dnd | invisible}',
     cooldown: '30',
     guildOnly: true,
     execute (message) {
