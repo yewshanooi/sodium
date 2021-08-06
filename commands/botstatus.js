@@ -1,4 +1,5 @@
 const { MessageEmbed } = require('discord.js');
+const { prefix } = require('../config.json');
 const { embedColor } = require('../config.json');
 
 module.exports = {
@@ -51,7 +52,7 @@ module.exports = {
         }
 
         else {
-            return message.channel.send('Error: Please provide a valid status.');
+            return message.channel.send(`Error: You are missing some args.\n*(e.g: \`${prefix}botstatus online\` or \`${prefix}botstatus idle\`)*`);
         }
     }
 };

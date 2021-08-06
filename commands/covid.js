@@ -10,7 +10,7 @@ module.exports = {
     cooldown: '0',
     execute (message, args) {
         const countries = args.join(' ');
-          if (!args[0]) return message.channel.send(`Error: You are missing some args (Example: \`${prefix}covid all\` or \`${prefix}covid US\`).`);
+          if (!args[0]) return message.channel.send(`Error: You are missing some args.\n*(e.g: \`${prefix}covid all\` or \`${prefix}covid US\`)*`);
 
         if (args[0] === 'all') {
             fetch('https://covid19.mathdro.id/api')
