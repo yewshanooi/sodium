@@ -1,0 +1,16 @@
+{
+  "name": "skye",
+  "version": "0.3.7-beta",
+  "description": "Multi use discord bot with simple commands and a user-friendly interface",
+  "main": "index.js",
+  "author": "Ooi Yew Shan",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^12.3.1",
+    "nodemon": "^2.0.7",
+    "ws": "^7.4.6"
+  },
+  "devDependencies": {
+    "eslint": "^7.20.0"
+  }
+}
