@@ -42,20 +42,6 @@ client.on('message', message => {
 		return message.channel.send('Error: I can\'t execute that command inside DMs!');
 	}
 
-	/* eslint-disable no-tabs */
-
-	/*
-	 * if (command.args && !args.length) {
-	 * 	let reply = `You didn't provide any arguments, ${message.author}!`;
-	 *
-	 * 	if (command.usage) {
-	 * 		reply += `\nThe proper usage would be: \`${prefix}${command.name} ${command.usage}\``;
-	 * 	}
-	 *
-	 * 	return message.channel.send(reply);
-	 * }
-	 */
-
 	/* ============================================= */
 
 	if (!cooldowns.has(command.name)) {
