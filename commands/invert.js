@@ -15,6 +15,6 @@ module.exports = {
               .addField('Original', original)
               .addField('Inverted', inverted)
               .setColor(embedColor);
-          message.channel.send(embed);
+          message.channel.send({ embeds: [embed] });
         }
 };

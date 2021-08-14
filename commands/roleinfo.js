@@ -33,6 +33,6 @@ module.exports = {
             .addField('Mentionable', `\`${resultMention}\``, true)
             .addField('Display Separately', `\`${resultHoist}\``, true)
             .setColor(embedColor);
-        message.channel.send(embed);
+        message.channel.send({ embeds: [embed] });
     }
 };

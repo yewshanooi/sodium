@@ -11,8 +11,8 @@ module.exports = {
 		const text = args.join(' ');
           if (!text) return message.channel.send('Error: Please provide a valid message.');
 			const embed = new MessageEmbed()
-				.setDescription(`**${message.author.username} said: ${text}**`)
+				.setDescription(`**${message.author.username} said:** *${text}*`)
 				.setColor(embedColor);
-			message.delete().then(message.channel.send(embed));
+			message.delete().then(message.channel.send({ embeds: [embed] }));
 		}
 };

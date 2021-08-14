@@ -18,6 +18,6 @@ module.exports = {
 			.addField('Embed Color (Hex)', `\`#${embedColor}\``, true)
 			.addField('ID', `\`${message.client.user.id}\``, true)
 			.setColor(embedColor);
-        message.channel.send(embed);
+        message.channel.send({ embeds: [embed] });
 	}
 };

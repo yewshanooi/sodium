@@ -111,13 +111,14 @@ module.exports = {
     usage: 'compliment {@user}',
     cooldown: '15',
     guildOnly: true,
-    execute (message) {
+    execute (message, args) {
+        if (!args[0]) return message.channel.send('Error: Please provide a user.');
         const user = message.mentions.users.first();
           if (!user) return message.channel.send('Error: Please provide a valid user.');
             const embed = new MessageEmbed()
               .setTitle('Compliment')
               .setDescription(`${compliments[Math.floor(Math.random() * compliments.length)]}\n *from \`${message.author.tag}\`*`)
               .setColor(embedColor);
-            message.delete().then(user.send(embed));
+            message.delete().then(user.send({ embeds: [embed] }));
         }
 };

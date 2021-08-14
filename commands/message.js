@@ -8,8 +8,9 @@ module.exports = {
     cooldown: '10',
     guildOnly: true,
     execute (message, args) {
-        const user = message.mentions.users.first();
+        const user = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
           if (!user) return message.channel.send('Error: Please provide a valid user.');
+          if (user === message.member) return message.channel.send('Error: You cannot message yourself.');
 
           const msg = args.splice(1).join(' ');
             if (!msg) return message.channel.send('Error: Please provide a valid message.');
@@ -18,6 +19,6 @@ module.exports = {
                   .setTitle(`Incoming message from **${message.author.tag}**`)
                   .setDescription(`\`${msg}\``)
                   .setColor(embedColor);
-              message.delete().then(user.send(embed));
+              message.delete().then(user.send({ embeds: [embed] }));
           }
     };

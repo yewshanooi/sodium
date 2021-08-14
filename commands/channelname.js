@@ -8,7 +8,7 @@ module.exports = {
     cooldown: '20',
     guildOnly: true,
     execute (message, args) {
-        if (!message.member.hasPermission('MANAGE_CHANNELS')) return message.channel.send('Error: You have no permission to use this command.');
+        if (!message.member.permissions.has('MANAGE_CHANNELS')) return message.channel.send('Error: You have no permission to use this command.');
 
         const channelName = args.join(' ');
             if (!channelName) return message.channel.send('Error: Please provide a valid name.');
@@ -19,6 +19,6 @@ module.exports = {
             .setDescription(`Successfully renamed channel to **${channelName}**`)
             .setTimestamp()
             .setColor(embedColor);
-        message.channel.send(embed).then(message.channel.setName(channelName));
+        message.channel.send({ embeds: [embed] }).then(message.channel.setName(channelName));
     }
 };

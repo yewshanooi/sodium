@@ -5,7 +5,7 @@ const { prefix, token } = require('./config.json');
 
 const cooldowns = new Discord.Collection();
 
-const client = new Discord.Client();
+const client = new Discord.Client({ intents: ['GUILDS', 'GUILD_MEMBERS', 'GUILD_BANS', 'GUILD_EMOJIS_AND_STICKERS', 'GUILD_INTEGRATIONS', 'GUILD_WEBHOOKS', 'GUILD_INVITES', 'GUILD_VOICE_STATES', 'GUILD_PRESENCES', 'GUILD_MESSAGES', 'GUILD_MESSAGE_REACTIONS', 'GUILD_MESSAGE_TYPING', 'DIRECT_MESSAGES', 'DIRECT_MESSAGE_REACTIONS', 'DIRECT_MESSAGE_TYPING'], partials: ['CHANNEL'] });
 client.commands = new Discord.Collection();
 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
@@ -17,16 +17,10 @@ for (const file of commandFiles) {
 
 client.once('ready', () => {
 	console.log(`User : ${client.user.tag}\n${client.users.cache.size} users, ${client.channels.cache.size} channels, ${client.guilds.cache.size} guilds`);
-	client.user.setPresence({
-		status: 'online',
-		activity: {
-			name: `${prefix}help ∙ ${client.users.cache.size} users, ${client.channels.cache.size} channels, ${client.guilds.cache.size} guilds`,
-			type: 'PLAYING'
-		}
-	});
+	client.user.setPresence({ activities: [{ name: `${prefix}help ∙ ${client.users.cache.size} users, ${client.channels.cache.size} channels, ${client.guilds.cache.size} guilds` }], status: 'online' });
 });
 
-client.on('message', message => {
+client.on('messageCreate', message => {
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
 
 	const args = message.content.slice(prefix.length).trim().split(/ +/);
@@ -38,8 +32,8 @@ client.on('message', message => {
 
 	if (!command) return;
 
-	if (command.guildOnly && message.channel.type === 'dm') {
-		return message.channel.send('Error: I can\'t execute that command inside DMs!');
+	if (command.guildOnly && message.channel.type === 'DM') {
+		return message.channel.send('Error: This command cannot be executed in DMs.');
 	}
 
 	/* ============================================= */

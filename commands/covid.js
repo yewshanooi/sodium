@@ -17,18 +17,18 @@ module.exports = {
             .then(response => response.json())
             .then(data => {
                 const confirmed = data.confirmed.value.toLocaleString();
-                const recovered = data.recovered.value.toLocaleString();
+                // const recovered = data.recovered.value.toLocaleString();
                 const deaths = data.deaths.value.toLocaleString();
 
                 const embed = new MessageEmbed()
                     .setTitle('Covid-19')
                     .setDescription('Worldwide Statistics')
                     .addField('Confirmed', `\`${confirmed}\``)
-                    .addField('Recovered', `\`${recovered}\``)
+                    // .addField('Recovered', `\`${recovered}\``)
                     .addField('Deaths', `\`${deaths}\``)
                     .setTimestamp()
                     .setColor(embedColor);
-                message.channel.send(embed);
+                message.channel.send({ embeds: [embed] });
             });
         }
         else {
@@ -36,19 +36,24 @@ module.exports = {
             .then(response => response.json())
             .then(data => {
                 const confirmed = data.confirmed.value.toLocaleString();
-                const recovered = data.recovered.value.toLocaleString();
+                // const recovered = data.recovered.value.toLocaleString();
                 const deaths = data.deaths.value.toLocaleString();
 
                 const embed = new MessageEmbed()
                     .setTitle('Covid-19')
                     .setDescription(`Statistics for **${countries}**`)
                     .addField('Confirmed', `\`${confirmed}\``)
-                    .addField('Recovered', `\`${recovered}\``)
+                    // .addField('Recovered', `\`${recovered}\``)
                     .addField('Deaths', `\`${deaths}\``)
                     .setTimestamp()
                     .setColor(embedColor);
-                message.channel.send(embed);
+                message.channel.send({ embeds: [embed] });
             }).catch(() => message.channel.send('Error: Please provide a valid country.'));
         }
     }
 };
+
+/*
+ * 'recovered' data always return 0 from API's side (known issue)
+ * https://github.com/mathdroid/covid-19-api/issues
+ */

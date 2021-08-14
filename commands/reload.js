@@ -7,24 +7,25 @@ module.exports = {
 	usage: 'reload {command}',
 	cooldown: '0',
 	execute (message, args) {
-		const commandName = args[0].toLowerCase();
-		const command = message.client.commands.get(commandName);
+		if (!args[0]) return message.channel.send('Error: Please provide a command.');
+			const commandName = args[0].toLowerCase();
 
-		if (!command) return message.channel.send('Error: Please provide a valid command.');
+			const command = message.client.commands.get(commandName);
+			if (!command) return message.channel.send('Error: Please provide a valid command.');
 
-		delete require.cache[require.resolve(`./${command.name}.js`)];
+				delete require.cache[require.resolve(`./${command.name}.js`)];
 
-		try {
-			const newCommand = require(`./${command.name}.js`);
-			message.client.commands.set(newCommand.name, newCommand);
-			const embed = new MessageEmbed()
-				.setTitle('Reload')
-				.setDescription(`Command \`${command.name}\` was reloaded!`)
-				.setColor(embedColor);
-			message.channel.send(embed);
+			try {
+				const newCommand = require(`./${command.name}.js`);
+					message.client.commands.set(newCommand.name, newCommand);
+				const embed = new MessageEmbed()
+					.setTitle('Reload')
+					.setDescription(`Command \`${command.name}\` was reloaded!`)
+					.setColor(embedColor);
+				message.channel.send({ embeds: [embed] });
+			}
+			catch (error) {
+				message.channel.send(`Error: There was an error while reloading command \`${command.name}\`.\nError: \`${error.message}\``);
+			}
 		}
-		catch (error) {
-			message.channel.send(`Error: There was an error while reloading command \`${command.name}\`.\nError: \`${error.message}\``);
-		}
-	}
 };

@@ -28,7 +28,7 @@ module.exports = {
                 .setDescription(`[${title}](${link})`)
                 .setImage(image)
                 .setColor(embedColor);
-            message.channel.send(imageMeme);
+            message.channel.send({ embeds: [imageMeme] });
 
              if (index.post_hint !== 'image') {
                 const text = index.selftext;
@@ -36,7 +36,7 @@ module.exports = {
                     .setTitle('Meme')
                     .setDescription(`[${title}](${link})\n\n ${text}`)
                     .setColor(embedColor);
-                message.channel.send(textMeme);
+                message.channel.send({ embeds: [textMeme] });
                 }
             });
         });

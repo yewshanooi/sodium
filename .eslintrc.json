@@ -223,7 +223,6 @@
             "error",
             "always"
         ],
-        "object-property-newline": "error",
         "object-shorthand": "error",
         "one-var": "off",
         "one-var-declaration-per-line": "error",

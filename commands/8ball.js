@@ -37,6 +37,6 @@ module.exports = {
               .addField('Question', question)
               .addField('Answer', `${answers[Math.floor(Math.random() * answers.length)]}`)
               .setColor(embedColor);
-            message.channel.send(embed);
+            message.channel.send({ embeds: [embed] });
         }
 };

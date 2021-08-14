@@ -53,6 +53,6 @@ module.exports = {
             .setTitle('Color')
             .setDescription(`Your random color is **${randomColor}**`)
             .setColor(randomColor);
-        message.channel.send(embed);
+        message.channel.send({ embeds: [embed] });
     }
 };

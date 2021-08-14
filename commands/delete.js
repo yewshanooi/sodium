@@ -8,7 +8,7 @@ module.exports = {
 	cooldown: '10',
 	guildOnly: true,
 	execute (message, args) {
-		if (!message.member.hasPermission('MANAGE_MESSAGES')) return message.channel.send('Error: You have no permission to use this command.');
+		if (!message.member.permissions.has('MANAGE_MESSAGES')) return message.channel.send('Error: You have no permission to use this command.');
 			const amount = parseInt(args[0]) + 1;
 			const trueAmount = amount - 1;
 
@@ -22,6 +22,8 @@ module.exports = {
 				.setColor(embedColor);
 
 			message.channel.bulkDelete(amount, true);
-			message.channel.send(embed).then(msg => msg.delete({ timeout: 7000 }));
+			message.channel.send({ embeds: [embed] }).then(msg => {
+				setTimeout(() => msg.delete(), 7000);
+			});
 		}
 };

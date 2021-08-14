@@ -10,6 +10,6 @@ module.exports = {
 		const embed = new MessageEmbed()
 			.setDescription('Boop!')
 			.setColor(embedColor);
-		message.channel.send(embed);
+		message.channel.send({ embeds: [embed] });
 	}
 };

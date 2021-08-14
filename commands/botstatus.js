@@ -11,7 +11,7 @@ module.exports = {
     execute (message) {
         const setStatus = message.content.split(' ');
 
-        if (!message.member.hasPermission('ADMINISTRATOR')) {
+        if (!message.member.permissions.has('ADMINISTRATOR')) {
             return message.channel.send('Error: You have no permission to use this command.');
         }
 
@@ -21,7 +21,8 @@ module.exports = {
                 .setDescription('Status successfully changed to **Online**')
                 .setTimestamp()
                 .setColor(embedColor);
-            message.client.user.setStatus('online').then(message.channel.send(embedOnline));
+            message.client.user.setPresence({ status: 'online' });
+            message.channel.send({ embeds: [embedOnline] });
         }
 
         else if (setStatus[1] === 'idle') {
@@ -30,7 +31,8 @@ module.exports = {
                 .setDescription('Status successfully changed to **Idle**')
                 .setTimestamp()
                 .setColor(embedColor);
-            message.client.user.setStatus('idle').then(message.channel.send(embedIdle));
+            message.client.user.setPresence({ status: 'idle' });
+            message.channel.send({ embeds: [embedIdle] });
         }
 
         else if (setStatus[1] === 'dnd') {
@@ -39,7 +41,8 @@ module.exports = {
                 .setDescription('Status successfully changed to **Do Not Disturb**')
                 .setTimestamp()
                 .setColor(embedColor);
-            message.client.user.setStatus('dnd').then(message.channel.send(embedDnd));
+            message.client.user.setPresence({ status: 'dnd' });
+            message.channel.send({ embeds: [embedDnd] });
         }
 
         else if (setStatus[1] === 'invisible') {
@@ -48,7 +51,8 @@ module.exports = {
                 .setDescription('Status successfully changed to **Invisible**')
                 .setTimestamp()
                 .setColor(embedColor);
-            message.client.user.setStatus('invisible').then(message.channel.send(embedInvisible));
+            message.client.user.setPresence({ status: 'invisible' });
+            message.channel.send({ embeds: [embedInvisible] });
         }
 
         else {

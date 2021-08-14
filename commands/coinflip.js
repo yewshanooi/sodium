@@ -16,6 +16,6 @@ module.exports = {
             .setTitle('Coin Flip')
             .setDescription(`I flipped a coin for you, <@${message.author.id}>!\n It was **${result}**`)
             .setColor(embedColor);
-        message.channel.send(embed);
+        message.channel.send({ embeds: [embed] });
     }
 };

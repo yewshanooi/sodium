@@ -15,6 +15,6 @@ module.exports = {
               .setAuthor(message.author.username, message.author.displayAvatarURL({ size: 64 }))
               .setDescription(announcement)
               .setColor(embedColor);
-          message.delete().then(message.channel.send(embed));
+          message.delete().then(message.channel.send({ embeds: [embed] }));
       }
 };

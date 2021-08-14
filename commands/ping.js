@@ -11,14 +11,14 @@ module.exports = {
 				.setTitle('Ping')
 				.setDescription('*Calculating Latency.*')
 				.setColor(embedColor);
-			message.channel.send(embed).then(msg => {
+			message.channel.send({ embeds: [embed] }).then(msg => {
 				const ping = msg.createdTimestamp - message.createdTimestamp;
-				const embedAPI = new MessageEmbed()
+				const embedApi = new MessageEmbed()
 					.addField('API Latency', `\`${ping}\`ms`)
 					.addField('WebSocket Latency', `\`${message.client.ws.ping}\`ms`)
 					.setTimestamp()
 					.setColor(embedColor);
-				message.channel.send(embedAPI);
+				message.channel.send({ embeds: [embedApi] });
 			});
 		}
 	};

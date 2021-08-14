@@ -8,20 +8,19 @@ module.exports = {
     cooldown: '25',
     guildOnly: true,
     execute (message, args) {
-        if (!message.member.hasPermission('MANAGE_NICKNAMES')) return message.channel.send('Error: You have no permission to use this command.');
-            const bot = message.guild.member(message.client.user);
+        if (!message.member.permissions.has('MANAGE_NICKNAMES')) return message.channel.send('Error: You have no permission to use this command.');
 
-            const nickname = args.join(' ');
-                if (!nickname) return message.channel.send('Error: Please provide a valid username.');
+            const newNick = args.join(' ');
+                if (!newNick) return message.channel.send('Error: Please provide a valid username.');
 
-            if (nickname.length <= '32') {
+            if (newNick.length <= '32') {
                 const embed = new MessageEmbed()
                     .setTitle('Bot Nickname')
-                    .setDescription(`Nickname successfully changed to **${nickname}**`)
+                    .setDescription(`Nickname successfully changed to **${newNick}**`)
                     .setTimestamp()
                     .setColor(embedColor);
 
-                bot.setNickname(nickname).then(message.channel.send(embed));
+                message.guild.me.setNickname(newNick).then(message.channel.send({ embeds: [embed] }));
             }
             else {
                 return message.channel.send('Error: Nickname must be 32 characters or fewer.');

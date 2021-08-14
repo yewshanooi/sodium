@@ -121,13 +121,15 @@ module.exports = {
     usage: 'achievement {@user}',
     cooldown: '15',
     guildOnly: true,
-    execute (message) {
+    execute (message, args) {
+        if (!args[0]) return message.channel.send('Error: Please provide a user.');
         const user = message.mentions.users.first();
           if (!user) return message.channel.send('Error: Please provide a valid user.');
+          if (user === message.client.user) return message.channel.send('Error: You cannot send an achievement to the bot.');
             const embed = new MessageEmbed()
               .setTitle('Achievement')
               .setDescription(`You have received the achievement **${achievements[Math.floor(Math.random() * achievements.length)]}**`)
               .setColor(embedColor);
-            message.delete().then(user.send(embed));
+            message.delete().then(user.send({ embeds: [embed] }));
     }
 };

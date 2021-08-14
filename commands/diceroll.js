@@ -5,7 +5,7 @@ module.exports = {
 	name: 'diceroll',
 	description: 'Rolls a dice with up to 6 sides',
 	usage: 'diceroll <sides>',
-    cooldown: '5',
+    cooldown: '0',
 	execute (message, args) {
 		let [limit] = args;
         if (!limit) limit = 6;
@@ -15,6 +15,6 @@ module.exports = {
                 .setTitle('Dice Roll')
                 .setDescription(`<@${message.author.id}>, you rolled a **${rand}**!`)
                 .setColor(embedColor);
-            message.channel.send(embed);
+            message.channel.send({ embeds: [embed] });
         }
 };

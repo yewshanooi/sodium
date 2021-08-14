@@ -8,7 +8,7 @@ module.exports = {
     cooldown: '15',
     guildOnly: true,
     execute (message, args) {
-        if (!message.member.hasPermission('MANAGE_CHANNELS')) return message.channel.send('Error: You have no permission to use this command.');
+        if (!message.member.permissions.has('MANAGE_CHANNELS')) return message.channel.send('Error: You have no permission to use this command.');
 
         const duration = parseInt(args[0]);
             if (isNaN(duration)) return message.channel.send('Error: Please provide an integer.');
@@ -19,6 +19,6 @@ module.exports = {
             .setDescription(`Successfully set slowmode to **${duration}** second(s)`)
             .setTimestamp()
             .setColor(embedColor);
-        message.channel.send(embed).then(message.channel.setRateLimitPerUser(duration));
+        message.channel.send({ embeds: [embed] }).then(message.channel.setRateLimitPerUser(duration));
     }
 };
