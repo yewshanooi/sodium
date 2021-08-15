@@ -36,10 +36,10 @@
 `8ball`, `achievement`, `beep`, `coinflip`, `color`, `compliment`, `diceroll`, `invert`, `meme`, `react`, `say`
 
 ###### Utility 
-`announce`, `avatar`, `botinfo`, `botnick`, `botstatus`, `botuptime`, `channelname`, `covid`, `delete`, `guildinfo`, `help`, `invite`, `leave`, `message`, `nick`, `ping`, `reload`, `roleinfo`, `userinfo`
+`announce`, `avatar`, `botinfo`, `botnick`, `botstatus`, `botuptime`, `channelname`, `covid`, `delete`, `guildinfo`, `help`, `invite`, `leave`, `message`, `nick`, `ping`, `reload`, `roleadd`, `roledel`, `roleinfo`, `userinfo`
 
 ###### Moderation
-`ban`, `channellock`, `channelunlock`, `deafen`, `kick`, `lockdown`, `mute`, `slowmode`, `warn`
+`ban`, `channellock`, `channelunlock`, `deafen`, `kick`, `lockdown`, `mute`, `slowmode`, `undeafen`, `unmute`, `warn`
 
 ## License
 ###### Disclaimer - This project is licensed under the MIT License
