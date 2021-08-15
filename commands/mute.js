@@ -23,7 +23,7 @@ module.exports = {
                     muteReason = 'None';
                 }
 
-        const mutedRole = message.guild.roles.cache.find(mR => mR.name === 'Muted');
+        const mutedRole = message.guild.roles.cache.find(mt => mt.name === 'Muted');
             if (!mutedRole) return message.channel.send('Error: No existing mute role found. Create a new role, **Muted** in `Server settings > Roles` to use this command.');
 
         /*
