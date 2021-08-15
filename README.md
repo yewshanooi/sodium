@@ -52,7 +52,7 @@ THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ```
 
 ## Version
-###### Skye v0.4.0
+###### Skye v0.4.1
 ###### Discord.js v13.1.0
 
 ## Author
