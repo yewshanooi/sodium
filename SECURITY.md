@@ -4,4 +4,4 @@ Any vulnerability present in the codes must be reported to our developers. Those
 
 ## Privacy Policy
 
-Visit this link to learn more about our privacy policy: [Policy Link](https://skyebot.weebly.com/privacy.html)
+Visit this link to learn more about our privacy policy - [Policy Link](https://skyebot.weebly.com/privacy.html)

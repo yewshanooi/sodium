@@ -33,10 +33,10 @@
 
 ## Commands
 ###### Fun
-`8ball`, `achievement`, `beep`, `coinflip`, `color`, `compliment`, `diceroll`, `invert`, `meme`, `react`, `say`
+`8ball`, `achievement`, `beep`, `coinflip`, `color`, `compliment`, `diceroll`, `invert`, `meme`, `say`
 
 ###### Utility 
-`announce`, `avatar`, `botinfo`, `botnick`, `botstatus`, `botuptime`, `channelname`, `covid`, `delete`, `guildinfo`, `help`, `invite`, `leave`, `message`, `nick`, `ping`, `reload`, `roleadd`, `roledel`, `roleinfo`, `userinfo`
+`announce`, `avatar`, `botinfo`, `botnick`, `botstatus`, `channelname`, `covid`, `delete`, `guildinfo`, `help`, `invite`, `leave`, `message`, `nick`, `ping`, `reload`, `roleadd`, `roledel`, `roleinfo`, `userinfo`
 
 ###### Moderation
 `ban`, `channellock`, `channelunlock`, `deafen`, `kick`, `lockdown`, `mute`, `slowmode`, `undeafen`, `unmute`, `warn`
@@ -52,7 +52,7 @@ THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ```
 
 ## Version
-###### Skye v0.4.1
+###### Skye v0.4.2
 ###### Discord.js v13.1.0
 
 ## Author

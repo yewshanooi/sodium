@@ -1,6 +1,6 @@
 {
   "name": "skye",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "Multi use discord bot with simple commands and a user-friendly interface",
   "main": "index.js",
   "author": "Ooi Yew Shan",
