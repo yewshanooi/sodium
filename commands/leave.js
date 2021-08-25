@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js');
+const { MessageEmbed, MessageButton, MessageActionRow } = require('discord.js');
 const { embedColor } = require('../config.json');
 
 module.exports = {
@@ -13,15 +13,19 @@ module.exports = {
             const guildName = args.join(' ');
                 if (!guildName) return message.channel.send('Error: Please provide the current guild name.');
 
-            const embedTrue = new MessageEmbed()
-                .setTitle('Leave')
-                .setDescription('Successfully left the guild. We hope to see you again next time!')
-                .addField('Already missed us? Invite us back -', '[*discord.com*](https://discord.com/api/oauth2/authorize?client_id=531811937244151808&permissions=261993005047&scope=bot%20applications.commands)')
-                .setTimestamp()
-                .setColor(embedColor);
+                const embedTrue = new MessageEmbed()
+                    .setTitle('Leave')
+                    .setDescription('Successfully left the guild.\n We hope to see you again next time!')
+                    .setColor(embedColor);
+
+                const buttonTrue = new MessageActionRow()
+                    .addComponents(new MessageButton()
+                        .setURL('https://discord.com/api/oauth2/authorize?client_id=531811937244151808&permissions=261993005047&scope=bot%20applications.commands')
+                        .setLabel('Already missed us? Invite us back')
+                        .setStyle('LINK'));
 
             if (guildName === message.guild.name) {
-                message.guild.leave().then(message.channel.send({ embeds: [embedTrue] }));
+                message.guild.leave().then(message.channel.send({ embeds: [embedTrue], components: [buttonTrue] }));
             }
             else {
                 return message.channel.send('Error: Incorrect guild name.');

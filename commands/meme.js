@@ -1,6 +1,6 @@
 const url = 'https://www.reddit.com/r/memes/hot/.json?limit=100';
 const https = require('https');
-const { MessageEmbed } = require('discord.js');
+const { MessageEmbed, MessageButton, MessageActionRow } = require('discord.js');
 const { embedColor } = require('../config.json');
 
 module.exports = {
@@ -25,18 +25,32 @@ module.exports = {
 
             const imageMeme = new MessageEmbed()
                 .setTitle('Meme')
-                .setDescription(`[${title}](${link})`)
+                .setDescription(`${title}`)
                 .setImage(image)
                 .setColor(embedColor);
-            message.channel.send({ embeds: [imageMeme] });
 
-             if (index.post_hint !== 'image') {
+                const imageButton = new MessageActionRow()
+                    .addComponents(new MessageButton()
+                        .setURL(`${link}`)
+                        .setLabel('Reddit Post')
+                        .setStyle('LINK'));
+
+            message.channel.send({ embeds: [imageMeme], components: [imageButton] });
+
+            if (index.post_hint !== 'image') {
                 const text = index.selftext;
                 const textMeme = new MessageEmbed()
                     .setTitle('Meme')
-                    .setDescription(`[${title}](${link})\n\n ${text}`)
+                    .setDescription(`${title}\n\n ${text}`)
                     .setColor(embedColor);
-                message.channel.send({ embeds: [textMeme] });
+
+                    const textButton = new MessageActionRow()
+                        .addComponents(new MessageButton()
+                            .setURL(`${link}`)
+                            .setLabel('Reddit Post')
+                            .setStyle('LINK'));
+
+                message.channel.send({ embeds: [textMeme], components: [textButton] });
                 }
             });
         });

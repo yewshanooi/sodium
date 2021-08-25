@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js');
+const { MessageEmbed, MessageButton, MessageActionRow } = require('discord.js');
 const { prefix } = require('../config.json');
 const { embedColor } = require('../config.json');
 
@@ -10,14 +10,20 @@ module.exports = {
 	execute (message, args) {
 		const { commands } = message.client;
 
+			const button = new MessageActionRow()
+				.addComponents(new MessageButton()
+					.setURL('https://skyebot.weebly.com/commands.html')
+					.setLabel('Detailed Guide')
+					.setStyle('LINK'));
+
 		if (!args.length) {
-			const embed = new MessageEmbed()
+			const embed1 = new MessageEmbed()
 				.setTitle('Help')
 				.setDescription(`Use \`${prefix}help {command}\` to get info on a specific command`)
 				.addField('Commands', commands.map(command => command.name).join(', '))
 				.setColor(embedColor);
 
-			return message.author.send({ embeds: [embed] })
+			return message.author.send({ embeds: [embed1], components: [button] })
 				.then(() => {
 					if (message.channel.type === 'DM') return;
 					const embedDM = new MessageEmbed()
@@ -41,7 +47,7 @@ module.exports = {
 				if (guildOnlyCommand === true) resultGuildOnly = 'True';
 				else resultGuildOnly = 'False';
 
-			const embed = new MessageEmbed()
+			const embed2 = new MessageEmbed()
 				.setTitle('Help')
 				.addField('Name', `\`${command.name}\``)
 				.addField('Description', `\`${command.description}\``)
@@ -49,6 +55,6 @@ module.exports = {
 				.addField('Cooldown', `\`${command.cooldown || 3} second(s)\``)
 				.addField('Guild Only', `\`${resultGuildOnly}\``)
 				.setColor(embedColor);
-			message.channel.send({ embeds: [embed] });
+			message.channel.send({ embeds: [embed2] });
 		}
 	};
