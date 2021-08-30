@@ -1,12 +1,14 @@
 const { MessageEmbed, MessageButton, MessageActionRow } = require('discord.js');
+const { SlashCommandBuilder } = require('@discordjs/builders');
 const { embedColor } = require('../config.json');
 
 module.exports = {
-    name: 'invite',
-    description: 'Get helpful links and invite the bot to your own server',
-    usage: 'invite',
-    cooldown: '0',
-    execute (message) {
+	data: new SlashCommandBuilder()
+		.setName('invite')
+		.setDescription('Get helpful links and invite the bot to your own server'),
+	cooldown: '0',
+    guildOnly: false,
+    execute (interaction) {
         const embed = new MessageEmbed()
             .setTitle('Invite')
             .setDescription('Get helpful links and invite the bot to your own server')
@@ -26,6 +28,6 @@ module.exports = {
                     .setLabel('OAuth2 Invite')
                     .setStyle('LINK'));
 
-        message.channel.send({ embeds: [embed], components: [buttons] });
-    }
+        interaction.reply({ embeds: [embed], components: [buttons] });
+	}
 };

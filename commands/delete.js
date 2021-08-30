@@ -1,28 +1,28 @@
 const { MessageEmbed } = require('discord.js');
+const { SlashCommandBuilder } = require('@discordjs/builders');
 const { embedColor } = require('../config.json');
 
 module.exports = {
-	name: 'delete',
-	description: 'Delete up to 99 messages at one time',
-	usage: 'delete {amount}',
+	data: new SlashCommandBuilder()
+		.setName('delete')
+		.setDescription('Delete up to 99 messages at one time')
+		.addIntegerOption(option => option.setName('value').setDescription('Enter a value').setRequired(true)),
 	cooldown: '10',
 	guildOnly: true,
-	execute (message, args) {
-		if (!message.member.permissions.has('MANAGE_MESSAGES')) return message.channel.send('Error: You have no permission to use this command.');
-			const amount = parseInt(args[0]) + 1;
-			const trueAmount = amount - 1;
+	execute (interaction) {
+		if (!interaction.member.permissions.has('MANAGE_MESSAGES')) return interaction.reply('Error: You have no permission to use this command.');
+			const valueField = interaction.options.getInteger('value');
 
-			if (isNaN(amount)) return message.channel.send('Error: Please provide a valid number.');
-			if (amount <= 1 || amount > 100) return message.channel.send('Error: You need to input a number between `1` and `99`.');
+			if (valueField <= 1 || valueField > 100) return interaction.reply('Error: You need to input a number between `1` and `99`.');
 
 			const embed = new MessageEmbed()
 				.setTitle('Delete')
-				.setDescription(`Succesfully deleted **${trueAmount}** message(s)`)
+				.setDescription(`Succesfully deleted **${valueField}** message(s)`)
 				.setTimestamp()
 				.setColor(embedColor);
 
-			message.channel.bulkDelete(amount, true);
-			message.channel.send({ embeds: [embed] }).then(msg => {
+			interaction.channel.bulkDelete(valueField, true);
+			interaction.reply({ embeds: [embed], fetchReply: true }).then(msg => {
 				setTimeout(() => msg.delete(), 7000);
 			});
 		}

@@ -1,45 +1,43 @@
 const { MessageEmbed } = require('discord.js');
+const { SlashCommandBuilder } = require('@discordjs/builders');
 
 module.exports = {
-    name: 'warn',
-	description: 'Warn the tagged user with or without a reason',
-	usage: 'warn {@user} <reason>',
-    cooldown: '20',
+	data: new SlashCommandBuilder()
+		.setName('warn')
+		.setDescription('Warn the selected user with or without a reason')
+        .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))
+        .addStringOption(option => option.setName('reason').setDescription('Enter a reason')),
+	cooldown: '20',
     guildOnly: true,
-	execute (message, args) {
-        if (!message.member.permissions.has('MANAGE_MESSAGES')) return message.channel.send('Error: You have no permission to use this command.');
+    execute (interaction) {
+        if (!interaction.member.permissions.has('MANAGE_MESSAGES')) return interaction.reply('Error: You have no permission to use this command.');
 
-            if (!args[0]) return message.channel.send('Error: Please provide a user.');
+            const memberField = interaction.options.getMember('user');
+                if (memberField.user.bot === true) return interaction.reply('Error: You cannot warn a bot.');
+                if (memberField.permissions.has('MANAGE_MESSAGES')) return interaction.reply('Error: This user cannot be warned.');
 
-			const user = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
-                if (!user) return message.channel.send('Error: Please provide a valid user.');
-                if (user === message.member) return message.channel.send('Error: You cannot warn yourself.');
-				if (user.permissions.has('MANAGE_MESSAGES')) return message.channel.send('Error: This user cannot be warned.');
-
-                const userID = user.id;
-
-            let warnReason = args.splice(1).join(' ');
-                if (!warnReason) {
-                    warnReason = 'None';
+            let reasonField = interaction.options.getString('reason');
+                if (!reasonField) {
+                    reasonField = 'None';
                 }
 
-		const embedUser = new MessageEmbed()
+        const embedUser = new MessageEmbed()
             .setTitle('Warn')
-            .addField('Guild', `\`${message.guild.name}\``)
-            .addField('By', `\`${message.author.tag}\``)
-            .addField('Reason', `\`${warnReason}\``)
+            .addField('Guild', `\`${interaction.guild.name}\``)
+            .addField('By', `\`${interaction.user.tag}\``)
+            .addField('Reason', `\`${reasonField}\``)
             .setTimestamp()
             .setColor('#FF0000');
 
         const embed = new MessageEmbed()
             .setTitle('Warn')
-            .addField('User', `${user}`)
-            .addField('ID', `\`${userID}\``)
-            .addField('By', `\`${message.author.tag}\``)
-            .addField('Reason', `\`${warnReason}\``)
+            .addField('User', `${memberField}`)
+            .addField('ID', `\`${memberField.user.id}\``)
+            .addField('By', `\`${interaction.user.tag}\``)
+            .addField('Reason', `\`${reasonField}\``)
             .setTimestamp()
             .setColor('#FF0000');
 
-        user.send({ embeds: [embedUser] }).then(message.channel.send({ embeds: [embed] }));
-    }
+        memberField.send({ embeds: [embedUser] }).then(interaction.reply({ embeds: [embed] }));
+	}
 };

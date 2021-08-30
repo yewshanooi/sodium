@@ -1,38 +1,38 @@
 const { MessageEmbed } = require('discord.js');
+const { SlashCommandBuilder } = require('@discordjs/builders');
 const { embedColor } = require('../config.json');
 
 module.exports = {
-    name: 'roleinfo',
-    description: 'Display information(s) about the tagged role',
-    usage: 'roleinfo {@role}',
-    cooldown: '5',
+	data: new SlashCommandBuilder()
+		.setName('roleinfo')
+		.setDescription('Display information(s) about the selected role')
+        .addRoleOption(option => option.setName('role').setDescription('Select a role').setRequired(true)),
+	cooldown: '5',
     guildOnly: true,
-    execute (message, args) {
-        if (!args[0]) return message.channel.send('Error: Please provide a role.');
-          const role = message.mentions.roles.first() || message.guild.roles.cache.get(args[0]) || message.guild.roles.cache.find(ri => ri.name.toLowerCase() === args.join(' ').toLocaleLowerCase());
-            if (!role) return message.channel.send('Error: Please provide a valid role.');
+    execute (interaction) {
+        const roleField = interaction.options.getRole('role');
 
-        const { mentionable } = role;
-        let resultMention;
-            if (mentionable === true) resultMention = 'Yes';
+        const { mentionable } = roleField;
+            let resultMention;
+                if (mentionable === true) resultMention = 'Yes';
             else resultMention = 'No';
 
-        const { hoist } = role;
-        let resultHoist;
-            if (hoist === true) resultHoist = 'Yes';
+        const { hoist } = roleField;
+            let resultHoist;
+                if (hoist === true) resultHoist = 'Yes';
             else resultHoist = 'No';
 
         const embed = new MessageEmbed()
             .setTitle('Role Info')
-            .addField('Name', `\`${role.name}\``, true)
-            .addField('ID', `\`${role.id}\``, true)
-            .addField('Creation Date & Time', `\`${role.createdAt}\``)
-            .addField('Members', `\`${role.members.size}\``, true)
-            .addField('Position', `\`${role.position}\``, true)
-            .addField('Color (Hex)', `\`${role.hexColor}\``, true)
+            .addField('Name', `\`${roleField.name}\``, true)
+            .addField('ID', `\`${roleField.id}\``, true)
+            .addField('Creation Date & Time', `\`${roleField.createdAt}\``)
+            .addField('Members', `\`${roleField.members.size}\``, true)
+            .addField('Position', `\`${roleField.position}\``, true)
+            .addField('Color (Hex)', `\`${roleField.hexColor}\``, true)
             .addField('Mentionable', `\`${resultMention}\``, true)
             .addField('Display Separately', `\`${resultHoist}\``, true)
             .setColor(embedColor);
-        message.channel.send({ embeds: [embed] });
-    }
+        interaction.reply({ embeds: [embed] });
+	}
 };

@@ -1,20 +1,22 @@
 const { MessageEmbed } = require('discord.js');
+const { SlashCommandBuilder } = require('@discordjs/builders');
 const { embedColor } = require('../config.json');
 
 module.exports = {
-    name: 'announce',
-    description: 'Get the bot to announce something',
-    usage: 'announce {message}',
-    cooldown: '5',
+    data: new SlashCommandBuilder()
+        .setName('announce')
+        .setDescription('Get the bot to announce something')
+        .addStringOption(option => option.setName('message').setDescription('Enter a message').setRequired(true)),
+    cooldown: '10',
     guildOnly: true,
-    execute (message, args) {
-        const announcement = args.join(' ');
-          if (!announcement) return message.channel.send('Error: Please provide a valid message.');
-            const embed = new MessageEmbed()
-              .setTitle('Announcement')
-              .setAuthor(message.author.username, message.author.displayAvatarURL({ size: 64 }))
-              .setDescription(announcement)
-              .setColor(embedColor);
-          message.delete().then(message.channel.send({ embeds: [embed] }));
-      }
+    execute (interaction) {
+        const messageField = interaction.options.getString('message');
+
+        const embed = new MessageEmbed()
+            .setTitle('Announcement')
+            .setAuthor(interaction.user.username, interaction.user.displayAvatarURL({ size: 64 }))
+            .setDescription(messageField)
+            .setColor(embedColor);
+        interaction.reply({ embeds: [embed] });
+    }
 };

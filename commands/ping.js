@@ -1,24 +1,26 @@
 const { MessageEmbed } = require('discord.js');
+const { SlashCommandBuilder } = require('@discordjs/builders');
 const { embedColor } = require('../config.json');
 
 module.exports = {
-	name: 'ping',
-	description: 'Calculates Discord API\'s and WebSocket\'s latency',
-	usage: 'ping',
+	data: new SlashCommandBuilder()
+		.setName('ping')
+		.setDescription('Calculates Discord API\'s and WebSocket\'s latency'),
 	cooldown: '5',
-	execute (message) {
+	guildOnly: false,
+	execute (interaction) {
 		const embed = new MessageEmbed()
 				.setTitle('Ping')
 				.setDescription('*Calculating Latency.*')
 				.setColor(embedColor);
-			message.channel.send({ embeds: [embed] }).then(msg => {
-				const ping = msg.createdTimestamp - message.createdTimestamp;
+			interaction.reply({ embeds: [embed], fetchReply: true }).then(itr => {
+				const ping = itr.createdTimestamp - interaction.createdTimestamp;
 				const embedApi = new MessageEmbed()
 					.addField('API Latency', `\`${ping}\`ms`)
-					.addField('WebSocket Latency', `\`${message.client.ws.ping}\`ms`)
+					.addField('WebSocket Latency', `\`${interaction.client.ws.ping}\`ms`)
 					.setTimestamp()
 					.setColor(embedColor);
-				message.channel.send({ embeds: [embedApi] });
+				interaction.channel.send({ embeds: [embedApi] });
 			});
 		}
-	};
+};

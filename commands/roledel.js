@@ -1,27 +1,28 @@
 const { MessageEmbed } = require('discord.js');
+const { SlashCommandBuilder } = require('@discordjs/builders');
 const { embedColor } = require('../config.json');
 
 module.exports = {
-    name: 'roledel',
-    description: 'Remove role from tagged user',
-    usage: 'roledel {@user} {@role}',
-    cooldown: '15',
+	data: new SlashCommandBuilder()
+		.setName('roledel')
+		.setDescription('Remove role from selected user')
+        .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))
+        .addRoleOption(option => option.setName('role').setDescription('Select a role').setRequired(true)),
+	cooldown: '10',
     guildOnly: true,
-    execute (message, args) {
-        if (!message.member.permissions.has('MANAGE_ROLES')) return message.channel.send('Error: You have no permission to use this command.');
+    execute (interaction) {
+        if (!interaction.member.permissions.has('MANAGE_ROLES')) return interaction.reply('Error: You have no permission to use this command.');
 
-            const user = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
-                if (!user) return message.channel.send('Error: Please provide a valid user.');
+            const memberField = interaction.options.getMember('user');
 
-            const taggedRole = message.guild.roles.cache.find(rd => rd.name === args[1]) || message.guild.roles.cache.find(rd => rd.id === args[1]) || message.mentions.roles.first();
-                if (!taggedRole) return message.channel.send('Error: Please provide a valid role.');
-                if (!user.roles.cache.has(taggedRole.id)) return message.channel.send('Error: This user doesn\'t have the role.');
+            const roleField = interaction.options.getRole('role');
+                if (!memberField.roles.cache.has(roleField.id)) return interaction.reply('Error: This user doesn\'t have the role.');
 
             const embed = new MessageEmbed()
                 .setTitle('Role Delete')
-                .setDescription(`Successfully removed **${taggedRole}** role from user **${user}**`)
+                .setDescription(`Successfully removed **${roleField}** role from user **${memberField}**`)
                 .setTimestamp()
                 .setColor(embedColor);
-            message.channel.send({ embeds: [embed] }).then(user.roles.remove(taggedRole.id));
+            interaction.reply({ embeds: [embed] }).then(memberField.roles.remove(roleField.id));
         }
 };

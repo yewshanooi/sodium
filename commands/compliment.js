@@ -1,4 +1,5 @@
 const { MessageEmbed } = require('discord.js');
+const { SlashCommandBuilder } = require('@discordjs/builders');
 const { embedColor } = require('../config.json');
 
 const compliments = [
@@ -106,19 +107,27 @@ const compliments = [
   ];
 
 module.exports = {
-    name: 'compliment',
-    description: 'Sends the tagged user a random compliment',
-    usage: 'compliment {@user}',
-    cooldown: '15',
-    guildOnly: true,
-    execute (message, args) {
-        if (!args[0]) return message.channel.send('Error: Please provide a user.');
-        const user = message.mentions.users.first();
-          if (!user) return message.channel.send('Error: Please provide a valid user.');
-            const embed = new MessageEmbed()
-              .setTitle('Compliment')
-              .setDescription(`${compliments[Math.floor(Math.random() * compliments.length)]}\n *from \`${message.author.tag}\`*`)
-              .setColor(embedColor);
-            message.delete().then(user.send({ embeds: [embed] }));
-        }
+	data: new SlashCommandBuilder()
+      .setName('compliment')
+      .setDescription('Sends the selected user a random compliment')
+      .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true)),
+	cooldown: '15',
+  guildOnly: true,
+  execute (interaction) {
+      const userField = interaction.options.getUser('user');
+          if (userField === interaction.client.user) return interaction.reply('Error: You cannot send a compliment to the bot.');
+          if (userField.bot === true) return interaction.reply('Error: You cannot send a compliment to a bot.');
+
+          const embed = new MessageEmbed()
+            .setTitle('Compliment')
+            .setDescription(`${compliments[Math.floor(Math.random() * compliments.length)]}\n *from \`${interaction.user.tag}\`*`)
+            .setColor(embedColor);
+
+          const successEmbed = new MessageEmbed()
+            .setDescription(`*Successfully send compliment to ${userField}*`)
+            .setColor(embedColor);
+
+          interaction.reply({ embeds: [successEmbed] }).then(userField.send({ embeds: [embed] }));
+          // ephemeral: true will be added in a future update. Currently, bots cannot read those kind of messages yet and will output an error
+      }
 };

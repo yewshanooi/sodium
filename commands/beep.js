@@ -1,15 +1,17 @@
 const { MessageEmbed } = require('discord.js');
+const { SlashCommandBuilder } = require('@discordjs/builders');
 const { embedColor } = require('../config.json');
 
 module.exports = {
-	name: 'beep',
-	description: 'Boops back at you!',
-	usage: 'beep',
+	data: new SlashCommandBuilder()
+		.setName('beep')
+		.setDescription('Boops back at you!'),
 	cooldown: '0',
-	execute (message) {
+	guildOnly: false,
+	execute (interaction) {
 		const embed = new MessageEmbed()
-			.setDescription('Boop!')
+			.setDescription('Boop! ✨')
 			.setColor(embedColor);
-		message.channel.send({ embeds: [embed] }).then(message.react('✨'));
+		interaction.reply({ embeds: [embed] });
 	}
 };

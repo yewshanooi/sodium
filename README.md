@@ -7,42 +7,59 @@
     <br>
 </h1>
 
-<h4 align="center">Multi use discord bot with simple commands and a user-friendly interface</h4>
+<h4 align="center">Multi use discord bot with slash commands and a user-friendly interface</h4>
 
 <p align="center">
-    <a href="https://github.com/yewshanooi/skye">
-        <img alt="Languages" src="https://img.shields.io/github/languages/top/yewshanooi/skye?style=flat-square">
-    </a>
-    &nbsp;
-    <a href="https://github.com/yewshanooi/skye">
-  	    <img alt="Repository Size" src="https://img.shields.io/github/repo-size/yewshanooi/skye?style=flat-square">
-    </a>
-    &nbsp;
-    <a href="https://github.com/yewshanooi/skye">
-        <img alt="License" src="https://img.shields.io/github/license/yewshanooi/skye?style=flat-square">
-    </a>
-    &nbsp;
-    <a href="https://github.com/yewshanooi/skye">
         <img alt="Release Version" src="https://img.shields.io/github/v/release/yewshanooi/skye?include_prereleases&style=flat-square">
     </a>
     &nbsp;
-    <a href="https://github.com/yewshanooi/skye">
+  	    <img alt="Repository Size" src="https://img.shields.io/github/repo-size/yewshanooi/skye?style=flat-square">
+    </a>
+    &nbsp;
+        <img alt="Lines of Code" src="https://img.shields.io/tokei/lines/github/yewshanooi/skye?style=flat-square">
+    </a>
+    &nbsp;
+        <img alt="License" src="https://img.shields.io/github/license/yewshanooi/skye?style=flat-square">
+    </a>
+    &nbsp;
         <img alt="Last Commit" src="https://img.shields.io/github/last-commit/yewshanooi/skye?style=flat-square">
     </a>
 </p>
 
 ## Commands
 ###### Fun
-`8ball`, `achievement`, `beep`, `coinflip`, `color`, `compliment`, `diceroll`, `invert`, `meme`, `say`
+`8ball`, `achievement`, `beep`, `coinflip`, `color`, `compliment`, `diceroll`, `say`
 
 ###### Utility 
-`announce`, `avatar`, `botinfo`, `botnick`, `botstatus`, `channelname`, `covid`, `delete`, `guildinfo`, `help`, `invite`, `leave`, `message`, `nick`, `ping`, `reload`, `roleadd`, `roledel`, `roleinfo`, `userinfo`
+`announce`, `avatar`, `botinfo`, `botnick`, `botstatus`, `channelname`, `covid`, `delete`, `guildinfo`, `help`, `invite`, `leave`, `message`, `nick`, `ping`, `roleadd`, `roledel`, `roleinfo`, `userinfo`
 
 ###### Moderation
 `ban`, `channellock`, `channelunlock`, `deafen`, `kick`, `lockdown`, `mute`, `slowmode`, `undeafen`, `unmute`, `warn`
 
+## Installation
+###### Packages
+**npm install** these packages
+* `@discordjs/builders@0.5.0`
+* `@discordjs/rest@0.1.0-canary.0`
+* `discord-api-types@0.22.0`
+* `discord.js@13.1.0`
+
+###### Node.js
+**Node.js v16.6.0** and above is required to run.
+
+###### Config Files
+Create a new **config.json** file and fill it with your own information.
+```json
+{
+	"clientId": "YOUR-CLIENT-ID",
+	"guildId": "YOUR-GUILD-ID",
+	"token": "YOUR-TOKEN",
+	"embedColor": "YOUR-EMBED-COLOR"
+}
+```
+
 ## License
-###### Disclaimer - This project is licensed under the MIT License
+###### This project is licensed under the MIT License
 ```
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
 INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
@@ -50,10 +67,6 @@ IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMA
 WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR 
 THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ```
-
-## Version
-###### Skye v0.4.3
-###### Discord.js v13.1.0
 
 ## Author
 ###### Authored and maintained by

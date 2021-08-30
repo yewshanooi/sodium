@@ -1,4 +1,5 @@
 const { MessageEmbed } = require('discord.js');
+const { SlashCommandBuilder } = require('@discordjs/builders');
 const { embedColor } = require('../config.json');
 
 const achievements = [
@@ -116,20 +117,27 @@ const achievements = [
   ];
 
 module.exports = {
-    name: 'achievement',
-    description: 'Reward the tagged user with a random achievement',
-    usage: 'achievement {@user}',
+    data: new SlashCommandBuilder()
+        .setName('achievement')
+        .setDescription('Rewards the selected user with a random achievement')
+        .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true)),
     cooldown: '15',
     guildOnly: true,
-    execute (message, args) {
-        if (!args[0]) return message.channel.send('Error: Please provide a user.');
-        const user = message.mentions.users.first();
-          if (!user) return message.channel.send('Error: Please provide a valid user.');
-          if (user === message.client.user) return message.channel.send('Error: You cannot send an achievement to the bot.');
-            const embed = new MessageEmbed()
-              .setTitle('Achievement')
-              .setDescription(`You have received the achievement **${achievements[Math.floor(Math.random() * achievements.length)]}**`)
-              .setColor(embedColor);
-            message.delete().then(user.send({ embeds: [embed] }));
-    }
+    execute (interaction) {
+        const userField = interaction.options.getUser('user');
+            if (userField === interaction.client.user) return interaction.reply('Error: You cannot send an achievement to the bot.');
+            if (userField.bot === true) return interaction.reply('Error: You cannot send an achievement to a bot.');
+
+        const embed = new MessageEmbed()
+            .setTitle('Achievement')
+            .setDescription(`You have received the achievement **${achievements[Math.floor(Math.random() * achievements.length)]}**`)
+            .setColor(embedColor);
+
+        const successEmbed = new MessageEmbed()
+            .setDescription(`*Successfully send achievement to ${userField}*`)
+            .setColor(embedColor);
+
+        interaction.reply({ embeds: [successEmbed] }).then(userField.send({ embeds: [embed] }));
+        // ephemeral: true will be added in a future update. Currently, bots cannot read those kind of messages yet and will output an error
+      }
 };

@@ -1,24 +1,25 @@
 const { MessageEmbed } = require('discord.js');
+const { SlashCommandBuilder } = require('@discordjs/builders');
 const { embedColor } = require('../config.json');
 
 module.exports = {
-    name: 'slowmode',
-    description: 'Enable slowmode for the current channel',
-    usage: 'slowmode {seconds}',
-    cooldown: '15',
+	data: new SlashCommandBuilder()
+		.setName('slowmode')
+		.setDescription('Enable slowmode for the current channel')
+        .addIntegerOption(option => option.setName('value').setDescription('Enter an value').setRequired(true)),
+	cooldown: '15',
     guildOnly: true,
-    execute (message, args) {
-        if (!message.member.permissions.has('MANAGE_CHANNELS')) return message.channel.send('Error: You have no permission to use this command.');
+    execute (interaction) {
+        if (!interaction.member.permissions.has('MANAGE_CHANNELS')) return interaction.reply('Error: You have no permission to use this command.');
 
-        const duration = parseInt(args[0]);
-            if (isNaN(duration)) return message.channel.send('Error: Please provide an integer.');
-            if (duration < 0 || duration > '21600') return message.channel.send('Error: You need to input a number between `0` and `21600`.');
+        const integerField = interaction.options.getInteger('value');
+            if (integerField < 0 || integerField > '21600') return interaction.reply('Error: You need to input a number between `0` and `21600`.');
 
         const embed = new MessageEmbed()
             .setTitle('Channel Slowmode')
-            .setDescription(`Successfully set slowmode to **${duration}** second(s)`)
+            .setDescription(`Successfully set slowmode to **${integerField}** second(s)`)
             .setTimestamp()
             .setColor(embedColor);
-        message.channel.send({ embeds: [embed] }).then(message.channel.setRateLimitPerUser(duration));
-    }
+        interaction.reply({ embeds: [embed] }).then(interaction.channel.setRateLimitPerUser(integerField));
+	}
 };

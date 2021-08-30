@@ -1,24 +1,25 @@
 const { MessageEmbed } = require('discord.js');
+const { SlashCommandBuilder } = require('@discordjs/builders');
 const { embedColor } = require('../config.json');
 
 module.exports = {
-	name: 'guildinfo',
-	description: 'Display information(s) about the guild',
-	usage: 'guildinfo',
+	data: new SlashCommandBuilder()
+		.setName('guildinfo')
+		.setDescription('Display information(s) about the guild'),
 	cooldown: '5',
 	guildOnly: true,
-	execute (message) {
-		const MFA = message.guild.mfaLevel;
+	execute (interaction) {
+		const MFA = interaction.guild.mfaLevel;
 		let resultMFA;
 			if (MFA === 1) resultMFA = 'Enabled';
 			else resultMFA = 'Disabled';
 
-		const partnered = message.guild;
+		const partnered = interaction.guild;
 		let resultPartner;
 			if (partnered === true) resultPartner = 'Yes';
 			else resultPartner = 'No';
 
-		const premium = message.guild.premiumTier;
+		const premium = interaction.guild.premiumTier;
 		let resultPremium;
 			if (premium === 'NONE') resultPremium = 'None';
 			if (premium === 'TIER_1') resultPremium = 'Tier 1';
@@ -27,17 +28,17 @@ module.exports = {
 
 		const embed = new MessageEmbed()
 			.setTitle('Guild Info')
-			.addField('Name', `\`${message.guild.name}\``, true)
-			.addField('Creation Date & Time', `\`${message.guild.createdAt}\``)
-			.addField('Members', `\`${message.guild.memberCount}\``, true)
-			.addField('Channels', `\`${message.guild.channels.cache.filter(ch => ch.type !== 'category').size}\``, true)
-			.addField('ID', `\`${message.guild.id}\``, true)
-			.addField('Language', `\`${message.guild.preferredLocale}\``, true)
+			.addField('Name', `\`${interaction.guild.name}\``, true)
+			.addField('Creation Date & Time', `\`${interaction.guild.createdAt}\``)
+			.addField('Members', `\`${interaction.guild.memberCount}\``, true)
+			.addField('Channels', `\`${interaction.guild.channels.cache.filter(ch => ch.type !== 'category').size}\``, true)
+			.addField('ID', `\`${interaction.guild.id}\``, true)
+			.addField('Language', `\`${interaction.guild.preferredLocale}\``, true)
 			.addField('2FA', `\`${resultMFA}\``, true)
 			.addField('Partnered', `\`${resultPartner}\``, true)
-			.addField('Total Boosts', `\`${message.guild.premiumSubscriptionCount}\``)
+			.addField('Total Boosts', `\`${interaction.guild.premiumSubscriptionCount}\``)
 			.addField('Boost Level', `\`${resultPremium}\``)
 			.setColor(embedColor);
-		message.channel.send({ embeds: [embed] });
+		interaction.reply({ embeds: [embed] });
 	}
 };

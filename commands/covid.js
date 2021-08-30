@@ -1,16 +1,17 @@
 const fetch = require('node-fetch');
 const { MessageEmbed, MessageButton, MessageActionRow } = require('discord.js');
-const { prefix } = require('../config.json');
+const { SlashCommandBuilder } = require('@discordjs/builders');
 const { embedColor } = require('../config.json');
 
 module.exports = {
-    name: 'covid',
-    description: 'Show latest cases worldwide or in a particular country',
-    usage: 'covid all / {country}',
-    cooldown: '0',
-    execute (message, args) {
-        const countries = args.join(' ');
-            if (!args[0]) return message.channel.send(`Error: You are missing some args.\n*(e.g: \`${prefix}covid all\` or \`${prefix}covid US\`)*`);
+	data: new SlashCommandBuilder()
+		.setName('covid')
+		.setDescription('Show latest cases worldwide or in a particular country')
+        .addStringOption(option => option.setName('country').setDescription('Enter a country')),
+	cooldown: '0',
+    guildOnly: false,
+    execute (interaction) {
+        const stringField = interaction.options.getString('country');
 
             const button = new MessageActionRow()
                 .addComponents(new MessageButton()
@@ -18,7 +19,7 @@ module.exports = {
                     .setLabel('API Repository')
                     .setStyle('LINK'));
 
-        if (args[0] === 'all') {
+        if (!stringField) {
             fetch('https://covid19.mathdro.id/api')
             .then(response => response.json())
             .then(data => {
@@ -35,11 +36,11 @@ module.exports = {
                     .setTimestamp()
                     .setColor(embedColor);
 
-                message.channel.send({ embeds: [embed], components: [button] });
+                interaction.reply({ embeds: [embed], components: [button] });
             });
         }
-        else {
-            fetch(`https://covid19.mathdro.id/api/countries/${countries}`)
+        if (stringField) {
+            fetch(`https://covid19.mathdro.id/api/countries/${stringField}`)
             .then(response => response.json())
             .then(data => {
                 const confirmed = data.confirmed.value.toLocaleString();
@@ -48,20 +49,15 @@ module.exports = {
 
                 const embed = new MessageEmbed()
                     .setTitle('Covid-19')
-                    .setDescription(`Statistics for **${countries}**`)
+                    .setDescription(`Statistics for **${stringField}**`)
                     .addField('Confirmed', `\`${confirmed}\``)
                     // .addField('Recovered', `\`${recovered}\``)
                     .addField('Deaths', `\`${deaths}\``)
                     .setTimestamp()
                     .setColor(embedColor);
 
-                message.channel.send({ embeds: [embed], components: [button] });
-            }).catch(() => message.channel.send('Error: Please provide a valid country.'));
+                interaction.reply({ embeds: [embed], components: [button] });
+            }).catch(() => interaction.reply('Error: Please provide a valid country.'));
         }
-    }
+	}
 };
-
-/*
- * 'recovered' data always return 0 from API's side (known issue)
- * https://github.com/mathdroid/covid-19-api/issues
- */

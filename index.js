@@ -1,7 +1,7 @@
 const newLocal = require('fs');
 const fs = newLocal;
 const Discord = require('discord.js');
-const { prefix, token } = require('./config.json');
+const { token } = require('./config.json');
 
 const cooldowns = new Discord.Collection();
 
@@ -12,60 +12,59 @@ const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('
 
 for (const file of commandFiles) {
 	const command = require(`./commands/${file}`);
-	client.commands.set(command.name, command);
+	client.commands.set(command.data.name, command);
 }
 
 client.once('ready', () => {
 	console.log(`User : ${client.user.tag}\n${client.users.cache.size} users, ${client.channels.cache.size} channels, ${client.guilds.cache.size} guilds`);
-	client.user.setPresence({ activities: [{ name: `${prefix}help ∙ ${client.users.cache.size} users, ${client.channels.cache.size} channels, ${client.guilds.cache.size} guilds` }], status: 'online' });
+	client.user.setPresence({ activities: [{ name: `/help ∙ ${client.users.cache.size} users, ${client.channels.cache.size} channels, ${client.guilds.cache.size} guilds` }], status: 'online' });
 });
 
-client.on('messageCreate', message => {
-	if (!message.content.startsWith(prefix) || message.author.bot) return;
+client.on('interactionCreate', interaction => {
+	if (!interaction.isCommand()) return;
 
-	const args = message.content.slice(prefix.length).trim().split(/ +/);
-	const commandName = args.shift().toLowerCase();
-
-	const command = client.commands.get(commandName);
+	const command = client.commands.get(interaction.commandName);
 
 	/* ============================================= */
 
 	if (!command) return;
 
-	if (command.guildOnly && message.channel.type === 'DM') {
-		return message.channel.send('Error: This command cannot be executed in DMs.');
+	if (command.guildOnly && interaction.channel.type === 'DM') {
+		return interaction.reply('Error: This command cannot be executed in DMs.');
 	}
 
 	/* ============================================= */
 
-	if (!cooldowns.has(command.name)) {
-		cooldowns.set(command.name, new Discord.Collection());
+
+	if (!cooldowns.has(command.data.name)) {
+		cooldowns.set(command.data.name, new Discord.Collection());
 	}
 
 	const now = Date.now();
-	const timestamps = cooldowns.get(command.name);
+	const timestamps = cooldowns.get(command.data.name);
 	const cooldownAmount = (command.cooldown || 3) * 1000;
 
-	if (timestamps.has(message.author.id)) {
-		const expirationTime = timestamps.get(message.author.id) + cooldownAmount;
+	if (timestamps.has(interaction.user.id)) {
+		const expirationTime = timestamps.get(interaction.user.id) + cooldownAmount;
 
 		if (now < expirationTime) {
 			const timeLeft = (expirationTime - now) / 1000;
-			return message.channel.send(`Error: Please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${command.name}\` command.`);
+			return interaction.reply({ content: `Please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${command.data.name}\` command.` });
 		}
 	}
 
-	timestamps.set(message.author.id, now);
-	setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
+	timestamps.set(interaction.user.id, now);
+	setTimeout(() => timestamps.delete(interaction.user.id), cooldownAmount);
 
 	/* ============================================= */
 
 	try {
-		command.execute(message, args);
+		command.execute(interaction);
 	}
 	catch (error) {
 		console.error(error);
-		message.channel.send('Error: There was a problem trying to execute that command!');
+		interaction.reply({ content: 'There was an error while executing this command!' });
+		// ephemeral: true will be added in a future update. Currently, bots cannot read those kind of messages yet and will output an error
 	}
 });
 

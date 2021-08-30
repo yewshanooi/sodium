@@ -1,16 +1,17 @@
 const { MessageEmbed } = require('discord.js');
+const { SlashCommandBuilder } = require('@discordjs/builders');
 const { embedColor } = require('../config.json');
 
 module.exports = {
-    name: 'channelunlock',
-    description: 'Unlocks the current channel',
-    usage: 'channelunlock',
-    cooldown: '25',
+	data: new SlashCommandBuilder()
+		.setName('channelunlock')
+		.setDescription('Unlocks the current channel'),
+	cooldown: '25',
     guildOnly: true,
-    execute (message) {
-        if (!message.member.permissions.has('MANAGE_CHANNELS')) return message.channel.send('Error: You have no permission to use this command.');
+    execute (interaction) {
+        if (!interaction.member.permissions.has('MANAGE_CHANNELS')) return interaction.reply('Error: You have no permission to use this command.');
 
-        const currentChannel = message.channel;
+        const currentChannel = interaction.channel;
 
             const embed = new MessageEmbed()
                 .setTitle('Channel Unlock')
@@ -18,12 +19,12 @@ module.exports = {
                 .setTimestamp()
                 .setColor(embedColor);
 
-            message.channel.send({ embeds: [embed] }).then(message.guild.roles.cache.forEach(role => {
+            interaction.reply({ embeds: [embed] }).then(interaction.guild.roles.cache.forEach(role => {
                 currentChannel.permissionOverwrites.create(role, {
                     SEND_MESSAGES: true,
                     ADD_REACTIONS: true
                 });
             }));
         // Current channelunlock command will override existing staff & muted role permissions.
-    }
+	}
 };

@@ -1,42 +1,45 @@
 const { MessageEmbed, MessageButton, MessageActionRow } = require('discord.js');
+const { SlashCommandBuilder } = require('@discordjs/builders');
 const { embedColor } = require('../config.json');
 
 module.exports = {
-	name: 'avatar',
-	description: 'Get your own avatar or the tagged user\'s avatar',
-	usage: 'avatar <@user>',
+	data: new SlashCommandBuilder()
+		.setName('avatar')
+		.setDescription('Get your own avatar or another user\'s avatar')
+		.addUserOption(option => option.setName('user').setDescription('Select a user')),
 	cooldown: '5',
-	execute (message) {
-		if (!message.mentions.users.size) {
-			const embedOwn = new MessageEmbed()
+	guildOnly: false,
+	execute (interaction) {
+		const userField = interaction.options.getUser('user');
+
+		if (!userField) {
+			const embedSelf = new MessageEmbed()
 				.setTitle('Your Avatar')
-				.setImage(`${message.author.displayAvatarURL({ dynamic: true })}`)
+				.setImage(`${interaction.user.displayAvatarURL({ dynamic: true })}`)
 				.setColor(embedColor);
 
-				const buttonOwn = new MessageActionRow()
+				const buttonSelf = new MessageActionRow()
 					.addComponents(new MessageButton()
-						.setURL(`https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.jpeg`)
+						.setURL(`https://cdn.discordapp.com/avatars/${interaction.user.id}/${interaction.user.avatar}.jpeg`)
 						.setLabel('Avatar JPEG')
 						.setStyle('LINK'));
 
-			message.channel.send({ embeds: [embedOwn], components: [buttonOwn] });
+			interaction.reply({ embeds: [embedSelf], components: [buttonSelf] });
 		}
 
-		if (message.mentions.users.size) {
-			const taggedUser = message.mentions.users.first();
-			const userAvatar = message.mentions.users.map(user => `${user.displayAvatarURL({ dynamic: true })}`);
-			const embedTagged = new MessageEmbed()
-				.setTitle(`${taggedUser.username}'s Avatar`)
-				.setImage(`${userAvatar}`)
+		if (userField) {
+			const embedOthers = new MessageEmbed()
+				.setTitle(`${userField.username}'s Avatar`)
+				.setImage(`${userField.displayAvatarURL({ dynamic: true })}`)
 				.setColor(embedColor);
 
-				const buttonTagged = new MessageActionRow()
+				const buttonOthers = new MessageActionRow()
 					.addComponents(new MessageButton()
-						.setURL(`https://cdn.discordapp.com/avatars/${taggedUser.id}/${taggedUser.avatar}.jpeg`)
+						.setURL(`https://cdn.discordapp.com/avatars/${userField.id}/${userField.avatar}.jpeg`)
 						.setLabel('Avatar JPEG')
 						.setStyle('LINK'));
 
-			message.channel.send({ embeds: [embedTagged], components: [buttonTagged] });
+			interaction.reply({ embeds: [embedOthers], components: [buttonOthers] });
 		}
 	}
 };

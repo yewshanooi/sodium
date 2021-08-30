@@ -1,37 +1,34 @@
 const { MessageEmbed } = require('discord.js');
+const { SlashCommandBuilder } = require('@discordjs/builders');
 const { embedColor } = require('../config.json');
 
 module.exports = {
-    name: 'nick',
-    description: 'Change the tagged user\'s nickname',
-    usage: 'nick {@user} {nickname}',
-    cooldown: '10',
+	data: new SlashCommandBuilder()
+		.setName('nick')
+		.setDescription('Change the selected user\'s nickname')
+        .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))
+        .addStringOption(option => option.setName('nick').setDescription('Enter a nickname').setRequired(true)),
+	cooldown: '10',
     guildOnly: true,
-    execute (message, args) {
-		if (!message.member.permissions.has('MANAGE_NICKNAMES')) return message.channel.send('Error: You have no permission to use this command.');
+    execute (interaction) {
+        if (!interaction.member.permissions.has('MANAGE_NICKNAMES')) return interaction.reply('Error: You have no permission to use this command.');
 
-            if (!args[0]) return message.channel.send('Error: Please provide a user.');
+            const memberField = interaction.options.getMember('user');
+                if (memberField.permissions.has('MANAGE_NICKNAMES')) return interaction.reply('Error: This user\'s nickname cannot be changed.');
 
-			const user = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
-                if (!user) return message.channel.send('Error: Please provide a valid user.');
-                if (user.permissions.has('MANAGE_NICKNAMES')) return message.channel.send('Error: This user\'s nickname cannot be changed.');
+            const stringField = interaction.options.getString('nick');
 
-            const users = message.mentions.users.first();
-
-                const nickname = args.join(' ').slice(22);
-                    if (!nickname) return message.channel.send('Error: Please provide a valid username.');
-
-                if (nickname.length <= '33') {
+                if (stringField.length <= '33') {
                     const embed = new MessageEmbed()
                         .setTitle('Nickname')
-                        .setDescription(`**${users.username}**'s nickname successfully changed to **${nickname}**`)
+                        .setDescription(`**${memberField.user.username}**'s nickname successfully changed to **${stringField}**`)
                         .setTimestamp()
                         .setColor(embedColor);
 
-                    message.channel.send({ embeds: [embed] }).then(user.setNickname(nickname));
+                    interaction.reply({ embeds: [embed] }).then(memberField.setNickname(stringField));
                 }
                 else {
-                    return message.channel.send('Error: Nickname must be 32 characters or fewer.');
+                    return interaction.reply('Error: Nickname must be 32 characters or fewer.');
                 }
             }
     };

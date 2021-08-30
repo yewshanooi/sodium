@@ -1,14 +1,17 @@
 const { MessageEmbed, MessageButton, MessageActionRow } = require('discord.js');
-const { prefix } = require('../config.json');
+const { SlashCommandBuilder } = require('@discordjs/builders');
 const { embedColor } = require('../config.json');
 
 module.exports = {
-	name: 'help',
-	description: 'List every commands or detailed info about a specific command',
-	usage: 'help <command>',
+	data: new SlashCommandBuilder()
+		.setName('help')
+		.setDescription('List every commands or detailed info about a specific command')
+        .addStringOption(option => option.setName('command').setDescription('Enter a string')),
 	cooldown: '0',
-	execute (message, args) {
-		const { commands } = message.client;
+	guildOnly: false,
+	execute (interaction) {
+		const { commands } = interaction.client;
+        const stringField = interaction.options.getString('command');
 
 			const button = new MessageActionRow()
 				.addComponents(new MessageButton()
@@ -16,45 +19,32 @@ module.exports = {
 					.setLabel('Detailed Guide')
 					.setStyle('LINK'));
 
-		if (!args.length) {
-			const embed1 = new MessageEmbed()
+		if (!stringField) {
+			const embedCmd = new MessageEmbed()
 				.setTitle('Help')
-				.setDescription(`Use \`${prefix}help {command}\` to get info on a specific command`)
-				.addField('Commands', commands.map(command => command.name).join(', '))
+				.setDescription('***Tip:** Use `/help {command}` to get more info on a specific command*')
+				.addField('Commands', commands.map(command => command.data.name).join(', '))
 				.setColor(embedColor);
+			interaction.reply({ embeds: [embedCmd], components: [button] });
+		}
 
-			return message.author.send({ embeds: [embed1], components: [button] })
-				.then(() => {
-					if (message.channel.type === 'DM') return;
-					const embedDM = new MessageEmbed()
-						.setTitle('Help')
-						.setDescription(`<@${message.author.id}>, I've sent you a DM with all the commands!`)
-						.setColor(embedColor);
-					message.channel.send({ embeds: [embedDM] });
-				})
-				.catch(error => {
-					message.channel.send(`Error: It seems like I can't DM you!\nError: \`${error.message}\``);
-				});
-			}
+		if (stringField) {
+			const command = commands.get(stringField.toLowerCase());
+				if (!command) return interaction.reply('Error: Please provide a valid command.');
 
-		const name = args[0].toLowerCase();
-		const command = commands.get(name);
-
-			if (!command) return message.channel.send('Error: Please provide a valid command.');
-
-			const guildOnlyCommand = command.guildOnly;
-			let resultGuildOnly;
+				const guildOnlyCommand = command.guildOnly;
+				let resultGuildOnly;
 				if (guildOnlyCommand === true) resultGuildOnly = 'True';
 				else resultGuildOnly = 'False';
 
-			const embed2 = new MessageEmbed()
-				.setTitle('Help')
-				.addField('Name', `\`${command.name}\``)
-				.addField('Description', `\`${command.description}\``)
-				.addField('Usage', `\`${prefix}${command.usage}\``)
-				.addField('Cooldown', `\`${command.cooldown || 3} second(s)\``)
-				.addField('Guild Only', `\`${resultGuildOnly}\``)
-				.setColor(embedColor);
-			message.channel.send({ embeds: [embed2] });
+				const embed2 = new MessageEmbed()
+					.setTitle('Help')
+					.addField('Name', `\`${command.data.name}\``)
+					.addField('Description', `\`${command.data.description}\``)
+					.addField('Cooldown', `\`${command.cooldown || 3} second(s)\``)
+					.addField('Guild Only', `\`${resultGuildOnly}\``)
+					.setColor(embedColor);
+				interaction.reply({ embeds: [embed2] });
+			}
 		}
-	};
+};

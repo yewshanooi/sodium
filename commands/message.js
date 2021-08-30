@@ -1,24 +1,32 @@
 const { MessageEmbed } = require('discord.js');
+const { SlashCommandBuilder } = require('@discordjs/builders');
 const { embedColor } = require('../config.json');
 
 module.exports = {
-    name: 'message',
-    description: 'Sends a private message to the tagged user',
-    usage: 'message {@user} {message}',
-    cooldown: '10',
+	data: new SlashCommandBuilder()
+		.setName('message')
+		.setDescription('Sends a private message to the selected user')
+        .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))
+        .addStringOption(option => option.setName('message').setDescription('Enter a message').setRequired(true)),
+	cooldown: '10',
     guildOnly: true,
-    execute (message, args) {
-        const user = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
-          if (!user) return message.channel.send('Error: Please provide a valid user.');
-          if (user === message.member) return message.channel.send('Error: You cannot message yourself.');
+    execute (interaction) {
+		const userField = interaction.options.getUser('user');
+            if (userField === interaction.client.user) return interaction.reply('Error: You cannot send a message to the bot.');
+            if (userField.bot === true) return interaction.reply('Error: You cannot send a message to a bot.');
 
-          const msg = args.splice(1).join(' ');
-            if (!msg) return message.channel.send('Error: Please provide a valid message.');
+        const stringField = interaction.options.getString('message');
 
-              const embed = new MessageEmbed()
-                  .setTitle(`Incoming message from **${message.author.tag}**`)
-                  .setDescription(`\`${msg}\``)
-                  .setColor(embedColor);
-              message.delete().then(user.send({ embeds: [embed] }));
-          }
-    };
+            const embed = new MessageEmbed()
+                .setTitle(`Incoming message from **${interaction.user.tag}**`)
+                .setDescription(`\`${stringField}\``)
+                .setColor(embedColor);
+
+            const successEmbed = new MessageEmbed()
+                .setDescription(`*Successfully send message to ${userField}*`)
+                .setColor(embedColor);
+
+            interaction.reply({ embeds: [successEmbed] }).then(userField.send({ embeds: [embed] }));
+            // ephemeral: true will be added in a future update. Currently, bots cannot read those kind of messages yet and will output an error
+        }
+};

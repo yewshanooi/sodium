@@ -1,4 +1,5 @@
 const { MessageEmbed } = require('discord.js');
+const { SlashCommandBuilder } = require('@discordjs/builders');
 
 const rndClrArr = [
     '#63b598', '#ce7d78', '#ea9e70', '#a48a9e', '#c6e1e8', '#648177', '#0d5ac1',
@@ -43,16 +44,17 @@ const rndClrArr = [
 ];
 
 module.exports = {
-    name: 'color',
-    description: 'Picks a random color from an array',
-    usage: 'color',
+	data: new SlashCommandBuilder()
+		.setName('color')
+		.setDescription('Picks a random color from an array'),
     cooldown: '5',
-    execute (message) {
-    const randomColor = `${rndClrArr[Math.floor(Math.random() * rndClrArr.length)]}`;
+    guildOnly: false,
+    execute (interaction) {
+        const randomColor = `${rndClrArr[Math.floor(Math.random() * rndClrArr.length)]}`;
         const embed = new MessageEmbed()
             .setTitle('Color')
             .setDescription(`Your random color is **${randomColor}**`)
             .setColor(randomColor);
-        message.channel.send({ embeds: [embed] });
+        interaction.reply({ embeds: [embed] });
     }
 };

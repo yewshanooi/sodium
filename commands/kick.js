@@ -1,37 +1,35 @@
 const { MessageEmbed } = require('discord.js');
+const { SlashCommandBuilder } = require('@discordjs/builders');
 
 module.exports = {
-	name: 'kick',
-	description: 'Kick the tagged user with or without a reason',
-    usage: 'kick {@user} <reason>',
+	data: new SlashCommandBuilder()
+		.setName('kick')
+		.setDescription('Kick the selected user with or without a reason')
+		.addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))
+		.addStringOption(option => option.setName('reason').setDescription('Enter a reason')),
 	cooldown: '30',
 	guildOnly: true,
-	execute (message, args) {
-		if (!message.member.permissions.has('KICK_MEMBERS')) return message.channel.send('Error: You have no permission to use this command.');
+	execute (interaction) {
+		if (!interaction.member.permissions.has('KICK_MEMBERS')) return interaction.reply('Error: You have no permission to use this command.');
 
-			if (!args[0]) return message.channel.send('Error: Please provide a user.');
+			const memberField = interaction.options.getMember('user');
+				if (memberField.user.bot === true) return interaction.reply('Error: You cannot kick a bot.');
+				if (memberField.permissions.has('KICK_MEMBERS')) return interaction.reply('Error: This user cannot be kicked.');
 
-			const user = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
-				if (!user) return message.channel.send('Error: Please provide a valid user.');
-				if (user === message.member) return message.channel.send('Error: You cannot kick yourself.');
-				if (user.permissions.has('KICK_MEMBERS')) return message.channel.send('Error: This user cannot be kicked.');
-
-				const userID = user.id;
-
-			let kickReason = args.splice(1).join(' ');
-				if (!kickReason) {
-					kickReason = 'None';
+			let reasonField = interaction.options.getString('reason');
+				if (!reasonField) {
+					reasonField = 'None';
 				}
 
 		const embed = new MessageEmbed()
 			.setTitle('Kick')
-			.addField('User', `${user}`)
-			.addField('ID', `\`${userID}\``)
-			.addField('By', `\`${message.author.tag}\``)
-			.addField('Reason', `\`${kickReason}\``)
+			.addField('User', `${memberField}`)
+			.addField('ID', `\`${memberField.user.id}\``)
+			.addField('By', `\`${interaction.user.tag}\``)
+			.addField('Reason', `\`${reasonField}\``)
 			.setTimestamp()
-            .setColor('#FF0000');
+			.setColor('#FF0000');
 
-		message.channel.send({ embeds: [embed] }).then(user.kick());
+		interaction.reply({ embeds: [embed] }).then(memberField.kick(memberField));
 	}
 };
