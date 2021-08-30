@@ -4,7 +4,7 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('undeafen')
-		.setDescription('Undeafen the tagged user with or without a reason')
+		.setDescription('Undeafen the selected user with or without a reason')
         .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))
 		.addStringOption(option => option.setName('reason').setDescription('Enter a reason')),
 	cooldown: '25',
