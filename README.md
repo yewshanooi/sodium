@@ -7,7 +7,7 @@
     <br>
 </h1>
 
-<h4 align="center">Multi use discord bot with slash commands and a user-friendly interface</h4>
+<h4 align="center">Multi use discord bot with application commands and a user-friendly interface</h4>
 
 <p align="center">
         <img alt="Release Version" src="https://img.shields.io/github/v/release/yewshanooi/skye?include_prereleases&style=flat-square">
