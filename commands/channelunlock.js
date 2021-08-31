@@ -6,7 +6,7 @@ module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('channelunlock')
 		.setDescription('Unlocks the current channel'),
-	cooldown: '25',
+	cooldown: '20',
     guildOnly: true,
     execute (interaction) {
         if (!interaction.member.permissions.has('MANAGE_CHANNELS')) return interaction.reply('Error: You have no permission to use this command.');

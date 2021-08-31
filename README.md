@@ -38,23 +38,27 @@
 
 ## Installation
 ###### Packages
-**npm install** these packages
+**Required**
 * `@discordjs/builders@0.5.0`
 * `@discordjs/rest@0.1.0-canary.0`
 * `discord-api-types@0.22.0`
 * `discord.js@13.1.0`
 
-###### Node.js
-**Node.js v16.6.0** and above is required to run.
+**Optional**
+* `eslint@7.32.0`
+* `nodemon@2.0.7`
 
-###### Config Files
-Create a new **config.json** file and fill it with your own information.
+###### Node.js
+**Node.js v16.6.0** and newer is required
+
+###### Config File
+Create a new **config.json** file and fill it with your own information
 ```json
 {
-	"clientId": "YOUR-CLIENT-ID",
-	"guildId": "YOUR-GUILD-ID",
-	"token": "YOUR-TOKEN",
-	"embedColor": "YOUR-EMBED-COLOR"
+	"clientId": "CLIENT-ID",
+	"guildId": "GUILD-ID",
+	"token": "BOT-TOKEN",
+	"embedColor": "HEX-COLOR"
 }
 ```
 
@@ -68,6 +72,6 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
 THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ```
 
-## Author
-###### Authored and maintained by
-> GitHub [@yewshanooi](https://github.com/yewshanooi)
+## Contributors
+###### Developer | Ooi Yew Shan
+[GitHub](https://github.com/yewshanooi/) · [Instagram](https://instagram.com/yewshanooi/) · [Discord](https://discordapp.com/users/266124126584963082/)

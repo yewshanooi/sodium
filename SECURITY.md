@@ -1,7 +1,6 @@
-## Security Policy
+## Policy
+###### Security 
+Any vulnerability present in the source code(s) must be reported directly to the developers. Those who do so will be acknowledge on the [README.md](https://github.com/yewshanooi/skye/blob/main/README.md) file. If there's any flaw in the source code(s) but was misused by the user and it is against the EULA and/or [License](https://github.com/yewshanooi/skye/blob/main/LICENSE), we may take any suitable type of action against the user. Illegal use of the source code(s) may lead to serious consequence as it is protected through license(s) which let users to fair use the code(s) without reverse-engineering it for any usage that is deemed illegal.
 
-Any vulnerability present in the codes must be reported to our developers. Those who do so will be credited on the [README.md](https://github.com/yewshanooi/skye/blob/main/README.md) file. If theres a significant flaw in the source codes but was misused against the EULA and/or [License](https://github.com/yewshanooi/skye/blob/main/LICENSE), we may take any suitable type of action against the offender. Misuse of the source codes may led to serious consequence as it is protected through License(s) which enable others to fair use the code without reverse-engineering it for illegal usage.
-
-## Privacy Policy
-
-Visit [this link](https://skyebot.weebly.com/privacy.html) to learn more about our privacy policy.
+###### Privacy
+Visit [here](https://skyebot.weebly.com/privacy.html) to learn more about our privacy policy.
