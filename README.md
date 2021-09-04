@@ -28,10 +28,10 @@
 
 ## Commands
 ###### Fun
-`8ball`, `achievement`, `beep`, `coinflip`, `color`, `compliment`, `diceroll`, `say`
+`8ball`, `achievement`, `beep`, `coinflip`, `color`, `compliment`, `diceroll`, `fact`, `giphy`, `github`, `say`, `urban`, `wikipedia`
 
 ###### Utility 
-`announce`, `avatar`, `botinfo`, `botnick`, `botstatus`, `channelname`, `covid`, `delete`, `guildinfo`, `help`, `invite`, `leave`, `message`, `nick`, `ping`, `roleadd`, `roledel`, `roleinfo`, `userinfo`
+`announce`, `avatar`, `botinfo`, `botnick`, `botstatus`, `channeldel`, `channelname`, `covid`, `delete`, `guildinfo`, `help`, `invite`, `leave`, `message`, `nick`, `ping`, `roleadd`, `roledel`, `roleinfo`, `userinfo`
 
 ###### Moderation
 `ban`, `channellock`, `channelunlock`, `deafen`, `kick`, `lockdown`, `mute`, `slowmode`, `undeafen`, `unmute`, `warn`
@@ -58,7 +58,8 @@ Create a new **config.json** file and fill it with your own information
 	"clientId": "CLIENT-ID",
 	"guildId": "GUILD-ID",
 	"token": "BOT-TOKEN",
-	"embedColor": "HEX-COLOR"
+	"embedColor": "HEX-COLOR",
+    "giphyAPIKey": "GIPHY-API-KEY"
 }
 ```
 
@@ -74,4 +75,4 @@ THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ## Contributors
 ###### Developer | Ooi Yew Shan
-[GitHub](https://github.com/yewshanooi/) · [Instagram](https://instagram.com/yewshanooi/) · [Discord](https://discordapp.com/users/266124126584963082/)
+[GitHub](https://github.com/yewshanooi/) • [Instagram](https://instagram.com/yewshanooi/) • [Discord](https://discordapp.com/users/266124126584963082/)

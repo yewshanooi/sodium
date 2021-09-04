@@ -13,7 +13,7 @@ module.exports = {
 		if (!interaction.member.permissions.has('MANAGE_MESSAGES')) return interaction.reply('Error: You have no permission to use this command.');
 			const valueField = interaction.options.getInteger('value');
 
-			if (valueField <= 1 || valueField > 100) return interaction.reply('Error: You need to input a number between `1` and `99`.');
+			if (valueField < 1 || valueField > 99) return interaction.reply('Error: You need to input a number between `1` and `99`.');
 
 			const embed = new MessageEmbed()
 				.setTitle('Delete')

@@ -5,9 +5,9 @@ const { embedColor } = require('../config.json');
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('channelname')
-		.setDescription('Renames the current channel')
+		.setDescription('Rename the current channel')
         .addStringOption(option => option.setName('name').setDescription('Enter a name').setRequired(true)),
-	cooldown: '20',
+	cooldown: '15',
     guildOnly: true,
     execute (interaction) {
         if (!interaction.member.permissions.has('MANAGE_CHANNELS')) return interaction.reply('Error: You have no permission to use this command.');

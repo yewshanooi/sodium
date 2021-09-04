@@ -5,7 +5,7 @@ const { embedColor } = require('../config.json');
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('channelunlock')
-		.setDescription('Unlocks the current channel'),
+		.setDescription('Unlock the current channel'),
 	cooldown: '20',
     guildOnly: true,
     execute (interaction) {
