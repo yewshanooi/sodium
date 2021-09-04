@@ -59,7 +59,7 @@ Create a new **config.json** file and fill it with your own information
 	"guildId": "GUILD-ID",
 	"token": "BOT-TOKEN",
 	"embedColor": "HEX-COLOR",
-    "giphyAPIKey": "GIPHY-API-KEY"
+	"giphyAPIKey": "GIPHY-API-KEY" 
 }
 ```
 
