@@ -23,7 +23,7 @@ module.exports = {
 
 			interaction.channel.bulkDelete(valueField, true);
 			interaction.reply({ embeds: [embed], fetchReply: true }).then(msg => {
-				setTimeout(() => msg.delete(), 7000);
+				setTimeout(() => msg.delete(), 6000);
 			});
 		}
 };

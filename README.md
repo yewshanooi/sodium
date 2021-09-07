@@ -28,9 +28,9 @@
 
 ## Commands
 ###### Fun
-`8ball`, `achievement`, `beep`, `coinflip`, `color`, `compliment`, `diceroll`, `fact`, `giphy`, `github`, `say`, `urban`, `wikipedia`
+`8ball`, `achievement`, `beep`, `catfact`, `coinflip`, `color`, `compliment`, `diceroll`, `dogfact`, `fact`, `giphy`, `github`, `say`, `urban`, `wikipedia`
 
-###### Utility 
+###### Utility
 `announce`, `avatar`, `botinfo`, `botnick`, `botstatus`, `channeldel`, `channelname`, `covid`, `delete`, `guildinfo`, `help`, `invite`, `leave`, `message`, `nick`, `ping`, `roleadd`, `roledel`, `roleinfo`, `userinfo`
 
 ###### Moderation
@@ -49,7 +49,7 @@
 * `nodemon@2.0.7`
 
 ###### Node.js
-**Node.js v16.6.0** and newer is required
+**Node.js v16.6.0** or newer is required
 
 ###### Config File
 Create a new **config.json** file and fill it with your own information
@@ -59,7 +59,7 @@ Create a new **config.json** file and fill it with your own information
 	"guildId": "GUILD-ID",
 	"token": "BOT-TOKEN",
 	"embedColor": "HEX-COLOR",
-	"giphyAPIKey": "GIPHY-API-KEY" 
+	"giphyAPIKey": "GIPHY-API-KEY"
 }
 ```
 

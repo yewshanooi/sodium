@@ -16,16 +16,14 @@ for (const file of commandFiles) {
 }
 
 client.once('ready', () => {
-	console.log(`User : ${client.user.tag}\n${client.users.cache.size} users, ${client.channels.cache.size} channels, ${client.guilds.cache.size} guilds`);
-	client.user.setPresence({ activities: [{ name: `/help ∙ ${client.users.cache.size} users, ${client.channels.cache.size} channels, ${client.guilds.cache.size} guilds` }], status: 'online' });
+	console.log(`${client.user.tag}\n${client.users.cache.size} users, ${client.channels.cache.size} channels, ${client.guilds.cache.size} guilds`);
+	client.user.setPresence({ activities: [{ name: '/help' }], status: 'online' });
 });
 
 client.on('interactionCreate', interaction => {
 	if (!interaction.isCommand()) return;
 
 	const command = client.commands.get(interaction.commandName);
-
-	/* ============================================= */
 
 	if (!command) return;
 

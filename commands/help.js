@@ -20,12 +20,12 @@ module.exports = {
 					.setStyle('LINK'));
 
 		if (!stringField) {
-			const embedCmd = new MessageEmbed()
+			const embed1 = new MessageEmbed()
 				.setTitle('Help')
-				.setDescription('***Tip:** Use `/help {command}` to get more info on a specific command*')
+				.setDescription('*Use `/help {command}` to get more info on a specific command*')
 				.addField('Commands', commands.map(command => command.data.name).join(', '))
 				.setColor(embedColor);
-			interaction.reply({ embeds: [embedCmd], components: [button] });
+			interaction.reply({ embeds: [embed1], components: [button] });
 		}
 
 		if (stringField) {
