@@ -1,5 +1,5 @@
 <p align="center">
-    <img src=".github/README_icon.png" width="190" height="165"/>
+    <img src=".github/readme_icon.png" width="190" height="165"/>
 </p>
 
 <h1 align="center">
@@ -55,11 +55,11 @@
 Create a new **config.json** file and fill it with your own information
 ```json
 {
-	"clientId": "CLIENT-ID",
-	"guildId": "GUILD-ID",
-	"token": "BOT-TOKEN",
-	"embedColor": "HEX-COLOR",
-	"giphyAPIKey": "GIPHY-API-KEY"
+  "clientId": "CLIENT-ID",
+  "guildId": "GUILD-ID",
+  "token": "BOT-TOKEN",
+  "embedColor": "HEX-COLOR",
+  "giphyAPIKey": "GIPHY-API-KEY"
 }
 ```
 
