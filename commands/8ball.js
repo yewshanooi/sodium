@@ -34,7 +34,6 @@ module.exports = {
     guildOnly: false,
     execute (interaction) {
         const questionField = interaction.options.getString('question');
-          if (!questionField) return interaction.reply('Error: Please provide a valid question.');
 
         const embed = new MessageEmbed()
             .setTitle('8-Ball')

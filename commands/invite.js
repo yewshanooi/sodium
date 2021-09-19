@@ -28,6 +28,6 @@ module.exports = {
                     .setLabel('OAuth2 Invite')
                     .setStyle('LINK'));
 
-        interaction.reply({ embeds: [embed], components: [buttons] });
-	}
+            interaction.reply({ embeds: [embed], components: [buttons] });
+        }
 };

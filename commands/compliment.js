@@ -118,16 +118,16 @@ module.exports = {
           if (userField === interaction.client.user) return interaction.reply('Error: You cannot send a compliment to the bot.');
           if (userField.bot === true) return interaction.reply('Error: You cannot send a compliment to a bot.');
 
-          const embed = new MessageEmbed()
+        const embed = new MessageEmbed()
             .setTitle('Compliment')
             .setDescription(`${compliments[Math.floor(Math.random() * compliments.length)]}\n *from \`${interaction.user.tag}\`*`)
             .setColor(embedColor);
 
-          const successEmbed = new MessageEmbed()
+        const successEmbed = new MessageEmbed()
             .setDescription(`*Successfully send compliment to ${userField}*`)
             .setColor(embedColor);
 
-          interaction.reply({ embeds: [successEmbed] }).then(userField.send({ embeds: [embed] }));
-          // ephemeral: true will be added in a future update. Currently, bots cannot read those kind of messages yet and will output an error
+        interaction.reply({ embeds: [successEmbed] }).then(userField.send({ embeds: [embed] }));
+        // ephemeral: true will be added in a future update. Currently, bots cannot read those kind of messages yet and will output an error
       }
 };

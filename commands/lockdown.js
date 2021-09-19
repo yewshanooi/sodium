@@ -6,14 +6,14 @@ module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('lockdown')
 		.setDescription('Lock every text channel in the guild to prevent users from sending messages')
-        .addStringOption(option => option.setName('option').setDescription('Enter an option').setRequired(true)),
+        .addBooleanOption(option => option.setName('option').setDescription('Enter an option').setRequired(true)),
 	cooldown: '35',
     guildOnly: true,
     execute (interaction) {
         if (!interaction.member.permissions.has('MANAGE_CHANNELS')) return interaction.reply('Error: You have no permission to use this command.');
          const channels = interaction.guild.channels.cache.filter(ch => ch.type !== 'category');
 
-         const stringField = interaction.options.getString('option');
+            const booleanField = interaction.options.getBoolean('option');
 
             const embedTrue = new MessageEmbed()
                 .setTitle('Guild Lockdown')
@@ -27,7 +27,7 @@ module.exports = {
                 .setTimestamp()
                 .setColor(embedColor);
 
-            if (stringField === 'true') {
+            if (booleanField === true) {
                 interaction.reply({ embeds: [embedTrue] }).then(channels.forEach(channel => {
                     channel.permissionOverwrites.edit(interaction.guild.roles.everyone, {
                         SEND_MESSAGES: false,
@@ -36,16 +36,13 @@ module.exports = {
                 }));
             }
 
-            else if (stringField === 'false') {
+            else {
                 interaction.reply({ embeds: [embedFalse] }).then(channels.forEach(channel => {
                     channel.permissionOverwrites.edit(interaction.guild.roles.everyone, {
                         SEND_MESSAGES: true,
                         ADD_REACTIONS: true
                     });
                 }));
-            }
-            else {
-                return interaction.reply('Error: No such options.\n*(Available options - `/lockdown true` or `/lockdown false`)*');
             }
         }
 };

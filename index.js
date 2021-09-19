@@ -28,7 +28,7 @@ client.on('interactionCreate', interaction => {
 	if (!command) return;
 
 	if (command.guildOnly && interaction.channel.type === 'DM') {
-		return interaction.reply('Error: This command cannot be executed in DMs.');
+		return interaction.reply({ content: 'Error: This command cannot be executed in Direct Messages.' });
 	}
 
 	/* ============================================= */
@@ -47,9 +47,9 @@ client.on('interactionCreate', interaction => {
 
 		if (now < expirationTime) {
 			const timeLeft = (expirationTime - now) / 1000;
-			return interaction.reply({ content: `Please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${command.data.name}\` command.` });
+				return interaction.reply({ content: `Please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${command.data.name}\` command.` });
+			}
 		}
-	}
 
 	timestamps.set(interaction.user.id, now);
 	setTimeout(() => timestamps.delete(interaction.user.id), cooldownAmount);
@@ -61,9 +61,9 @@ client.on('interactionCreate', interaction => {
 	}
 	catch (error) {
 		console.error(error);
-		interaction.reply({ content: 'There was an error while executing this command!' });
-		// ephemeral: true will be added in a future update. Currently, bots cannot read those kind of messages yet and will output an error
-	}
+			interaction.reply({ content: 'There was an error while executing this command!' });
+			// ephemeral: true will be added in a future update. Currently, bots cannot read those kind of messages yet and will output an error
+		}
 });
 
 client.login(token);

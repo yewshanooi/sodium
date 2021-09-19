@@ -51,10 +51,11 @@ module.exports = {
     guildOnly: false,
     execute (interaction) {
         const randomColor = `${rndClrArr[Math.floor(Math.random() * rndClrArr.length)]}`;
-        const embed = new MessageEmbed()
-            .setTitle('Color')
-            .setDescription(`Your random color is **${randomColor}**`)
-            .setColor(randomColor);
-        interaction.reply({ embeds: [embed] });
-    }
+
+            const embed = new MessageEmbed()
+                .setTitle('Color')
+                .setDescription(`Your random color is **${randomColor}**`)
+                .setColor(randomColor);
+            interaction.reply({ embeds: [embed] });
+        }
 };

@@ -38,7 +38,7 @@ module.exports = {
                 const button = new MessageActionRow()
                     .addComponents(new MessageButton()
                         .setURL(answer.permalink)
-                        .setLabel('Other Definitions')
+                        .setLabel('More Definitions')
                         .setStyle('LINK'));
 
             interaction.reply({ embeds: [embed], components: [button] });
