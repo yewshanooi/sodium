@@ -2,7 +2,6 @@ const fs = require('fs');
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
 const { clientId, token } = require('./config.json');
-// { guildId } for guild application commands
 
 const commands = [];
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
@@ -20,11 +19,6 @@ const rest = new REST({ version: '9' }).setToken(token);
 			Routes.applicationCommands(clientId),
 			{ body: commands }
 		);
-
-		/*
-		 * Routes.applicationCommands(clientId), for global application commands
-		 * Routes.applicationGuildCommands(clientId, guildId), for guild application commands
-		 */
 
 		console.log('Successfully registered application commands.');
 	}
