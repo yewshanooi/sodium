@@ -6,7 +6,7 @@ const fetch = require('node-fetch');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('lyrics')
-        .setDescription('Get a song\'s lyrics from Genius.')
+        .setDescription('Get a song\'s lyrics from Genius')
         .addStringOption(option => option.setName('song').setDescription('Enter a song name').setRequired(true)),
     cooldown: '10',
     guildOnly: false,

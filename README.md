@@ -27,7 +27,7 @@
 </p>
 
 ## Features
-**45+** commands and counting across **3** different categories!
+**50+** commands and counting across **3** different categories!
 ###### Fun
 `8ball`, `achievement`, `beep`, `catfact`, `coinflip`, `color`, `compliment`, `diceroll`, `dogfact`, `fact`, `giphy`, `github`, `lyrics`, `say`, `urban`, `wikipedia`
 
@@ -61,7 +61,7 @@
 
 ###### Guide
 1. **Clone** this repository locally
-```
+```sh
 git clone https://github.com/yewshanooi/skye.git
 cd Skye
 ```
@@ -99,10 +99,10 @@ THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ```
 
 ## Contributors
-###### Developer | Ooi Yew Shan
-[GitHub](https://github.com/yewshanooi/) • [Instagram](https://instagram.com/yewshanooi/) • [Discord](https://discordapp.com/users/266124126584963082/)
+###### Ooi Yew Shan
+> [GitHub](https://github.com/yewshanooi/) • [Instagram](https://instagram.com/yewshanooi/) • [Discord](https://discordapp.com/users/266124126584963082/)
 
-<!----------------- LINKS --------------->
+<!----------------- LINKS ------------------>
 [`@mathdroid/covid-19-api`]:        https://github.com/mathdroid/covid-19-api
 [`@discordjs/builders@0.6.0`]:      https://github.com/discordjs/builders
 [`@discordjs/rest@0.1.0-canary.0`]: https://github.com/discordjs/discord.js-modules

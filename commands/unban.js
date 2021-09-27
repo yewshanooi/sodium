@@ -5,7 +5,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('unban')
         .setDescription('Unban the user id with or without a reason')
-		.addStringOption(option => option.setName('userid').setDescription('Enter a user id'))
+		.addStringOption(option => option.setName('userid').setDescription('Enter a user id').setRequired(true))
 		.addStringOption(option => option.setName('reason').setDescription('Enter a reason')),
     cooldown: '30',
     guildOnly: true,
