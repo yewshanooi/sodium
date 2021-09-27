@@ -31,9 +31,6 @@ client.on('interactionCreate', interaction => {
 		return interaction.reply({ content: 'Error: This command cannot be executed in Direct Messages.' });
 	}
 
-	/* ============================================= */
-
-
 	if (!cooldowns.has(command.data.name)) {
 		cooldowns.set(command.data.name, new Discord.Collection());
 	}
@@ -53,8 +50,6 @@ client.on('interactionCreate', interaction => {
 
 	timestamps.set(interaction.user.id, now);
 	setTimeout(() => timestamps.delete(interaction.user.id), cooldownAmount);
-
-	/* ============================================= */
 
 	try {
 		command.execute(interaction);
