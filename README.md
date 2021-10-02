@@ -32,10 +32,10 @@
 `8ball`, `achievement`, `beep`, `catfact`, `coinflip`, `color`, `compliment`, `diceroll`, `dogfact`, `fact`, `giphy`, `github`, `lyrics`, `say`, `urban`, `wikipedia`
 
 ###### Utility
-`announce`, `avatar`, `botinfo`, `botnick`, `botstatus`, `channeldel`, `channelname`, `covid`, `delete`, `guildinfo`, `guildname`, `help`, `invite`, `leave`, `message`, `nick`, `ping`, `roleadd`, `roledel`, `roleinfo`, `threadcreate`, `userinfo`
+`announce`, `avatar`, `botinfo`, `botnick`, `botstatus`, `chdelete`, `chrename`, `covid`, `delete`, `guildinfo`, `guildname`, `help`, `leave`, `links`, `message`, `nick`, `ping`, `roleadd`, `roleinfo`, `roleremove`, `thcreate`, `userinfo`
 
 ###### Moderation
-`ban`, `channellock`, `channelunlock`, `deafen`, `kick`, `lockdown`, `mute`, `slowmode`, `unban`, `undeafen`, `unmute`, `warn`
+`ban`, `chlock`, `chunlock`, `deafen`, `kick`, `lockdown`, `mute`, `slowmode`, `unban`, `undeafen`, `unmute`, `warn`
 
 **Skye** also comes packed with other features, such as:
 - Discord **Message Embed** constructor
@@ -99,8 +99,8 @@ THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ```
 
 ## Contributors
-###### Ooi Yew Shan
-> [GitHub](https://github.com/yewshanooi/) • [Instagram](https://instagram.com/yewshanooi/) • [Discord](https://discordapp.com/users/266124126584963082/)
+###### Developer | Ooi Yew Shan
+[GitHub](https://github.com/yewshanooi/) • [Instagram](https://instagram.com/yewshanooi/) • [Discord](https://discordapp.com/users/266124126584963082/)
 
 <!----------------- LINKS ------------------>
 [`@mathdroid/covid-19-api`]:        https://github.com/mathdroid/covid-19-api

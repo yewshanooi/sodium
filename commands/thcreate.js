@@ -4,13 +4,14 @@ const { embedColor } = require('../config.json');
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('threadcreate')
+        .setName('thcreate')
         .setDescription('Create a new thread')
         .addStringOption(option => option.setName('threadname').setDescription('Enter a thread name').setRequired(true))
         .addIntegerOption(option => option.setName('duration').setDescription('Enter an auto archive duration').setRequired(true)),
     cooldown: '25',
     guildOnly: true,
     async execute (interaction) {
+        if (!interaction.guild.me.permissions.has('MANAGE_THREADS')) return interaction.reply('Error: Bot permission denied. Enable **MANAGE_THREADS** permission in `Server settings > Roles > Skye > Permissions` to use this command.');
         if (!interaction.member.permissions.has('MANAGE_THREADS')) return interaction.reply('Error: You have no permission to use this command.');
 
             const nameField = interaction.options.getString('threadname');

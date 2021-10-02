@@ -4,11 +4,12 @@ const { embedColor } = require('../config.json');
 
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('channelunlock')
+		.setName('chunlock')
 		.setDescription('Unlock the current channel'),
 	cooldown: '20',
     guildOnly: true,
     execute (interaction) {
+        if (!interaction.guild.me.permissions.has('MANAGE_CHANNELS')) return interaction.reply('Error: Bot permission denied. Enable **MANAGE_CHANNELS** permission in `Server settings > Roles > Skye > Permissions` to use this command.');
         if (!interaction.member.permissions.has('MANAGE_CHANNELS')) return interaction.reply('Error: You have no permission to use this command.');
 
         const currentChannel = interaction.channel;

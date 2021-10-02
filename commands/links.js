@@ -4,13 +4,13 @@ const { embedColor } = require('../config.json');
 
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('invite')
+		.setName('links')
 		.setDescription('Get helpful links and invite the bot to your own server'),
 	cooldown: '0',
     guildOnly: false,
     execute (interaction) {
         const embed = new MessageEmbed()
-            .setTitle('Invite')
+            .setTitle('Links')
             .setDescription('Get helpful links and invite the bot to your own server')
             .setColor(embedColor);
 

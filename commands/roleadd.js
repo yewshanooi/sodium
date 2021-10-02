@@ -11,6 +11,7 @@ module.exports = {
 	cooldown: '10',
     guildOnly: true,
     execute (interaction) {
+        if (!interaction.guild.me.permissions.has('MANAGE_ROLES')) return interaction.reply('Error: Bot permission denied. Enable **MANAGE_ROLES** permission in `Server settings > Roles > Skye > Permissions` to use this command.');
         if (!interaction.member.permissions.has('MANAGE_ROLES')) return interaction.reply('Error: You have no permission to use this command.');
 
             const memberField = interaction.options.getMember('user');

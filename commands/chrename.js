@@ -4,12 +4,13 @@ const { embedColor } = require('../config.json');
 
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('channelname')
+		.setName('chrename')
 		.setDescription('Rename the current channel')
         .addStringOption(option => option.setName('name').setDescription('Enter a name').setRequired(true)),
 	cooldown: '15',
     guildOnly: true,
     execute (interaction) {
+        if (!interaction.guild.me.permissions.has('MANAGE_CHANNELS')) return interaction.reply('Error: Bot permission denied. Enable **MANAGE_CHANNELS** permission in `Server settings > Roles > Skye > Permissions` to use this command.');
         if (!interaction.member.permissions.has('MANAGE_CHANNELS')) return interaction.reply('Error: You have no permission to use this command.');
 
         const stringField = interaction.options.getString('name');

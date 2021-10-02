@@ -10,6 +10,7 @@ module.exports = {
 	cooldown: '25',
     guildOnly: true,
     execute (interaction) {
+        if (!interaction.guild.me.permissions.has('DEAFEN_MEMBERS')) return interaction.reply('Error: Bot permission denied. Enable **DEAFEN_MEMBERS** permission in `Server settings > Roles > Skye > Permissions` to use this command.');
         if (!interaction.member.permissions.has('DEAFEN_MEMBERS')) return interaction.reply('Error: You have no permission to use this command.');
 
             const memberField = interaction.options.getMember('user');
