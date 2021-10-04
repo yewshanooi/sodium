@@ -6,7 +6,7 @@ module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('chrename')
 		.setDescription('Rename the current channel')
-        .addStringOption(option => option.setName('name').setDescription('Enter a name').setRequired(true)),
+        .addStringOption(option => option.setName('name').setDescription('Enter a name (max 100 characters)').setRequired(true)),
 	cooldown: '15',
     guildOnly: true,
     execute (interaction) {

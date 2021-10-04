@@ -21,7 +21,7 @@ module.exports = {
 
             const buttonTrue = new MessageActionRow()
                 .addComponents(new MessageButton()
-                    .setURL('https://discord.com/api/oauth2/authorize?client_id=531811937244151808&permissions=398357949558&redirect_uri=https%3A%2F%2Fskyebot.weebly.com%2F&response_type=code&scope=identify%20bot%20applications.commands%20messages.read')
+                    .setURL(`https://discord.com/api/oauth2/authorize?client_id=${interaction.client.user.id}&permissions=398357949558&redirect_uri=https%3A%2F%2Fskyebot.weebly.com%2F&response_type=code&scope=identify%20bot%20applications.commands%20messages.read`)
                     .setLabel('Already missed us? Invite us back')
                     .setStyle('LINK'));
 
@@ -29,7 +29,7 @@ module.exports = {
             interaction.guild.leave().then(interaction.reply({ embeds: [embedTrue], components: [buttonTrue] }));
         }
         else {
-            return interaction.reply('Error: Incorrect guild name.');
+            return interaction.reply('Error: Failed to leave the current guild. Incorrect guild name.');
         }
     }
 };

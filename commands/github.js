@@ -12,7 +12,7 @@ module.exports = {
         .setName('github')
         .setDescription('View a GitHub repository details')
         .addStringOption(option => option.setName('user').setDescription('Enter a user').setRequired(true))
-        .addStringOption(option => option.setName('repository').setDescription('Enter a repository name').setRequired(true)),
+        .addStringOption(option => option.setName('repository').setDescription('Enter a repository').setRequired(true)),
     cooldown: '10',
     guildOnly: false,
     async execute (interaction) {

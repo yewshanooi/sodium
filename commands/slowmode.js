@@ -6,7 +6,7 @@ module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('slowmode')
 		.setDescription('Enable slowmode for the current channel')
-        .addIntegerOption(option => option.setName('value').setDescription('Enter an value').setRequired(true)),
+        .addIntegerOption(option => option.setName('value').setDescription('Enter an value (between 0 and 21600)').setRequired(true)),
 	cooldown: '15',
     guildOnly: true,
     execute (interaction) {

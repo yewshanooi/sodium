@@ -7,7 +7,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('wikipedia')
         .setDescription('Finds a Wikipedia article by title')
-        .addStringOption(option => option.setName('title').setDescription('Enter a title').setRequired(true)),
+        .addStringOption(option => option.setName('title').setDescription('Enter an article title').setRequired(true)),
     cooldown: '10',
     guildOnly: false,
     async execute (interaction) {

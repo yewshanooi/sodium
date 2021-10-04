@@ -6,7 +6,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('guildname')
         .setDescription('Rename the current guild')
-        .addStringOption(option => option.setName('name').setDescription('Enter a name').setRequired(true)),
+        .addStringOption(option => option.setName('name').setDescription('Enter a name (max 100 characters)').setRequired(true)),
     cooldown: '25',
     guildOnly: true,
     execute (interaction) {

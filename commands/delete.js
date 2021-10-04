@@ -6,7 +6,7 @@ module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('delete')
 		.setDescription('Delete up to 99 messages at one time')
-		.addIntegerOption(option => option.setName('value').setDescription('Enter a value').setRequired(true)),
+		.addIntegerOption(option => option.setName('value').setDescription('Enter a value (between 1 and 99)').setRequired(true)),
 	cooldown: '10',
 	guildOnly: true,
 	execute (interaction) {

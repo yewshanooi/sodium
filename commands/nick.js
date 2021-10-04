@@ -7,7 +7,7 @@ module.exports = {
 		.setName('nick')
 		.setDescription('Change the selected user\'s nickname')
         .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))
-        .addStringOption(option => option.setName('nick').setDescription('Enter a nickname').setRequired(true)),
+        .addStringOption(option => option.setName('nick').setDescription('Enter a nickname (max 32 characters)').setRequired(true)),
 	cooldown: '10',
     guildOnly: true,
     execute (interaction) {

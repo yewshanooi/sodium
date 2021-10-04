@@ -4,10 +4,10 @@ const { embedColor } = require('../config.json');
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('thcreate')
-        .setDescription('Create a new thread')
-        .addStringOption(option => option.setName('threadname').setDescription('Enter a thread name').setRequired(true))
-        .addIntegerOption(option => option.setName('duration').setDescription('Enter an auto archive duration').setRequired(true)),
+        .setName('thread')
+        .setDescription('Start a new thread')
+        .addStringOption(option => option.setName('name').setDescription('Enter a thread name').setRequired(true))
+        .addIntegerOption(option => option.setName('duration').setDescription('Enter an auto archive duration (60 or 1440)').setRequired(true)),
     cooldown: '25',
     guildOnly: true,
     async execute (interaction) {
@@ -29,7 +29,7 @@ module.exports = {
                 });
 
         const embed = new MessageEmbed()
-            .setTitle('Thread Create')
+            .setTitle('Thread')
             .addField('Name', `${thread.name}`)
             .addField('Archive After', `\`${resultDuration}\``)
             .setTimestamp()

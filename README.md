@@ -32,7 +32,7 @@
 `8ball`, `achievement`, `beep`, `catfact`, `coinflip`, `color`, `compliment`, `diceroll`, `dogfact`, `fact`, `giphy`, `github`, `lyrics`, `say`, `urban`, `wikipedia`
 
 ###### Utility
-`announce`, `avatar`, `botinfo`, `botnick`, `botstatus`, `chdelete`, `chrename`, `covid`, `delete`, `guildinfo`, `guildname`, `help`, `leave`, `links`, `message`, `nick`, `ping`, `roleadd`, `roleinfo`, `roleremove`, `thcreate`, `userinfo`
+`announce`, `avatar`, `botinfo`, `botnick`, `botstatus`, `chdelete`, `chrename`, `covid`, `delete`, `guildinfo`, `guildname`, `help`, `leave`, `links`, `message`, `nick`, `ping`, `roleadd`, `roleinfo`, `roleremove`, `thread`, `userinfo`
 
 ###### Moderation
 `ban`, `chlock`, `chunlock`, `deafen`, `kick`, `lockdown`, `mute`, `slowmode`, `unban`, `undeafen`, `unmute`, `warn`

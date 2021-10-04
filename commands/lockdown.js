@@ -6,7 +6,7 @@ module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('lockdown')
 		.setDescription('Lock every text channel in the guild to prevent users from sending messages')
-        .addBooleanOption(option => option.setName('option').setDescription('Enter an option').setRequired(true)),
+        .addBooleanOption(option => option.setName('option').setDescription('Select an option').setRequired(true)),
 	cooldown: '35',
     guildOnly: true,
     execute (interaction) {

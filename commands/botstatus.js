@@ -6,7 +6,7 @@ module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('botstatus')
 		.setDescription('Change bot\'s current status globally')
-        .addStringOption(option => option.setName('status').setDescription('Enter a status').setRequired(true)),
+        .addStringOption(option => option.setName('status').setDescription('Enter a status (online, idle, dnd or invisible)').setRequired(true)),
     cooldown: '30',
     guildOnly: true,
 	execute (interaction) {
