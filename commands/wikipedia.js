@@ -17,7 +17,7 @@ module.exports = {
             .then(res => res.json())
             .catch(() => interaction.reply('Error: No article found with that title.'));
 
-            if (!article.content_urls) return interaction.reply('Error: No article found with that title.');
+        if (!article.content_urls) return interaction.reply('Error: No article found with that title.');
 
         const embed = new MessageEmbed()
             .setTitle(article.title)
@@ -30,6 +30,6 @@ module.exports = {
                     .setLabel('Read More')
                     .setStyle('LINK'));
 
-        return interaction.reply({ embeds: [embed], components: [button] });
-      }
+            return interaction.reply({ embeds: [embed], components: [button] });
+        }
 };
