@@ -32,7 +32,7 @@
 `8ball`, `achievement`, `beep`, `catfact`, `coinflip`, `color`, `compliment`, `diceroll`, `dogfact`, `fact`, `giphy`, `github`, `lyrics`, `meme`, `say`, `spoiler`, `urban`, `wikipedia`
 
 ###### Utility
-`announce`, `avatar`, `botinfo`, `botnick`, `botstatus`, `chdelete`, `chrename`, `covid`, `delete`, `guildinfo`, `guildname`, `help`, `leave`, `links`, `message`, `nick`, `ping`, `roleadd`, `roleinfo`, `roleremove`, `thread`, `userinfo`
+`announce`, `avatar`, `botinfo`, `botnick`, `botpresence`, `chdelete`, `chrename`, `covid`, `delete`, `guildinfo`, `guildname`, `help`, `leave`, `links`, `message`, `nick`, `ping`, `roleadd`, `roleinfo`, `roleremove`, `thread`, `userinfo`
 
 ###### Moderation
 `ban`, `chlock`, `chunlock`, `deafen`, `kick`, `lockdown`, `mute`, `slowmode`, `unban`, `undeafen`, `unmute`, `warn`
@@ -53,7 +53,7 @@
 * [`@discordjs/builders@0.6.0`]
 * [`@discordjs/rest@0.1.0-canary.0`]
 * [`discord-api-types@0.23.1`]
-* [`discord.js@13.1.0`]
+* [`discord.js@13.2.0`]
 
 **Optional**
 * [`eslint@7.32.0`]

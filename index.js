@@ -17,7 +17,6 @@ for (const file of commandFiles) {
 
 client.once('ready', () => {
 	console.log(`${client.user.tag}\n${client.users.cache.size} users, ${client.channels.cache.size} channels, ${client.guilds.cache.size} guilds`);
-	client.user.setPresence({ activities: [{ name: '/help' }], status: 'online' });
 });
 
 client.on('interactionCreate', interaction => {
