@@ -107,6 +107,6 @@ THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 [`@discordjs/builders@0.6.0`]:      https://github.com/discordjs/builders
 [`@discordjs/rest@0.1.0-canary.0`]: https://github.com/discordjs/discord.js-modules
 [`discord-api-types@0.23.1`]:       https://github.com/discordjs/discord-api-types
-[`discord.js@13.1.0`]:              https://github.com/discordjs/discord.js/
+[`discord.js@13.2.0`]:              https://github.com/discordjs/discord.js/
 [`eslint@7.32.0`]:                  https://github.com/eslint/eslint
 [`nodemon@2.0.7`]:                  https://github.com/remy/nodemon
