@@ -10,27 +10,27 @@
 <h4 align="center">Multi use discord bot with application commands and a user-friendly interface</h4>
 
 <p align="center">
-        <a href="https://github.com/yewshanooi/skye/releases/" target="_blank">
+        <a href="https://github.com/yewshanooi/skye/releases/">
             <img alt="Latest Version" src="https://img.shields.io/github/v/release/yewshanooi/skye?include_prereleases&style=flat-square">
         </a>
     &nbsp;
-        <a href="https://github.com/yewshanooi/skye/" target="_blank">
+        <a href="https://github.com/yewshanooi/skye/">
             <img alt="Repository Size" src="https://img.shields.io/github/repo-size/yewshanooi/skye?style=flat-square">
         </a>
     &nbsp;
-        <a href="https://github.com/yewshanooi/skye/" target="_blank">
+        <a href="https://github.com/yewshanooi/skye/">
             <img alt="Lines of Code" src="https://img.shields.io/tokei/lines/github/yewshanooi/skye?style=flat-square">
         </a>
     &nbsp;
-        <a href="https://github.com/yewshanooi/skye/blob/main/LICENSE" target="_blank">
+        <a href="https://github.com/yewshanooi/skye/blob/main/LICENSE">
             <img alt="License" src="https://img.shields.io/github/license/yewshanooi/skye?style=flat-square">
         </a>
     &nbsp;
-        <a href="https://www.codefactor.io/repository/github/yewshanooi/skye/" target="_blank">
+        <a href="https://www.codefactor.io/repository/github/yewshanooi/skye/">
             <img alt="Code Quality" src="https://img.shields.io/codefactor/grade/github/yewshanooi/skye?style=flat-square">
         </a>
     &nbsp;
-        <a href="https://github.com/yewshanooi/skye/commits/" target="_blank">
+        <a href="https://github.com/yewshanooi/skye/commits/">
             <img alt="Last Commit" src="https://img.shields.io/github/last-commit/yewshanooi/skye?style=flat-square">
         </a>
 </p>
@@ -67,19 +67,19 @@
   </thead>
   <tbody>
     <tr>
-      <td><a href="https://github.com/discordjs/builders" target="_blank">@discordjs/builders@0.6.0</a></td>
-      <td><a href="https://github.com/eslint/eslint" target="_blank">eslint@7.32.0</a></td>
+      <td><a href="https://github.com/discordjs/builders">@discordjs/builders@0.6.0</a></td>
+      <td><a href="https://github.com/eslint/eslint">eslint@7.32.0</a></td>
     </tr>
     <tr>
-      <td><a href="https://github.com/discordjs/discord.js-modules" target="_blank">@discordjs/rest@0.1.0-canary.0</a></td>
-      <td><a href="https://github.com/remy/nodemon" target="_blank">nodemon@2.0.7</a></td>
+      <td><a href="https://github.com/discordjs/discord.js-modules">@discordjs/rest@0.1.0-canary.0</a></td>
+      <td><a href="https://github.com/remy/nodemon">nodemon@2.0.7</a></td>
     </tr>
     <tr>
-      <td><a href="https://github.com/discordjs/discord-api-types" target="_blank">discord-api-types@0.23.1</a></td>
+      <td><a href="https://github.com/discordjs/discord-api-types">discord-api-types@0.23.1</a></td>
       <td></td>
     </tr>
     <tr>
-      <td><a href="https://github.com/discordjs/discord.js/" target="_blank">discord.js@13.2.0</a></td>
+      <td><a href="https://github.com/discordjs/discord.js/">discord.js@13.2.0</a></td>
       <td></td>
     </tr>
   </tbody>
