@@ -28,16 +28,18 @@ module.exports = {
 
 		const embed = new MessageEmbed()
 			.setTitle('Guild Info')
-			.addField('Name', `\`${interaction.guild.name}\``, true)
-			.addField('Creation Date & Time', `\`${interaction.guild.createdAt}\``)
-			.addField('Members', `\`${interaction.guild.memberCount}\``, true)
-			.addField('Channels', `\`${interaction.guild.channels.cache.filter(ch => ch.type !== 'category').size}\``, true)
-			.addField('ID', `\`${interaction.guild.id}\``, true)
-			.addField('Language', `\`${interaction.guild.preferredLocale}\``, true)
-			.addField('2FA', `\`${resultMFA}\``, true)
-			.addField('Partnered', `\`${resultPartner}\``, true)
-			.addField('Total Boosts', `\`${interaction.guild.premiumSubscriptionCount}\``)
-			.addField('Boost Level', `\`${resultPremium}\``)
+			.addFields(
+				{ name: 'Name', value: `\`${interaction.guild.name}\``, inline: true },
+                { name: 'Creation Date & Time', value: `\`${interaction.guild.createdAt}\`` },
+				{ name: 'Members', value: `\`${interaction.guild.memberCount}\``, inline: true },
+				{ name: 'Channels', value: `\`${interaction.guild.channels.cache.filter(ch => ch.type !== 'category').size}\``, inline: true },
+				{ name: 'ID', value: `\`${interaction.guild.id}\``, inline: true },
+				{ name: 'Language', value: `\`${interaction.guild.preferredLocale}\``, inline: true },
+				{ name: '2FA', value: `\`${resultMFA}\``, inline: true },
+				{ name: 'Partnered', value: `\`${resultPartner}\``, inline: true },
+				{ name: 'Total Boosts', value: `\`${interaction.guild.premiumSubscriptionCount}\`` },
+                { name: 'Boost Level', value: `\`${resultPremium}\`` }
+            )
 			.setColor(embedColor);
 		interaction.reply({ embeds: [embed] });
 	}

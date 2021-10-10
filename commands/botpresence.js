@@ -38,9 +38,11 @@ module.exports = {
             const embed = new MessageEmbed()
                 .setTitle('Bot Presence')
                 .setDescription('Successfully changed bot\'s current presence')
-                .addField('Activity', activityField)
-                .addField('Type', typeFieldFirstCaps, true)
-                .addField('Status', resultStatus, true)
+                .addFields(
+                    { name: 'Activity', value: activityField },
+                    { name: 'Type', value: typeFieldFirstCaps, inline: true },
+                    { name: 'Status', value: resultStatus, inline: true }
+                )
                 .setColor(embedColor);
 
             interaction.client.user.setPresence({ activities: [{ name: `${activityField}`, type: `${typeFieldAllCaps}` }], status: `${statusField}` });

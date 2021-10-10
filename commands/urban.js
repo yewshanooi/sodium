@@ -30,9 +30,11 @@ module.exports = {
 
             const embed = new MessageEmbed()
                 .setTitle(answer.word)
-                .addField('Definition', `${trim(answer.definition, 1024)}`)
-                .addField('Example', `${trim(answer.example, 1024)}`)
-                .addField('Rating', `${answer.thumbs_up} ▲ ${answer.thumbs_down} ▼`)
+                .addFields(
+                    { name: 'Definition', value: `${trim(answer.definition, 1024)}` },
+                    { name: 'Example', value: `${trim(answer.example, 1024)}` },
+                    { name: 'Rating', value: `${answer.thumbs_up} ▲ ${answer.thumbs_down} ▼` }
+                )
                 .setColor(embedColor);
 
                 const button = new MessageActionRow()

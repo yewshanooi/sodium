@@ -22,9 +22,11 @@ module.exports = {
 
 		const embed = new MessageEmbed()
 			.setTitle('Unban')
-			.addField('User ID', `\`${userIdField}\``)
-			.addField('By', `\`${interaction.user.tag}\``)
-			.addField('Reason', `\`${reasonField}\``)
+			.addFields(
+                { name: 'User ID', value: `\`${userIdField}\`` },
+                { name: 'By', value: `\`${interaction.user.tag}\`` },
+                { name: 'Reason', value: `\`${reasonField}\`` }
+            )
 			.setTimestamp()
             .setColor('#FF0000');
 

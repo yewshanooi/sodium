@@ -19,15 +19,17 @@ module.exports = {
 
         const embed = new MessageEmbed()
             .setTitle('Bot Info')
-            .addField('Name', `\`${interaction.client.user.username}\``, true)
-            .addField('Discriminator', `\`${interaction.client.user.discriminator}\``, true)
-            .addField('Creation Date & Time', `\`${interaction.client.user.createdAt}\``)
-            .addField('Users', `\`${interaction.client.users.cache.size}\``, true)
-            .addField('Channels', `\`${interaction.client.channels.cache.size}\``, true)
-            .addField('Guilds', `\`${interaction.client.guilds.cache.size}\``, true)
-            .addField('Embed Color (Hex)', `\`#${embedColor}\``, true)
-            .addField('ID', `\`${interaction.client.user.id}\``, true)
-            .addField('Uptime', `\`${days}\` *days(s)*, \`${hours}\` *hours(s)*, \`${minutes}\` *minute(s)*, \`${seconds}\` *second(s)*`)
+            .addFields(
+                { name: 'Name', value: `\`${interaction.client.user.username}\``, inline: true },
+                { name: 'Discriminator', value: `\`${interaction.client.user.discriminator}\``, inline: true },
+                { name: 'Creation Date & Time', value: `\`${interaction.client.user.createdAt}\`` },
+                { name: 'Users', value: `\`${interaction.client.users.cache.size}\``, inline: true },
+                { name: 'Channels', value: `\`${interaction.client.channels.cache.size}\``, inline: true },
+                { name: 'Guilds', value: `\`${interaction.client.guilds.cache.size}\``, inline: true },
+                { name: 'Embed Color (Hex)', value: `\`#${embedColor}\``, inline: true },
+                { name: 'ID', value: `\`${interaction.client.user.id}\``, inline: true },
+                { name: 'Uptime', value: `\`${days}\` *days(s)*, \`${hours}\` *hours(s)*, \`${minutes}\` *minute(s)*, \`${seconds}\` *second(s)*` }
+            )
             .setColor(embedColor);
         interaction.reply({ embeds: [embed] });
 	}

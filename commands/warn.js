@@ -24,18 +24,22 @@ module.exports = {
 
         const embedUser = new MessageEmbed()
             .setTitle('Warn')
-            .addField('Guild', `\`${interaction.guild.name}\``)
-            .addField('By', `\`${interaction.user.tag}\``)
-            .addField('Reason', `\`${reasonField}\``)
+            .addFields(
+                { name: 'Guild', value: `\`${interaction.guild.name}\`` },
+                { name: 'By', value: `\`${interaction.user.tag}\`` },
+                { name: 'Reason', value: `\`${reasonField}\`` }
+            )
             .setTimestamp()
             .setColor('#FF0000');
 
         const embed = new MessageEmbed()
             .setTitle('Warn')
-            .addField('User', `${memberField}`)
-            .addField('ID', `\`${memberField.user.id}\``)
-            .addField('By', `\`${interaction.user.tag}\``)
-            .addField('Reason', `\`${reasonField}\``)
+            .addFields(
+                { name: 'User', value: `${memberField}` },
+                { name: 'ID', value: `\`${memberField.user.id}\`` },
+                { name: 'By', value: `\`${interaction.user.tag}\`` },
+                { name: 'Reason', value: `\`${reasonField}\`` }
+            )
             .setTimestamp()
             .setColor('#FF0000');
 

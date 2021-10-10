@@ -30,9 +30,11 @@ module.exports = {
                 const embed = new MessageEmbed()
                     .setTitle('Covid-19')
                     .setDescription('Worldwide Statistics')
-                    .addField('Confirmed', `\`${confirmed}\``)
-                    // .addField('Recovered', `\`${recovered}\``)
-                    .addField('Deaths', `\`${deaths}\``)
+                    .addFields(
+                        { name: 'Confirmed', value: `\`${confirmed}\`` },
+                        // { name: 'Recovered', value: `\`${recovered}\`` },
+                        { name: 'Deaths', value: `\`${deaths}\`` }
+                    )
                     .setTimestamp()
                     .setColor(embedColor);
 
@@ -50,9 +52,11 @@ module.exports = {
                 const embed = new MessageEmbed()
                     .setTitle('Covid-19')
                     .setDescription(`Statistics for **${stringField}**`)
-                    .addField('Confirmed', `\`${confirmed}\``)
-                    // .addField('Recovered', `\`${recovered}\``)
-                    .addField('Deaths', `\`${deaths}\``)
+                    .addFields(
+                        { name: 'Confirmed', value: `\`${confirmed}\`` },
+                        // { name: 'Recovered', value: `\`${recovered}\`` },
+                        { name: 'Deaths', value: `\`${deaths}\`` }
+                    )
                     .setTimestamp()
                     .setColor(embedColor);
 

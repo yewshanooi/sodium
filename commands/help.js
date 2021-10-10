@@ -20,12 +20,12 @@ module.exports = {
 					.setStyle('LINK'));
 
 		if (!stringField) {
-			const embed1 = new MessageEmbed()
+			const noStringEmbed = new MessageEmbed()
 				.setTitle('Help')
 				.setDescription('*Use `/help {command}` to get more info on a specific command*')
 				.addField('Commands', commands.map(command => command.data.name).join(', '))
 				.setColor(embedColor);
-			interaction.reply({ embeds: [embed1], components: [button] });
+			interaction.reply({ embeds: [noStringEmbed], components: [button] });
 		}
 
 		if (stringField) {
@@ -37,14 +37,16 @@ module.exports = {
 				if (guildOnlyCommand === true) resultGuildOnly = 'True';
 				else resultGuildOnly = 'False';
 
-				const embed2 = new MessageEmbed()
+				const stringEmbed = new MessageEmbed()
 					.setTitle('Help')
-					.addField('Name', `\`${command.data.name}\``)
-					.addField('Description', `\`${command.data.description}\``)
-					.addField('Cooldown', `\`${command.cooldown || 3} second(s)\``)
-					.addField('Guild Only', `\`${resultGuildOnly}\``)
+					.addFields(
+						{ name: 'Name', value: `\`${command.data.name}\`` },
+						{ name: 'Description', value: `\`${command.data.description}\`` },
+						{ name: 'Cooldown', value: `\`${command.cooldown || 3} second(s)\`` },
+						{ name: 'Guild Only', value: `\`${resultGuildOnly}\`` }
+					)
 					.setColor(embedColor);
-				interaction.reply({ embeds: [embed2] });
+				interaction.reply({ embeds: [stringEmbed] });
 			}
 		}
 };

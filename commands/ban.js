@@ -24,10 +24,12 @@ module.exports = {
 
         const embed = new MessageEmbed()
             .setTitle('Ban')
-            .addField('User', `${memberField}`)
-            .addField('ID', `\`${memberField.user.id}\``)
-            .addField('By', `\`${interaction.user.tag}\``)
-            .addField('Reason', `\`${reasonField}\``)
+            .addFields(
+                { name: 'User', value: `${memberField}` },
+                { name: 'ID', value: `\`${memberField.user.id}\`` },
+                { name: 'By', value: `\`${interaction.user.tag}\`` },
+                { name: 'Reason', value: `\`${reasonField}\`` }
+            )
             .setTimestamp()
             .setColor('#FF0000');
 

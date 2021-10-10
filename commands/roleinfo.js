@@ -24,14 +24,16 @@ module.exports = {
 
         const embed = new MessageEmbed()
             .setTitle('Role Info')
-            .addField('Name', `\`${roleField.name}\``, true)
-            .addField('ID', `\`${roleField.id}\``, true)
-            .addField('Creation Date & Time', `\`${roleField.createdAt}\``)
-            .addField('Members', `\`${roleField.members.size}\``, true)
-            .addField('Position', `\`${roleField.position}\``, true)
-            .addField('Color (Hex)', `\`${roleField.hexColor}\``, true)
-            .addField('Mentionable', `\`${resultMention}\``, true)
-            .addField('Display Separately', `\`${resultHoist}\``, true)
+            .addFields(
+                { name: 'Name', value: `\`${roleField.name}\``, inline: true },
+                { name: 'ID', value: `\`${roleField.id}\``, inline: true },
+                { name: 'Creation Date & Time', value: `\`${roleField.createdAt}\`` },
+                { name: 'Members', value: `\`${roleField.members.size}\``, inline: true },
+                { name: 'Position', value: `\`${roleField.position}\``, inline: true },
+                { name: 'Color (Hex)', value: `\`${roleField.hexColor}\``, inline: true },
+                { name: 'Mentionable', value: `\`${resultMention}\``, inline: true },
+                { name: 'Display Separately', value: `\`${resultHoist}\``, inline: true }
+            )
             .setColor(embedColor);
         interaction.reply({ embeds: [embed] });
 	}

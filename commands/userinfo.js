@@ -15,22 +15,26 @@ module.exports = {
 			if (!userField) {
 				const embedSelf = new MessageEmbed()
 					.setTitle('User Info')
-					.addField('Name', `\`${interaction.user.username}\``, true)
-					.addField('ID', `\`${interaction.user.id}\``, true)
-					.addField('Creation Date & Time', `\`${interaction.user.createdAt}\``)
-					.addField('Tag', `\`${interaction.user.tag}\``, true)
-					.addField('Discriminator', `\`${interaction.user.discriminator}\``, true)
+					.addFields(
+						{ name: 'Name', value: `\`${interaction.user.username}\``, inline: true },
+						{ name: 'ID', value: `\`${interaction.user.id}\``, inline: true },
+						{ name: 'Creation Date & Time', value: `\`${interaction.user.createdAt}\`` },
+						{ name: 'Tag', value: `\`${interaction.user.tag}\``, inline: true },
+						{ name: 'Discriminator', value: `\`${interaction.user.discriminator}\``, inline: true }
+					)
 					.setColor(embedColor);
 				interaction.reply({ embeds: [embedSelf] });
 			}
 			if (userField) {
 				const embedOthers = new MessageEmbed()
 					.setTitle('User Info')
-					.addField('Name', `\`${userField.username}\``, true)
-					.addField('ID', `\`${userField.id}\``, true)
-					.addField('Creation Date & Time', `\`${userField.createdAt}\``)
-					.addField('Tag', `\`${userField.tag}\``, true)
-					.addField('Discriminator', `\`${userField.discriminator}\``, true)
+					.addFields(
+						{ name: 'Name', value: `\`${userField.username}\``, inline: true },
+						{ name: 'ID', value: `\`${userField.id}\``, inline: true },
+						{ name: 'Creation Date & Time', value: `\`${userField.createdAt}\`` },
+						{ name: 'Tag', value: `\`${userField.tag}\``, inline: true },
+						{ name: 'Discriminator', value: `\`${userField.discriminator}\``, inline: true }
+					)
 					.setColor(embedColor);
 				interaction.reply({ embeds: [embedOthers] });
 			}

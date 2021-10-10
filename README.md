@@ -87,7 +87,7 @@
 
 ###### Guide
 1. **Clone** this repository to your desktop
-```sh
+```
 git clone https://github.com/yewshanooi/skye.git
 cd Skye
 ```
@@ -98,11 +98,11 @@ npm install
 3. Create a new **config.json** file and fill it with your own information
 ```json
 {
-  "token": "BOT-TOKEN",
-  "clientId": "CLIENT-ID",
-  "embedColor": "HEX-COLOR",
-  "giphyAPIKey": "GIPHY-API-KEY",
-  "geniusAPIKey": "GENIUS-API-KEY"
+  "token": "",
+  "clientId": "",
+  "embedColor": "",
+  "giphyAPIKey": "",
+  "geniusAPIKey": ""
 }
 ```
 4. Run the **deploy.js** file to deploy application commands
