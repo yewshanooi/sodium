@@ -27,14 +27,14 @@ module.exports = {
                 }
 
         const embed = new MessageEmbed()
-			.setTitle('Deafen')
+            .setTitle('Deafen')
             .addFields(
                 { name: 'User', value: `${memberField}` },
                 { name: 'ID', value: `\`${memberField.user.id}\`` },
                 { name: 'By', value: `\`${interaction.user.tag}\`` },
                 { name: 'Reason', value: `\`${reasonField}\`` }
             )
-			.setTimestamp()
+            .setTimestamp()
             .setColor('#FF0000');
 
         interaction.reply({ embeds: [embed] }).then(memberField.voice.setDeaf(true));

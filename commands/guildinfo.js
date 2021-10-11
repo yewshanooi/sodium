@@ -30,7 +30,7 @@ module.exports = {
 			.setTitle('Guild Info')
 			.addFields(
 				{ name: 'Name', value: `\`${interaction.guild.name}\``, inline: true },
-                { name: 'Creation Date & Time', value: `\`${interaction.guild.createdAt}\`` },
+				{ name: 'Creation Date & Time', value: `\`${interaction.guild.createdAt}\`` },
 				{ name: 'Members', value: `\`${interaction.guild.memberCount}\``, inline: true },
 				{ name: 'Channels', value: `\`${interaction.guild.channels.cache.filter(ch => ch.type !== 'category').size}\``, inline: true },
 				{ name: 'ID', value: `\`${interaction.guild.id}\``, inline: true },
@@ -38,8 +38,8 @@ module.exports = {
 				{ name: '2FA', value: `\`${resultMFA}\``, inline: true },
 				{ name: 'Partnered', value: `\`${resultPartner}\``, inline: true },
 				{ name: 'Total Boosts', value: `\`${interaction.guild.premiumSubscriptionCount}\`` },
-                { name: 'Boost Level', value: `\`${resultPremium}\`` }
-            )
+				{ name: 'Boost Level', value: `\`${resultPremium}\`` }
+			)
 			.setColor(embedColor);
 		interaction.reply({ embeds: [embed] });
 	}

@@ -39,9 +39,9 @@ module.exports = {
                 .setTitle('Bot Presence')
                 .setDescription('Successfully changed bot\'s current presence')
                 .addFields(
-                    { name: 'Activity', value: activityField },
-                    { name: 'Type', value: typeFieldFirstCaps, inline: true },
-                    { name: 'Status', value: resultStatus, inline: true }
+                    { name: 'Activity', value: `${activityField}` },
+                    { name: 'Type', value: `\`${typeFieldFirstCaps}\``, inline: true },
+                    { name: 'Status', value: `\`${resultStatus}\``, inline: true }
                 )
                 .setColor(embedColor);
 

@@ -23,12 +23,12 @@ module.exports = {
 		const embed = new MessageEmbed()
 			.setTitle('Unban')
 			.addFields(
-                { name: 'User ID', value: `\`${userIdField}\`` },
-                { name: 'By', value: `\`${interaction.user.tag}\`` },
-                { name: 'Reason', value: `\`${reasonField}\`` }
-            )
+				{ name: 'User ID', value: `\`${userIdField}\`` },
+				{ name: 'By', value: `\`${interaction.user.tag}\`` },
+				{ name: 'Reason', value: `\`${reasonField}\`` }
+			)
 			.setTimestamp()
-            .setColor('#FF0000');
+			.setColor('#FF0000');
 
 		interaction.guild.members.unban(userIdField)
 			.then(() => {

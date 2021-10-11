@@ -25,11 +25,11 @@ module.exports = {
 		const embed = new MessageEmbed()
 			.setTitle('Kick')
 			.addFields(
-                { name: 'User', value: `${memberField}` },
-                { name: 'ID', value: `\`${memberField.user.id}\`` },
+				{ name: 'User', value: `${memberField}` },
+				{ name: 'ID', value: `\`${memberField.user.id}\`` },
 				{ name: 'By', value: `\`${interaction.user.tag}\`` },
-                { name: 'Reason', value: `\`${reasonField}\`` }
-            )
+				{ name: 'Reason', value: `\`${reasonField}\`` }
+			)
 			.setTimestamp()
 			.setColor('#FF0000');
 
