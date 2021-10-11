@@ -3,9 +3,9 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 const { embedColor } = require('../config.json');
 
 module.exports = {
-	data: new SlashCommandBuilder()
-		.setName('leave')
-		.setDescription('Remove the bot from the current guild')
+    data: new SlashCommandBuilder()
+        .setName('leave')
+        .setDescription('Remove the bot from the current guild')
         .addStringOption(option => option.setName('guildname').setDescription('Enter the guild name').setRequired(true)),
     cooldown: '45',
     guildOnly: true,

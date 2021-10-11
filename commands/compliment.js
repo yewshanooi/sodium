@@ -107,11 +107,11 @@ const compliments = [
 ];
 
 module.exports = {
-	data: new SlashCommandBuilder()
+  data: new SlashCommandBuilder()
       .setName('compliment')
       .setDescription('Sends the selected user a random compliment')
       .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true)),
-	cooldown: '15',
+  cooldown: '15',
   guildOnly: true,
   execute (interaction) {
       const userField = interaction.options.getUser('user');

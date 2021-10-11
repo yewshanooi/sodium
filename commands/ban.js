@@ -2,11 +2,11 @@ const { MessageEmbed } = require('discord.js');
 const { SlashCommandBuilder } = require('@discordjs/builders');
 
 module.exports = {
-	data: new SlashCommandBuilder()
-		.setName('ban')
-		.setDescription('Ban the selected user with or without a reason')
+    data: new SlashCommandBuilder()
+        .setName('ban')
+        .setDescription('Ban the selected user with or without a reason')
         .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))
-		.addStringOption(option => option.setName('reason').setDescription('Enter a reason')),
+        .addStringOption(option => option.setName('reason').setDescription('Enter a reason')),
     cooldown: '30',
     guildOnly: true,
 	execute (interaction) {

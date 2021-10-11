@@ -6,7 +6,7 @@ module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('say')
 		.setDescription('Get the bot to send your message')
-        .addStringOption(option => option.setName('message').setDescription('Enter a message').setRequired(true)),
+		.addStringOption(option => option.setName('message').setDescription('Enter a message').setRequired(true)),
 	cooldown: '5',
 	guildOnly: true,
 	execute (interaction) {

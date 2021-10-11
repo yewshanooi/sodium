@@ -3,11 +3,11 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('warn')
-		.setDescription('Warn the selected user with or without a reason')
+        .setName('warn')
+        .setDescription('Warn the selected user with or without a reason')
         .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))
         .addStringOption(option => option.setName('reason').setDescription('Enter a reason')),
-	cooldown: '20',
+    cooldown: '20',
     guildOnly: true,
     execute (interaction) {
         if (!interaction.guild.me.permissions.has('MANAGE_MESSAGES')) return interaction.reply('Error: Bot permission denied. Enable **MANAGE_MESSAGES** permission in `Server settings > Roles > Skye > Permissions` to use this command.');

@@ -44,9 +44,9 @@ const rndClrArr = [
 ];
 
 module.exports = {
-	data: new SlashCommandBuilder()
-		.setName('color')
-		.setDescription('Picks a random color from an array'),
+    data: new SlashCommandBuilder()
+        .setName('color')
+        .setDescription('Picks a random color from an array'),
     cooldown: '5',
     guildOnly: false,
     execute (interaction) {

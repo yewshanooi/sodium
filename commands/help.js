@@ -6,7 +6,7 @@ module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('help')
 		.setDescription('List every commands or detailed info about a specific command')
-        .addStringOption(option => option.setName('command').setDescription('Enter a command')),
+		.addStringOption(option => option.setName('command').setDescription('Enter a command')),
 	cooldown: '0',
 	guildOnly: false,
 	execute (interaction) {

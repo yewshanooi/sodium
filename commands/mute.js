@@ -3,11 +3,11 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('mute')
-		.setDescription('Mute the selected user with or without a reason')
+        .setName('mute')
+        .setDescription('Mute the selected user with or without a reason')
         .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))
-		.addStringOption(option => option.setName('reason').setDescription('Enter a reason')),
-	cooldown: '25',
+        .addStringOption(option => option.setName('reason').setDescription('Enter a reason')),
+    cooldown: '25',
     guildOnly: true,
     execute (interaction) {
         if (!interaction.guild.me.permissions.has('MUTE_MEMBERS')) return interaction.reply('Error: Bot permission denied. Enable **MUTE_MEMBERS** permission in `Server settings > Roles > Skye > Permissions` to use this command.');

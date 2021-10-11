@@ -4,10 +4,10 @@ const { embedColor } = require('../config.json');
 
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('lockdown')
-		.setDescription('Lock every text channel in the guild to prevent users from sending messages')
+        .setName('lockdown')
+        .setDescription('Lock every text channel in the guild to prevent users from sending messages')
         .addBooleanOption(option => option.setName('option').setDescription('Select an option').setRequired(true)),
-	cooldown: '35',
+    cooldown: '35',
     guildOnly: true,
     execute (interaction) {
         if (!interaction.guild.me.permissions.has('MANAGE_CHANNELS')) return interaction.reply('Error: Bot permission denied. Enable **MANAGE_CHANNELS** permission in `Server settings > Roles > Skye > Permissions` to use this command.');

@@ -4,10 +4,10 @@ const { embedColor } = require('../config.json');
 
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('roleinfo')
-		.setDescription('Display information(s) about the selected role')
+        .setName('roleinfo')
+        .setDescription('Display information(s) about the selected role')
         .addRoleOption(option => option.setName('role').setDescription('Select a role').setRequired(true)),
-	cooldown: '5',
+    cooldown: '5',
     guildOnly: true,
     execute (interaction) {
         const roleField = interaction.options.getRole('role');

@@ -3,9 +3,9 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 const { embedColor } = require('../config.json');
 
 module.exports = {
-	data: new SlashCommandBuilder()
-		.setName('botinfo')
-		.setDescription('Display information(s) about the bot'),
+    data: new SlashCommandBuilder()
+        .setName('botinfo')
+        .setDescription('Display information(s) about the bot'),
     cooldown: '5',
     guildOnly: false,
 	execute (interaction) {

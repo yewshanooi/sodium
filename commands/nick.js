@@ -4,11 +4,11 @@ const { embedColor } = require('../config.json');
 
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('nick')
-		.setDescription('Change the selected user\'s nickname')
+        .setName('nick')
+        .setDescription('Change the selected user\'s nickname')
         .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))
         .addStringOption(option => option.setName('nick').setDescription('Enter a nickname (max 32 characters)').setRequired(true)),
-	cooldown: '10',
+    cooldown: '10',
     guildOnly: true,
     execute (interaction) {
         if (!interaction.guild.me.permissions.has('MANAGE_NICKNAMES')) return interaction.reply('Error: Bot permission denied. Enable **MANAGE_NICKNAMES** permission in `Server settings > Roles > Skye > Permissions` to use this command.');

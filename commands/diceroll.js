@@ -3,9 +3,9 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 const { embedColor } = require('../config.json');
 
 module.exports = {
-	data: new SlashCommandBuilder()
-		.setName('diceroll')
-		.setDescription('Rolls a dice that contain 6 sides'),
+    data: new SlashCommandBuilder()
+        .setName('diceroll')
+        .setDescription('Rolls a dice that contain 6 sides'),
     cooldown: '0',
     guildOnly: false,
 	execute (interaction) {

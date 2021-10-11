@@ -4,11 +4,11 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 const { embedColor } = require('../config.json');
 
 module.exports = {
-	data: new SlashCommandBuilder()
-		.setName('covid')
-		.setDescription('Show latest cases worldwide or in a particular country')
+    data: new SlashCommandBuilder()
+        .setName('covid')
+        .setDescription('Show latest cases worldwide or in a particular country')
         .addStringOption(option => option.setName('country').setDescription('Enter a country')),
-	cooldown: '0',
+    cooldown: '0',
     guildOnly: false,
     execute (interaction) {
         const stringField = interaction.options.getString('country');

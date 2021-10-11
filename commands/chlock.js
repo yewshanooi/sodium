@@ -3,9 +3,9 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 const { embedColor } = require('../config.json');
 
 module.exports = {
-	data: new SlashCommandBuilder()
-		.setName('chlock')
-		.setDescription('Lock the current channel'),
+    data: new SlashCommandBuilder()
+        .setName('chlock')
+        .setDescription('Lock the current channel'),
     cooldown: '20',
     guildOnly: true,
 	execute (interaction) {

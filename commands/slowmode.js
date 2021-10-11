@@ -4,10 +4,10 @@ const { embedColor } = require('../config.json');
 
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('slowmode')
-		.setDescription('Enable slowmode for the current channel')
+        .setName('slowmode')
+        .setDescription('Enable slowmode for the current channel')
         .addIntegerOption(option => option.setName('value').setDescription('Enter an value (between 0 and 21600)').setRequired(true)),
-	cooldown: '15',
+    cooldown: '15',
     guildOnly: true,
     execute (interaction) {
         if (!interaction.guild.me.permissions.has('MANAGE_CHANNELS')) return interaction.reply('Error: Bot permission denied. Enable **MANAGE_CHANNELS** permission in `Server settings > Roles > Skye > Permissions` to use this command.');

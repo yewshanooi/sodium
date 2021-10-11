@@ -4,11 +4,11 @@ const { embedColor } = require('../config.json');
 
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('roleadd')
-		.setDescription('Add role to selected user')
+        .setName('roleadd')
+        .setDescription('Add role to selected user')
         .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))
         .addRoleOption(option => option.setName('role').setDescription('Select a role').setRequired(true)),
-	cooldown: '10',
+    cooldown: '10',
     guildOnly: true,
     execute (interaction) {
         if (!interaction.guild.me.permissions.has('MANAGE_ROLES')) return interaction.reply('Error: Bot permission denied. Enable **MANAGE_ROLES** permission in `Server settings > Roles > Skye > Permissions` to use this command.');

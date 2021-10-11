@@ -3,9 +3,9 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 const { embedColor } = require('../config.json');
 
 module.exports = {
-	data: new SlashCommandBuilder()
-		.setName('coinflip')
-		.setDescription('Flips a two sided coin for you'),
+    data: new SlashCommandBuilder()
+        .setName('coinflip')
+        .setDescription('Flips a two sided coin for you'),
     cooldown: '5',
     guildOnly: false,
     execute (interaction) {

@@ -3,9 +3,9 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 const { embedColor } = require('../config.json');
 
 module.exports = {
-	data: new SlashCommandBuilder()
-		.setName('botnick')
-		.setDescription('Change bot\'s nickname in the current server')
+    data: new SlashCommandBuilder()
+        .setName('botnick')
+        .setDescription('Change bot\'s nickname in the current server')
         .addStringOption(option => option.setName('nickname').setDescription('Enter a nickname (max 32 characters)').setRequired(true)),
     cooldown: '20',
     guildOnly: true,
