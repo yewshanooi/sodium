@@ -14,7 +14,7 @@ module.exports = {
         if (!interaction.guild.me.permissions.has('MANAGE_THREADS')) return interaction.reply('Error: Bot permission denied. Enable **MANAGE_THREADS** permission in `Server settings > Roles > Skye > Permissions` to use this command.');
         if (!interaction.member.permissions.has('MANAGE_THREADS')) return interaction.reply('Error: You have no permission to use this command.');
 
-            const nameField = interaction.options.getString('threadname');
+            const nameField = interaction.options.getString('name');
 
             const durationField = interaction.options.getInteger('duration');
             let resultDuration;
@@ -35,6 +35,6 @@ module.exports = {
             .setTimestamp()
             .setColor(embedColor);
 
-        interaction.reply({ embeds: [embed] }).then(thread.leave());
+        interaction.reply({ embeds: [embed] });
     }
 };

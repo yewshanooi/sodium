@@ -5,31 +5,48 @@ const { embedColor } = require('../config.json');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('leave')
-        .setDescription('Remove the bot from the current guild')
-        .addStringOption(option => option.setName('guildname').setDescription('Enter the guild name').setRequired(true)),
+        .setDescription('Remove the bot from the current guild'),
     cooldown: '45',
     guildOnly: true,
 	execute (interaction) {
         if (!interaction.member.permissions.has('ADMINISTRATOR')) return interaction.reply('Error: You have no permission to use this command.');
 
-        const stringField = interaction.options.getString('guildname');
+        const confirmation = new MessageEmbed()
+            .setTitle('Leave')
+            .setDescription('Are you sure you want to remove this bot?')
+            .setColor('#FF0000');
 
-            const embedTrue = new MessageEmbed()
+        const leaveButton = new MessageActionRow()
+            .addComponents(new MessageButton()
+                .setCustomId('leaveBtn')
+                .setLabel('Leave Guild')
+                .setStyle('DANGER'));
+
+            const confirmed = new MessageEmbed()
                 .setTitle('Leave')
                 .setDescription('Successfully left the guild.\n We hope to see you again next time!')
                 .setColor(embedColor);
 
-            const buttonTrue = new MessageActionRow()
+            const successButton = new MessageActionRow()
                 .addComponents(new MessageButton()
-                    .setURL(`https://discord.com/api/oauth2/authorize?client_id=${interaction.client.user.id}&permissions=398357949558&redirect_uri=https%3A%2F%2Fskyebot.weebly.com%2F&response_type=code&scope=identify%20bot%20applications.commands%20messages.read`)
+                    .setURL('https://skyebot.weebly.com')
                     .setLabel('Already missed us? Invite us back')
                     .setStyle('LINK'));
 
-        if (stringField === interaction.guild.name) {
-            interaction.guild.leave().then(interaction.reply({ embeds: [embedTrue], components: [buttonTrue] }));
+        interaction.reply({ embeds: [confirmation], components: [leaveButton] });
+
+            const filter = ft => ft.isButton() && ft.user.id === interaction.user.id;
+            const collector = interaction.channel.createMessageComponentCollector({
+                filter,
+                max: 1,
+                time: 15000
+            });
+
+            collector.on('collect', co => {
+                if (co.customId === 'leaveBtn') {
+                    interaction.guild.leave().then(co.update({ embeds: [confirmed], components: [successButton] }));
+                }
+            });
+
         }
-        else {
-            return interaction.reply('Error: Failed to leave the current guild. Incorrect guild name.');
-        }
-    }
 };

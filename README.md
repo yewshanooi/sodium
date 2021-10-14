@@ -41,7 +41,7 @@
 `8ball`, `achievement`, `beep`, `catfact`, `coinflip`, `color`, `compliment`, `diceroll`, `dogfact`, `fact`, `giphy`, `github`, `lyrics`, `meme`, `say`, `spoiler`, `urban`, `wikipedia`
 
 ###### Utility
-`announce`, `avatar`, `botinfo`, `botnick`, `botpresence`, `chdelete`, `chrename`, `covid`, `delete`, `guildinfo`, `guildname`, `help`, `leave`, `links`, `message`, `nick`, `ping`, `roleadd`, `roleinfo`, `roleremove`, `thread`, `userinfo`
+`announce`, `avatar`, `botinfo`, `botnick`, `botpresence`, `calculator`, `chdelete`, `chrename`, `covid`, `delete`, `guildinfo`, `guildname`, `help`, `leave`, `links`, `message`, `nick`, `ping`, `roleadd`, `roleinfo`, `roleremove`, `thread`, `userinfo`
 
 ###### Moderation
 `ban`, `chlock`, `chunlock`, `deafen`, `kick`, `lockdown`, `mute`, `slowmode`, `unban`, `undeafen`, `unmute`, `warn`
@@ -80,6 +80,10 @@
     </tr>
     <tr>
       <td><a href="https://github.com/discordjs/discord.js/">discord.js@13.2.0</a></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><a href="https://github.com/josdejong/mathjs">mathjs@9.5.0</a></td>
       <td></td>
     </tr>
   </tbody>
