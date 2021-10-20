@@ -83,11 +83,13 @@ module.exports = {
 			compInt.update({ content, components });
 		});
 
-		collector.on('end', () => {
-			message.edit({
-				content: `${content}*This session has timed out. You can start a new one with \`/calculator\`.*`
-			});
-		});
+		/*
+		 * collector.on('end', () => {
+		 *   message.edit({
+		 *       content: `${content}*This session has timed out. You can start a new one with \`/calculator\`.*`
+		 *     });
+		 * });
+		 */
 
 	}
 };

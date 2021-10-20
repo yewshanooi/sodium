@@ -67,23 +67,23 @@
   </thead>
   <tbody>
     <tr>
-      <td><a href="https://github.com/discordjs/builders">@discordjs/builders@0.6.0</a></td>
-      <td><a href="https://github.com/eslint/eslint">eslint@7.32.0</a></td>
+      <td><a href="https://www.npmjs.com/package/@discordjs/builders">@discordjs/builders@0.7.0</a></td>
+      <td><a href="https://www.npmjs.com/package/eslint">eslint@8.0.1</a></td>
     </tr>
     <tr>
-      <td><a href="https://github.com/discordjs/discord.js-modules">@discordjs/rest@0.1.0-canary.0</a></td>
-      <td><a href="https://github.com/remy/nodemon">nodemon@2.0.7</a></td>
+      <td><a href="https://www.npmjs.com/package/@discordjs/rest">@discordjs/rest@0.1.0-canary.0</a></td>
+      <td><a href="https://www.npmjs.com/package/nodemon">nodemon@2.0.14</a></td>
     </tr>
     <tr>
-      <td><a href="https://github.com/discordjs/discord-api-types">discord-api-types@0.23.1</a></td>
+      <td><a href="https://www.npmjs.com/package/discord-api-types">discord-api-types@0.24.0</a></td>
       <td></td>
     </tr>
     <tr>
-      <td><a href="https://github.com/discordjs/discord.js/">discord.js@13.2.0</a></td>
+      <td><a href="https://www.npmjs.com/package/discord.js">discord.js@13.2.0</a></td>
       <td></td>
     </tr>
     <tr>
-      <td><a href="https://github.com/josdejong/mathjs">mathjs@9.5.0</a></td>
+      <td><a href="https://www.npmjs.com/package/mathjs">mathjs@9.5.1</a></td>
       <td></td>
     </tr>
   </tbody>
