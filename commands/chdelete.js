@@ -16,13 +16,13 @@ module.exports = {
         const channelField = interaction.options.getChannel('channel');
 
         if (channelField === interaction.channel) {
-            const embedToDM = new MessageEmbed()
+            const embedUserDM = new MessageEmbed()
                 .setTitle('Channel Delete')
                 .setDescription(`Successfully deleted channel **#${channelField.name}** in **${interaction.guild.name}** guild`)
                 .setTimestamp()
                 .setColor(embedColor);
 
-            interaction.user.send({ embeds: [embedToDM] }).then(channelField.delete());
+            interaction.user.send({ embeds: [embedUserDM] }).then(channelField.delete());
         }
         else {
             const embed = new MessageEmbed()

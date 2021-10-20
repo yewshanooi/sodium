@@ -15,12 +15,12 @@ module.exports = {
 				.setColor(embedColor);
 			interaction.reply({ embeds: [embed], fetchReply: true }).then(itr => {
 				const ping = itr.createdTimestamp - interaction.createdTimestamp;
-				const embedApi = new MessageEmbed()
+				const embedAPI = new MessageEmbed()
 					.addField('API Latency', `\`${ping}\`ms`)
 					.addField('WebSocket Latency', `\`${interaction.client.ws.ping}\`ms`)
 					.setTimestamp()
 					.setColor(embedColor);
-				interaction.channel.send({ embeds: [embedApi] });
+				interaction.channel.send({ embeds: [embedAPI] });
 			});
 		}
 };

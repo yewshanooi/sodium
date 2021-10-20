@@ -21,7 +21,7 @@ module.exports = {
 
         if (!stringField) {
             fetch('https://covid19.mathdro.id/api')
-            .then(response => response.json())
+            .then(res => res.json())
             .then(data => {
                 const confirmed = data.confirmed.value.toLocaleString();
                 // const recovered = data.recovered.value.toLocaleString();
@@ -43,7 +43,7 @@ module.exports = {
         }
         if (stringField) {
             fetch(`https://covid19.mathdro.id/api/countries/${stringField}`)
-            .then(response => response.json())
+            .then(res => res.json())
             .then(data => {
                 const confirmed = data.confirmed.value.toLocaleString();
                 // const recovered = data.recovered.value.toLocaleString();

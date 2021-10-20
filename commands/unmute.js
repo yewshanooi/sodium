@@ -26,7 +26,7 @@ module.exports = {
             if (!mutedRole) return interaction.reply('Error: No existing mute role found. Create a new role, **Muted** in `Server settings > Roles` to use this command.');
             if (!memberField.roles.cache.has(mutedRole.id)) return interaction.reply('Error: This user is not muted.');
 
-		const embedUser = new MessageEmbed()
+		const embedUserDM = new MessageEmbed()
             .setTitle('Unmute')
             .addFields(
                 { name: 'Guild', value: `\`${interaction.guild.name}\`` },
@@ -48,6 +48,6 @@ module.exports = {
             .setColor('#FF0000');
 
         interaction.reply({ embeds: [embed] });
-        memberField.send({ embeds: [embedUser] }).then(memberField.roles.remove(mutedRole));
+        memberField.send({ embeds: [embedUserDM] }).then(memberField.roles.remove(mutedRole));
 	}
 };

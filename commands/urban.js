@@ -20,7 +20,7 @@ module.exports = {
 		const term = interaction.options.getString('query');
 		const query = new URLSearchParams({ term });
 
-		const { list } = await fetch(`https://api.urbandictionary.com/v0/define?${query}`).then(response => response.json());
+		const { list } = await fetch(`https://api.urbandictionary.com/v0/define?${query}`).then(res => res.json());
 
 		if (!list.length) {
 			return interaction.reply(`Error: No results found for **${term}**.`);

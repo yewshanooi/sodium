@@ -48,7 +48,7 @@ module.exports = {
 
         // Bot will create new 'mutedRole' if guild doesn't have existing role in a future update.
 
-		const embedUser = new MessageEmbed()
+		const embedUserDM = new MessageEmbed()
             .setTitle('Mute')
             .addFields(
                 { name: 'Guild', value: `\`${interaction.guild.name}\`` },
@@ -70,6 +70,6 @@ module.exports = {
             .setColor('#FF0000');
 
         interaction.reply({ embeds: [embed] });
-            memberField.send({ embeds: [embedUser] }).then(memberField.roles.add(mutedRole));
+            memberField.send({ embeds: [embedUserDM] }).then(memberField.roles.add(mutedRole));
         }
 };

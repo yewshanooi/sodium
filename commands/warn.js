@@ -22,7 +22,7 @@ module.exports = {
                     reasonField = 'None';
                 }
 
-        const embedUser = new MessageEmbed()
+        const embedUserDM = new MessageEmbed()
             .setTitle('Warn')
             .addFields(
                 { name: 'Guild', value: `\`${interaction.guild.name}\`` },
@@ -43,6 +43,6 @@ module.exports = {
             .setTimestamp()
             .setColor('#FF0000');
 
-        memberField.send({ embeds: [embedUser] }).then(interaction.reply({ embeds: [embed] }));
+        memberField.send({ embeds: [embedUserDM] }).then(interaction.reply({ embeds: [embed] }));
 	}
 };

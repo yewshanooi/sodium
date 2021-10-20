@@ -13,12 +13,12 @@ module.exports = {
     guildOnly: false,
     async execute (interaction) {
         const links = [url1, url2];
-        const randomArray = links[Math.floor(Math.random() * links.length)];
+        const randomLinks = links[Math.floor(Math.random() * links.length)];
 
-        const fetchMemes = await fetch(randomArray)
-            .then(fm => fm.json());
+        const memes = await fetch(randomLinks)
+            .then(res => res.json());
 
-        const getMemes = fetchMemes.data.children;
+        const getMemes = memes.data.children;
         const randomMemes = getMemes[Math.floor(Math.random() * getMemes.length)];
 
         const memeEmbed = new MessageEmbed()
