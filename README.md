@@ -38,10 +38,10 @@
 ## Features
 **50+** commands and counting across **3** different categories!
 ###### Fun
-`8ball`, `achievement`, `beep`, `catfact`, `coinflip`, `color`, `compliment`, `diceroll`, `dogfact`, `fact`, `giphy`, `github`, `lyrics`, `meme`, `say`, `spoiler`, `urban`, `wikipedia`
+`8ball`, `achievement`, `beep`, `catfact`, `coinflip`, `color`, `compliment`, `diceroll`, `dogfact`, `fact`, `giphy`, `github`, `lyrics`, `meme`, `say`, `urban`, `wikipedia`
 
 ###### Utility
-`announce`, `avatar`, `botinfo`, `botnick`, `botpresence`, `calculator`, `chdelete`, `chrename`, `covid`, `delete`, `guildinfo`, `guildname`, `help`, `leave`, `links`, `message`, `nick`, `npm`, `ping`, `roleadd`, `roleinfo`, `roleremove`, `thread`, `userinfo`
+`announce`, `botinfo`, `botnick`, `botpresence`, `calculator`, `chdelete`, `chrename`, `covid`, `delete`, `guildinfo`, `guildname`, `help`, `leave`, `links`, `message`, `nick`, `npm`, `ping`, `roleadd`, `roleinfo`, `roleremove`, `thread`, `userinfo`
 
 ###### Moderation
 `ban`, `chlock`, `chunlock`, `deafen`, `kick`, `lockdown`, `mute`, `slowmode`, `unban`, `undeafen`, `unmute`, `warn`
@@ -68,7 +68,7 @@
   <tbody>
     <tr>
       <td><a href="https://www.npmjs.com/package/@discordjs/builders">@discordjs/builders@0.7.0</a></td>
-      <td><a href="https://www.npmjs.com/package/eslint">eslint@8.0.1</a></td>
+      <td><a href="https://www.npmjs.com/package/eslint">eslint@8.1.0</a></td>
     </tr>
     <tr>
       <td><a href="https://www.npmjs.com/package/@discordjs/rest">@discordjs/rest@0.1.0-canary.0</a></td>
@@ -91,7 +91,7 @@
 
 ###### Guide
 1. **Clone** this repository to your desktop
-```
+```sh
 git clone https://github.com/yewshanooi/skye.git
 cd Skye
 ```

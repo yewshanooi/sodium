@@ -6,15 +6,27 @@ module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('say')
 		.setDescription('Get the bot to send your message')
-		.addStringOption(option => option.setName('message').setDescription('Enter a message').setRequired(true)),
+		.addStringOption(option => option.setName('message').setDescription('Enter a message').setRequired(true))
+		.addBooleanOption(option => option.setName('spoiler').setDescription('Choose whether message contains spoiler').setRequired(true)),
 	cooldown: '5',
 	guildOnly: true,
 	execute (interaction) {
-		const textField = interaction.options.getString('message');
+		const messageField = interaction.options.getString('message');
+		const spoilerField = interaction.options.getBoolean('spoiler');
 
+		if (spoilerField === false) {
 			const embed = new MessageEmbed()
-				.setDescription(`**${interaction.user.username} said:** ${textField}`)
+				.setDescription(`**${interaction.user.username} said:** ${messageField}`)
 				.setColor(embedColor);
 			interaction.reply({ embeds: [embed] });
         }
+
+		if (spoilerField === true) {
+			const embed = new MessageEmbed()
+                .setDescription(`**${interaction.user.username} said:** ||${messageField}||`)
+                .setColor(embedColor);
+            interaction.reply({ embeds: [embed] });
+		}
+
+	}
 };
