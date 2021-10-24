@@ -5,7 +5,7 @@ const { embedColor } = require('../config.json');
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('say')
-		.setDescription('Get the bot to send your message')
+		.setDescription('Get the bot to send your message with or without a spoiler')
 		.addStringOption(option => option.setName('message').setDescription('Enter a message').setRequired(true))
 		.addBooleanOption(option => option.setName('spoiler').setDescription('Choose whether message contains spoiler').setRequired(true)),
 	cooldown: '5',
