@@ -7,7 +7,7 @@ module.exports = {
         .setName('announce')
         .setDescription('Get the bot to announce something')
         .addStringOption(option => option.setName('message').setDescription('Enter a message').setRequired(true)),
-    cooldown: '10',
+    cooldown: '3',
     guildOnly: true,
     execute (interaction) {
         const messageField = interaction.options.getString('message');

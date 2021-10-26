@@ -9,7 +9,7 @@ module.exports = {
         .addStringOption(option => option.setName('activity').setDescription('Enter an activity').setRequired(true))
         .addStringOption(option => option.setName('type').setDescription('Enter a type (playing, listening, watching or competing)').setRequired(true))
         .addStringOption(option => option.setName('status').setDescription('Enter a status (online, idle, dnd or invisible)').setRequired(true)),
-    cooldown: '30',
+    cooldown: '25',
     guildOnly: true,
     execute (interaction) {
         if (!interaction.member.permissions.has('ADMINISTRATOR')) return interaction.reply({ content: 'Error: You have no permission to use this command.' });

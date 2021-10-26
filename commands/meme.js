@@ -9,7 +9,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('meme')
         .setDescription('Get fresh new memes from Reddit'),
-    cooldown: '10',
+    cooldown: '5',
     guildOnly: false,
     async execute (interaction) {
         const links = [url1, url2];

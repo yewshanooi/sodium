@@ -7,7 +7,7 @@ module.exports = {
         .setName('guildname')
         .setDescription('Rename the current guild')
         .addStringOption(option => option.setName('name').setDescription('Enter a name (max 100 characters)').setRequired(true)),
-    cooldown: '25',
+    cooldown: '20',
     guildOnly: true,
     execute (interaction) {
         if (!interaction.guild.me.permissions.has('MANAGE_GUILD')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **MANAGE_GUILD** permission in `Server settings > Roles > Skye > Permissions` to use this command.' });

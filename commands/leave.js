@@ -6,7 +6,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('leave')
         .setDescription('Remove the bot from the current guild'),
-    cooldown: '45',
+    cooldown: '15',
     guildOnly: true,
 	execute (interaction) {
         if (!interaction.member.permissions.has('ADMINISTRATOR')) return interaction.reply({ content: 'Error: You have no permission to use this command.' });

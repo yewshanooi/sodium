@@ -7,7 +7,7 @@ module.exports = {
 		.setName('userinfo')
 		.setDescription('Display your own or another user\'s information(s)')
 		.addUserOption(option => option.setName('user').setDescription('Select a user')),
-	cooldown: '5',
+	cooldown: '3',
 	guildOnly: false,
 	execute (interaction) {
 		const userField = interaction.options.getUser('user');

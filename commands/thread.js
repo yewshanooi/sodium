@@ -8,7 +8,7 @@ module.exports = {
         .setDescription('Start a new thread')
         .addStringOption(option => option.setName('name').setDescription('Enter a thread name').setRequired(true))
         .addIntegerOption(option => option.setName('duration').setDescription('Enter an auto archive duration (60 or 1440)').setRequired(true)),
-    cooldown: '25',
+    cooldown: '10',
     guildOnly: true,
     async execute (interaction) {
         if (!interaction.guild.me.permissions.has('MANAGE_THREADS')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **MANAGE_THREADS** permission in `Server settings > Roles > Skye > Permissions` to use this command.' });

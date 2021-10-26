@@ -47,7 +47,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('color')
         .setDescription('Picks a random color from an array'),
-    cooldown: '5',
+    cooldown: '3',
     guildOnly: false,
     execute (interaction) {
         const randomColor = `${rndClrArr[Math.floor(Math.random() * rndClrArr.length)]}`;

@@ -6,7 +6,7 @@ module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('beep')
 		.setDescription('Boops back at you!'),
-	cooldown: '0',
+	cooldown: '3',
 	guildOnly: false,
 	execute (interaction) {
 		const embed = new MessageEmbed()

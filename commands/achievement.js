@@ -121,7 +121,7 @@ module.exports = {
         .setName('achievement')
         .setDescription('Rewards the selected user with a random achievement')
         .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true)),
-    cooldown: '15',
+    cooldown: '8',
     guildOnly: true,
     execute (interaction) {
         const userField = interaction.options.getUser('user');

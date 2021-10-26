@@ -8,7 +8,7 @@ module.exports = {
         .setName('lyrics')
         .setDescription('Get a song\'s lyrics from Genius')
         .addStringOption(option => option.setName('song').setDescription('Enter a song name').setRequired(true)),
-    cooldown: '10',
+    cooldown: '5',
     guildOnly: false,
     async execute (interaction) {
         const stringField = interaction.options.getString('song');

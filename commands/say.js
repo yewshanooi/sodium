@@ -8,7 +8,7 @@ module.exports = {
 		.setDescription('Get the bot to send your message with or without a spoiler')
 		.addStringOption(option => option.setName('message').setDescription('Enter a message').setRequired(true))
 		.addBooleanOption(option => option.setName('spoiler').setDescription('Choose whether message contains spoiler').setRequired(true)),
-	cooldown: '5',
+	cooldown: '3',
 	guildOnly: true,
 	execute (interaction) {
 		const messageField = interaction.options.getString('message');

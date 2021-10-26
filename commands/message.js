@@ -8,7 +8,7 @@ module.exports = {
         .setDescription('Sends a private message to the selected user')
         .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))
         .addStringOption(option => option.setName('message').setDescription('Enter a message').setRequired(true)),
-    cooldown: '10',
+    cooldown: '8',
     guildOnly: true,
     execute (interaction) {
 		const userField = interaction.options.getUser('user');

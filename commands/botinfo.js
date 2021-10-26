@@ -6,7 +6,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('botinfo')
         .setDescription('Display information(s) about the bot'),
-    cooldown: '5',
+    cooldown: '3',
     guildOnly: false,
 	execute (interaction) {
         let totalSeconds = interaction.client.uptime / 1000;

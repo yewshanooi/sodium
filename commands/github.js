@@ -13,7 +13,7 @@ module.exports = {
         .setDescription('View a GitHub repository details')
         .addStringOption(option => option.setName('user').setDescription('Enter a user').setRequired(true))
         .addStringOption(option => option.setName('repository').setDescription('Enter a repository').setRequired(true)),
-    cooldown: '10',
+    cooldown: '5',
     guildOnly: false,
     async execute (interaction) {
         const userField = interaction.options.getString('user');

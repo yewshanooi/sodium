@@ -7,7 +7,7 @@ module.exports = {
         .setName('botnick')
         .setDescription('Change bot\'s nickname in the current server')
         .addStringOption(option => option.setName('nickname').setDescription('Enter a nickname (max 32 characters)').setRequired(true)),
-    cooldown: '20',
+    cooldown: '15',
     guildOnly: true,
 	execute (interaction) {
         if (!interaction.guild.me.permissions.has('MANAGE_NICKNAMES')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **MANAGE_NICKNAMES** permission in `Server settings > Roles > Skye > Permissions` to use this command.' });

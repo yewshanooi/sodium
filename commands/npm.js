@@ -11,7 +11,7 @@ module.exports = {
         .setName('npm')
         .setDescription('Search the NPM Registry for a package information')
         .addStringOption(option => option.setName('package').setDescription('Enter a package').setRequired(true)),
-    cooldown: '10',
+    cooldown: '5',
     guildOnly: false,
     async execute (interaction) {
         const stringField = interaction.options.getString('package');

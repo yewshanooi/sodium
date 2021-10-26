@@ -6,7 +6,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('coinflip')
         .setDescription('Flips a two sided coin for you'),
-    cooldown: '5',
+    cooldown: '3',
     guildOnly: false,
     execute (interaction) {
         const flip = Math.floor(Math.random() * 2);

@@ -6,7 +6,7 @@ module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('guildinfo')
 		.setDescription('Display information(s) about the guild'),
-	cooldown: '5',
+	cooldown: '3',
 	guildOnly: true,
 	execute (interaction) {
 		const MFA = interaction.guild.mfaLevel;

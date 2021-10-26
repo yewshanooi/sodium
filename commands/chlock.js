@@ -6,7 +6,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('chlock')
         .setDescription('Lock the current channel'),
-    cooldown: '20',
+    cooldown: '15',
     guildOnly: true,
 	execute (interaction) {
         if (!interaction.guild.me.permissions.has('MANAGE_CHANNELS')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **MANAGE_CHANNELS** permission in `Server settings > Roles > Skye > Permissions` to use this command.' });

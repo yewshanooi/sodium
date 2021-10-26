@@ -6,7 +6,7 @@ module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('ping')
 		.setDescription('Calculates Discord API\'s and WebSocket\'s latency'),
-	cooldown: '5',
+	cooldown: '3',
 	guildOnly: false,
 	execute (interaction) {
 		const embed = new MessageEmbed()

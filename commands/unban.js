@@ -7,7 +7,7 @@ module.exports = {
 		.setDescription('Unban the user id with or without a reason')
 		.addStringOption(option => option.setName('userid').setDescription('Enter a user id').setRequired(true))
 		.addStringOption(option => option.setName('reason').setDescription('Enter a reason')),
-	cooldown: '30',
+	cooldown: '25',
 	guildOnly: true,
     execute (interaction) {
 		if (!interaction.guild.me.permissions.has('BAN_MEMBERS')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **BAN_MEMBERS** permission in `Server settings > Roles > Skye > Permissions` to use this command.' });

@@ -111,7 +111,7 @@ module.exports = {
       .setName('compliment')
       .setDescription('Sends the selected user a random compliment')
       .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true)),
-  cooldown: '15',
+  cooldown: '8',
   guildOnly: true,
   execute (interaction) {
       const userField = interaction.options.getUser('user');

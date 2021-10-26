@@ -6,7 +6,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('calculator')
         .setDescription('Bring up a calculator using mathjs'),
-    cooldown: '30',
+    cooldown: '5',
     guildOnly: false,
     async execute (interaction) {
         let content = '';

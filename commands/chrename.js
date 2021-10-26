@@ -7,7 +7,7 @@ module.exports = {
         .setName('chrename')
         .setDescription('Rename the current channel')
         .addStringOption(option => option.setName('name').setDescription('Enter a name (max 100 characters)').setRequired(true)),
-    cooldown: '15',
+    cooldown: '8',
     guildOnly: true,
     execute (interaction) {
         if (!interaction.guild.me.permissions.has('MANAGE_CHANNELS')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **MANAGE_CHANNELS** permission in `Server settings > Roles > Skye > Permissions` to use this command.' });

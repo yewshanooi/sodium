@@ -6,7 +6,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('links')
         .setDescription('Get helpful links and invite the bot to your own server'),
-    cooldown: '0',
+    cooldown: '3',
     guildOnly: false,
     execute (interaction) {
         const embed = new MessageEmbed()

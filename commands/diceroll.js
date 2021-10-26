@@ -6,7 +6,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('diceroll')
         .setDescription('Rolls a dice that contain 6 sides'),
-    cooldown: '0',
+    cooldown: '3',
     guildOnly: false,
 	execute (interaction) {
         const rand = Math.floor(Math.random() * 6 + 1);

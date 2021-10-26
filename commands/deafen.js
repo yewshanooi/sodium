@@ -7,7 +7,7 @@ module.exports = {
         .setDescription('Deafen the selected user with or without a reason')
         .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))
         .addStringOption(option => option.setName('reason').setDescription('Enter a reason')),
-    cooldown: '25',
+    cooldown: '15',
     guildOnly: true,
     execute (interaction) {
         if (!interaction.guild.me.permissions.has('DEAFEN_MEMBERS')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **DEAFEN_MEMBERS** permission in `Server settings > Roles > Skye > Permissions` to use this command.' });

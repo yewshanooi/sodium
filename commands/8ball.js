@@ -30,7 +30,7 @@ module.exports = {
         .setName('8ball')
         .setDescription('Asks the Magic 8-Ball for some psychic wisdom')
         .addStringOption(option => option.setName('question').setDescription('Enter a question').setRequired(true)),
-    cooldown: '5',
+    cooldown: '3',
     guildOnly: false,
     execute (interaction) {
         const questionField = interaction.options.getString('question');
