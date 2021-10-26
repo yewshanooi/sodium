@@ -7,7 +7,7 @@ module.exports = {
         .setName('thread')
         .setDescription('Start a new thread')
         .addStringOption(option => option.setName('name').setDescription('Enter a thread name').setRequired(true))
-        .addIntegerOption(option => option.setName('duration').setDescription('Enter an auto archive duration (60 or 1440)').setRequired(true)),
+        .addIntegerOption(option => option.setName('duration').setDescription('Select an auto archive duration').setRequired(true).addChoice('1 Hour', 60).addChoice('24 Hours', 1440)),
     cooldown: '10',
     guildOnly: true,
     async execute (interaction) {
@@ -17,11 +17,10 @@ module.exports = {
             const nameField = interaction.options.getString('name');
 
             const durationField = interaction.options.getInteger('duration');
-            let resultDuration;
-                if (durationField === 60) resultDuration = '1 Hour';
-                if (durationField === 1440) resultDuration = '24 Hours';
 
-            if (durationField !== 60 && durationField !== 1440) return interaction.reply({ content: 'Error: Auto archive duration must be either `60` or `1440` minutes.' });
+                let resultDuration;
+                    if (durationField === 60) resultDuration = '1 Hour';
+                    if (durationField === 1440) resultDuration = '24 Hours';
 
                 const thread = await interaction.channel.threads.create({
                     name: nameField,

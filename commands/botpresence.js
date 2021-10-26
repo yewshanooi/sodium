@@ -7,8 +7,8 @@ module.exports = {
         .setName('botpresence')
         .setDescription('Change bot\'s current presence globally')
         .addStringOption(option => option.setName('activity').setDescription('Enter an activity').setRequired(true))
-        .addStringOption(option => option.setName('type').setDescription('Enter a type (playing, listening, watching or competing)').setRequired(true))
-        .addStringOption(option => option.setName('status').setDescription('Enter a status (online, idle, dnd or invisible)').setRequired(true)),
+        .addStringOption(option => option.setName('type').setDescription('Select a type').setRequired(true).addChoice('Playing', 'PLAYING').addChoice('Listening', 'LISTENING').addChoice('Watching', 'WATCHING').addChoice('Competing', 'COMPETING'))
+        .addStringOption(option => option.setName('status').setDescription('Select a status').setRequired(true).addChoice('Online', 'online').addChoice('Idle', 'idle').addChoice('Do Not Disturb', 'dnd').addChoice('Invisible', 'invisible')),
     cooldown: '25',
     guildOnly: true,
     execute (interaction) {
@@ -17,17 +17,14 @@ module.exports = {
             const activityField = interaction.options.getString('activity');
 
             const typeField = interaction.options.getString('type');
-                if (typeField !== 'playing' && typeField !== 'listening' && typeField !== 'watching' && typeField !== 'competing') {
-                    return interaction.reply({ content: 'Error: No such type.\n*(Available options - `playing`, `listening`, `watching` or `competing`)*' });
-                }
 
-                const typeFieldAllCaps = typeField.toUpperCase();
-                const typeFieldFirstCaps = typeField.charAt(0).toUpperCase() + typeField.slice(1);
+                let resultType;
+                    if (typeField === 'PLAYING') resultType = 'Playing';
+                    if (typeField === 'LISTENING') resultType = 'Listening';
+                    if (typeField === 'WATCHING') resultType = 'Watching';
+                    if (typeField === 'COMPETING') resultType = 'Competing';
 
             const statusField = interaction.options.getString('status');
-                if (statusField !== 'online' && statusField !== 'idle' && statusField !== 'dnd' && statusField !== 'invisible') {
-                    return interaction.reply({ content: 'Error: No such status.\n*(Available options - `online`, `idle`, `dnd` or `invisible`)*' });
-                }
 
                 let resultStatus;
                     if (statusField === 'online') resultStatus = 'Online';
@@ -40,12 +37,12 @@ module.exports = {
                 .setDescription('Successfully changed bot\'s current presence')
                 .addFields(
                     { name: 'Activity', value: `${activityField}` },
-                    { name: 'Type', value: `\`${typeFieldFirstCaps}\``, inline: true },
+                    { name: 'Type', value: `\`${resultType}\``, inline: true },
                     { name: 'Status', value: `\`${resultStatus}\``, inline: true }
                 )
                 .setColor(embedColor);
 
-            interaction.client.user.setPresence({ activities: [{ name: `${activityField}`, type: `${typeFieldAllCaps}` }], status: `${statusField}` });
+            interaction.client.user.setPresence({ activities: [{ name: `${activityField}`, type: `${typeField}` }], status: `${statusField}` });
                 interaction.reply({ embeds: [embed] });
         }
 };
