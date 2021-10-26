@@ -61,7 +61,7 @@ module.exports = {
                     .setColor(embedColor);
 
                 interaction.reply({ embeds: [embed], components: [button] });
-            }).catch(() => interaction.reply('Error: Please provide a valid country.'));
+            }).catch(() => interaction.reply({ content: 'Error: Please provide a valid country.' }));
         }
 	}
 };

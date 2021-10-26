@@ -10,8 +10,8 @@ module.exports = {
 	cooldown: '30',
 	guildOnly: true,
     execute (interaction) {
-		if (!interaction.guild.me.permissions.has('BAN_MEMBERS')) return interaction.reply('Error: Bot permission denied. Enable **BAN_MEMBERS** permission in `Server settings > Roles > Skye > Permissions` to use this command.');
-		if (!interaction.member.permissions.has('BAN_MEMBERS')) return interaction.reply('Error: You have no permission to use this command.');
+		if (!interaction.guild.me.permissions.has('BAN_MEMBERS')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **BAN_MEMBERS** permission in `Server settings > Roles > Skye > Permissions` to use this command.' });
+		if (!interaction.member.permissions.has('BAN_MEMBERS')) return interaction.reply({ content: 'Error: You have no permission to use this command.' });
 
 			const userIdField = interaction.options.getString('userid');
 
@@ -35,7 +35,7 @@ module.exports = {
 				interaction.reply({ embeds: [embed] });
 			})
 			.catch(() => {
-				interaction.reply('Error: User ID is invalid or not found.');
+				interaction.reply({ content: 'Error: User ID is invalid or not found.' });
 			});
 		}
 };

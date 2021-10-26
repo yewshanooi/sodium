@@ -12,8 +12,8 @@ module.exports = {
     guildOnly: true,
     execute (interaction) {
 		const userField = interaction.options.getUser('user');
-            if (userField === interaction.client.user) return interaction.reply('Error: You cannot send a message to the bot.');
-            if (userField.bot === true) return interaction.reply('Error: You cannot send a message to a bot.');
+            if (userField === interaction.client.user) return interaction.reply({ content: 'Error: You cannot send a message to the bot.' });
+            if (userField.bot === true) return interaction.reply({ content: 'Error: You cannot send a message to a bot.' });
 
         const stringField = interaction.options.getString('message');
 

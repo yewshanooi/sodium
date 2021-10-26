@@ -9,7 +9,7 @@ module.exports = {
     cooldown: '45',
     guildOnly: true,
 	execute (interaction) {
-        if (!interaction.member.permissions.has('ADMINISTRATOR')) return interaction.reply('Error: You have no permission to use this command.');
+        if (!interaction.member.permissions.has('ADMINISTRATOR')) return interaction.reply({ content: 'Error: You have no permission to use this command.' });
 
         const confirmation = new MessageEmbed()
             .setTitle('Leave')

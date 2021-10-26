@@ -10,12 +10,12 @@ module.exports = {
     cooldown: '25',
     guildOnly: true,
     execute (interaction) {
-        if (!interaction.guild.me.permissions.has('MUTE_MEMBERS')) return interaction.reply('Error: Bot permission denied. Enable **MUTE_MEMBERS** permission in `Server settings > Roles > Skye > Permissions` to use this command.');
-        if (!interaction.member.permissions.has('MUTE_MEMBERS')) return interaction.reply('Error: You have no permission to use this command.');
+        if (!interaction.guild.me.permissions.has('MUTE_MEMBERS')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **MUTE_MEMBERS** permission in `Server settings > Roles > Skye > Permissions` to use this command.' });
+        if (!interaction.member.permissions.has('MUTE_MEMBERS')) return interaction.reply({ content: 'Error: You have no permission to use this command.' });
 
             const memberField = interaction.options.getMember('user');
-                if (memberField.user.bot === true) return interaction.reply('Error: You cannot mute a bot.');
-				if (memberField.permissions.has('MUTE_MEMBERS')) return interaction.reply('Error: This user cannot be muted.');
+                if (memberField.user.bot === true) return interaction.reply({ content: 'Error: You cannot mute a bot.' });
+				if (memberField.permissions.has('MUTE_MEMBERS')) return interaction.reply({ content: 'Error: This user cannot be muted.' });
 
             let reasonField = interaction.options.getString('reason');
                 if (!reasonField) {
@@ -23,8 +23,8 @@ module.exports = {
                 }
 
         const mutedRole = interaction.guild.roles.cache.find(mt => mt.name === 'Muted');
-            if (!mutedRole) return interaction.reply('Error: No existing mute role found. Create a new role, **Muted** in `Server settings > Roles` to use this command.');
-            if (memberField.roles.cache.has(mutedRole.id)) return interaction.reply('Error: This user is already muted.');
+            if (!mutedRole) return interaction.reply({ content: 'Error: No existing mute role found. Create a new role, **Muted** in `Server settings > Roles` to use this command.' });
+            if (memberField.roles.cache.has(mutedRole.id)) return interaction.reply({ content: 'Error: This user is already muted.' });
 
         /*
          * if (!mutedRole) {

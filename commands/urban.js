@@ -23,7 +23,7 @@ module.exports = {
 		const { list } = await fetch(`https://api.urbandictionary.com/v0/define?${query}`).then(res => res.json());
 
 		if (!list.length) {
-			return interaction.reply(`Error: No results found for **${term}**.`);
+			return interaction.reply({ content: `Error: No results found for **${term}**.` });
 		}
 
 		const [answer] = list;

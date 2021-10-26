@@ -10,11 +10,11 @@ module.exports = {
     cooldown: '15',
     guildOnly: true,
     execute (interaction) {
-        if (!interaction.guild.me.permissions.has('MANAGE_CHANNELS')) return interaction.reply('Error: Bot permission denied. Enable **MANAGE_CHANNELS** permission in `Server settings > Roles > Skye > Permissions` to use this command.');
-        if (!interaction.member.permissions.has('MANAGE_CHANNELS')) return interaction.reply('Error: You have no permission to use this command.');
+        if (!interaction.guild.me.permissions.has('MANAGE_CHANNELS')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **MANAGE_CHANNELS** permission in `Server settings > Roles > Skye > Permissions` to use this command.' });
+        if (!interaction.member.permissions.has('MANAGE_CHANNELS')) return interaction.reply({ content: 'Error: You have no permission to use this command.' });
 
         const integerField = interaction.options.getInteger('value');
-            if (integerField < 0 || integerField > '21600') return interaction.reply('Error: You need to input a number between `0` and `21600`.');
+            if (integerField < 0 || integerField > '21600') return interaction.reply({ content: 'Error: You need to input a number between `0` and `21600`.' });
 
         const embed = new MessageEmbed()
             .setTitle('Channel Slowmode')

@@ -11,8 +11,8 @@ module.exports = {
     cooldown: '25',
     guildOnly: true,
     async execute (interaction) {
-        if (!interaction.guild.me.permissions.has('MANAGE_THREADS')) return interaction.reply('Error: Bot permission denied. Enable **MANAGE_THREADS** permission in `Server settings > Roles > Skye > Permissions` to use this command.');
-        if (!interaction.member.permissions.has('MANAGE_THREADS')) return interaction.reply('Error: You have no permission to use this command.');
+        if (!interaction.guild.me.permissions.has('MANAGE_THREADS')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **MANAGE_THREADS** permission in `Server settings > Roles > Skye > Permissions` to use this command.' });
+        if (!interaction.member.permissions.has('MANAGE_THREADS')) return interaction.reply({ content: 'Error: You have no permission to use this command.' });
 
             const nameField = interaction.options.getString('name');
 
@@ -21,7 +21,7 @@ module.exports = {
                 if (durationField === 60) resultDuration = '1 Hour';
                 if (durationField === 1440) resultDuration = '24 Hours';
 
-            if (durationField !== 60 && durationField !== 1440) return interaction.reply('Error: Auto archive duration must be either `60` or `1440` minutes.');
+            if (durationField !== 60 && durationField !== 1440) return interaction.reply({ content: 'Error: Auto archive duration must be either `60` or `1440` minutes.' });
 
                 const thread = await interaction.channel.threads.create({
                     name: nameField,

@@ -16,7 +16,7 @@ module.exports = {
             .then(res => res.json())
             .then(body => body.data[0]);
 
-        if (!data) return interaction.reply('Error: No results found.');
+        if (!data) return interaction.reply({ content: 'Error: No results found.' });
             interaction.reply(data.embed_url);
       }
 };

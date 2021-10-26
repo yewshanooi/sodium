@@ -10,8 +10,8 @@ module.exports = {
     cooldown: '20',
     guildOnly: true,
 	execute (interaction) {
-        if (!interaction.guild.me.permissions.has('MANAGE_NICKNAMES')) return interaction.reply('Error: Bot permission denied. Enable **MANAGE_NICKNAMES** permission in `Server settings > Roles > Skye > Permissions` to use this command.');
-        if (!interaction.member.permissions.has('MANAGE_NICKNAMES')) return interaction.reply('Error: You have no permission to use this command.');
+        if (!interaction.guild.me.permissions.has('MANAGE_NICKNAMES')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **MANAGE_NICKNAMES** permission in `Server settings > Roles > Skye > Permissions` to use this command.' });
+        if (!interaction.member.permissions.has('MANAGE_NICKNAMES')) return interaction.reply({ content: 'Error: You have no permission to use this command.' });
 
         const stringField = interaction.options.getString('nickname');
 
@@ -25,7 +25,7 @@ module.exports = {
             interaction.guild.me.setNickname(stringField).then(interaction.reply({ embeds: [embed] }));
         }
         else {
-            return interaction.reply('Error: Nickname must be 32 characters or fewer.');
+            return interaction.reply({ content: 'Error: Nickname must be 32 characters or fewer.' });
         }
 	}
 };

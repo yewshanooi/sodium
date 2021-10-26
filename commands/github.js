@@ -23,7 +23,7 @@ module.exports = {
             .then(res => res.ok && res.json())
             .catch(() => null);
 
-            if (!body) return interaction.reply('Error: No repository found.');
+            if (!body) return interaction.reply({ content: 'Error: No repository found.' });
 
         const size = body.size <= 1024 ? `${body.size} KB` : Math.floor(body.size / 1024) > 1024 ? `${(body.size / 1024 / 1024).toFixed(2)} GB` : `${(body.size / 1024).toFixed(2)} MB`;
         const license = body.license && body.license.name && body.license.url ? `[${body.license.name}](${body.license.url})` : body.license && body.license.name || 'None';

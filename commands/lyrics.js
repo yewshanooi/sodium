@@ -19,7 +19,7 @@ module.exports = {
           .then(res => res.json())
           .then(body => body.response.hits);
 
-        if (!hits.length) return interaction.reply('Error: No results found.');
+        if (!hits.length) return interaction.reply({ content: 'Error: No results found.' });
 
         const { url } = hits[0].result;
         const image = hits[0].result.song_art_image_thumbnail_url;

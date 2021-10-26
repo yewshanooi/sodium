@@ -10,11 +10,11 @@ module.exports = {
     cooldown: '25',
     guildOnly: true,
     execute (interaction) {
-        if (!interaction.guild.me.permissions.has('MANAGE_GUILD')) return interaction.reply('Error: Bot permission denied. Enable **MANAGE_GUILD** permission in `Server settings > Roles > Skye > Permissions` to use this command.');
-        if (!interaction.member.permissions.has('MANAGE_GUILD')) return interaction.reply('Error: You have no permission to use this command.');
+        if (!interaction.guild.me.permissions.has('MANAGE_GUILD')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **MANAGE_GUILD** permission in `Server settings > Roles > Skye > Permissions` to use this command.' });
+        if (!interaction.member.permissions.has('MANAGE_GUILD')) return interaction.reply({ content: 'Error: You have no permission to use this command.' });
 
         const stringField = interaction.options.getString('name');
-            if (stringField.length > '100') return interaction.reply('Error: Channel name must be 100 characters or fewer.');
+            if (stringField.length > '100') return interaction.reply({ content: 'Error: Channel name must be 100 characters or fewer.' });
 
         const embed = new MessageEmbed()
             .setTitle('Guild Rename')

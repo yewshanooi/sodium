@@ -15,9 +15,9 @@ module.exports = {
 
         const article = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(titleField)}`)
             .then(res => res.json())
-            .catch(() => interaction.reply('Error: No article found with that title.'));
+            .catch(() => interaction.reply({ content: 'Error: No article found with that title.' }));
 
-        if (!article.content_urls) return interaction.reply('Error: No article found with that title.');
+        if (!article.content_urls) return interaction.reply({ content: 'Error: No article found with that title.' });
 
         const embed = new MessageEmbed()
             .setTitle(article.title)

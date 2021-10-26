@@ -10,12 +10,12 @@ module.exports = {
 	cooldown: '30',
 	guildOnly: true,
 	execute (interaction) {
-        if (!interaction.guild.me.permissions.has('KICK_MEMBERS')) return interaction.reply('Error: Bot permission denied. Enable **KICK_MEMBERS** permission in `Server settings > Roles > Skye > Permissions` to use this command.');
-		if (!interaction.member.permissions.has('KICK_MEMBERS')) return interaction.reply('Error: You have no permission to use this command.');
+        if (!interaction.guild.me.permissions.has('KICK_MEMBERS')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **KICK_MEMBERS** permission in `Server settings > Roles > Skye > Permissions` to use this command.' });
+		if (!interaction.member.permissions.has('KICK_MEMBERS')) return interaction.reply({ content: 'Error: You have no permission to use this command.' });
 
 			const memberField = interaction.options.getMember('user');
-				if (memberField.user.bot === true) return interaction.reply('Error: You cannot kick a bot.');
-				if (memberField.permissions.has('KICK_MEMBERS')) return interaction.reply('Error: This user cannot be kicked.');
+				if (memberField.user.bot === true) return interaction.reply({ content: 'Error: You cannot kick a bot.' });
+				if (memberField.permissions.has('KICK_MEMBERS')) return interaction.reply({ content: 'Error: This user cannot be kicked.' });
 
 			let reasonField = interaction.options.getString('reason');
 				if (!reasonField) {

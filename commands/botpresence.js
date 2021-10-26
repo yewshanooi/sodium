@@ -12,13 +12,13 @@ module.exports = {
     cooldown: '30',
     guildOnly: true,
     execute (interaction) {
-        if (!interaction.member.permissions.has('ADMINISTRATOR')) return interaction.reply('Error: You have no permission to use this command.');
+        if (!interaction.member.permissions.has('ADMINISTRATOR')) return interaction.reply({ content: 'Error: You have no permission to use this command.' });
 
             const activityField = interaction.options.getString('activity');
 
             const typeField = interaction.options.getString('type');
                 if (typeField !== 'playing' && typeField !== 'listening' && typeField !== 'watching' && typeField !== 'competing') {
-                    return interaction.reply('Error: No such type.\n*(Available options - `playing`, `listening`, `watching` or `competing`)*');
+                    return interaction.reply({ content: 'Error: No such type.\n*(Available options - `playing`, `listening`, `watching` or `competing`)*' });
                 }
 
                 const typeFieldAllCaps = typeField.toUpperCase();
@@ -26,7 +26,7 @@ module.exports = {
 
             const statusField = interaction.options.getString('status');
                 if (statusField !== 'online' && statusField !== 'idle' && statusField !== 'dnd' && statusField !== 'invisible') {
-                    return interaction.reply('Error: No such status.\n*(Available options - `online`, `idle`, `dnd` or `invisible`)*');
+                    return interaction.reply({ content: 'Error: No such status.\n*(Available options - `online`, `idle`, `dnd` or `invisible`)*' });
                 }
 
                 let resultStatus;

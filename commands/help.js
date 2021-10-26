@@ -30,7 +30,7 @@ module.exports = {
 
 		if (stringField) {
 			const command = commands.get(stringField.toLowerCase());
-				if (!command) return interaction.reply('Error: Please provide a valid command.');
+				if (!command) return interaction.reply({ content: 'Error: Please provide a valid command.' });
 
 				const guildOnlyCommand = command.guildOnly;
 				let resultGuildOnly;
