@@ -132,4 +132,4 @@ THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ## Contributors
 ###### Developer | Ooi Yew Shan
-[GitHub](https://github.com/yewshanooi/) • [Instagram](https://instagram.com/yewshanooi/) • [Discord](https://discordapp.com/users/266124126584963082/)
+[GitHub](https://github.com/yewshanooi/) • [Discord](https://discordapp.com/users/266124126584963082/)
