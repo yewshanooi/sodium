@@ -67,7 +67,7 @@
   </thead>
   <tbody>
     <tr>
-      <td><a href="https://www.npmjs.com/package/@discordjs/builders">@discordjs/builders@0.7.0</a></td>
+      <td><a href="https://www.npmjs.com/package/@discordjs/builders">@discordjs/builders@0.8.1</a></td>
       <td><a href="https://www.npmjs.com/package/eslint">eslint@8.1.0</a></td>
     </tr>
     <tr>
@@ -79,7 +79,7 @@
       <td></td>
     </tr>
     <tr>
-      <td><a href="https://www.npmjs.com/package/discord.js">discord.js@13.2.0</a></td>
+      <td><a href="https://www.npmjs.com/package/discord.js">discord.js@13.3.0</a></td>
       <td></td>
     </tr>
     <tr>
