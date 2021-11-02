@@ -113,7 +113,10 @@ const achievements = [
     'Bullseye',
     'Oooh, shiny!',
     'Cover me in debris',
-    'Hot tourist destination'
+    'Hot tourist destination',
+    'Wax on, Wax off',
+    'Whatever Floats Your Goat',
+    'The Healing Power of Friendship!'
   ];
 
 module.exports = {
@@ -137,7 +140,6 @@ module.exports = {
             .setDescription(`*Successfully send achievement to ${userField}*`)
             .setColor(embedColor);
 
-        interaction.reply({ embeds: [successEmbed] }).then(userField.send({ embeds: [embed] }));
-        // ephemeral: true will be added in a future update. Currently, bots cannot read those kind of messages yet and will output an error
+        interaction.reply({ embeds: [successEmbed], ephemeral: true }).then(userField.send({ embeds: [embed] }));
       }
 };

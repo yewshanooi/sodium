@@ -43,7 +43,7 @@ client.on('interactionCreate', interaction => {
 
 		if (now < expirationTime) {
 			const timeLeft = (expirationTime - now) / 1000;
-				return interaction.reply({ content: `Please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${command.data.name}\` command.` });
+				return interaction.reply({ content: `Please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${command.data.name}\` command.`, ephemeral: true });
 			}
 		}
 
@@ -55,8 +55,7 @@ client.on('interactionCreate', interaction => {
 	}
 	catch (error) {
 		console.error(error);
-			interaction.reply({ content: 'There was an error while executing this command!' });
-			// ephemeral: true will be added in a future update. Currently, bots cannot read those kind of messages yet and will output an error
+			interaction.reply({ content: 'Error: There was an error while executing this command!' });
 		}
 });
 

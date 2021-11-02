@@ -17,15 +17,10 @@ module.exports = {
 
 			if (valueField < 1 || valueField > 99) return interaction.reply({ content: 'Error: You need to input a number between `1` and `99`.' });
 
-			const embed = new MessageEmbed()
-				.setTitle('Delete')
-				.setDescription(`Succesfully deleted **${valueField}** message(s)`)
-				.setTimestamp()
+			const successEmbed = new MessageEmbed()
+				.setDescription(`*Succesfully deleted **${valueField}** message(s)*`)
 				.setColor(embedColor);
 
-			interaction.channel.bulkDelete(valueField, true);
-			interaction.reply({ embeds: [embed], fetchReply: true }).then(msg => {
-				setTimeout(() => msg.delete(), 6000);
-			});
+			interaction.reply({ embeds: [successEmbed], ephemeral: true }).then(interaction.channel.bulkDelete(valueField, true));
 		}
 };

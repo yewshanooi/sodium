@@ -26,7 +26,6 @@ module.exports = {
                 .setDescription(`*Successfully send message to ${userField}*`)
                 .setColor(embedColor);
 
-            interaction.reply({ embeds: [successEmbed] }).then(userField.send({ embeds: [embed] }));
-            // ephemeral: true will be added in a future update. Currently, bots cannot read those kind of messages yet and will output an error
+            interaction.reply({ embeds: [successEmbed], ephemeral: true }).then(userField.send({ embeds: [embed] }));
         }
 };

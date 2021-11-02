@@ -38,7 +38,7 @@
 ## Features
 **50+** commands and counting across **3** different categories!
 ###### Fun
-`8ball`, `achievement`, `beep`, `catfact`, `coinflip`, `color`, `compliment`, `diceroll`, `dogfact`, `fact`, `giphy`, `github`, `lyrics`, `meme`, `npm`, `say`, `urban`, `wikipedia`
+`8ball`, `achievement`, `beep`, `catfact`, `coinflip`, `colour`, `compliment`, `diceroll`, `dogfact`, `fact`, `giphy`, `github`, `lyrics`, `meme`, `npm`, `say`, `urban`, `wikipedia`
 
 ###### Utility
 `announce`, `botinfo`, `botnick`, `botpresence`, `calculator`, `chdelete`, `chrename`, `covid`, `delete`, `guildinfo`, `guildname`, `help`, `leave`, `links`, `message`, `nick`, `ping`, `roleadd`, `roleinfo`, `roleremove`, `thread`, `userinfo`
@@ -67,7 +67,7 @@
   </thead>
   <tbody>
     <tr>
-      <td><a href="https://www.npmjs.com/package/@discordjs/builders">@discordjs/builders@0.8.1</a></td>
+      <td><a href="https://www.npmjs.com/package/@discordjs/builders">@discordjs/builders@0.8.2</a></td>
       <td><a href="https://www.npmjs.com/package/eslint">eslint@8.1.0</a></td>
     </tr>
     <tr>
@@ -79,7 +79,7 @@
       <td></td>
     </tr>
     <tr>
-      <td><a href="https://www.npmjs.com/package/discord.js">discord.js@13.3.0</a></td>
+      <td><a href="https://www.npmjs.com/package/discord.js">discord.js@13.3.1</a></td>
       <td></td>
     </tr>
     <tr>
