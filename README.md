@@ -1,5 +1,5 @@
 <p align="center">
-    <img src=".github/readme_icon.png" width="181" height="181"/>
+    <img src=".github/readme_icon.png" width="161" height="161"/>
 </p>
 
 <h1 align="center">
