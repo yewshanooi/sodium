@@ -18,10 +18,6 @@
             <img alt="Repository Size" src="https://img.shields.io/github/repo-size/yewshanooi/skye?style=flat-square">
         </a>
     &nbsp;
-        <a href="https://github.com/yewshanooi/skye/">
-            <img alt="Lines of Code" src="https://img.shields.io/tokei/lines/github/yewshanooi/skye?style=flat-square">
-        </a>
-    &nbsp;
         <a href="https://github.com/yewshanooi/skye/blob/main/LICENSE">
             <img alt="License" src="https://img.shields.io/github/license/yewshanooi/skye?style=flat-square">
         </a>
@@ -83,7 +79,7 @@
       <td></td>
     </tr>
     <tr>
-      <td><a href="https://www.npmjs.com/package/mathjs">mathjs@9.5.1</a></td>
+      <td><a href="https://www.npmjs.com/package/mathjs">mathjs@10.0.0</a></td>
       <td></td>
     </tr>
   </tbody>

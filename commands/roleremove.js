@@ -19,6 +19,9 @@ module.exports = {
             const roleField = interaction.options.getRole('role');
                 if (!memberField.roles.cache.has(roleField.id)) return interaction.reply({ content: 'Error: This user doesn\'t have the role.' });
 
+                const everyoneRole = interaction.guild.roles.cache.find(role => role.name === '@everyone');
+                    if (memberField.roles.cache.has(everyoneRole.id)) return interaction.reply({ content: 'Error: This role cannot be removed from the user.' });
+
             const embed = new MessageEmbed()
                 .setTitle('Role Remove')
                 .setDescription(`Successfully removed **${roleField}** role from user **${memberField}**`)

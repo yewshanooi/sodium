@@ -26,28 +26,6 @@ module.exports = {
             if (!mutedRole) return interaction.reply({ content: 'Error: No existing mute role found. Create a new role, **Muted** in `Server settings > Roles` to use this command.' });
             if (memberField.roles.cache.has(mutedRole.id)) return interaction.reply({ content: 'Error: This user is already muted.' });
 
-        /*
-         * if (!mutedRole) {
-         *     message.guild.roles.create({
-         *         data: {
-         *             name: 'Muted',
-         *             color: '#FFFFFF',
-         *             permissions: []
-         *             }
-         *         });
-         *         message.guild.channels.cache.forEach(channel => {
-         *             channel.createOverwrite(mutedRole, {
-         *                 SEND_MESSAGES: false,
-         *                 ADD_REACTIONS: false,
-         *                 SPEAK: false,
-         *                 CONNECT: false
-         *             });
-         *         });
-         * }
-         */
-
-        // Bot will create new 'mutedRole' if guild doesn't have existing role in a future update.
-
 		const embedUserDM = new MessageEmbed()
             .setTitle('Mute')
             .addFields(
