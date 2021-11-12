@@ -127,5 +127,6 @@ THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ```
 
 ## Contributors
-###### Developer | Ooi Yew Shan
-[GitHub](https://github.com/yewshanooi/) • [Discord](https://discordapp.com/users/266124126584963082/)
+###### Ooi Yew Shan (JavaRuntime)
+[linktr.ee](https://linktr.ee/javaruntime)
+
