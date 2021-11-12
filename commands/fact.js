@@ -10,14 +10,15 @@ module.exports = {
     cooldown: '5',
     guildOnly: false,
     async execute (interaction) {
-        const { fact } = await fetch('https://nekos.life/api/v2/fact')
-            .then(res => res.json());
+        const fact = await fetch('https://nekos.life/api/v2/fact')
+            .then(res => res.json())
+            .then(body => body.fact);
 
-        const embedFact = new MessageEmbed()
-            .setTitle('Fact')
-            .setDescription(fact)
-            .setColor(embedColor);
+            const embed = new MessageEmbed()
+                .setTitle('Fact')
+                .setDescription(fact)
+                .setColor(embedColor);
 
-        return interaction.reply({ embeds: [embedFact] });
-    }
+            return interaction.reply({ embeds: [embed] });
+        }
 };

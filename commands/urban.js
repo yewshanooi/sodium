@@ -43,6 +43,6 @@ module.exports = {
                         .setLabel('More Definitions')
                         .setStyle('LINK'));
 
-            interaction.reply({ embeds: [embed], components: [button] });
+            return interaction.reply({ embeds: [embed], components: [button] });
         }
 };

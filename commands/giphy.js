@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const fetch = require('node-fetch');
 const { giphyAPIKey } = require('../config.json');
+const fetch = require('node-fetch');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -17,6 +17,7 @@ module.exports = {
             .then(body => body.data[0]);
 
         if (!data) return interaction.reply({ content: 'Error: No results found.' });
-            interaction.reply(data.embed_url);
+
+            return interaction.reply({ content: `${data.embed_url}` });
       }
 };

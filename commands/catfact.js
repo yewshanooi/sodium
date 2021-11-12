@@ -1,5 +1,3 @@
-/* eslint-disable no-shadow */
-
 const { MessageEmbed } = require('discord.js');
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { embedColor } = require('../config.json');
@@ -14,10 +12,10 @@ module.exports = {
     async execute (interaction) {
         const fact = await fetch('https://catfact.ninja/fact')
             .then(res => res.json())
-            .then(({ fact }) => fact);
+            .then(body => body.fact);
 
             const embed = new MessageEmbed()
-                .setTitle('Cat Facts')
+                .setTitle('Cat Fact')
                 .setDescription(fact)
                 .setColor(embedColor);
 

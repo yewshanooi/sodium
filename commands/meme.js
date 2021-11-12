@@ -27,6 +27,6 @@ module.exports = {
             .setImage(`${randomMemes.data.url}`)
             .setColor(embedColor);
 
-        interaction.reply({ embeds: [memeEmbed] });
+        return interaction.reply({ embeds: [memeEmbed] });
     }
 };

@@ -1,7 +1,7 @@
-const fetch = require('node-fetch');
 const { MessageEmbed, MessageButton, MessageActionRow } = require('discord.js');
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { embedColor } = require('../config.json');
+const fetch = require('node-fetch');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -38,7 +38,7 @@ module.exports = {
                     .setTimestamp()
                     .setColor(embedColor);
 
-                interaction.reply({ embeds: [embed], components: [button] });
+                return interaction.reply({ embeds: [embed], components: [button] });
             });
         }
         if (stringField) {
@@ -60,7 +60,7 @@ module.exports = {
                     .setTimestamp()
                     .setColor(embedColor);
 
-                interaction.reply({ embeds: [embed], components: [button] });
+                return interaction.reply({ embeds: [embed], components: [button] });
             }).catch(() => interaction.reply({ content: 'Error: Please provide a valid country.' }));
         }
 	}

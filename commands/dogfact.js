@@ -15,7 +15,7 @@ module.exports = {
             .then(body => body.facts[0]);
 
             const embed = new MessageEmbed()
-                .setTitle('Dog Facts')
+                .setTitle('Dog Fact')
                 .setDescription(fact)
                 .setColor(embedColor);
 
