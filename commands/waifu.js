@@ -15,7 +15,7 @@ module.exports = {
 
             const embed = new MessageEmbed()
                 .setTitle('Waifu')
-                .setImage(anime.url)
+                .setImage(`${anime.url}`)
                 .setFooter(`by ${anime.artist_name}`)
                 .setColor(embedColor);
 

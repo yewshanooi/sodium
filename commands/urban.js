@@ -20,7 +20,8 @@ module.exports = {
 		const term = interaction.options.getString('query');
 		const query = new URLSearchParams({ term });
 
-		const { list } = await fetch(`https://api.urbandictionary.com/v0/define?${query}`).then(res => res.json());
+		const { list } = await fetch(`https://api.urbandictionary.com/v0/define?${query}`)
+            .then(res => res.json());
 
 		if (!list.length) {
 			return interaction.reply({ content: `Error: No results found for **${term}**.` });
@@ -29,7 +30,7 @@ module.exports = {
 		const [answer] = list;
 
             const embed = new MessageEmbed()
-                .setTitle(answer.word)
+                .setTitle(`${answer.word}`)
                 .addFields(
                     { name: 'Definition', value: `${trim(answer.definition, 1024)}` },
                     { name: 'Example', value: `${trim(answer.example, 1024)}` },
@@ -39,7 +40,7 @@ module.exports = {
 
                 const button = new MessageActionRow()
                     .addComponents(new MessageButton()
-                        .setURL(answer.permalink)
+                        .setURL(`${answer.permalink}`)
                         .setLabel('More Definitions')
                         .setStyle('LINK'));
 

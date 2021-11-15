@@ -11,12 +11,11 @@ module.exports = {
     guildOnly: false,
     async execute (interaction) {
         const fact = await fetch('http://dog-api.kinduff.com/api/facts?number=1')
-            .then(res => res.json())
-            .then(body => body.facts[0]);
+            .then(res => res.json());
 
             const embed = new MessageEmbed()
                 .setTitle('Dog Fact')
-                .setDescription(fact)
+                .setDescription(`${fact.facts[0]}`)
                 .setColor(embedColor);
 
             return interaction.reply({ embeds: [embed] });

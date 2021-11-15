@@ -34,7 +34,7 @@
 ## Features
 **50+** commands and counting across **3** different categories!
 ###### Fun
-`8ball`, `achievement`, `beep`, `catfact`, `coinflip`, `colour`, `compliment`, `diceroll`, `dogfact`, `fact`, `giphy`, `github`, `lyrics`, `meme`, `npm`, `say`, `urban`, `waifu`, `wikipedia`
+`8ball`, `achievement`, `beep`, `catfact`, `coinflip`, `colour`, `compliment`, `diceroll`, `dogfact`, `fact`, `giphy`, `github`, `lyrics`, `meme`, `npm`, `say`, `urban`, `waifu`, `wikipedia`, `word`
 
 ###### Utility
 `announce`, `botinfo`, `botnick`, `botpresence`, `calculator`, `chdelete`, `chrename`, `covid`, `delete`, `guildinfo`, `guildname`, `help`, `leave`, `links`, `message`, `nick`, `ping`, `roleadd`, `roleinfo`, `roleremove`, `thread`, `userinfo`
@@ -129,4 +129,3 @@ THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ## Contributors
 ###### Ooi Yew Shan (JavaRuntime)
 [linktr.ee](https://linktr.ee/yewshanooi)
-

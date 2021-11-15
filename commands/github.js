@@ -32,14 +32,14 @@ module.exports = {
             if (body.archived) footer.push('• This repository is **Archived**');
 
             const embed = new MessageEmbed()
-                .setTitle(body.full_name)
-                .setThumbnail(body.owner.avatar_url)
+                .setTitle(`${body.full_name}`)
+                .setThumbnail(`${body.owner.avatar_url}`)
                 .setDescription(`${body.description || 'No Description.'}\n\n**Language:** ${body.language}\n**Forks:** ${body.forks_count.toLocaleString()}\n**License:** ${license}\n**Open Issues:** ${body.open_issues.toLocaleString()}\n**Watchers:** ${body.subscribers_count.toLocaleString()}\n**Stars:** ${body.stargazers_count.toLocaleString()}\n**Size:** ${size}${footer.length ? `\n${footer.join('\n')}` : ''}`)
                 .setColor(embedColor);
 
                 const button = new MessageActionRow()
                     .addComponents(new MessageButton()
-                        .setURL(body.html_url)
+                        .setURL(`${body.html_url}`)
                         .setLabel('View Repository')
                         .setStyle('LINK'));
 

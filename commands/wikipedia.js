@@ -20,13 +20,13 @@ module.exports = {
         if (!article.content_urls) return interaction.reply({ content: 'Error: No article found with that title.' });
 
         const embed = new MessageEmbed()
-            .setTitle(article.title)
-            .setDescription(article.extract)
+            .setTitle(`${article.title}`)
+            .setDescription(`${article.extract}`)
             .setColor(embedColor);
 
             const button = new MessageActionRow()
                 .addComponents(new MessageButton()
-                    .setURL(article.content_urls.desktop.page)
+                    .setURL(`${article.content_urls.desktop.page}`)
                     .setLabel('Read More')
                     .setStyle('LINK'));
 
