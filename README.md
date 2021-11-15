@@ -128,4 +128,4 @@ THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ## Contributors
 ###### Ooi Yew Shan (JavaRuntime)
-[linktr.ee](https://linktr.ee/yewshanooi)
+[![linktr.ee](https://img.shields.io/badge/linktree-black?style=for-the-badge&logo=linktree&logoColor=28be7a)](https://linktr.ee/yewshanooi)
