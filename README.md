@@ -127,5 +127,5 @@ THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ```
 
 ## Contributors
-###### Ooi Yew Shan (JavaRuntime)
+###### yewshanooi (Java)
 [![linktr.ee](https://img.shields.io/badge/linktree-black?style=for-the-badge&logo=linktree&logoColor=28be7a)](https://linktr.ee/yewshanooi)
