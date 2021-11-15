@@ -15,7 +15,7 @@ module.exports = {
 
             const memberField = interaction.options.getMember('user');
                 if (memberField.user.bot === true) return interaction.reply({ content: 'Error: You cannot mute a bot.' });
-				if (memberField.permissions.has('MUTE_MEMBERS')) return interaction.reply({ content: 'Error: This user cannot be muted.' });
+				// if (memberField.permissions.has('MUTE_MEMBERS')) return interaction.reply({ content: 'Error: This user cannot be muted.' });
 
             let reasonField = interaction.options.getString('reason');
                 if (!reasonField) {

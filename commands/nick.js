@@ -15,7 +15,7 @@ module.exports = {
         if (!interaction.member.permissions.has('MANAGE_NICKNAMES')) return interaction.reply({ content: 'Error: You have no permission to use this command.' });
 
             const memberField = interaction.options.getMember('user');
-                if (memberField.permissions.has('MANAGE_NICKNAMES')) return interaction.reply({ content: 'Error: This user\'s nickname cannot be changed.' });
+                // if (memberField.permissions.has('MANAGE_NICKNAMES')) return interaction.reply({ content: 'Error: This user\'s nickname cannot be changed.' });
 
             const stringField = interaction.options.getString('nick');
 

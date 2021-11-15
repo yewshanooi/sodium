@@ -6,7 +6,7 @@ const fetch = require('node-fetch');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('word')
-        .setDescription('Gives you a random word'),
+        .setDescription('Gives you a random word with its definition and pronunciation'),
     cooldown: '5',
     guildOnly: false,
     async execute (interaction) {
