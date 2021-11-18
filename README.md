@@ -32,9 +32,9 @@
 </p>
 
 ## Features
-**50+** commands and counting across **3** different categories!
+**55+** commands and counting across **3** different categories!
 ###### Fun
-`8ball`, `achievement`, `beep`, `catfact`, `coinflip`, `colour`, `compliment`, `diceroll`, `dogfact`, `fact`, `giphy`, `github`, `lyrics`, `meme`, `npm`, `say`, `urban`, `waifu`, `wikipedia`, `word`
+`8ball`, `achievement`, `beep`, `catfact`, `coinflip`, `colour`, `compliment`, `diceroll`, `dictionary`, `dogfact`, `fact`, `giphy`, `github`, `lyrics`, `meme`, `npm`, `say`, `urban`, `waifu`, `wikipedia`, `word`, `youtube`
 
 ###### Utility
 `announce`, `botinfo`, `botnick`, `botpresence`, `calculator`, `chdelete`, `chrename`, `covid`, `delete`, `guildinfo`, `guildname`, `help`, `leave`, `links`, `message`, `nick`, `ping`, `roleadd`, `roleinfo`, `roleremove`, `thread`, `userinfo`
@@ -46,8 +46,7 @@
 - Discord **Message Embed** constructor
 - Guild integrated **Application Commands** *(discord.js v13+)*
 - Enhanced [**Privacy**](https://skyebot.weebly.com/privacy.html) for users
-- Support for **Third Party APIs** *(Giphy, Github, Genius, Reddit, Urban Dictionary and Wikipedia)*  <br/>
-*and much more!*
+- Support for **Third Party APIs** *(Giphy, Github, Genius, Reddit, Urban Dictionary, Wikipedia and more!)*
 
 ## Installation
 ###### Node.js

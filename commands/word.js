@@ -14,8 +14,7 @@ module.exports = {
             .then(res => res.json());
 
             const embed = new MessageEmbed()
-                .setTitle('Word')
-                .setDescription(`${word[0].word}`)
+                .setTitle(`${word[0].word}`)
                 .addField('Definition', `${word[0].definition}`)
                 .addField('Pronunciation', `${word[0].pronunciation}`)
                 .setColor(embedColor);

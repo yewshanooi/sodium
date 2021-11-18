@@ -26,6 +26,8 @@ module.exports = {
 			if (premium === 'TIER_2') resultPremium = 'Tier 2';
 			if (premium === 'TIER_3') resultPremium = 'Tier 3';
 
+		const resultRoles = interaction.guild.roles.cache.size - 1;
+
 		const embed = new MessageEmbed()
 			.setTitle('Guild Info')
 			.addFields(
@@ -34,11 +36,12 @@ module.exports = {
 				{ name: 'Members', value: `\`${interaction.guild.memberCount}\``, inline: true },
 				{ name: 'Channels', value: `\`${interaction.guild.channels.cache.filter(ch => ch.type !== 'category').size}\``, inline: true },
 				{ name: 'ID', value: `\`${interaction.guild.id}\``, inline: true },
+				{ name: 'Roles', value: `\`${resultRoles}\``, inline: true },
 				{ name: 'Language', value: `\`${interaction.guild.preferredLocale}\``, inline: true },
 				{ name: '2FA', value: `\`${resultMFA}\``, inline: true },
 				{ name: 'Partnered', value: `\`${resultPartner}\``, inline: true },
-				{ name: 'Total Boosts', value: `\`${interaction.guild.premiumSubscriptionCount}\`` },
-				{ name: 'Boost Level', value: `\`${resultPremium}\`` }
+				{ name: 'Total Boosts', value: `\`${interaction.guild.premiumSubscriptionCount}\``, inline: true },
+				{ name: 'Boost Level', value: `\`${resultPremium}\``, inline: true }
 			)
 			.setColor(embedColor);
 		interaction.reply({ embeds: [embed] });

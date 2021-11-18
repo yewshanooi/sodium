@@ -22,6 +22,9 @@ module.exports = {
                 if (hoist === true) resultHoist = 'Yes';
             else resultHoist = 'No';
 
+            const everyoneRole = interaction.guild.roles.cache.find(role => role.name === '@everyone');
+                if (roleField === everyoneRole) return interaction.reply({ content: 'Error: Unable to get information about this role.' });
+
         const embed = new MessageEmbed()
             .setTitle('Role Info')
             .addFields(

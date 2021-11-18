@@ -26,5 +26,5 @@ module.exports = {
                     ADD_REACTIONS: false
                 });
             }));
-	}
+        }
 };
