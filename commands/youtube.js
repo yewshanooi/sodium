@@ -1,12 +1,12 @@
 const { MessageEmbed, MessageButton, MessageActionRow } = require('discord.js');
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const { embedColor, token } = require('../config.json');
+const { embedColor, botToken } = require('../config.json');
 const fetch = require('node-fetch');
 
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('youtube')
-        .setDescription('Watch some YouTube videos with friends'),
+        .setDescription('Watch some YouTube videos in voice channel with others'),
     cooldown: '10',
     guildOnly: true,
     execute (interaction) {
@@ -24,7 +24,7 @@ module.exports = {
                 validate: null
             }),
             headers: {
-                'Authorization': `Bot ${token}`,
+                'Authorization': `Bot ${botToken}`,
                 'Content-Type': 'application/json'
             }
         }).then(res => res.json()).then(body => {

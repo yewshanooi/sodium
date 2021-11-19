@@ -97,7 +97,7 @@ npm install
 3. Create a new **config.json** file and fill it with your own information
 ```json
 {
-  "token": "",
+  "botToken": "",
   "clientId": "",
   "embedColor": "",
   "giphyAPIKey": "",

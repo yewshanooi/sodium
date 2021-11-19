@@ -1,7 +1,7 @@
 const newLocal = require('fs');
 const fs = newLocal;
 const Discord = require('discord.js');
-const { token } = require('./config.json');
+const { botToken } = require('./config.json');
 
 const cooldowns = new Discord.Collection();
 
@@ -59,4 +59,4 @@ client.on('interactionCreate', interaction => {
 		}
 });
 
-client.login(token);
+client.login(botToken);

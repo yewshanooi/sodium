@@ -34,8 +34,8 @@ module.exports = {
 
 				const guildOnlyCommand = command.guildOnly;
 				let resultGuildOnly;
-				if (guildOnlyCommand === true) resultGuildOnly = 'True';
-				else resultGuildOnly = 'False';
+					if (guildOnlyCommand === true) resultGuildOnly = 'True';
+					else resultGuildOnly = 'False';
 
 				const stringEmbed = new MessageEmbed()
 					.setTitle('Help')

@@ -13,13 +13,13 @@ module.exports = {
         const roleField = interaction.options.getRole('role');
 
         const { mentionable } = roleField;
-            let resultMention;
-                if (mentionable === true) resultMention = 'Yes';
+        let resultMention;
+            if (mentionable === true) resultMention = 'Yes';
             else resultMention = 'No';
 
         const { hoist } = roleField;
-            let resultHoist;
-                if (hoist === true) resultHoist = 'Yes';
+        let resultHoist;
+            if (hoist === true) resultHoist = 'Yes';
             else resultHoist = 'No';
 
             const everyoneRole = interaction.guild.roles.cache.find(role => role.name === '@everyone');
