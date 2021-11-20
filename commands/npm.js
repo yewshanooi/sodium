@@ -20,7 +20,7 @@ module.exports = {
             .then(res => res.ok && res.json())
             .catch(() => null);
 
-        if (!body) return interaction.reply({ content: 'Error: No package found with that name.' });
+            if (!body) return interaction.reply({ content: 'Error: No package found with that name.' });
 
         const version = body.versions[body['dist-tags'].latest];
 

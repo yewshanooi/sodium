@@ -34,7 +34,7 @@
 ## Features
 **55+** commands and counting across **3** different categories!
 ###### Fun
-`8ball`, `achievement`, `beep`, `catfact`, `coinflip`, `colour`, `compliment`, `diceroll`, `dictionary`, `dogfact`, `fact`, `giphy`, `github`, `lyrics`, `meme`, `npm`, `say`, `urban`, `waifu`, `wikipedia`, `word`, `youtube`
+`8ball`, `achievement`, `beep`, `catfact`, `coinflip`, `colour`, `compliment`, `diceroll`, `dictionary`, `dogfact`, `fact`, `giphy`, `github`, `lyrics`, `meme`, `npm`, `say`, `urban`, `waifu`, `weather`, `wikipedia`, `word`, `youtube`
 
 ###### Utility
 `announce`, `botinfo`, `botnick`, `botpresence`, `calculator`, `chdelete`, `chrename`, `delete`, `guildinfo`, `guildname`, `help`, `leave`, `links`, `message`, `nick`, `ping`, `roleadd`, `roleinfo`, `roleremove`, `thread`, `userinfo`
@@ -101,7 +101,8 @@ npm install
   "clientId": "",
   "embedColor": "",
   "giphyAPIKey": "",
-  "geniusAPIKey": ""
+  "geniusAPIKey": "",
+  "openweathermapAPIKey": ""
 }
 ```
 4. Run the **deploy.js** file to deploy application commands

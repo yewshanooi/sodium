@@ -6,7 +6,7 @@ const fetch = require('node-fetch');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('youtube')
-        .setDescription('Watch some YouTube videos in voice channel with others'),
+        .setDescription('Watch YouTube videos in voice channel with others'),
     cooldown: '10',
     guildOnly: true,
     execute (interaction) {
@@ -16,7 +16,7 @@ module.exports = {
         fetch(`https://discord.com/api/v8/channels/${interaction.member.voice.channel.id}/invites`, {
             method: 'POST',
             body: JSON.stringify({
-                max_age: 86400,
+                max_age: 21600,
                 max_uses: 0,
                 target_application_id: '755600276941176913',
                 target_type: 2,
@@ -31,6 +31,7 @@ module.exports = {
             const embed = new MessageEmbed()
                 .setTitle('Watch Together')
                 .setDescription(`Party created! Use this link to join the party and invite others\nhttps://discord.gg/${body.code}`)
+                .setFooter('Powered by YouTube')
                 .setColor(embedColor);
 
                 const button = new MessageActionRow()
