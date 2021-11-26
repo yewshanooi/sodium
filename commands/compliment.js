@@ -120,13 +120,19 @@ module.exports = {
 
         const embed = new MessageEmbed()
             .setTitle('Compliment')
-            .setDescription(`${compliments[Math.floor(Math.random() * compliments.length)]}\n *from \`${interaction.user.tag}\`*`)
+            .setDescription(`${compliments[Math.floor(Math.random() * compliments.length)]}\n\n*from \`${interaction.user.tag}\`*`)
             .setColor(embedColor);
 
         const successEmbed = new MessageEmbed()
             .setDescription(`*Successfully send compliment to ${userField}*`)
             .setColor(embedColor);
 
-        interaction.reply({ embeds: [successEmbed], ephemeral: true }).then(userField.send({ embeds: [embed] }));
-      }
+        userField.send({ embeds: [embed] })
+            .then(() => {
+                interaction.reply({ embeds: [successEmbed], ephemeral: true });
+            })
+            .catch(() => {
+                interaction.reply({ content: 'Error: Cannot send messages to this user. User must enable **Allow direct messages from server members** in `User Settings > Privacy & Safety` to receive Direct Messages.' });
+            });
+        }
 };

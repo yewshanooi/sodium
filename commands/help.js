@@ -38,12 +38,11 @@ module.exports = {
 					else resultGuildOnly = 'False';
 
 				const stringEmbed = new MessageEmbed()
-					.setTitle('Help')
+					.setTitle(`${command.data.name}`)
+					.setDescription(`${command.data.description}`)
 					.addFields(
-						{ name: 'Name', value: `\`${command.data.name}\`` },
-						{ name: 'Description', value: `\`${command.data.description}\`` },
-						{ name: 'Cooldown', value: `\`${command.cooldown || 3} second(s)\`` },
-						{ name: 'Guild Only', value: `\`${resultGuildOnly}\`` }
+						{ name: 'Cooldown', value: `\`${command.cooldown}\` second(s)`, inline: true },
+						{ name: 'Guild Only', value: `\`${resultGuildOnly}\``, inline: true }
 					)
 					.setColor(embedColor);
 				interaction.reply({ embeds: [stringEmbed] });

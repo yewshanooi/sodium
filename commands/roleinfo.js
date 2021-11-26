@@ -26,14 +26,13 @@ module.exports = {
                 if (roleField === everyoneRole) return interaction.reply({ content: 'Error: Unable to get information about this role.' });
 
         const embed = new MessageEmbed()
-            .setTitle('Role Info')
+            .setTitle(`@${roleField.name}`)
             .addFields(
-                { name: 'Name', value: `\`${roleField.name}\``, inline: true },
+                { name: 'Position', value: `\`${roleField.position}\``, inline: true },
+                { name: 'Color (Hex)', value: `\`${roleField.hexColor}\``, inline: true },
                 { name: 'ID', value: `\`${roleField.id}\``, inline: true },
                 { name: 'Creation Date & Time', value: `\`${roleField.createdAt}\`` },
                 { name: 'Members', value: `\`${roleField.members.size}\``, inline: true },
-                { name: 'Position', value: `\`${roleField.position}\``, inline: true },
-                { name: 'Color (Hex)', value: `\`${roleField.hexColor}\``, inline: true },
                 { name: 'Mentionable', value: `\`${resultMention}\``, inline: true },
                 { name: 'Display Separately', value: `\`${resultHoist}\``, inline: true }
             )

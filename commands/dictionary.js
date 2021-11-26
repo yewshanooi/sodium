@@ -20,15 +20,14 @@ module.exports = {
 
             const embed = new MessageEmbed()
                 .setTitle(`${dictionary[0].word}`)
+                .setDescription(`${dictionary[0].phonetics[0].text || ''}`)
                 .addFields(
-                    { name: 'Phonetics', value: `${dictionary[0].phonetics[0].text}` },
                     { name: 'Part of Speech', value: `${dictionary[0].meanings[0].partOfSpeech}` },
-                    { name: 'Definition', value: `${dictionary[0].meanings[0].definitions[0].definition}` }
+                    { name: 'Definition', value: `${dictionary[0].meanings[0].definitions[0].definition}` },
+                    { name: 'Example', value: `${dictionary[0].meanings[0].definitions[0].example || 'None'}` }
                 )
                 .setColor(embedColor);
 
             return interaction.reply({ embeds: [embed] });
         }
 };
-
-// Example field might return undefined when there is no example

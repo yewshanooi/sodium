@@ -37,8 +37,10 @@ module.exports = {
 
         const embed = new MessageEmbed()
             .setTitle('8-Ball')
-            .addField('Question', questionField)
-            .addField('Answer', `${answers[Math.floor(Math.random() * answers.length)]}`)
+            .addFields(
+                { name: 'Question', value: `${questionField}` },
+                { name: 'Answer', value: `${answers[Math.floor(Math.random() * answers.length)]}` }
+            )
             .setColor(embedColor);
         interaction.reply({ embeds: [embed] });
     }

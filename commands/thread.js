@@ -11,7 +11,7 @@ module.exports = {
     cooldown: '10',
     guildOnly: true,
     async execute (interaction) {
-        if (!interaction.guild.me.permissions.has('MANAGE_THREADS')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **MANAGE_THREADS** permission in `Server settings > Roles > Skye > Permissions` to use this command.' });
+        if (!interaction.guild.me.permissions.has('MANAGE_THREADS')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **MANAGE_THREADS** permission in `Server Settings > Roles > Skye > Permissions` to use this command.' });
         if (!interaction.member.permissions.has('MANAGE_THREADS')) return interaction.reply({ content: 'Error: You have no permission to use this command.' });
 
             const nameField = interaction.options.getString('name');
@@ -29,8 +29,10 @@ module.exports = {
 
         const embed = new MessageEmbed()
             .setTitle('Thread')
-            .addField('Name', `${thread.name}`)
-            .addField('Archive After', `\`${resultDuration}\``)
+            .addFields(
+                { name: 'Name', value: `${thread.name}` },
+                { name: 'Archive After', value: `\`${resultDuration}\`` }
+            )
             .setTimestamp()
             .setColor(embedColor);
 

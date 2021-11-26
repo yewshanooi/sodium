@@ -24,10 +24,10 @@ module.exports = {
             .setTitle(`${weather.name}, ${weather.sys.country}`)
             .setDescription(`${capitalizedDescription}`)
             .addFields(
-				{ name: 'Temperature', value: `${weather.main.temp}°C` },
-				{ name: 'Humidity', value: `${weather.main.humidity}%` },
-				{ name: 'Wind Speed', value: `${weather.wind.speed} m/s` },
-				{ name: 'Wind Direction', value: `${weather.wind.deg}°` }
+				{ name: 'Temperature', value: `\`${weather.main.temp}\`°C` },
+				{ name: 'Humidity', value: `\`${weather.main.humidity}\`%` },
+				{ name: 'Wind Speed', value: `\`${weather.wind.speed}\` m/s` },
+				{ name: 'Wind Direction', value: `\`${weather.wind.deg}\`°` }
 			)
             .setColor(embedColor);
 

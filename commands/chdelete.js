@@ -10,7 +10,7 @@ module.exports = {
     cooldown: '10',
     guildOnly: true,
     execute (interaction) {
-        if (!interaction.guild.me.permissions.has('MANAGE_CHANNELS')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **MANAGE_CHANNELS** permission in `Server settings > Roles > Skye > Permissions` to use this command.' });
+        if (!interaction.guild.me.permissions.has('MANAGE_CHANNELS')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **MANAGE_CHANNELS** permission in `Server Settings > Roles > Skye > Permissions` to use this command.' });
         if (!interaction.member.permissions.has('MANAGE_CHANNELS')) return interaction.reply({ content: 'Error: You have no permission to use this command.' });
 
         const channelField = interaction.options.getChannel('channel');
@@ -22,7 +22,13 @@ module.exports = {
                 .setTimestamp()
                 .setColor(embedColor);
 
-            interaction.user.send({ embeds: [embedUserDM] }).then(channelField.delete());
+            interaction.user.send({ embeds: [embedUserDM] })
+                .then(() => {
+                    channelField.delete();
+                })
+                .catch(() => {
+                    interaction.reply({ content: 'Error: Cannot send messages to this user. Enable **Allow direct messages from server members** in `User Settings > Privacy & Safety` to use this command.' });
+                });
         }
         else {
             const embed = new MessageEmbed()

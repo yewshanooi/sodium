@@ -10,7 +10,7 @@ module.exports = {
     cooldown: '15',
     guildOnly: true,
     execute (interaction) {
-        if (!interaction.guild.me.permissions.has('MUTE_MEMBERS')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **MUTE_MEMBERS** permission in `Server settings > Roles > Skye > Permissions` to use this command.' });
+        if (!interaction.guild.me.permissions.has('MUTE_MEMBERS')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **MUTE_MEMBERS** permission in `Server Settings > Roles > Skye > Permissions` to use this command.' });
         if (!interaction.member.permissions.has('MUTE_MEMBERS')) return interaction.reply({ content: 'Error: You have no permission to use this command.' });
 
             const memberField = interaction.options.getMember('user');
@@ -23,7 +23,7 @@ module.exports = {
                 }
 
         const mutedRole = interaction.guild.roles.cache.find(mt => mt.name === 'Muted');
-            if (!mutedRole) return interaction.reply({ content: 'Error: No existing mute role found. Create a new role, **Muted** in `Server settings > Roles` to use this command.' });
+            if (!mutedRole) return interaction.reply({ content: 'Error: No existing mute role found. Create a new role, **Muted** in `Server Settings > Roles` to use this command.' });
             if (memberField.roles.cache.has(mutedRole.id)) return interaction.reply({ content: 'Error: This user is already muted.' });
 
 		const embedUserDM = new MessageEmbed()
@@ -47,7 +47,12 @@ module.exports = {
             .setTimestamp()
             .setColor('#FF0000');
 
-        interaction.reply({ embeds: [embed] });
-            memberField.send({ embeds: [embedUserDM] }).then(memberField.roles.add(mutedRole));
+        memberField.send({ embeds: [embedUserDM] })
+            .then(() => {
+                interaction.reply({ embeds: [embed] }).then(memberField.roles.add(mutedRole));
+            })
+            .catch(() => {
+                interaction.reply({ content: 'Error: Cannot send messages to this user. User must enable **Allow direct messages from server members** in `User Settings > Privacy & Safety` to receive Direct Messages.' });
+            });
         }
 };

@@ -1,6 +1,4 @@
 /* eslint-disable no-extra-parens */
-/* eslint-disable no-ternary */
-/* eslint-disable multiline-ternary */
 
 const { MessageEmbed, MessageButton, MessageActionRow } = require('discord.js');
 const { SlashCommandBuilder } = require('@discordjs/builders');
@@ -24,7 +22,7 @@ module.exports = {
             .then(res => res.json());
 
 		if (!list.length) {
-			return interaction.reply({ content: `Error: No results found for **${term}**.` });
+			return interaction.reply({ content: 'Error: No results found.' });
 		}
 
 		const [answer] = list;

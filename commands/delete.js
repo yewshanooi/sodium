@@ -10,7 +10,7 @@ module.exports = {
 	cooldown: '10',
 	guildOnly: true,
 	execute (interaction) {
-		if (!interaction.guild.me.permissions.has('MANAGE_MESSAGES')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **MANAGE_MESSAGES** permission in `Server settings > Roles > Skye > Permissions` to use this command.' });
+		if (!interaction.guild.me.permissions.has('MANAGE_MESSAGES')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **MANAGE_MESSAGES** permission in `Server Settings > Roles > Skye > Permissions` to use this command.' });
 		if (!interaction.member.permissions.has('MANAGE_MESSAGES')) return interaction.reply({ content: 'Error: You have no permission to use this command.' });
 
 			const valueField = interaction.options.getInteger('value');

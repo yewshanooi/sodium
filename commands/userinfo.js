@@ -19,15 +19,12 @@ module.exports = {
 				else resultBot1 = 'False';
 
 				const embedSelf = new MessageEmbed()
-					.setTitle('User Info')
+					.setTitle(`${interaction.user.tag}`)
 					.setThumbnail(`https://cdn.discordapp.com/avatars/${interaction.user.id}/${interaction.user.avatar}.jpeg`)
 					.addFields(
-						{ name: 'Name', value: `\`${interaction.user.username}\``, inline: true },
+						{ name: 'Is Bot', value: `\`${resultBot1}\``, inline: true },
 						{ name: 'ID', value: `\`${interaction.user.id}\``, inline: true },
-						{ name: 'Creation Date & Time', value: `\`${interaction.user.createdAt}\`` },
-						{ name: 'Tag', value: `\`${interaction.user.tag}\``, inline: true },
-						{ name: 'Discriminator', value: `\`${interaction.user.discriminator}\``, inline: true },
-						{ name: 'Is Bot', value: `\`${resultBot1}\``, inline: true }
+						{ name: 'Creation Date & Time', value: `\`${interaction.user.createdAt}\`` }
 					)
 					.setColor(embedColor);
 				interaction.reply({ embeds: [embedSelf] });
@@ -40,15 +37,12 @@ module.exports = {
 				else resultBot2 = 'False';
 
 				const embedOthers = new MessageEmbed()
-					.setTitle('User Info')
+					.setTitle(`${userField.tag}`)
 					.setThumbnail(`https://cdn.discordapp.com/avatars/${userField.id}/${userField.avatar}.jpeg`)
 					.addFields(
-						{ name: 'Name', value: `\`${userField.username}\``, inline: true },
+						{ name: 'Is Bot', value: `\`${resultBot2}\``, inline: true },
 						{ name: 'ID', value: `\`${userField.id}\``, inline: true },
-						{ name: 'Creation Date & Time', value: `\`${userField.createdAt}\`` },
-						{ name: 'Tag', value: `\`${userField.tag}\``, inline: true },
-						{ name: 'Discriminator', value: `\`${userField.discriminator}\``, inline: true },
-						{ name: 'Is Bot', value: `\`${resultBot2}\``, inline: true }
+						{ name: 'Creation Date & Time', value: `\`${userField.createdAt}\`` }
 					)
 					.setColor(embedColor);
 				interaction.reply({ embeds: [embedOthers] });

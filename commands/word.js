@@ -15,8 +15,10 @@ module.exports = {
 
             const embed = new MessageEmbed()
                 .setTitle(`${word[0].word}`)
-                .addField('Definition', `${word[0].definition}`)
-                .addField('Pronunciation', `${word[0].pronunciation}`)
+                .addFields(
+                    { name: 'Definition', value: `${word[0].definition}` },
+                    { name: 'Pronunciation', value: `${word[0].pronunciation}` }
+                )
                 .setColor(embedColor);
 
             return interaction.reply({ embeds: [embed] });

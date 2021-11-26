@@ -1,6 +1,3 @@
-/* eslint-disable no-ternary */
-/* eslint-disable multiline-ternary */
-
 const { MessageEmbed, MessageButton, MessageActionRow } = require('discord.js');
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { embedColor } = require('../config.json');
@@ -41,7 +38,13 @@ module.exports = {
 
         const embed = new MessageEmbed()
             .setTitle(`${stringField}`)
-            .setDescription(`${body.description || 'No Description.'}\n\n**Version:** ${body['dist-tags'].latest}\n**License:** ${body.license}\n**Author:** ${body.author ? body.author.name : 'Unknown'}\n**Dependencies:** ${deps && deps.length ? deps.join(', ') : 'None'}`)
+            .setDescription(`${body.description || 'No Description'}`)
+            .addFields(
+                { name: 'Version', value: `\`${body['dist-tags'].latest}\``, inline: true },
+                { name: 'License', value: `\`${body.license || 'None'}\``, inline: true },
+                { name: 'Author', value: `\`${body.author ? body.author.name : 'Unknown'}\``, inline: true },
+                { name: 'Dependencies', value: `\`${deps && deps.length ? deps.join(', ') : 'None'}\`` }
+            )
             .setColor(embedColor);
 
             const button = new MessageActionRow()

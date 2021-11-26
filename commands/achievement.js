@@ -140,6 +140,12 @@ module.exports = {
             .setDescription(`*Successfully send achievement to ${userField}*`)
             .setColor(embedColor);
 
-        interaction.reply({ embeds: [successEmbed], ephemeral: true }).then(userField.send({ embeds: [embed] }));
-      }
+        userField.send({ embeds: [embed] })
+            .then(() => {
+                interaction.reply({ embeds: [successEmbed], ephemeral: true });
+            })
+            .catch(() => {
+                interaction.reply({ content: 'Error: Cannot send messages to this user. User must enable **Allow direct messages from server members** in `User Settings > Privacy & Safety` to receive Direct Messages.' });
+            });
+        }
 };

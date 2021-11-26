@@ -16,8 +16,10 @@ module.exports = {
 				const ping = itr.createdTimestamp - interaction.createdTimestamp;
 				const embedAPI = new MessageEmbed()
 					.setTitle('Ping')
-					.addField('API Latency', `\`${ping}\`ms`)
-					.addField('WebSocket Latency', `\`${interaction.client.ws.ping}\`ms`)
+					.addFields(
+						{ name: 'API Latency', value: `\`${ping}\`ms` },
+						{ name: 'WebSocket Latency', value: `\`${interaction.client.ws.ping}\`ms` }
+					)
 					.setTimestamp()
 					.setColor(embedColor);
 				interaction.editReply({ embeds: [embedAPI] });

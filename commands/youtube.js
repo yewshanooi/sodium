@@ -10,7 +10,7 @@ module.exports = {
     cooldown: '10',
     guildOnly: true,
     execute (interaction) {
-        if (!interaction.guild.me.permissions.has('CREATE_INSTANT_INVITE')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **CREATE_INSTANT_INVITE** permission in `Server settings > Roles > Skye > Permissions` to use this command.' });
+        if (!interaction.guild.me.permissions.has('CREATE_INSTANT_INVITE')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **CREATE_INSTANT_INVITE** permission in `Server Settings > Roles > Skye > Permissions` to use this command.' });
         if (!interaction.member.voice.channel) return interaction.reply({ content: 'Error: You must join a voice channel to use this command.' });
 
         fetch(`https://discord.com/api/v8/channels/${interaction.member.voice.channel.id}/invites`, {
