@@ -17,6 +17,8 @@ module.exports = {
                 if (memberField.user.bot === true) return interaction.reply({ content: 'Error: You cannot warn a bot.' });
                 // if (memberField.permissions.has('MANAGE_MESSAGES')) return interaction.reply({ content: 'Error: This user cannot be warned.' });
 
+                if (memberField === interaction.member) return interaction.reply({ content: 'Error: You cannot warn yourself.' });
+
             let reasonField = interaction.options.getString('reason');
                 if (!reasonField) {
                     reasonField = 'None';

@@ -16,6 +16,8 @@ module.exports = {
 
             const memberField = interaction.options.getMember('user');
 
+                if (memberField === interaction.member) return interaction.reply({ content: 'Error: You cannot roleadd yourself.' });
+
             const roleField = interaction.options.getRole('role');
                 if (memberField.roles.cache.has(roleField.id)) return interaction.reply({ content: 'Error: This user already have the role.' });
 

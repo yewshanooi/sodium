@@ -37,7 +37,7 @@
 `8ball`, `achievement`, `beep`, `catfact`, `coinflip`, `colour`, `compliment`, `diceroll`, `dictionary`, `dogfact`, `fact`, `giphy`, `github`, `lyrics`, `meme`, `npm`, `rps`, `say`, `urban`, `waifu`, `weather`, `wikipedia`, `word`, `youtube`
 
 ###### Utility
-`announce`, `botinfo`, `botnick`, `botpresence`, `calculator`, `chdelete`, `chrename`, `delete`, `guildinfo`, `guildname`, `help`, `leave`, `links`, `message`, `nick`, `ping`, `roleadd`, `roleinfo`, `roleremove`, `thread`, `userinfo`
+`announce`, `botinfo`, `botpresence`, `botsetnick`, `calculator`, `chdelete`, `chrename`, `delete`, `guildinfo`, `guildname`, `help`, `leave`, `links`, `message`, `ping`, `roleadd`, `roleinfo`, `roleremove`, `setnick`, `thread`, `userinfo`
 
 ###### Moderation
 `ban`, `chlock`, `chunlock`, `deafen`, `kick`, `lockdown`, `mute`, `slowmode`, `unban`, `undeafen`, `unmute`, `warn`
@@ -70,7 +70,7 @@
       <td><a href="https://www.npmjs.com/package/nodemon">nodemon@2.0.15</a></td>
     </tr>
     <tr>
-      <td><a href="https://www.npmjs.com/package/discord-api-types">discord-api-types@0.24.0</a></td>
+      <td><a href="https://www.npmjs.com/package/discord-api-types">discord-api-types@0.25.0</a></td>
       <td></td>
     </tr>
     <tr>

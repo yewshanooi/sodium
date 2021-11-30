@@ -17,6 +17,8 @@ module.exports = {
                 if (memberField.user.bot === true) return interaction.reply({ content: 'Error: You cannot unmute a bot.' });
                 // if (memberField.permissions.has('MUTE_MEMBERS')) return interaction.reply({ content: 'Error: This user cannot be unmuted.' });
 
+                if (memberField === interaction.member) return interaction.reply({ content: 'Error: You cannot unmute yourself.' });
+
             let reasonField = interaction.options.getString('reason');
                 if (!reasonField) {
                     reasonField = 'None';

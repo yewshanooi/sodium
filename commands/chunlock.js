@@ -29,4 +29,4 @@ module.exports = {
         }
 };
 
-// Current channelunlock command will override existing staff & muted role permissions.
+// Current command will override existing staff & muted role permissions.

@@ -131,6 +131,8 @@ module.exports = {
             if (userField === interaction.client.user) return interaction.reply({ content: 'Error: You cannot send an achievement to the bot.' });
             if (userField.bot === true) return interaction.reply({ content: 'Error: You cannot send an achievement to a bot.' });
 
+            if (userField === interaction.user) return interaction.reply({ content: 'Error: You cannot send an achievement to yourself.' });
+
         const embed = new MessageEmbed()
             .setTitle('Achievement')
             .setDescription(`You have received the achievement **${achievements[Math.floor(Math.random() * achievements.length)]}**`)

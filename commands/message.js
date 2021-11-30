@@ -15,6 +15,8 @@ module.exports = {
             if (userField === interaction.client.user) return interaction.reply({ content: 'Error: You cannot send a message to the bot.' });
             if (userField.bot === true) return interaction.reply({ content: 'Error: You cannot send a message to a bot.' });
 
+            if (userField === interaction.user) return interaction.reply({ content: 'Error: You cannot send a message to yourself.' });
+
         const stringField = interaction.options.getString('message');
 
             const embed = new MessageEmbed()

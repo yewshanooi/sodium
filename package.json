@@ -1,6 +1,6 @@
 {
   "name": "skye",
-  "version": "0.9.2",
+  "version": "0.9.3",
   "description": "Multi use discord bot with application commands and a user-friendly interface",
   "main": "index.js",
   "author": "Ooi Yew Shan <yewshan.ooi@gmail.com>",
@@ -18,7 +18,7 @@
   "dependencies": {
     "@discordjs/builders": "^0.8.2",
     "@discordjs/rest": "^0.1.0-canary.0",
-    "discord-api-types": "^0.24.0",
+    "discord-api-types": "^0.25.0",
     "discord.js": "^13.3.1",
     "eslint": "^8.3.0",
     "mathjs": "^10.0.0",

@@ -17,13 +17,15 @@ module.exports = {
                 if (memberField.user.bot === true) return interaction.reply({ content: 'Error: You cannot mute a bot.' });
 				// if (memberField.permissions.has('MUTE_MEMBERS')) return interaction.reply({ content: 'Error: This user cannot be muted.' });
 
+                if (memberField === interaction.member) return interaction.reply({ content: 'Error: You cannot mute yourself.' });
+
             let reasonField = interaction.options.getString('reason');
                 if (!reasonField) {
                     reasonField = 'None';
                 }
 
         const mutedRole = interaction.guild.roles.cache.find(mt => mt.name === 'Muted');
-            if (!mutedRole) return interaction.reply({ content: 'Error: No existing mute role found. Create a new role, **Muted** in `Server Settings > Roles` to use this command.' });
+            if (!mutedRole) return interaction.reply({ content: 'Error: No role found. Create a new **Muted** role or rename an existing role in `Server Settings > Roles` to use this command.' });
             if (memberField.roles.cache.has(mutedRole.id)) return interaction.reply({ content: 'Error: This user is already muted.' });
 
 		const embedUserDM = new MessageEmbed()

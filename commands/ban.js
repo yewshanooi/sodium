@@ -17,6 +17,8 @@ module.exports = {
                 if (memberField.user.bot === true) return interaction.reply({ content: 'Error: You cannot ban a bot.' });
 				// if (memberField.permissions.has('BAN_MEMBERS')) return interaction.reply({ content: 'Error: This user cannot be banned.' });
 
+                if (memberField === interaction.member) return interaction.reply({ content: 'Error: You cannot ban yourself.' });
+
             let reasonField = interaction.options.getString('reason');
 				if (!reasonField) {
 					reasonField = 'None';

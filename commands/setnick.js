@@ -4,7 +4,7 @@ const { embedColor } = require('../config.json');
 
 module.exports = {
 	data: new SlashCommandBuilder()
-        .setName('nick')
+        .setName('setnick')
         .setDescription('Change the selected user\'s nickname')
         .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))
         .addStringOption(option => option.setName('nick').setDescription('Enter a nickname (max 32 characters)').setRequired(true)),
@@ -16,6 +16,8 @@ module.exports = {
 
             const memberField = interaction.options.getMember('user');
                 // if (memberField.permissions.has('MANAGE_NICKNAMES')) return interaction.reply({ content: 'Error: This user\'s nickname cannot be changed.' });
+
+                if (memberField === interaction.member) return interaction.reply({ content: 'Error: You cannot setnick yourself.' });
 
             const stringField = interaction.options.getString('nick');
 
