@@ -62,15 +62,15 @@
   </thead>
   <tbody>
     <tr>
-      <td><a href="https://www.npmjs.com/package/@discordjs/builders">@discordjs/builders@0.8.2</a></td>
-      <td><a href="https://www.npmjs.com/package/eslint">eslint@8.3.0</a></td>
+      <td><a href="https://www.npmjs.com/package/@discordjs/builders">@discordjs/builders@0.9.0</a></td>
+      <td><a href="https://www.npmjs.com/package/eslint">eslint@8.4.1</a></td>
     </tr>
     <tr>
       <td><a href="https://www.npmjs.com/package/@discordjs/rest">@discordjs/rest@0.1.0-canary.0</a></td>
       <td><a href="https://www.npmjs.com/package/nodemon">nodemon@2.0.15</a></td>
     </tr>
     <tr>
-      <td><a href="https://www.npmjs.com/package/discord-api-types">discord-api-types@0.25.0</a></td>
+      <td><a href="https://www.npmjs.com/package/discord-api-types">discord-api-types@0.25.2</a></td>
       <td></td>
     </tr>
     <tr>
