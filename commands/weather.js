@@ -1,6 +1,8 @@
 const { MessageEmbed } = require('discord.js');
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const { embedColor, openweathermapAPIKey } = require('../config.json');
+const { embedColor } = require('../config.json');
+const dotenv = require('dotenv');
+    dotenv.config();
 const fetch = require('node-fetch');
 
 module.exports = {
@@ -13,7 +15,7 @@ module.exports = {
     async execute (interaction) {
         const locationField = interaction.options.getString('location');
 
-        const weather = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${locationField}&units=metric&appid=${openweathermapAPIKey}`)
+        const weather = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${locationField}&units=metric&appid=${process.env.OPENWEATHERMAP_API_KEY}`)
             .then(res => res.json());
 
             if (weather.cod === '404') return interaction.reply({ content: 'Error: No such location found.' });

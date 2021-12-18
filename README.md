@@ -78,6 +78,10 @@
       <td></td>
     </tr>
     <tr>
+      <td><a href="https://www.npmjs.com/package/dotenv">dotenv@10.0.0</a></td>
+      <td></td>
+    </tr>
+    <tr>
       <td><a href="https://www.npmjs.com/package/mathjs">mathjs@10.0.0</a></td>
       <td></td>
     </tr>
@@ -97,19 +101,22 @@ npm install
 3. Create a new **config.json** file and fill it with your own information
 ```json
 {
-  "botToken": "",
-  "clientId": "",
-  "embedColor": "",
-  "giphyAPIKey": "",
-  "geniusAPIKey": "",
-  "openweathermapAPIKey": ""
+  "embedColor": ""
 }
 ```
-4. Run the **deploy.js** file to deploy application commands
+4. Create a new **.env** file and fill it with your own secret keys
+```
+BOT_TOKEN=
+CLIENT_ID=
+GIPHY_API_KEY=
+GENIUS_API_KEY=
+OPENWEATHERMAP_API_KEY=
+```
+5. Run the **deploy.js** file to deploy application commands
 ```
 node deploy.js
 ```
-5. Run the **index.js** file to start the bot
+6. Run the **index.js** file to start the bot
 ```
 node index.js
   -or-

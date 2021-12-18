@@ -1,6 +1,8 @@
 const { MessageEmbed, MessageButton, MessageActionRow } = require('discord.js');
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const { embedColor, geniusAPIKey } = require('../config.json');
+const { embedColor } = require('../config.json');
+const dotenv = require('dotenv');
+    dotenv.config();
 const fetch = require('node-fetch');
 
 module.exports = {
@@ -14,7 +16,7 @@ module.exports = {
         const stringField = interaction.options.getString('song');
 
         const hits = await fetch(`https://api.genius.com/search?q=${encodeURIComponent(stringField)}`, {
-          headers: { 'Authorization': `Bearer ${geniusAPIKey}` }
+          headers: { 'Authorization': `Bearer ${process.env.GENIUS_API_KEY}` }
         })
           .then(res => res.json())
           .then(body => body.response.hits);

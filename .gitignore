@@ -1,5 +1,8 @@
 # Dependency directories
 node_modules/
 
-# Client secrets
+# Environment variables
+.env
+
+# Configuration information
 config.json

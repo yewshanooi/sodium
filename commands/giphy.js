@@ -1,5 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const { giphyAPIKey } = require('../config.json');
+const dotenv = require('dotenv');
+    dotenv.config();
 const fetch = require('node-fetch');
 
 module.exports = {
@@ -12,7 +13,7 @@ module.exports = {
     async execute (interaction) {
         const stringField = interaction.options.getString('query');
 
-        const data = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${giphyAPIKey}&limit=1&q=${encodeURIComponent(stringField)}`)
+        const data = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${process.env.GIPHY_API_KEY}&limit=1&q=${encodeURIComponent(stringField)}`)
             .then(res => res.json())
             .then(body => body.data[0]);
 
