@@ -63,7 +63,7 @@
   <tbody>
     <tr>
       <td><a href="https://www.npmjs.com/package/@discordjs/builders">@discordjs/builders@0.9.0</a></td>
-      <td><a href="https://www.npmjs.com/package/eslint">eslint@8.4.1</a></td>
+      <td><a href="https://www.npmjs.com/package/eslint">eslint@8.5.0</a></td>
     </tr>
     <tr>
       <td><a href="https://www.npmjs.com/package/@discordjs/rest">@discordjs/rest@0.1.0-canary.0</a></td>
