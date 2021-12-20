@@ -18,15 +18,15 @@ module.exports = {
         const buttonRow = new MessageActionRow()
             .addComponents(new MessageButton()
                 .setCustomId('Rock')
-                .setLabel('🪨 Rock')
+                .setLabel('Rock')
                 .setStyle('SECONDARY'))
             .addComponents(new MessageButton()
                 .setCustomId('Paper')
-                .setLabel('📄 Paper')
+                .setLabel('Paper')
                 .setStyle('SECONDARY'))
             .addComponents(new MessageButton()
                 .setCustomId('Scissors')
-                .setLabel('✂️ Scissors')
+                .setLabel('Scissors')
                 .setStyle('SECONDARY'));
 
         interaction.reply({ embeds: [embed], components: [buttonRow] });
