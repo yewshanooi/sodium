@@ -7,7 +7,7 @@ module.exports = {
         .setName('thread')
         .setDescription('Start a new thread')
         .addStringOption(option => option.setName('name').setDescription('Enter a thread name').setRequired(true))
-        .addIntegerOption(option => option.setName('duration').setDescription('Select an auto archive duration').setRequired(true).addChoice('1 Hour', 60).addChoice('24 Hours', 1440)),
+        .addIntegerOption(option => option.setName('duration').setDescription('Select a duration').addChoice('1 hour', 60).addChoice('24 hours', 1440).setRequired(true)),
     cooldown: '10',
     guildOnly: true,
     async execute (interaction) {
@@ -19,8 +19,8 @@ module.exports = {
             const durationField = interaction.options.getInteger('duration');
 
                 let resultDuration;
-                    if (durationField === 60) resultDuration = '1 Hour';
-                    if (durationField === 1440) resultDuration = '24 Hours';
+                    if (durationField === 60) resultDuration = '`1` hour';
+                    if (durationField === 1440) resultDuration = '`24` hours';
 
                 const thread = await interaction.channel.threads.create({
                     name: nameField,
@@ -31,7 +31,7 @@ module.exports = {
             .setTitle('Thread')
             .addFields(
                 { name: 'Name', value: `${thread.name}` },
-                { name: 'Archive After', value: `\`${resultDuration}\`` }
+                { name: 'Archive After', value: `${resultDuration}` }
             )
             .setTimestamp()
             .setColor(embedColor);

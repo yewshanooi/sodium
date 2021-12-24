@@ -29,4 +29,4 @@ module.exports = {
         }
 };
 
-// Current command will override existing staff & muted role permissions.
+// Current command will override every existing role permissions.

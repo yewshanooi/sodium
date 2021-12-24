@@ -40,7 +40,7 @@
 `announce`, `botinfo`, `botpresence`, `botsetnick`, `calculator`, `chdelete`, `chrename`, `delete`, `guildinfo`, `guildname`, `help`, `leave`, `links`, `message`, `ping`, `roleadd`, `roleinfo`, `roleremove`, `setnick`, `thread`, `userinfo`
 
 ###### Moderation
-`ban`, `chlock`, `chunlock`, `deafen`, `kick`, `lockdown`, `mute`, `slowmode`, `unban`, `undeafen`, `unmute`, `warn`
+`ban`, `chlock`, `chunlock`, `deafen`, `kick`, `lockdown`, `slowmode`, `timeout`, `unban`, `undeafen`, `untimeout`, `warn`
 
 **Skye** also comes packed with other features, such as:
 - Discord **Message Embed** constructor
@@ -56,7 +56,7 @@
 <table>
   <tbody>
     <tr>
-      <td><a href="https://www.npmjs.com/package/@discordjs/builders">@discordjs/builders@0.9.0</a></td>
+      <td><a href="https://www.npmjs.com/package/@discordjs/builders">@discordjs/builders@0.10.0</a></td>
       <td><a href="https://www.npmjs.com/package/dotenv">dotenv@10.0.0</a></td>
     </tr>
     <tr>
@@ -68,7 +68,7 @@
       <td><a href="https://www.npmjs.com/package/mathjs">mathjs@10.0.1</a></td>
     </tr>
     <tr>
-      <td><a href="https://www.npmjs.com/package/discord.js">discord.js@13.3.1</a></td>
+      <td><a href="https://www.npmjs.com/package/discord.js">discord.js@13.4.0</a></td>
       <td><a href="https://www.npmjs.com/package/nodemon">nodemon@2.0.15</a></td>
     </tr>
   </tbody>

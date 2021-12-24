@@ -26,7 +26,7 @@ module.exports = {
                 { name: 'Users', value: `\`${interaction.client.users.cache.size}\``, inline: true },
                 { name: 'Channels', value: `\`${interaction.client.channels.cache.size}\``, inline: true },
                 { name: 'Guilds', value: `\`${interaction.client.guilds.cache.size}\``, inline: true },
-                { name: 'Uptime', value: `\`${days}\` days(s), \`${hours}\` hours(s), \`${minutes}\` minute(s), \`${seconds}\` second(s)` }
+                { name: 'Uptime', value: `\`${days}\` day(s), \`${hours}\` hour(s), \`${minutes}\` minute(s), \`${seconds}\` second(s)` }
             )
             .setColor(embedColor);
         interaction.reply({ embeds: [embed] });

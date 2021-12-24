@@ -3,33 +3,29 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 
 module.exports = {
 	data: new SlashCommandBuilder()
-        .setName('mute')
-        .setDescription('Mute the selected user with or without a reason')
+        .setName('untimeout')
+        .setDescription('Untimeout the selected user with or without a reason')
         .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))
         .addStringOption(option => option.setName('reason').setDescription('Enter a reason')),
     cooldown: '15',
     guildOnly: true,
     execute (interaction) {
-        if (!interaction.guild.me.permissions.has('MUTE_MEMBERS')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **MUTE_MEMBERS** permission in `Server Settings > Roles > Skye > Permissions` to use this command.' });
-        if (!interaction.member.permissions.has('MUTE_MEMBERS')) return interaction.reply({ content: 'Error: You have no permission to use this command.' });
+        if (!interaction.guild.me.permissions.has('MODERATE_MEMBERS')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **MODERATE_MEMBERS** permission in `Server Settings > Roles > Skye > Permissions` to use this command.' });
+        if (!interaction.member.permissions.has('MODERATE_MEMBERS')) return interaction.reply({ content: 'Error: You have no permission to use this command.' });
 
             const memberField = interaction.options.getMember('user');
-                if (memberField.user.bot === true) return interaction.reply({ content: 'Error: You cannot mute a bot.' });
-				// if (memberField.permissions.has('MUTE_MEMBERS')) return interaction.reply({ content: 'Error: This user cannot be muted.' });
+                if (memberField.user.bot === true) return interaction.reply({ content: 'Error: You cannot untimeout a bot.' });
+                // if (memberField.permissions.has('MODERATE_MEMBERS')) return interaction.reply({ content: 'Error: This user cannot be untimeout.' });
 
-                if (memberField === interaction.member) return interaction.reply({ content: 'Error: You cannot mute yourself.' });
+                if (memberField === interaction.member) return interaction.reply({ content: 'Error: You cannot untimeout yourself.' });
 
             let reasonField = interaction.options.getString('reason');
                 if (!reasonField) {
                     reasonField = 'None';
                 }
 
-        const mutedRole = interaction.guild.roles.cache.find(mt => mt.name === 'Muted');
-            if (!mutedRole) return interaction.reply({ content: 'Error: No role found. Create a new **Muted** role or rename an existing role in `Server Settings > Roles` to use this command.' });
-            if (memberField.roles.cache.has(mutedRole.id)) return interaction.reply({ content: 'Error: This user is already muted.' });
-
-		const embedUserDM = new MessageEmbed()
-            .setTitle('Mute')
+        const embedUserDM = new MessageEmbed()
+            .setTitle('Untimeout')
             .addFields(
                 { name: 'Guild', value: `\`${interaction.guild.name}\`` },
                 { name: 'By', value: `\`${interaction.user.tag}\`` },
@@ -39,7 +35,7 @@ module.exports = {
             .setColor('#FF0000');
 
         const embed = new MessageEmbed()
-            .setTitle('Mute')
+            .setTitle('Untimeout')
             .addFields(
                 { name: 'User', value: `${memberField}` },
                 { name: 'ID', value: `\`${memberField.user.id}\`` },
@@ -51,7 +47,7 @@ module.exports = {
 
         memberField.send({ embeds: [embedUserDM] })
             .then(() => {
-                interaction.reply({ embeds: [embed] }).then(memberField.roles.add(mutedRole));
+                interaction.reply({ embeds: [embed] }).then(memberField.timeout(null));
             })
             .catch(() => {
                 interaction.reply({ content: 'Error: Cannot send messages to this user. User must enable **Allow direct messages from server members** in `User Settings > Privacy & Safety` to receive Direct Messages.' });
