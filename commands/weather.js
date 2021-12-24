@@ -20,11 +20,11 @@ module.exports = {
 
             if (weather.cod === '404') return interaction.reply({ content: 'Error: No such location found.' });
 
-            const capitalizedDescription = weather.weather[0].description.charAt(0).toUpperCase() + weather.weather[0].description.slice(1);
+            const capitalized = weather.weather[0].description.charAt(0).toUpperCase() + weather.weather[0].description.slice(1);
 
         const embed = new MessageEmbed()
             .setTitle(`${weather.name}, ${weather.sys.country}`)
-            .setDescription(`${capitalizedDescription}`)
+            .setDescription(`${capitalized}`)
             .addFields(
 				{ name: 'Temperature', value: `\`${weather.main.temp}\`°C` },
 				{ name: 'Humidity', value: `\`${weather.main.humidity}\`%` },
