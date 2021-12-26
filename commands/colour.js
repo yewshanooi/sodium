@@ -5,7 +5,7 @@ const fetch = require('node-fetch');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('colour')
-        .setDescription('Picks a random colour from colornames.org'),
+        .setDescription('Get a random colour from colornames.org'),
     cooldown: '3',
     guildOnly: false,
     async execute (interaction) {
@@ -15,7 +15,7 @@ module.exports = {
             const capitalized = colour.name.charAt(0).toUpperCase() + colour.name.slice(1);
 
         const embed = new MessageEmbed()
-            .setTitle(`${capitalized || ''}`)
+            .setTitle(`${capitalized}`)
             .setDescription(`\`#${colour.hexCode}\``)
             .setColor(`${colour.hexCode}`);
 

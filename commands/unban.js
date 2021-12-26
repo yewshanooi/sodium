@@ -24,7 +24,7 @@ module.exports = {
 			.setTitle('Unban')
 			.addFields(
 				{ name: 'ID', value: `\`${idField}\`` },
-				{ name: 'By', value: `\`${interaction.user.tag}\`` },
+				{ name: 'By', value: `${interaction.member}` },
 				{ name: 'Reason', value: `\`${reasonField}\`` }
 			)
 			.setTimestamp()

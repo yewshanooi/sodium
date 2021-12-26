@@ -32,7 +32,7 @@ module.exports = {
         }).then(res => res.json()).then(body => {
             const embed = new MessageEmbed()
                 .setTitle('Watch Together')
-                .setDescription(`Party created! Use this link to join the party and invite others\nhttps://discord.gg/${body.code}`)
+                .setDescription(`Party created! Use this link below to join the activity\nhttps://discord.gg/${body.code}`)
                 .setFooter('Powered by YouTube')
                 .setColor(embedColor);
 

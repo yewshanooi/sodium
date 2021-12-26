@@ -33,7 +33,7 @@ module.exports = {
             .addFields(
                 { name: 'User', value: `${memberField}` },
                 { name: 'ID', value: `\`${memberField.user.id}\`` },
-                { name: 'By', value: `\`${interaction.user.tag}\`` },
+                { name: 'By', value: `${interaction.member}` },
                 { name: 'Reason', value: `\`${reasonField}\`` }
             )
             .setTimestamp()

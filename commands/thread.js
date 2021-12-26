@@ -19,8 +19,8 @@ module.exports = {
             const durationField = interaction.options.getInteger('duration');
 
                 let resultDuration;
-                    if (durationField === 60) resultDuration = '`1` hour';
-                    if (durationField === 1440) resultDuration = '`24` hours';
+                    if (durationField === 60) resultDuration = '1 hour';
+                    if (durationField === 1440) resultDuration = '24 hours';
 
                 const thread = await interaction.channel.threads.create({
                     name: nameField,
@@ -31,7 +31,7 @@ module.exports = {
             .setTitle('Thread')
             .addFields(
                 { name: 'Name', value: `${thread.name}` },
-                { name: 'Archive After', value: `${resultDuration}` }
+                { name: 'Archive After', value: `\`${resultDuration}\`` }
             )
             .setTimestamp()
             .setColor(embedColor);

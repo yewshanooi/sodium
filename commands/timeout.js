@@ -23,12 +23,12 @@ module.exports = {
             const durationField = interaction.options.getInteger('duration');
 
             let resultDuration;
-                if (durationField === 60000) resultDuration = '`60` seconds';
-                if (durationField === 300000) resultDuration = '`5` minutes';
-                if (durationField === 600000) resultDuration = '`10` minutes';
-                if (durationField === 3.6e+6) resultDuration = '`1` hour';
-                if (durationField === 8.64e+7) resultDuration = '`1` day';
-                if (durationField === 6.048e+8) resultDuration = '`1` week';
+                if (durationField === 60000) resultDuration = '60 seconds';
+                if (durationField === 300000) resultDuration = '5 minutes';
+                if (durationField === 600000) resultDuration = '10 minutes';
+                if (durationField === 3.6e+6) resultDuration = '1 hour';
+                if (durationField === 8.64e+7) resultDuration = '1 day';
+                if (durationField === 6.048e+8) resultDuration = '1 week';
 
             let reasonField = interaction.options.getString('reason');
                 if (!reasonField) {
@@ -39,8 +39,8 @@ module.exports = {
             .setTitle('Timeout')
             .addFields(
                 { name: 'Guild', value: `\`${interaction.guild.name}\`` },
-                { name: 'Duration', value: `${resultDuration}` },
-                { name: 'By', value: `\`${interaction.user.tag}\`` },
+                { name: 'Duration', value: `\`${resultDuration}\`` },
+                { name: 'By', value: `${interaction.member}` },
                 { name: 'Reason', value: `\`${reasonField}\`` }
             )
             .setTimestamp()
@@ -51,8 +51,8 @@ module.exports = {
             .addFields(
                 { name: 'User', value: `${memberField}` },
                 { name: 'ID', value: `\`${memberField.user.id}\`` },
-                { name: 'Duration', value: `${resultDuration}` },
-                { name: 'By', value: `\`${interaction.user.tag}\`` },
+                { name: 'Duration', value: `\`${resultDuration}\`` },
+                { name: 'By', value: `${interaction.member}` },
                 { name: 'Reason', value: `\`${reasonField}\`` }
             )
             .setTimestamp()
