@@ -39,6 +39,9 @@ module.exports = {
                 .setLabel('View Lyrics')
                 .setStyle('LINK'));
 
-        return interaction.reply({ embeds: [embed], components: [button] });
+        return interaction.reply({ embeds: [embed], components: [button] })
+            .catch(() => {});
       }
 };
+
+// error: temporary fix is by using .catch to prevent the bot from crashing (Unknown interaction, code: 10062, httpStatus: 404)

@@ -13,22 +13,25 @@ module.exports = {
         const anime = await fetch('https://nekos.best/api/v1/nekos')
             .then(res => res.json());
 
-            const embed = new MessageEmbed()
-                .setTitle('Waifu')
-                .setImage(`${anime.url}`)
-                .setFooter(`by ${anime.artist_name}`)
-                .setColor(embedColor);
+        const embed = new MessageEmbed()
+            .setTitle('Waifu')
+            .setImage(`${anime.url}`)
+            .setFooter(`by ${anime.artist_name}`)
+            .setColor(embedColor);
 
-                const button = new MessageActionRow()
-                    .addComponents(new MessageButton()
-                        .setURL(`${anime.artist_href}`)
-                        .setLabel('Artist')
-                        .setStyle('LINK'))
-                    .addComponents(new MessageButton()
-                        .setURL(`${anime.source_url}`)
-                        .setLabel('Source URL')
-                        .setStyle('LINK'));
+            const button = new MessageActionRow()
+                .addComponents(new MessageButton()
+                    .setURL(`${anime.artist_href}`)
+                    .setLabel('Artist')
+                    .setStyle('LINK'))
+                .addComponents(new MessageButton()
+                    .setURL(`${anime.source_url}`)
+                    .setLabel('Source URL')
+                    .setStyle('LINK'));
 
-            return interaction.reply({ embeds: [embed], components: [button] });
+        return interaction.reply({ embeds: [embed], components: [button] })
+            .catch(() => {});
         }
 };
+
+// error: temporary fix is by using .catch to prevent the bot from crashing (Unknown interaction, code: 10062, httpStatus: 404)

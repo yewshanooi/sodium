@@ -28,6 +28,9 @@ module.exports = {
                 )
                 .setColor(embedColor);
 
-            return interaction.reply({ embeds: [embed] });
+            return interaction.reply({ embeds: [embed] })
+                .catch(() => {});
         }
 };
+
+// error: temporary fix is by using .catch to prevent the bot from crashing (Unknown interaction, code: 10062, httpStatus: 404)
