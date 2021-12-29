@@ -32,7 +32,7 @@
 </p>
 
 ## Features
-**55+** commands and counting across **3** different categories!
+**50+** commands and counting across **3** different categories!
 ###### Fun
 `8ball`, `achievement`, `beep`, `catfact`, `coinflip`, `colour`, `compliment`, `diceroll`, `dictionary`, `dogfact`, `fact`, `giphy`, `github`, `meme`, `npm`, `rps`, `say`, `urban`, `weather`, `wikipedia`, `word`, `youtube`
 
@@ -46,7 +46,7 @@
 - Discord **Message Embed** constructor
 - Guild integrated **Application Commands** *(discord.js v13+)*
 - Enhanced [**Privacy**](https://skyebot.weebly.com/privacy.html) for users
-- Support for **Third Party APIs** *(Giphy, Github, Genius, Reddit, Urban Dictionary, Wikipedia and more!)*
+- Support for **Third Party APIs** *(Giphy, Github, Reddit, Urban Dictionary, Wikipedia and more!)*
 
 ## Installation
 ###### Node.js
