@@ -39,7 +39,7 @@ module.exports = {
                     { name: 'Stars', value: `\`${body.stargazers_count.toLocaleString()}\``, inline: true },
                     { name: 'Size', value: `\`${size}\``, inline: true }
                 )
-                .setFooter(`${footer.length ? `\n${footer.join('\n')}` : ''}`)
+                .setFooter({ text: `${footer.length ? `\n${footer.join('\n')}` : ''}` })
                 .setColor(embedColor);
 
             const devURL = `https://github.dev/${body.full_name}`;

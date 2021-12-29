@@ -32,12 +32,12 @@
 </p>
 
 ## Features
-**50+** commands and counting across **3** different categories!
+**55+** commands and counting across **3** different categories!
 ###### Fun
-`8ball`, `achievement`, `beep`, `catfact`, `coinflip`, `colour`, `compliment`, `diceroll`, `dictionary`, `dogfact`, `fact`, `giphy`, `github`, `meme`, `npm`, `rps`, `say`, `urban`, `weather`, `wikipedia`, `word`, `youtube`
+`8ball`, `achievement`, `beep`, `catfact`, `coinflip`, `colour`, `compliment`, `diceroll`, `dictionary`, `dogfact`, `fact`, `giphy`, `github`, `lyrics`, `meme`, `npm`, `rps`, `say`, `urban`, `waifu`, `weather`, `wikipedia`, `word`, `youtube`
 
 ###### Utility
-`announce`, `botinfo`, `botpresence`, `calculator`, `chdelete`, `chrename`, `delete`, `guildinfo`, `guildname`, `help`, `leave`, `links`, `message`, `ping`, `roleadd`, `roleinfo`, `roleremove`, `setnick`, `thread`, `userinfo`
+`announce`, `botinfo`, `botpresence`, `botsetnick`, `calculator`, `chdelete`, `chrename`, `delete`, `guildinfo`, `guildname`, `help`, `leave`, `links`, `message`, `ping`, `roleadd`, `roleinfo`, `roleremove`, `setnick`, `thread`, `userinfo`
 
 ###### Moderation
 `ban`, `chlock`, `chunlock`, `deafen`, `kick`, `lockdown`, `slowmode`, `timeout`, `unban`, `undeafen`, `untimeout`, `warn`
@@ -56,7 +56,7 @@
 <table>
   <tbody>
     <tr>
-      <td><a href="https://www.npmjs.com/package/@discordjs/builders">@discordjs/builders@0.10.0</a></td>
+      <td><a href="https://www.npmjs.com/package/@discordjs/builders">@discordjs/builders@0.11.0</a></td>
       <td><a href="https://www.npmjs.com/package/dotenv">dotenv@10.0.0</a></td>
     </tr>
     <tr>
@@ -68,7 +68,7 @@
       <td><a href="https://www.npmjs.com/package/mathjs">mathjs@10.0.1</a></td>
     </tr>
     <tr>
-      <td><a href="https://www.npmjs.com/package/discord.js">discord.js@13.4.0</a></td>
+      <td><a href="https://www.npmjs.com/package/discord.js">discord.js@13.5.0</a></td>
       <td><a href="https://www.npmjs.com/package/nodemon">nodemon@2.0.15</a></td>
     </tr>
   </tbody>
@@ -95,6 +95,7 @@ npm install
 BOT_TOKEN=
 CLIENT_ID=
 GIPHY_API_KEY=
+GENIUS_API_KEY=
 OPENWEATHERMAP_API_KEY=
 ```
 5. Run the **deploy.js** file to deploy application commands

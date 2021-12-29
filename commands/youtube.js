@@ -33,7 +33,7 @@ module.exports = {
             const embed = new MessageEmbed()
                 .setTitle('Watch Together')
                 .setDescription(`Party created! Use this link below to join the activity\nhttps://discord.gg/${body.code}`)
-                .setFooter('Powered by YouTube')
+                .setFooter({ text: 'Powered by YouTube' })
                 .setColor(embedColor);
 
                 const button = new MessageActionRow()
