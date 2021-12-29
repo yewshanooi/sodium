@@ -19,9 +19,6 @@ module.exports = {
             .setDescription(`\`#${colour.hexCode}\``)
             .setColor(`${colour.hexCode}`);
 
-        return interaction.reply({ embeds: [embed] })
-            .catch(() => {});
+            return interaction.reply({ embeds: [embed] });
         }
 };
-
-// error: temporary fix is by using .catch to prevent the bot from crashing (Unknown interaction, code: 10062, httpStatus: 404)

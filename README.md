@@ -34,10 +34,10 @@
 ## Features
 **55+** commands and counting across **3** different categories!
 ###### Fun
-`8ball`, `achievement`, `beep`, `catfact`, `coinflip`, `colour`, `compliment`, `diceroll`, `dictionary`, `dogfact`, `fact`, `giphy`, `github`, `lyrics`, `meme`, `npm`, `rps`, `say`, `urban`, `waifu`, `weather`, `wikipedia`, `word`, `youtube`
+`8ball`, `achievement`, `beep`, `catfact`, `coinflip`, `colour`, `compliment`, `diceroll`, `dictionary`, `dogfact`, `fact`, `giphy`, `github`, `meme`, `npm`, `rps`, `say`, `urban`, `weather`, `wikipedia`, `word`, `youtube`
 
 ###### Utility
-`announce`, `botinfo`, `botpresence`, `botsetnick`, `calculator`, `chdelete`, `chrename`, `delete`, `guildinfo`, `guildname`, `help`, `leave`, `links`, `message`, `ping`, `roleadd`, `roleinfo`, `roleremove`, `setnick`, `thread`, `userinfo`
+`announce`, `botinfo`, `botpresence`, `calculator`, `chdelete`, `chrename`, `delete`, `guildinfo`, `guildname`, `help`, `leave`, `links`, `message`, `ping`, `roleadd`, `roleinfo`, `roleremove`, `setnick`, `thread`, `userinfo`
 
 ###### Moderation
 `ban`, `chlock`, `chunlock`, `deafen`, `kick`, `lockdown`, `slowmode`, `timeout`, `unban`, `undeafen`, `untimeout`, `warn`
@@ -95,7 +95,6 @@ npm install
 BOT_TOKEN=
 CLIENT_ID=
 GIPHY_API_KEY=
-GENIUS_API_KEY=
 OPENWEATHERMAP_API_KEY=
 ```
 5. Run the **deploy.js** file to deploy application commands

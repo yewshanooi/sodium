@@ -15,7 +15,7 @@ module.exports = {
         const messageField = interaction.options.getString('message');
 
         const embed = new MessageEmbed()
-            .setAuthor(interaction.user.username, interaction.user.displayAvatarURL({ size: 64 }))
+            .setAuthor({ name: `${interaction.user.username}`, iconURL: `${interaction.user.displayAvatarURL({ size: 64 })}` })
             .setTitle(titleField)
             .setDescription(messageField)
             .setTimestamp()

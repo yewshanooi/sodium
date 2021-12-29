@@ -116,7 +116,11 @@ const achievements = [
     'Hot tourist destination',
     'Wax on, Wax off',
     'Whatever Floats Your Goat',
-    'The Healing Power of Friendship!'
+    'The Healing Power of Friendship!',
+    'Caves & Cliffs',
+    'Feels Like Home',
+    'Sound of Music',
+    'Star trader'
   ];
 
 module.exports = {
