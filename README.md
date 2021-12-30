@@ -65,7 +65,7 @@
     </tr>
     <tr>
       <td><a href="https://www.npmjs.com/package/discord-api-types">discord-api-types@0.26.0</a></td>
-      <td><a href="https://www.npmjs.com/package/mathjs">mathjs@10.0.1</a></td>
+      <td><a href="https://www.npmjs.com/package/mathjs">mathjs@10.0.2</a></td>
     </tr>
     <tr>
       <td><a href="https://www.npmjs.com/package/discord.js">discord.js@13.5.0</a></td>

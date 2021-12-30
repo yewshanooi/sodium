@@ -1,6 +1,6 @@
 {
   "name": "skye",
-  "version": "0.9.7",
+  "version": "0.9.8",
   "description": "Multi use discord bot with application commands and a user-friendly interface",
   "main": "index.js",
   "author": "Ooi Yew Shan <yewshan.ooi@gmail.com>",
@@ -22,7 +22,7 @@
     "discord.js": "^13.5.0",
     "dotenv": "^10.0.0",
     "eslint": "^8.5.0",
-    "mathjs": "^10.0.1",
+    "mathjs": "^10.0.2",
     "nodemon": "^2.0.15"
   }
 }
