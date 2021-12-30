@@ -52,7 +52,7 @@ module.exports = {
                         { name: 'My choice', value: `${me}` }
                     )
                     .setColor(embedColor);
-                await collected.update({ embeds: [lostEmbed] });
+                await collected.update({ embeds: [lostEmbed] }).then(collector.stop());
             }
             else if (collected.customId === me) {
                 const tieEmbed = new MessageEmbed()
@@ -62,7 +62,7 @@ module.exports = {
                         { name: 'My choice', value: `${me}` }
                     )
                     .setColor(embedColor);
-                await collected.update({ embeds: [tieEmbed] });
+                await collected.update({ embeds: [tieEmbed] }).then(collector.stop());
             }
             else {
                 const wonEmbed = new MessageEmbed()
@@ -72,8 +72,9 @@ module.exports = {
                         { name: 'My choice', value: `${me}` }
                     )
                     .setColor(embedColor);
-                await collected.update({ embeds: [wonEmbed] });
+                await collected.update({ embeds: [wonEmbed] }).then(collector.stop());
                 }
             });
+
         }
 };

@@ -69,7 +69,7 @@ module.exports = {
 					data = `${res}`;
 				}
             catch (err) {
-					content = 'Error: Something went wrong while trying to evaluate this expression.';
+					content = '```Error: Something went wrong while trying to evaluate this expression.```';
 					data = '';
 				}
 					break;

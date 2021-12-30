@@ -11,20 +11,19 @@ module.exports = {
 	execute (interaction) {
         if (!interaction.member.permissions.has('ADMINISTRATOR')) return interaction.reply({ content: 'Error: You have no permission to use this command.' });
 
-        const confirmation = new MessageEmbed()
-            .setTitle('Leave')
+        const confirmEmbed = new MessageEmbed()
+            .setTitle('Remove Bot')
             .setDescription('Are you sure you want to remove this bot?')
             .setColor('#FF0000');
 
-        const leaveButton = new MessageActionRow()
+        const confirmButton = new MessageActionRow()
             .addComponents(new MessageButton()
-                .setCustomId('leaveBtn')
-                .setLabel('Leave Guild')
+                .setCustomId('confirmed')
+                .setLabel('Confirm')
                 .setStyle('DANGER'));
 
-            const confirmed = new MessageEmbed()
-                .setTitle('Leave')
-                .setDescription('Successfully left the guild.\n We hope to see you again next time!')
+            const successEmbed = new MessageEmbed()
+                .setDescription('*Successfully left the guild. We hope to see you again next time!*')
                 .setColor(embedColor);
 
             const successButton = new MessageActionRow()
@@ -33,7 +32,7 @@ module.exports = {
                     .setLabel('Already missed us? Invite us back')
                     .setStyle('LINK'));
 
-        interaction.reply({ embeds: [confirmation], components: [leaveButton] });
+        interaction.reply({ embeds: [confirmEmbed], components: [confirmButton] });
 
             const filter = ft => ft.isButton() && ft.user.id === interaction.user.id;
             const collector = interaction.channel.createMessageComponentCollector({
@@ -43,8 +42,9 @@ module.exports = {
             });
 
             collector.on('collect', co => {
-                if (co.customId === 'leaveBtn') {
-                    interaction.guild.leave().then(co.update({ embeds: [confirmed], components: [successButton] }));
+                if (co.customId === 'confirmed') {
+                    co.update({ embeds: [successEmbed], components: [successButton] });
+                    interaction.guild.leave();
                 }
             });
 
