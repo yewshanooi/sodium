@@ -5,7 +5,7 @@ const { embedColor } = require('../config.json');
 module.exports = {
 	data: new SlashCommandBuilder()
         .setName('slowmode')
-        .setDescription('Enable slowmode for the current channel')
+        .setDescription('Set the rate limit for the current channel')
         .addIntegerOption(option => option.setName('value').setDescription('Enter a value (between 0 and 21600)').setRequired(true)),
     cooldown: '15',
     guildOnly: true,
@@ -17,8 +17,8 @@ module.exports = {
             if (integerField < 0 || integerField > '21600') return interaction.reply({ content: 'Error: You need to input an integer between `0` and `21600`.' });
 
             const embed = new MessageEmbed()
-                .setTitle('Channel Slowmode')
-                .setDescription(`Successfully set slowmode to **${integerField}** second(s)`)
+                .setTitle('Slowmode')
+                .setDescription(`Successfully set ${interaction.channel} rate limit to **${integerField}** second(s)`)
                 .setTimestamp()
                 .setColor(embedColor);
             interaction.reply({ embeds: [embed] }).then(interaction.channel.setRateLimitPerUser(integerField));

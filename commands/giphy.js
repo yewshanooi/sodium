@@ -20,5 +20,5 @@ module.exports = {
         if (!data) return interaction.reply({ content: 'Error: No results found.' });
 
             return interaction.reply({ content: `${data.embed_url}` });
-      }
+        }
 };

@@ -4,7 +4,7 @@ const { embedColor } = require('../config.json');
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('chrename')
+        .setName('channelrename')
         .setDescription('Rename the current channel')
         .addStringOption(option => option.setName('name').setDescription('Enter a name (max 100 characters)').setRequired(true)),
     cooldown: '8',

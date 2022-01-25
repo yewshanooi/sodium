@@ -32,15 +32,15 @@
 </p>
 
 ## Features
-**55+** commands and counting across **3** different categories!
+**60+** commands and counting across **3** different categories!
 ###### Fun
-`8ball`, `achievement`, `beep`, `catfact`, `coinflip`, `colour`, `compliment`, `diceroll`, `dictionary`, `dogfact`, `fact`, `giphy`, `github`, `lyrics`, `meme`, `npm`, `rps`, `say`, `urban`, `waifu`, `weather`, `wikipedia`, `word`, `youtube`
+`8ball`, `achievement`, `beep`, `catfact`, `coinflip`, `color`, `compliment`, `diceroll`, `dictionary`, `dogfact`, `fact`, `giphy`, `github`, `lyrics`, `meme`, `npm`, `roast`, `rps`, `say`, `urban`, `waifu`, `weather`, `wikipedia`, `word`, `youtube`
 
 ###### Utility
-`announce`, `botinfo`, `botpresence`, `botsetnick`, `calculator`, `chdelete`, `chrename`, `delete`, `guildinfo`, `guildname`, `help`, `leave`, `links`, `message`, `ping`, `roleadd`, `roleinfo`, `roleremove`, `setnick`, `thread`, `userinfo`
+`afk`, `announce`, `botinfo`, `botpresence`, `botsetnick`, `calculator`, `channeldelete`, `channelinfo`, `channelrename`, `guildinfo`, `guildname`, `help`, `leave`, `links`, `message`, `ping`, `purge`, `roleadd`, `roleinfo`, `roleremove`, `setnick`, `thread`, `userinfo`
 
 ###### Moderation
-`ban`, `chlock`, `chunlock`, `deafen`, `kick`, `lockdown`, `slowmode`, `timeout`, `unban`, `undeafen`, `untimeout`, `warn`
+`ban`, `channellock`, `channelunlock`, `deafen`, `kick`, `lockdown`, `slowmode`, `timeout`, `unban`, `undeafen`, `untimeout`, `warn`
 
 **Skye** also comes packed with other features, such as:
 - Discord **Message Embed** constructor
@@ -56,19 +56,19 @@
 <table>
   <tbody>
     <tr>
-      <td><a href="https://www.npmjs.com/package/@discordjs/builders">@discordjs/builders@0.11.0</a></td>
-      <td><a href="https://www.npmjs.com/package/dotenv">dotenv@10.0.0</a></td>
+      <td><a href="https://www.npmjs.com/package/@discordjs/builders">@discordjs/builders@0.12.0</a></td>
+      <td><a href="https://www.npmjs.com/package/dotenv">dotenv@14.3.0</a></td>
     </tr>
     <tr>
-      <td><a href="https://www.npmjs.com/package/@discordjs/rest">@discordjs/rest@0.2.0-canary.0</a></td>
-      <td><a href="https://www.npmjs.com/package/eslint">eslint@8.6.0</a></td>
+      <td><a href="https://www.npmjs.com/package/@discordjs/rest">@discordjs/rest@0.3.0</a></td>
+      <td><a href="https://www.npmjs.com/package/eslint">eslint@8.7.0</a></td>
     </tr>
     <tr>
       <td><a href="https://www.npmjs.com/package/discord-api-types">discord-api-types@0.26.1</a></td>
-      <td><a href="https://www.npmjs.com/package/mathjs">mathjs@10.0.2</a></td>
+      <td><a href="https://www.npmjs.com/package/mathjs">mathjs@10.1.0</a></td>
     </tr>
     <tr>
-      <td><a href="https://www.npmjs.com/package/discord.js">discord.js@13.5.0</a></td>
+      <td><a href="https://www.npmjs.com/package/discord.js">discord.js@13.6.0</a></td>
       <td><a href="https://www.npmjs.com/package/nodemon">nodemon@2.0.15</a></td>
     </tr>
   </tbody>

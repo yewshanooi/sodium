@@ -4,8 +4,8 @@ const { embedColor } = require('../config.json');
 
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('delete')
-		.setDescription('Delete up to 99 messages at one time')
+		.setName('purge')
+		.setDescription('Remove up to 99 messages at one time')
 		.addIntegerOption(option => option.setName('value').setDescription('Enter a value (between 1 and 99)').setRequired(true)),
 	cooldown: '10',
 	guildOnly: true,
@@ -17,7 +17,7 @@ module.exports = {
 			if (valueField < 1 || valueField > 99) return interaction.reply({ content: 'Error: You need to input an integer between `1` and `99`.' });
 
 			const successEmbed = new MessageEmbed()
-				.setDescription(`*Succesfully deleted **${valueField}** message(s)*`)
+				.setDescription(`*Succesfully removed **${valueField}** message(s)*`)
 				.setColor(embedColor);
 			interaction.reply({ embeds: [successEmbed], ephemeral: true }).then(interaction.channel.bulkDelete(valueField, true));
 		}

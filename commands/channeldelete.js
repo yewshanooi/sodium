@@ -4,7 +4,7 @@ const { embedColor } = require('../config.json');
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('chdelete')
+        .setName('channeldelete')
         .setDescription('Delete the selected channel')
         .addChannelOption(option => option.setName('channel').setDescription('Select a channel').setRequired(true)),
     cooldown: '10',

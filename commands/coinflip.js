@@ -16,7 +16,7 @@ module.exports = {
 
         const embed = new MessageEmbed()
             .setTitle('Coin Flip')
-            .setDescription(`I flipped a coin for you, <@${interaction.user.id}>!\n It was **${result}**`)
+            .setDescription(`${interaction.member} flipped **${result}**`)
             .setColor(embedColor);
         interaction.reply({ embeds: [embed] });
 	}

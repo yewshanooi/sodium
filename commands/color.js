@@ -4,20 +4,20 @@ const fetch = require('node-fetch');
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('colour')
-        .setDescription('Get a random colour from colornames.org'),
+        .setName('color')
+        .setDescription('Get a random color from colornames.org'),
     cooldown: '3',
     guildOnly: false,
     async execute (interaction) {
-        const colour = await fetch('https://colornames.org/random/json/')
+        const color = await fetch('https://colornames.org/random/json/')
             .then(res => res.json());
 
-            const capitalized = colour.name.charAt(0).toUpperCase() + colour.name.slice(1);
+            const capitalized = color.name.charAt(0).toUpperCase() + color.name.slice(1);
 
         const embed = new MessageEmbed()
             .setTitle(`${capitalized}`)
-            .setDescription(`\`#${colour.hexCode}\``)
-            .setColor(`${colour.hexCode}`);
+            .setDescription(`\`#${color.hexCode}\``)
+            .setColor(`${color.hexCode}`);
 
             return interaction.reply({ embeds: [embed] });
         }
