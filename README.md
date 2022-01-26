@@ -57,7 +57,7 @@
   <tbody>
     <tr>
       <td><a href="https://www.npmjs.com/package/@discordjs/builders">@discordjs/builders@0.12.0</a></td>
-      <td><a href="https://www.npmjs.com/package/dotenv">dotenv@14.3.0</a></td>
+      <td><a href="https://www.npmjs.com/package/dotenv">dotenv@14.3.2</a></td>
     </tr>
     <tr>
       <td><a href="https://www.npmjs.com/package/@discordjs/rest">@discordjs/rest@0.3.0</a></td>

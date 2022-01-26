@@ -13,10 +13,10 @@ module.exports = {
 		const userField = interaction.options.getUser('user');
 		const memberField = interaction.options.getMember('user');
 
-		const isBot2 = userField.bot;
-		let resultBot2;
-			if (isBot2 === true) resultBot2 = 'Yes';
-			else resultBot2 = 'No';
+		const isBot = userField.bot;
+		let resultBot;
+			if (isBot === true) resultBot = 'Yes';
+			else resultBot = 'No';
 
 			const embedOthers = new MessageEmbed()
 				.setTitle(`${userField.tag}`)
@@ -25,7 +25,7 @@ module.exports = {
 					{ name: 'Nickname', value: `\`${memberField.nickname || 'None'}\``, inline: true },
 					{ name: 'ID', value: `\`${userField.id}\``, inline: true },
 					{ name: 'Creation Date & Time', value: `\`${userField.createdAt}\`` },
-					{ name: 'Is Bot', value: `\`${resultBot2}\``, inline: true },
+					{ name: 'Is Bot', value: `\`${resultBot}\``, inline: true },
 					{ name: 'Hoist Role', value: `${memberField.roles.hoist}`, inline: true },
 					{ name: 'Role Color (Hex)', value: `\`${memberField.displayHexColor}\``, inline: true },
 					{ name: 'Joined Guild At', value: `\`${memberField.joinedAt}\`` }
