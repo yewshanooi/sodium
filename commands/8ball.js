@@ -23,7 +23,7 @@ const answers = [
     'My sources say no.',
     'Outlook not so good.',
     'Very doubtful.'
-  ];
+];
 
 module.exports = {
     data: new SlashCommandBuilder()

@@ -121,7 +121,7 @@ const achievements = [
     'Feels Like Home',
     'Sound of Music',
     'Star trader'
-  ];
+];
 
 module.exports = {
     data: new SlashCommandBuilder()

@@ -43,25 +43,25 @@
 `ban`, `channellock`, `channelunlock`, `deafen`, `kick`, `lockdown`, `slowmode`, `timeout`, `unban`, `undeafen`, `untimeout`, `warn`
 
 **Skye** also comes packed with other features, such as:
-- Discord **Message Embed** constructor
-- Guild integrated **Application Commands** *(discord.js v13+)*
-- Enhanced [**Privacy**](https://skyebot.weebly.com/privacy.html) for users
-- Support for **Third Party APIs** *(Giphy, Github, Reddit, Urban Dictionary, Wikipedia and more!)*
+- **Message Embed** constructor *(with Buttons)*
+- **Application Commands** integrated within each guild
+- **Watch Together** with YouTube
+- **Third Party API** commands *(Giphy, Github, Reddit, Wikipedia and more!)*
 
 ## Installation
 ###### Node.js
 **Node.js v16.6.0** or newer is required
 
-###### Required Packages
+###### Packages
 <table>
   <tbody>
     <tr>
       <td><a href="https://www.npmjs.com/package/@discordjs/builders">@discordjs/builders@0.12.0</a></td>
-      <td><a href="https://www.npmjs.com/package/dotenv">dotenv@14.3.2</a></td>
+      <td><a href="https://www.npmjs.com/package/dotenv">dotenv@15.0.0</a></td>
     </tr>
     <tr>
       <td><a href="https://www.npmjs.com/package/@discordjs/rest">@discordjs/rest@0.3.0</a></td>
-      <td><a href="https://www.npmjs.com/package/eslint">eslint@8.7.0</a></td>
+      <td><a href="https://www.npmjs.com/package/eslint">eslint@8.8.0</a></td>
     </tr>
     <tr>
       <td><a href="https://www.npmjs.com/package/discord-api-types">discord-api-types@0.26.1</a></td>
@@ -84,7 +84,7 @@ cd Skye
 ```
 npm install
 ```
-3. Create a new **config.json** file and fill it with your own information
+3. Create a new **config.json** file and fill it with your preferred information
 ```json
 {
   "embedColor": ""
@@ -110,7 +110,7 @@ nodemon
 ```
 
 ## License
-This project is licensed under the **MIT License**
+This application is licensed under the **MIT License**
 ```
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
 INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
