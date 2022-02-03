@@ -26,12 +26,6 @@ module.exports = {
                 .setDescription('*Successfully left the guild. We hope to see you again next time!*')
                 .setColor(embedColor);
 
-            const successButton = new MessageActionRow()
-                .addComponents(new MessageButton()
-                    .setURL('https://skyebot.weebly.com')
-                    .setLabel('Already missed us? Invite us back')
-                    .setStyle('LINK'));
-
         interaction.reply({ embeds: [confirmEmbed], components: [confirmButton] });
 
             const filter = ft => ft.isButton() && ft.user.id === interaction.user.id;
@@ -43,7 +37,7 @@ module.exports = {
 
             collector.on('collect', co => {
                 if (co.customId === 'confirmed') {
-                    co.update({ embeds: [successEmbed], components: [successButton] });
+                    co.update({ embeds: [successEmbed], components: [] });
                     interaction.guild.leave();
                 }
             });

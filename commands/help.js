@@ -1,4 +1,4 @@
-const { MessageEmbed, MessageButton, MessageActionRow } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { embedColor } = require('../config.json');
 
@@ -13,19 +13,13 @@ module.exports = {
 		const { commands } = interaction.client;
         const stringField = interaction.options.getString('command');
 
-			const button = new MessageActionRow()
-				.addComponents(new MessageButton()
-					.setURL('https://skyebot.weebly.com/commands.html')
-					.setLabel('Detailed Guide')
-					.setStyle('LINK'));
-
 		if (!stringField) {
 			const noStringEmbed = new MessageEmbed()
 				.setTitle('Help')
 				.setDescription('**Tip:** To get more info on a specific command use `/help {command}`')
 				.addField('Commands', `${commands.map(command => command.data.name).join(', ')}`)
 				.setColor(embedColor);
-			interaction.reply({ embeds: [noStringEmbed], components: [button] });
+			interaction.reply({ embeds: [noStringEmbed] });
 		}
 
 		if (stringField) {

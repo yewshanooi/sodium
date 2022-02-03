@@ -1,12 +1,12 @@
 {
-  "name": "skye",
-  "version": "0.9.8",
-  "description": "Multi use discord bot with application commands and a user-friendly interface",
+  "name": "ava",
+  "version": "1.0.0",
+  "description": "Open source discord bot with application commands and a user-friendly interface",
   "main": "index.js",
   "author": "Ooi Yew Shan",
-  "repository": "github:yewshanooi/skye",
-  "homepage": "https://github.com/yewshanooi/skye",
-  "bugs": "https://github.com/yewshanooi/skye/issues",
+  "repository": "github:yewshanooi/ava",
+  "homepage": "https://github.com/yewshanooi/ava",
+  "bugs": "https://github.com/yewshanooi/ava/issues",
   "license": "MIT",
   "scripts": {
     "start": "node index.js",
@@ -20,9 +20,9 @@
     "@discordjs/rest": "^0.3.0",
     "discord-api-types": "^0.26.1",
     "discord.js": "^13.6.0",
-    "dotenv": "^15.0.0",
+    "dotenv": "^16.0.0",
     "eslint": "^8.8.0",
-    "mathjs": "^10.1.0",
+    "mathjs": "^10.1.1",
     "nodemon": "^2.0.15"
   }
 }

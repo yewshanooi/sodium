@@ -3,31 +3,31 @@
 </p>
 
 <h1 align="center">
-    Skye
+    Ava
     <br>
 </h1>
 
-<h4 align="center">Multi use discord bot with application commands and a user-friendly interface</h4>
+<h4 align="center">Open source discord bot with application commands and a user-friendly interface</h4>
 
 <p align="center">
-        <a href="https://github.com/yewshanooi/skye/releases/">
-            <img alt="Latest Version" src="https://img.shields.io/github/v/release/yewshanooi/skye?include_prereleases&style=flat-square">
+        <a href="https://github.com/yewshanooi/ava/releases/">
+            <img alt="Latest Version" src="https://img.shields.io/github/v/release/yewshanooi/ava?include_prereleases&style=flat-square">
         </a>
     &nbsp;
-        <a href="https://github.com/yewshanooi/skye/">
-            <img alt="Repository Size" src="https://img.shields.io/github/repo-size/yewshanooi/skye?style=flat-square">
+        <a href="https://github.com/yewshanooi/ava/">
+            <img alt="Repository Size" src="https://img.shields.io/github/repo-size/yewshanooi/ava?style=flat-square">
         </a>
     &nbsp;
-        <a href="https://github.com/yewshanooi/skye/blob/main/LICENSE">
-            <img alt="License" src="https://img.shields.io/github/license/yewshanooi/skye?style=flat-square">
+        <a href="https://github.com/yewshanooi/ava/blob/main/LICENSE">
+            <img alt="License" src="https://img.shields.io/github/license/yewshanooi/ava?style=flat-square">
         </a>
     &nbsp;
-        <a href="https://www.codefactor.io/repository/github/yewshanooi/skye/">
-            <img alt="Code Quality" src="https://img.shields.io/codefactor/grade/github/yewshanooi/skye?style=flat-square">
+        <a href="https://www.codefactor.io/repository/github/yewshanooi/ava/">
+            <img alt="Code Quality" src="https://img.shields.io/codefactor/grade/github/yewshanooi/ava?style=flat-square">
         </a>
     &nbsp;
-        <a href="https://github.com/yewshanooi/skye/commits/">
-            <img alt="Last Commit" src="https://img.shields.io/github/last-commit/yewshanooi/skye?style=flat-square">
+        <a href="https://github.com/yewshanooi/ava/commits/">
+            <img alt="Last Commit" src="https://img.shields.io/github/last-commit/yewshanooi/ava?style=flat-square">
         </a>
 </p>
 
@@ -37,16 +37,16 @@
 `8ball`, `achievement`, `beep`, `catfact`, `coinflip`, `color`, `compliment`, `diceroll`, `dictionary`, `dogfact`, `fact`, `giphy`, `github`, `lyrics`, `meme`, `npm`, `roast`, `rps`, `say`, `urban`, `waifu`, `weather`, `wikipedia`, `word`, `youtube`
 
 ###### Utility
-`afk`, `announce`, `botinfo`, `botpresence`, `botsetnick`, `calculator`, `channeldelete`, `channelinfo`, `channelrename`, `guildinfo`, `guildname`, `help`, `leave`, `links`, `message`, `ping`, `purge`, `roleadd`, `roleinfo`, `roleremove`, `setnick`, `thread`, `userinfo`
+`afk`, `announce`, `botinfo`, `botpresence`, `botsetnick`, `calculator`, `channeldelete`, `channelinfo`, `channelrename`, `guildinfo`, `guildname`, `help`, `leave`, `message`, `ping`, `purge`, `roleadd`, `roleinfo`, `roleremove`, `setnick`, `thread`, `userinfo`
 
 ###### Moderation
 `ban`, `channellock`, `channelunlock`, `deafen`, `kick`, `lockdown`, `slowmode`, `timeout`, `unban`, `undeafen`, `untimeout`, `warn`
 
-**Skye** also comes packed with other features, such as:
-- **Message Embed** constructor *(with Buttons)*
-- **Application Commands** integrated within each guild
-- **Watch Together** with YouTube
-- **Third Party API** commands *(Giphy, Github, Reddit, Wikipedia and more!)*
+**Ava** also comes packed with other features, such as:
+- **Message Embed** and **Buttons** constructor
+- **Application Commands** *(integrated within each guild)*
+- **Watch Together** *(with YouTube Activity)*
+- **Third Party API** commands *(Giphy, GitHub, Reddit, Wikipedia and more!)*
 
 ## Installation
 ###### Node.js
@@ -57,7 +57,7 @@
   <tbody>
     <tr>
       <td><a href="https://www.npmjs.com/package/@discordjs/builders">@discordjs/builders@0.12.0</a></td>
-      <td><a href="https://www.npmjs.com/package/dotenv">dotenv@15.0.0</a></td>
+      <td><a href="https://www.npmjs.com/package/dotenv">dotenv@16.0.0</a></td>
     </tr>
     <tr>
       <td><a href="https://www.npmjs.com/package/@discordjs/rest">@discordjs/rest@0.3.0</a></td>
@@ -65,7 +65,7 @@
     </tr>
     <tr>
       <td><a href="https://www.npmjs.com/package/discord-api-types">discord-api-types@0.26.1</a></td>
-      <td><a href="https://www.npmjs.com/package/mathjs">mathjs@10.1.0</a></td>
+      <td><a href="https://www.npmjs.com/package/mathjs">mathjs@10.1.1</a></td>
     </tr>
     <tr>
       <td><a href="https://www.npmjs.com/package/discord.js">discord.js@13.6.0</a></td>
@@ -77,8 +77,8 @@
 ###### Guide
 1. **Clone** this repository to your desktop
 ```sh
-git clone https://github.com/yewshanooi/skye.git
-cd Skye
+git clone https://github.com/yewshanooi/ava.git
+cd Ava
 ```
 2. Install the required **npm packages**
 ```

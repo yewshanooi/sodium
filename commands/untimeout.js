@@ -10,7 +10,7 @@ module.exports = {
     cooldown: '15',
     guildOnly: true,
     execute (interaction) {
-        if (!interaction.guild.me.permissions.has('MODERATE_MEMBERS')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **MODERATE_MEMBERS** permission in `Server Settings > Roles > Skye > Permissions` to use this command.' });
+        if (!interaction.guild.me.permissions.has('MODERATE_MEMBERS')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **MODERATE_MEMBERS** permission in `Server Settings > Roles` to use this command.' });
         if (!interaction.member.permissions.has('MODERATE_MEMBERS')) return interaction.reply({ content: 'Error: You have no permission to use this command.' });
 
             const memberField = interaction.options.getMember('user');
