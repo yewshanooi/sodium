@@ -20,25 +20,25 @@ module.exports = {
                 new MessageButton().setCustomId('^').setLabel('^').setStyle('PRIMARY')
             );
             const row2 = new MessageActionRow().addComponents(
-                new MessageButton().setCustomId('7').setLabel('7').setStyle('SECONDARY'),
-                new MessageButton().setCustomId('8').setLabel('8').setStyle('SECONDARY'),
-                new MessageButton().setCustomId('9').setLabel('9').setStyle('SECONDARY'),
-                new MessageButton().setCustomId('/').setLabel('/').setStyle('PRIMARY')
+                new MessageButton().setCustomId('7').setLabel('７').setStyle('SECONDARY'),
+                new MessageButton().setCustomId('8').setLabel('８').setStyle('SECONDARY'),
+                new MessageButton().setCustomId('9').setLabel('９').setStyle('SECONDARY'),
+                new MessageButton().setCustomId('/').setLabel('÷').setStyle('PRIMARY')
             );
             const row3 = new MessageActionRow().addComponents(
-                new MessageButton().setCustomId('4').setLabel('4').setStyle('SECONDARY'),
-                new MessageButton().setCustomId('5').setLabel('5').setStyle('SECONDARY'),
-                new MessageButton().setCustomId('6').setLabel('6').setStyle('SECONDARY'),
-                new MessageButton().setCustomId('*').setLabel('*').setStyle('PRIMARY')
+                new MessageButton().setCustomId('4').setLabel('４').setStyle('SECONDARY'),
+                new MessageButton().setCustomId('5').setLabel('５').setStyle('SECONDARY'),
+                new MessageButton().setCustomId('6').setLabel('６').setStyle('SECONDARY'),
+                new MessageButton().setCustomId('*').setLabel('×').setStyle('PRIMARY')
             );
             const row4 = new MessageActionRow().addComponents(
-                new MessageButton().setCustomId('1').setLabel('1').setStyle('SECONDARY'),
-                new MessageButton().setCustomId('2').setLabel('2').setStyle('SECONDARY'),
-                new MessageButton().setCustomId('3').setLabel('3').setStyle('SECONDARY'),
-                new MessageButton().setCustomId('-').setLabel('-').setStyle('PRIMARY')
+                new MessageButton().setCustomId('1').setLabel('１').setStyle('SECONDARY'),
+                new MessageButton().setCustomId('2').setLabel('２').setStyle('SECONDARY'),
+                new MessageButton().setCustomId('3').setLabel('３').setStyle('SECONDARY'),
+                new MessageButton().setCustomId('-').setLabel('−').setStyle('PRIMARY')
             );
             const row5 = new MessageActionRow().addComponents(
-                new MessageButton().setCustomId('0').setLabel('0').setStyle('SECONDARY'),
+                new MessageButton().setCustomId('0').setLabel('０').setStyle('SECONDARY'),
                 new MessageButton().setCustomId('.').setLabel('.').setStyle('SECONDARY'),
                 new MessageButton().setCustomId('=').setLabel('=').setStyle('SUCCESS'),
                 new MessageButton().setCustomId('+').setLabel('+').setStyle('PRIMARY')
@@ -48,7 +48,7 @@ module.exports = {
 
 		const components = generateComponents();
 
-		interaction.reply({ content: '```fix\n ```', components });
+		interaction.reply({ content: '```\n \n ```', components });
 		const message = await interaction.fetchReply();
 
 		const filter = compInt => compInt.user.id === interaction.user.id;
@@ -60,12 +60,12 @@ module.exports = {
 		switch (value) {
 			case 'clear':
 				data = '';
-				content = '```fix\n ```';
+				content = '```\n \n ```';
 				break;
 			case '=':
 				try {
 					const res = evaluate(data);
-					content = `\`\`\`fix\n${data}\n= ${res}\`\`\``;
+					content = `\`\`\`\n${data}\n= ${res}\`\`\``;
 					data = `${res}`;
 				}
             catch (err) {
@@ -75,7 +75,7 @@ module.exports = {
 					break;
 			default:
 				data += value;
-				content = `\`\`\`fix\n${data}\`\`\``;
+				content = `\`\`\`\n${data} \n \`\`\``;
 				break;
 			}
 
@@ -83,13 +83,13 @@ module.exports = {
 			compInt.update({ content, components });
 		});
 
-		/*
-		 * collector.on('end', () => {
-		 *   message.edit({
-		 *       content: `${content}*This session has timed out. You can start a new one with \`/calculator\`.*`
-		 *     });
-		 * });
-		 */
+        /*
+         * collector.on('end', () => {
+         *     message.edit({
+         *         content: `${content}*This session has timed out. You can start a new one with \`/calculator\`.*`
+         *     });
+         * });
+         */
 
 	}
 };
