@@ -19,7 +19,6 @@ module.exports = {
         const embed = new MessageEmbed()
             .setTitle('Guild Rename')
             .setDescription(`Successfully renamed guild to **${stringField}**`)
-            .setTimestamp()
             .setColor(embedColor);
         interaction.reply({ embeds: [embed] }).then(interaction.guild.setName(stringField));
     }

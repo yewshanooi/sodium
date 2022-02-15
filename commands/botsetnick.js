@@ -19,7 +19,6 @@ module.exports = {
             const embed = new MessageEmbed()
                 .setTitle('Bot Nickname')
                 .setDescription(`Nickname successfully changed to **${stringField}**`)
-                .setTimestamp()
                 .setColor(embedColor);
 
             interaction.guild.me.setNickname(stringField).then(interaction.reply({ embeds: [embed] }));

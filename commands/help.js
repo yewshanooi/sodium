@@ -26,9 +26,9 @@ module.exports = {
 			const command = commands.get(stringField.toLowerCase());
 				if (!command) return interaction.reply({ content: 'Error: Please provide a valid command.' });
 
-				const guildOnlyCommand = command.guildOnly;
+				const { guildOnly } = command;
 				let resultGuildOnly;
-					if (guildOnlyCommand === true) resultGuildOnly = 'True';
+					if (guildOnly === true) resultGuildOnly = 'True';
 					else resultGuildOnly = 'False';
 
 				const stringEmbed = new MessageEmbed()

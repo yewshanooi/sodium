@@ -9,22 +9,22 @@ module.exports = {
 	cooldown: '3',
 	guildOnly: true,
 	execute (interaction) {
-		const MFA = interaction.guild.mfaLevel;
+		const { mfaLevel } = interaction.guild;
 		let resultMFA;
-			if (MFA === 1) resultMFA = 'Enabled';
-			else resultMFA = 'Disabled';
+			if (mfaLevel === 'NONE') resultMFA = 'Disabled';
+			if (mfaLevel === 'ELEVATED') resultMFA = 'Enabled';
 
-		const partnered = interaction.guild;
+		const { partnered } = interaction.guild;
 		let resultPartner;
 			if (partnered === true) resultPartner = 'Yes';
 			else resultPartner = 'No';
 
-		const premium = interaction.guild.premiumTier;
+		const { premiumTier } = interaction.guild;
 		let resultPremium;
-			if (premium === 'NONE') resultPremium = 'None';
-			if (premium === 'TIER_1') resultPremium = 'Tier 1';
-			if (premium === 'TIER_2') resultPremium = 'Tier 2';
-			if (premium === 'TIER_3') resultPremium = 'Tier 3';
+			if (premiumTier === 'NONE') resultPremium = 'None';
+			if (premiumTier === 'TIER_1') resultPremium = 'Tier 1';
+			if (premiumTier === 'TIER_2') resultPremium = 'Tier 2';
+			if (premiumTier === 'TIER_3') resultPremium = 'Tier 3';
 
 		const resultRoles = interaction.guild.roles.cache.size - 1;
 

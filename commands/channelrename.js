@@ -19,7 +19,6 @@ module.exports = {
         const embed = new MessageEmbed()
             .setTitle('Channel Rename')
             .setDescription(`Successfully renamed channel to **${stringField}**`)
-            .setTimestamp()
             .setColor(embedColor);
         interaction.reply({ embeds: [embed] }).then(interaction.channel.setName(stringField));
 	}

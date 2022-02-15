@@ -24,7 +24,6 @@ module.exports = {
             const embed = new MessageEmbed()
                 .setTitle('Role Add')
                 .setDescription(`Successfully added **${roleField}** role to user **${memberField}**`)
-                .setTimestamp()
                 .setColor(embedColor);
             interaction.reply({ embeds: [embed] }).then(memberField.roles.add(roleField.id));
         }

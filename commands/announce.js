@@ -18,7 +18,6 @@ module.exports = {
             .setAuthor({ name: `${interaction.user.username}`, iconURL: `${interaction.user.displayAvatarURL({ size: 64 })}` })
             .setTitle(titleField)
             .setDescription(messageField)
-            .setTimestamp()
             .setColor(embedColor);
 
         interaction.reply({ embeds: [embed] });

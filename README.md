@@ -37,7 +37,7 @@
 `8ball`, `achievement`, `beep`, `catfact`, `coinflip`, `color`, `compliment`, `diceroll`, `dictionary`, `dogfact`, `fact`, `giphy`, `github`, `lyrics`, `meme`, `npm`, `roast`, `rps`, `say`, `urban`, `waifu`, `weather`, `wikipedia`, `word`, `youtube`
 
 ###### Utility
-`afk`, `announce`, `botinfo`, `botpresence`, `botsetnick`, `calculator`, `channeldelete`, `channelinfo`, `channelrename`, `guildinfo`, `guildname`, `help`, `leave`, `message`, `ping`, `purge`, `roleadd`, `roleinfo`, `roleremove`, `setnick`, `thread`, `userinfo`
+`afk`, `announce`, `botinfo`, `botpresence`, `botsetnick`, `calculator`, `channeldelete`, `channelinfo`, `channelrename`, `guildinfo`, `guildname`, `help`, `invite`, `leave`, `message`, `ping`, `purge`, `roleadd`, `roleinfo`, `roleremove`, `setnick`, `thread`, `threadarchive`, `userinfo`
 
 ###### Moderation
 `ban`, `channellock`, `channelunlock`, `deafen`, `kick`, `lockdown`, `slowmode`, `timeout`, `unban`, `undeafen`, `untimeout`, `warn`
@@ -61,10 +61,10 @@
     </tr>
     <tr>
       <td><a href="https://www.npmjs.com/package/@discordjs/rest">@discordjs/rest@0.3.0</a></td>
-      <td><a href="https://www.npmjs.com/package/eslint">eslint@8.8.0</a></td>
+      <td><a href="https://www.npmjs.com/package/eslint">eslint@8.9.0</a></td>
     </tr>
     <tr>
-      <td><a href="https://www.npmjs.com/package/discord-api-types">discord-api-types@0.27.0</a></td>
+      <td><a href="https://www.npmjs.com/package/discord-api-types">discord-api-types@0.27.1</a></td>
       <td><a href="https://www.npmjs.com/package/mathjs">mathjs@10.1.1</a></td>
     </tr>
     <tr>

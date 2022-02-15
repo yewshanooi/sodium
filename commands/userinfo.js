@@ -8,14 +8,14 @@ module.exports = {
 		.setDescription('Display information(s) about the selected user')
 		.addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true)),
 	cooldown: '3',
-	guildOnly: false,
+	guildOnly: true,
 	execute (interaction) {
 		const userField = interaction.options.getUser('user');
 		const memberField = interaction.options.getMember('user');
 
-		const isBot = userField.bot;
+		const { bot } = userField;
 		let resultBot;
-			if (isBot === true) resultBot = 'Yes';
+			if (bot === true) resultBot = 'Yes';
 			else resultBot = 'No';
 
 			const embedOthers = new MessageEmbed()

@@ -20,7 +20,6 @@ module.exports = {
 						{ name: 'API Latency', value: `\`${ping}\`ms` },
 						{ name: 'WebSocket Latency', value: `\`${interaction.client.ws.ping}\`ms` }
 					)
-					.setTimestamp()
 					.setColor(embedColor);
 				interaction.editReply({ embeds: [embedAPI] });
 			});

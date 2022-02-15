@@ -14,21 +14,23 @@ module.exports = {
         if (!interaction.guild.me.permissions.has('MANAGE_ROLES')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **MANAGE_ROLES** permission in `Server Settings > Roles` to use this command.' });
         if (!interaction.member.permissions.has('MANAGE_ROLES')) return interaction.reply({ content: 'Error: You have no permission to use this command.' });
 
-            const memberField = interaction.options.getMember('user');
+        const memberField = interaction.options.getMember('user');
 
-                if (memberField === interaction.member) return interaction.reply({ content: 'Error: You cannot roleremove yourself.' });
+            if (memberField === interaction.member) return interaction.reply({ content: 'Error: You cannot roleremove yourself.' });
 
-            const roleField = interaction.options.getRole('role');
-                if (!memberField.roles.cache.has(roleField.id)) return interaction.reply({ content: 'Error: This user doesn\'t have the role.' });
+        const roleField = interaction.options.getRole('role');
+            if (!memberField.roles.cache.has(roleField.id)) return interaction.reply({ content: 'Error: This user doesn\'t have the role.' });
 
-                const everyoneRole = interaction.guild.roles.cache.find(role => role.name === '@everyone');
-                    if (memberField.roles.cache.has(everyoneRole.id)) return interaction.reply({ content: 'Error: This role cannot be removed from the user.' });
+            if (roleField === interaction.guild.roles.cache.find(role => role.name === '@everyone')) {
+                interaction.reply({ content: 'Error: This role cannot be removed from the user.' });
+            }
+            else {
+                const embed = new MessageEmbed()
+                    .setTitle('Role Remove')
+                    .setDescription(`Successfully removed **${roleField}** role from user **${memberField}**`)
+                    .setColor(embedColor);
+                interaction.reply({ embeds: [embed] }).then(memberField.roles.remove(roleField.id));
+            }
 
-            const embed = new MessageEmbed()
-                .setTitle('Role Remove')
-                .setDescription(`Successfully removed **${roleField}** role from user **${memberField}**`)
-                .setTimestamp()
-                .setColor(embedColor);
-            interaction.reply({ embeds: [embed] }).then(memberField.roles.remove(roleField.id));
         }
 };

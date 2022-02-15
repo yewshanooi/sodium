@@ -19,7 +19,6 @@ module.exports = {
             const embedUserDM = new MessageEmbed()
                 .setTitle('Channel Delete')
                 .setDescription(`Successfully deleted channel **#${channelField.name}** in **${interaction.guild.name}** guild`)
-                .setTimestamp()
                 .setColor(embedColor);
 
             interaction.user.send({ embeds: [embedUserDM] })
@@ -34,7 +33,6 @@ module.exports = {
             const embed = new MessageEmbed()
                 .setTitle('Channel Delete')
                 .setDescription(`Successfully deleted channel **#${channelField.name}**`)
-                .setTimestamp()
                 .setColor(embedColor);
 
             interaction.reply({ embeds: [embed] }).then(channelField.delete());

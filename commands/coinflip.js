@@ -10,13 +10,13 @@ module.exports = {
     guildOnly: false,
     execute (interaction) {
         const flip = Math.floor(Math.random() * 2);
-        let result;
-            if (flip === 1) result = 'heads';
-            else result = 'tails';
+        let resultFlip;
+            if (flip === 1) resultFlip = 'heads';
+            else resultFlip = 'tails';
 
         const embed = new MessageEmbed()
             .setTitle('Coin Flip')
-            .setDescription(`${interaction.member} flipped **${result}**`)
+            .setDescription(`${interaction.member} flipped **${resultFlip}**`)
             .setColor(embedColor);
         interaction.reply({ embeds: [embed] });
 	}

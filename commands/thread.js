@@ -33,7 +33,6 @@ module.exports = {
                 { name: 'Name', value: `${thread.name}` },
                 { name: 'Archive After', value: `\`${resultDuration}\`` }
             )
-            .setTimestamp()
             .setColor(embedColor);
 
         interaction.reply({ embeds: [embed] });
