@@ -37,7 +37,7 @@
 `8ball`, `achievement`, `beep`, `catfact`, `coinflip`, `color`, `compliment`, `diceroll`, `dictionary`, `dogfact`, `fact`, `giphy`, `github`, `lyrics`, `meme`, `npm`, `roast`, `rps`, `say`, `urban`, `waifu`, `weather`, `wikipedia`, `word`, `youtube`
 
 ###### Utility
-`afk`, `announce`, `botinfo`, `botpresence`, `botsetnick`, `calculator`, `channeldelete`, `channelinfo`, `channelrename`, `guildinfo`, `guildname`, `help`, `invite`, `leave`, `message`, `ping`, `purge`, `roleadd`, `roleinfo`, `roleremove`, `setnick`, `thread`, `threadarchive`, `userinfo`
+`afk`, `announce`, `botinfo`, `botpresence`, `botsetnick`, `calculator`, `channeldelete`, `channelinfo`, `channelrename`, `guildinfo`, `guildname`, `help`, `invite`, `leave`, `message`, `news`, `ping`, `purge`, `roleadd`, `roleinfo`, `roleremove`, `setnick`, `thread`, `threadarchive`, `userinfo`
 
 ###### Moderation
 `ban`, `channellock`, `channelunlock`, `deafen`, `kick`, `lockdown`, `slowmode`, `timeout`, `unban`, `undeafen`, `untimeout`, `warn`
@@ -64,7 +64,7 @@
       <td><a href="https://www.npmjs.com/package/eslint">eslint@8.9.0</a></td>
     </tr>
     <tr>
-      <td><a href="https://www.npmjs.com/package/discord-api-types">discord-api-types@0.27.1</a></td>
+      <td><a href="https://www.npmjs.com/package/discord-api-types">discord-api-types@0.27.2</a></td>
       <td><a href="https://www.npmjs.com/package/mathjs">mathjs@10.1.1</a></td>
     </tr>
     <tr>
@@ -96,6 +96,7 @@ BOT_TOKEN=
 CLIENT_ID=
 GIPHY_API_KEY=
 GENIUS_API_KEY=
+NEWS_API_KEY=
 OPENWEATHERMAP_API_KEY=
 ```
 5. Run the **deploy.js** file to deploy application commands
@@ -121,4 +122,3 @@ THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ## Contributors
 ###### yewshanooi (Java)
-[![linktr.ee](https://img.shields.io/badge/linktree-black?style=for-the-badge&logo=linktree&logoColor=28be7a)](https://linktr.ee/yewshanooi)
