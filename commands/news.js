@@ -23,11 +23,11 @@ module.exports = {
         const embed = new MessageEmbed()
             .setTitle('World News')
             .addFields(
-                { name: `${news.articles[0].title}`, value: `${news.articles[0].description}` },
-                { name: `${news.articles[1].title}`, value: `${news.articles[1].description}` },
-                { name: `${news.articles[2].title}`, value: `${news.articles[2].description}` },
-                { name: `${news.articles[3].title}`, value: `${news.articles[3].description}` },
-                { name: `${news.articles[4].title}`, value: `${news.articles[4].description}` }
+                { name: `1. ${news.articles[0].title}`, value: `${news.articles[0].description}` },
+                { name: `2. ${news.articles[1].title}`, value: `${news.articles[1].description}` },
+                { name: `3. ${news.articles[2].title}`, value: `${news.articles[2].description}` },
+                { name: `4. ${news.articles[3].title}`, value: `${news.articles[3].description}` },
+                { name: `5. ${news.articles[4].title}`, value: `${news.articles[4].description}` }
             )
             .setFooter({ text: 'Powered by NewsAPI' })
             .setColor(embedColor);
