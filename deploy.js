@@ -14,18 +14,6 @@ for (const file of commandFiles) {
 
 const rest = new REST({ version: '9' }).setToken(process.env.BOT_TOKEN);
 
-(async () => {
-	try {
-		console.log('Started deploying application commands.');
-
-		await rest.put(
-			Routes.applicationCommands(process.env.CLIENT_ID),
-			{ body: commands }
-		);
-
-		console.log('Successfully deployed application commands.');
-	}
-	catch (error) {
-		console.error(error);
-	}
-})();
+rest.put(Routes.applicationCommands(process.env.CLIENT_ID), { body: commands })
+	.then(() => console.log('Successfully deployed application commands.'))
+	.catch(console.error);

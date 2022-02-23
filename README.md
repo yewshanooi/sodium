@@ -40,7 +40,7 @@
 `afk`, `announce`, `botinfo`, `botpresence`, `botsetnick`, `calculator`, `channeldelete`, `channelinfo`, `channelrename`, `guildinfo`, `guildname`, `help`, `invite`, `leave`, `message`, `news`, `ping`, `purge`, `roleadd`, `roleinfo`, `roleremove`, `setnick`, `thread`, `threadarchive`, `userinfo`
 
 ###### Moderation
-`ban`, `channellock`, `channelunlock`, `deafen`, `kick`, `lockdown`, `slowmode`, `timeout`, `unban`, `undeafen`, `untimeout`, `warn`
+`ban`, `channellock`, `channelunlock`, `deafen`, `kick`, `slowmode`, `timeout`, `unban`, `undeafen`, `untimeout`, `warn`
 
 **Ava** also comes packed with other features, such as:
 - **Message Embed** and **Buttons** constructor

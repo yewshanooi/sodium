@@ -20,11 +20,8 @@ module.exports = {
                 .setTimestamp()
                 .setColor(embedColor);
 
-            interaction.reply({ embeds: [embed] }).then(interaction.guild.roles.cache.forEach(role => {
-                currentChannel.permissionOverwrites.create(role, {
-                    SEND_MESSAGES: false,
-                    ADD_REACTIONS: false
-                });
+            interaction.reply({ embeds: [embed] }).then(interaction.guild.roles.cache.forEach(roles => {
+                currentChannel.permissionOverwrites.edit(roles, { SEND_MESSAGES: false, ADD_REACTIONS: false, CREATE_PUBLIC_THREADS: false });
             }));
         }
 };

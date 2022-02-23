@@ -20,7 +20,7 @@ client.once('ready', () => {
 	console.log(`${client.user.tag}\n${client.users.cache.size} users, ${client.channels.cache.size} channels, ${client.guilds.cache.size} guilds`);
 });
 
-client.on('interactionCreate', interaction => {
+client.on('interactionCreate', async interaction => {
 	if (!interaction.isCommand()) return;
 
 	const command = client.commands.get(interaction.commandName);
@@ -52,12 +52,12 @@ client.on('interactionCreate', interaction => {
 	setTimeout(() => timestamps.delete(interaction.user.id), cooldownAmount);
 
 	try {
-		command.execute(interaction);
+		await command.execute(interaction);
 	}
 	catch (error) {
 		console.error(error);
-			interaction.reply({ content: 'Error: There was an error while executing this command!' });
-		}
+		await interaction.reply({ content: 'Error: There was an error while executing this command!' });
+	}
 });
 
 client.login(process.env.BOT_TOKEN);
