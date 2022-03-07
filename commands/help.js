@@ -17,7 +17,7 @@ module.exports = {
 			const noStringEmbed = new MessageEmbed()
 				.setTitle('Help')
 				.setDescription('**Tip:** To get more info on a specific command use `/help {command}`')
-				.addField('Commands', `${commands.map(command => command.data.name).join(', ')}`)
+				.addFields({ name: 'Commands', value: `${commands.map(command => command.data.name).join(', ')}` })
 				.setColor(embedColor);
 			interaction.reply({ embeds: [noStringEmbed] });
 		}
