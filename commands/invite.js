@@ -28,13 +28,15 @@ module.exports = {
         const limitField = interaction.options.getInteger('limit');
 
             let resultLimit;
-                if (limitField === 0) resultLimit = '`No limit`';
-                if (limitField === 1) resultLimit = '`1` time';
-                if (limitField === 5) resultLimit = '`5` times';
-                if (limitField === 10) resultLimit = '`10` times';
-                if (limitField === 25) resultLimit = '`25` times';
-                if (limitField === 50) resultLimit = '`50` times';
-                if (limitField === 100) resultLimit = '`100` times';
+                if (limitField === 0) {
+                    resultLimit = '`No limit`';
+                }
+                else if (limitField === 1) {
+                    resultLimit = `\`${limitField}\` time`;
+                }
+                else {
+                    resultLimit = `\`${limitField}\` times`;
+                }
 
         const { channel } = interaction;
 
