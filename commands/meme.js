@@ -1,6 +1,5 @@
 const { MessageEmbed } = require('discord.js');
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const { embedColor } = require('../config.json');
 const fetch = require('node-fetch');
 const url1 = 'https://www.reddit.com/r/meme.json?sort=top&t=week';
 const url2 = 'https://www.reddit.com/r/memes.json?sort=top&t=week';
@@ -8,7 +7,7 @@ const url2 = 'https://www.reddit.com/r/memes.json?sort=top&t=week';
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('meme')
-        .setDescription('Get fresh new memes from Reddit'),
+        .setDescription('Get fresh and new memes from Reddit'),
     cooldown: '5',
     guildOnly: false,
     async execute (interaction) {
@@ -25,7 +24,8 @@ module.exports = {
             .setTitle('Meme')
             .setDescription(`${randomMemes.data.title}`)
             .setImage(`${randomMemes.data.url}`)
-            .setColor(embedColor);
+            .setFooter({ text: 'Powered by Reddit' })
+            .setColor('#ff4500');
 
         return interaction.reply({ embeds: [memeEmbed] });
     }

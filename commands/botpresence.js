@@ -5,7 +5,7 @@ const { embedColor } = require('../config.json');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('botpresence')
-        .setDescription('Change bot\'s current presence globally')
+        .setDescription('Change bot\'s current presence in every server')
         .addStringOption(option => option.setName('activity').setDescription('Enter an activity').setRequired(true))
         .addStringOption(option => option.setName('type').setDescription('Select a type').setRequired(true).addChoice('Playing', 'PLAYING').addChoice('Listening', 'LISTENING').addChoice('Watching', 'WATCHING').addChoice('Competing', 'COMPETING'))
         .addStringOption(option => option.setName('status').setDescription('Select a status').setRequired(true).addChoice('Online', 'online').addChoice('Idle', 'idle').addChoice('Do Not Disturb', 'dnd').addChoice('Invisible', 'invisible')),

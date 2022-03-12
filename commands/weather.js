@@ -1,6 +1,5 @@
 const { MessageEmbed } = require('discord.js');
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const { embedColor } = require('../config.json');
 const dotenv = require('dotenv');
     dotenv.config();
 const fetch = require('node-fetch');
@@ -8,7 +7,7 @@ const fetch = require('node-fetch');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('weather')
-        .setDescription('Display the current weather stats')
+        .setDescription('Get the current weather information(s) of a city')
         .addStringOption(option => option.setName('location').setDescription('Enter a location').setRequired(true)),
     cooldown: '5',
     guildOnly: false,
@@ -31,7 +30,8 @@ module.exports = {
 				{ name: 'Wind Speed', value: `\`${weather.wind.speed}\` m/s` },
 				{ name: 'Wind Direction', value: `\`${weather.wind.deg}\`°` }
 			)
-            .setColor(embedColor);
+            .setFooter({ text: 'Powered by OpenWeatherMap' })
+            .setColor('#ea6e4b');
 
         return interaction.reply({ embeds: [embed] });
     }

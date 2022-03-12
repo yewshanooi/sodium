@@ -15,8 +15,6 @@ module.exports = {
 
             const memberField = interaction.options.getMember('user');
                 if (memberField.user.bot === true) return interaction.reply({ content: 'Error: You cannot untimeout a bot.' });
-                // if (memberField.permissions.has('MODERATE_MEMBERS')) return interaction.reply({ content: 'Error: This user cannot be untimeout.' });
-
                 if (memberField === interaction.member) return interaction.reply({ content: 'Error: You cannot untimeout yourself.' });
 
             let reasonField = interaction.options.getString('reason');

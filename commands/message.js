@@ -5,7 +5,7 @@ const { embedColor } = require('../config.json');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('message')
-        .setDescription('Sends a private message to the selected user')
+        .setDescription('Sends a direct message to the selected user')
         .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))
         .addStringOption(option => option.setName('message').setDescription('Enter a message').setRequired(true)),
     cooldown: '8',

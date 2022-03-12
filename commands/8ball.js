@@ -28,7 +28,7 @@ const answers = [
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('8ball')
-        .setDescription('Asks the Magic 8-Ball for some psychic wisdom')
+        .setDescription('Ask the Magic 8-Ball for some psychic wisdom')
         .addStringOption(option => option.setName('question').setDescription('Enter a question').setRequired(true)),
     cooldown: '3',
     guildOnly: false,

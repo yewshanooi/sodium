@@ -5,7 +5,7 @@ const { embedColor } = require('../config.json');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('rps')
-        .setDescription('Play a game of rock, paper and scissors'),
+        .setDescription('Play a game of Rock Paper Scissors with the bot'),
     cooldown: '3',
     guildOnly: false,
     async execute (interaction) {

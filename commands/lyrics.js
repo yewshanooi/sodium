@@ -1,6 +1,5 @@
 const { MessageEmbed, MessageButton, MessageActionRow } = require('discord.js');
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const { embedColor } = require('../config.json');
 const dotenv = require('dotenv');
     dotenv.config();
 const fetch = require('node-fetch');
@@ -25,7 +24,8 @@ module.exports = {
             .setTitle(`${hits[0].result.title}`)
             .setDescription(`by ${hits[0].result.artist_names}`)
             .setImage(`${hits[0].result.song_art_image_thumbnail_url}`)
-            .setColor(embedColor);
+            .setFooter({ text: 'Powered by Genius' })
+            .setColor('#ffff64');
 
             const button = new MessageActionRow()
                 .addComponents(new MessageButton()

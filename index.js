@@ -17,7 +17,7 @@ for (const file of commandFiles) {
 }
 
 client.once('ready', () => {
-	console.log(`${client.user.tag}\n${client.users.cache.size} users, ${client.channels.cache.size} channels, ${client.guilds.cache.size} guilds`);
+	console.log(`Logged in as ${client.user.tag}\nServing ${client.users.cache.size} users and ${client.channels.cache.size} channels in ${client.guilds.cache.size} guilds`);
 });
 
 client.on('interactionCreate', async interaction => {

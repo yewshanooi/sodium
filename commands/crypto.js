@@ -1,12 +1,11 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed } = require('discord.js');
-const { embedColor } = require('../config.json');
 const fetch = require('node-fetch');
 
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('crypto')
-        .setDescription('Get the current price of a cryptocurrency')
+        .setDescription('Get the current market price of a cryptocurrency')
         .addStringOption(option => option.setName('currency').setDescription('Enter a valid cryptocurrency').setRequired(true)),
     cooldown: '5',
     guildOnly: false,
@@ -43,7 +42,7 @@ module.exports = {
             )
             .setThumbnail(`${crypto[0].image}`)
             .setFooter({ text: 'Powered by CoinGecko' })
-            .setColor(embedColor);
+            .setColor('#8cc63f');
 
         return interaction.reply({ embeds: [embed] });
 

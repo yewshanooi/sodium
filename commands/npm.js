@@ -1,12 +1,11 @@
 const { MessageEmbed, MessageButton, MessageActionRow } = require('discord.js');
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const { embedColor } = require('../config.json');
 const fetch = require('node-fetch');
 
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('npm')
-        .setDescription('Search the NPM Registry for a package information')
+        .setDescription('Search the npm registry for a package information')
         .addStringOption(option => option.setName('package').setDescription('Enter a package').setRequired(true)),
     cooldown: '5',
     guildOnly: false,
@@ -45,7 +44,8 @@ module.exports = {
                 { name: 'Author', value: `\`${body.author ? body.author.name : 'Unknown'}\``, inline: true },
                 { name: 'Dependencies', value: `\`${deps && deps.length ? deps.join(', ') : 'None'}\`` }
             )
-            .setColor(embedColor);
+            .setFooter({ text: 'Powered by npm' })
+            .setColor('#cc3534');
 
             const button = new MessageActionRow()
                 .addComponents(new MessageButton()

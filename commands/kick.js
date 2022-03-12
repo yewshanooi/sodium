@@ -15,8 +15,6 @@ module.exports = {
 
 			const memberField = interaction.options.getMember('user');
 				if (memberField.user.bot === true) return interaction.reply({ content: 'Error: You cannot kick a bot.' });
-				// if (memberField.permissions.has('KICK_MEMBERS')) return interaction.reply({ content: 'Error: This user cannot be kicked.' });
-
 				if (memberField === interaction.member) return interaction.reply({ content: 'Error: You cannot kick yourself.' });
 
 			let reasonField = interaction.options.getString('reason');

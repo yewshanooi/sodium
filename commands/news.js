@@ -1,6 +1,5 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed, MessageActionRow, MessageButton } = require('discord.js');
-const { embedColor } = require('../config.json');
 const fetch = require('node-fetch');
 const dotenv = require('dotenv');
 	dotenv.config();
@@ -8,7 +7,7 @@ const dotenv = require('dotenv');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('news')
-        .setDescription('Get the latest worldwide news from different sources')
+        .setDescription('Get the latest news from different sources')
         .addStringOption(option => option.setName('source').setDescription('Select a news source').addChoice('Al Jazeera English', 'al-jazeera-english').addChoice('BBC News', 'bbc-news').addChoice('CBS News', 'cbs-news').addChoice('CNN', 'cnn').addChoice('Reuters', 'reuters').addChoice('The Verge', 'the-verge').addChoice('The Wall Street Journal', 'the-wall-street-journal').addChoice('The Washington Post', 'the-washington-post').setRequired(true)),
     cooldown: '15',
     guildOnly: false,
@@ -21,7 +20,7 @@ module.exports = {
             if (news.status === 'error') return interaction.reply({ content: 'Error: There was an error trying to get the latest news.' });
 
         const embed = new MessageEmbed()
-            .setTitle('World News')
+            .setTitle('News')
             .addFields(
                 { name: `1. ${news.articles[0].title}`, value: `${news.articles[0].description}` },
                 { name: `2. ${news.articles[1].title}`, value: `${news.articles[1].description}` },
@@ -30,7 +29,7 @@ module.exports = {
                 { name: `5. ${news.articles[4].title}`, value: `${news.articles[4].description}` }
             )
             .setFooter({ text: 'Powered by NewsAPI' })
-            .setColor(embedColor);
+            .setColor('#1a73e8');
 
             const buttons = new MessageActionRow()
                 .addComponents(new MessageButton()

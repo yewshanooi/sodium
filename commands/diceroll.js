@@ -5,7 +5,7 @@ const { embedColor } = require('../config.json');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('diceroll')
-        .setDescription('Rolls a dice that contain 6 sides'),
+        .setDescription('Roll a dice that contain six sides'),
     cooldown: '3',
     guildOnly: false,
 	execute (interaction) {

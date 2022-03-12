@@ -16,8 +16,6 @@ module.exports = {
 
             const memberField = interaction.options.getMember('user');
                 if (memberField.user.bot === true) return interaction.reply({ content: 'Error: You cannot timeout a bot.' });
-				// if (memberField.permissions.has('MODERATE_MEMBERS')) return interaction.reply({ content: 'Error: This user cannot be timeout.' });
-
                 if (memberField === interaction.member) return interaction.reply({ content: 'Error: You cannot timeout yourself.' });
 
             const durationField = interaction.options.getInteger('duration');

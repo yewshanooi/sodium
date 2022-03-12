@@ -1,6 +1,5 @@
 const { MessageEmbed, MessageButton, MessageActionRow } = require('discord.js');
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const { embedColor } = require('../config.json');
 const dotenv = require('dotenv');
     dotenv.config();
 const fetch = require('node-fetch');
@@ -8,7 +7,7 @@ const fetch = require('node-fetch');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('youtube')
-        .setDescription('Watch YouTube videos in voice channel with others'),
+        .setDescription('Start a YouTube activity in voice channel'),
     cooldown: '10',
     guildOnly: true,
     execute (interaction) {
@@ -34,7 +33,7 @@ module.exports = {
                 .setTitle('Watch Together')
                 .setDescription(`Party created! Use this link below to join the activity\nhttps://discord.gg/${body.code}`)
                 .setFooter({ text: 'Powered by YouTube' })
-                .setColor(embedColor);
+                .setColor('#ff0000');
 
                 const button = new MessageActionRow()
                     .addComponents(new MessageButton()

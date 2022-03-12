@@ -15,8 +15,6 @@ module.exports = {
 
             const memberField = interaction.options.getMember('user');
                 if (memberField.user.bot === true) return interaction.reply({ content: 'Error: You cannot deafen a bot.' });
-				// if (memberField.permissions.has('DEAFEN_MEMBERS')) return interaction.reply({ content: 'Error: This user cannot be deafen.' });
-
                 if (memberField === interaction.member) return interaction.reply({ content: 'Error: You cannot deafen yourself.' });
 
                 const Guild = interaction.client.guilds.cache.get(interaction.guild.id);

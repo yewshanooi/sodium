@@ -6,7 +6,7 @@ const fetch = require('node-fetch');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('catfact')
-        .setDescription('Gives you a random cat fact'),
+        .setDescription('Get a random cat fact'),
     cooldown: '5',
     guildOnly: false,
     async execute (interaction) {

@@ -5,7 +5,7 @@ const { embedColor } = require('../config.json');
 module.exports = {
 	data: new SlashCommandBuilder()
         .setName('roleadd')
-        .setDescription('Add role to selected user')
+        .setDescription('Add a role to the selected user')
         .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))
         .addRoleOption(option => option.setName('role').setDescription('Select a role').setRequired(true)),
     cooldown: '5',

@@ -2,7 +2,6 @@
 
 const { MessageEmbed, MessageButton, MessageActionRow } = require('discord.js');
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const { embedColor } = require('../config.json');
 const fetch = require('node-fetch');
 
 module.exports = {
@@ -32,9 +31,10 @@ module.exports = {
                 .addFields(
                     { name: 'Definition', value: `${trim(answer.definition, 1024)}` },
                     { name: 'Example', value: `${trim(answer.example, 1024)}` },
-                    { name: 'Rating', value: `${answer.thumbs_up} ▲ ${answer.thumbs_down} ▼` }
+                    { name: 'Rating', value: `▲ ${answer.thumbs_up} ▼ ${answer.thumbs_down}` }
                 )
-                .setColor(embedColor);
+                .setFooter({ text: 'Powered by Urban Dictionary' })
+                .setColor('#171f36');
 
                 const button = new MessageActionRow()
                     .addComponents(new MessageButton()

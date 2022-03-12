@@ -5,7 +5,7 @@ const { embedColor } = require('../config.json');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('botsetnick')
-        .setDescription('Change bot\'s nickname in the current server')
+        .setDescription('Change bot\'s nickname in current server')
         .addStringOption(option => option.setName('nick').setDescription('Enter a nickname (max 32 characters)').setRequired(true)),
     cooldown: '15',
     guildOnly: true,

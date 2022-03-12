@@ -6,7 +6,7 @@ const fetch = require('node-fetch');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('waifu')
-        .setDescription('Get anime pictures from nekos.best'),
+        .setDescription('Get random anime pictures'),
     cooldown: '5',
     guildOnly: false,
     async execute (interaction) {

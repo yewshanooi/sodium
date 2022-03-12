@@ -5,7 +5,7 @@ const { evaluate } = require('mathjs');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('calculator')
-        .setDescription('Bring up a calculator using mathjs'),
+        .setDescription('Bring up a simple calculator'),
     cooldown: '5',
     guildOnly: false,
     async execute (interaction) {

@@ -5,7 +5,7 @@ const { embedColor } = require('../config.json');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('coinflip')
-        .setDescription('Flips a two sided coin for you'),
+        .setDescription('Flip a two-sided coin'),
     cooldown: '3',
     guildOnly: false,
     execute (interaction) {

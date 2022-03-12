@@ -5,7 +5,7 @@ const { embedColor } = require('../config.json');
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('purge')
-		.setDescription('Remove up to 99 messages at one time')
+		.setDescription('Remove messages from guild channel')
 		.addIntegerOption(option => option.setName('value').setDescription('Enter a value (between 1 and 99)').setRequired(true)),
 	cooldown: '10',
 	guildOnly: true,

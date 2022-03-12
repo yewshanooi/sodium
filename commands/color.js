@@ -5,7 +5,7 @@ const fetch = require('node-fetch');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('color')
-        .setDescription('Get a random color from colornames.org'),
+        .setDescription('Get a random color'),
     cooldown: '3',
     guildOnly: false,
     async execute (interaction) {

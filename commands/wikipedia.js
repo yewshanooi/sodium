@@ -1,12 +1,11 @@
 const { MessageEmbed, MessageButton, MessageActionRow } = require('discord.js');
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const { embedColor } = require('../config.json');
 const fetch = require('node-fetch');
 
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('wikipedia')
-        .setDescription('Finds a Wikipedia article by title')
+        .setDescription('Find an article on Wikipedia')
         .addStringOption(option => option.setName('title').setDescription('Enter an article title').setRequired(true)),
     cooldown: '5',
     guildOnly: false,
@@ -22,7 +21,8 @@ module.exports = {
         const embed = new MessageEmbed()
             .setTitle(`${article.title}`)
             .setDescription(`${article.extract}`)
-            .setColor(embedColor);
+            .setFooter({ text: 'Powered by Wikipedia' })
+            .setColor('#ffffff');
 
             const button = new MessageActionRow()
                 .addComponents(new MessageButton()
