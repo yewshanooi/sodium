@@ -20,13 +20,13 @@ module.exports = {
         const getMemes = memes.data.children;
         const randomMemes = getMemes[Math.floor(Math.random() * getMemes.length)];
 
-        const memeEmbed = new MessageEmbed()
-            .setTitle('Meme')
-            .setDescription(`${randomMemes.data.title}`)
-            .setImage(`${randomMemes.data.url}`)
-            .setFooter({ text: 'Powered by Reddit' })
-            .setColor('#ff4500');
+            const memeEmbed = new MessageEmbed()
+                .setTitle('Meme')
+                .setDescription(`${randomMemes.data.title}`)
+                .setImage(`${randomMemes.data.url}`)
+                .setFooter({ text: 'Powered by Reddit' })
+                .setColor('#ff4500');
 
-        return interaction.reply({ embeds: [memeEmbed] });
-    }
+            return interaction.reply({ embeds: [memeEmbed] });
+        }
 };
