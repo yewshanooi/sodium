@@ -75,12 +75,12 @@
 </table>
 
 ###### Guide
-1. **Clone** this repository to your desktop
+1. **Clone** this repository to your drive
 ```sh
 git clone https://github.com/yewshanooi/ava.git
-cd Ava
+cd ava
 ```
-2. Install the required **npm packages**
+2. Install the required **JavaScript packages**
 ```
 npm install
 ```
