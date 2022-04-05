@@ -5,7 +5,7 @@ module.exports = {
     data: new SlashCommandBuilder()
 		.setName('unban')
 		.setDescription('Unban the User ID with or without a reason')
-		.addStringOption(option => option.setName('id').setDescription('Enter a user id').setRequired(true))
+		.addStringOption(option => option.setName('userid').setDescription('Enter a user id').setRequired(true))
 		.addStringOption(option => option.setName('reason').setDescription('Enter a reason')),
 	cooldown: '25',
 	guildOnly: true,
@@ -13,7 +13,7 @@ module.exports = {
 		if (!interaction.guild.me.permissions.has('BAN_MEMBERS')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **BAN_MEMBERS** permission in `Server Settings > Roles` to use this command.' });
 		if (!interaction.member.permissions.has('BAN_MEMBERS')) return interaction.reply({ content: 'Error: You have no permission to use this command.' });
 
-			const idField = interaction.options.getString('id');
+			const userIdField = interaction.options.getString('userid');
 
 			let reasonField = interaction.options.getString('reason');
 				if (!reasonField) {
@@ -23,14 +23,14 @@ module.exports = {
 		const embed = new MessageEmbed()
 			.setTitle('Unban')
 			.addFields(
-				{ name: 'ID', value: `\`${idField}\`` },
+				{ name: 'ID', value: `\`${userIdField}\`` },
 				{ name: 'By', value: `${interaction.member}` },
 				{ name: 'Reason', value: `\`${reasonField}\`` }
 			)
 			.setTimestamp()
 			.setColor('#FF0000');
 
-		interaction.guild.members.unban(idField)
+		interaction.guild.members.unban(userIdField)
 			.then(() => {
 				interaction.reply({ embeds: [embed] });
 			})

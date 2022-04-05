@@ -10,12 +10,12 @@ module.exports = {
     cooldown: '5',
     guildOnly: false,
     async execute (interaction) {
-        const fact = await fetch('http://dog-api.kinduff.com/api/facts?number=1')
+        const Fact = await fetch('http://dog-api.kinduff.com/api/facts?number=1')
             .then(res => res.json());
 
             const embed = new MessageEmbed()
                 .setTitle('Dog Fact')
-                .setDescription(`${fact.facts[0]}`)
+                .setDescription(`${Fact.facts[0]}`)
                 .setColor(embedColor);
 
             return interaction.reply({ embeds: [embed] });

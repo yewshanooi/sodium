@@ -12,21 +12,21 @@ module.exports = {
     async execute (interaction) {
         const titleField = interaction.options.getString('title');
 
-        const article = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(titleField)}`)
+        const Article = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(titleField)}`)
             .then(res => res.json())
             .catch(() => interaction.reply({ content: 'Error: No article found with that title.' }));
 
-        if (!article.content_urls) return interaction.reply({ content: 'Error: No article found with that title.' });
+        if (!Article.content_urls) return interaction.reply({ content: 'Error: No article found with that title.' });
 
         const embed = new MessageEmbed()
-            .setTitle(`${article.title}`)
-            .setDescription(`${article.extract}`)
+            .setTitle(`${Article.title}`)
+            .setDescription(`${Article.extract}`)
             .setFooter({ text: 'Powered by Wikipedia' })
             .setColor('#ffffff');
 
             const button = new MessageActionRow()
                 .addComponents(new MessageButton()
-                    .setURL(`${article.content_urls.desktop.page}`)
+                    .setURL(`${Article.content_urls.desktop.page}`)
                     .setLabel('Read More')
                     .setStyle('LINK'));
 

@@ -11,12 +11,12 @@ module.exports = {
 	execute (interaction) {
         if (!interaction.member.permissions.has('ADMINISTRATOR')) return interaction.reply({ content: 'Error: You have no permission to use this command.' });
 
-        const confirmEmbed = new MessageEmbed()
+        const confirmationEmbed = new MessageEmbed()
             .setTitle('Remove Bot')
             .setDescription('Are you sure you want to remove this bot?')
             .setColor('#FF0000');
 
-        const confirmButton = new MessageActionRow()
+        const confirmationButton = new MessageActionRow()
             .addComponents(new MessageButton()
                 .setCustomId('confirmed')
                 .setLabel('Confirm')
@@ -26,7 +26,7 @@ module.exports = {
                 .setDescription('*Successfully left the guild. We hope to see you again next time!*')
                 .setColor(embedColor);
 
-        interaction.reply({ embeds: [confirmEmbed], components: [confirmButton] });
+        interaction.reply({ embeds: [confirmationEmbed], components: [confirmationButton] });
 
             const filter = ft => ft.isButton() && ft.user.id === interaction.user.id;
             const collector = interaction.channel.createMessageComponentCollector({

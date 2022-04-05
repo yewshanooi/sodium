@@ -16,26 +16,26 @@ module.exports = {
 
         const durationField = interaction.options.getInteger('duration');
 
-            let resultDuration;
-                if (durationField === 1800) resultDuration = '`30` minutes';
-                if (durationField === 3600) resultDuration = '`1` hour';
-                if (durationField === 21600) resultDuration = '`6` hours';
-                if (durationField === 43200) resultDuration = '`12` hours';
-                if (durationField === 86400) resultDuration = '`1` day';
-                if (durationField === 604800) resultDuration = '`7` days';
-                if (durationField === 0) resultDuration = '`Unlimited`';
+            let resultDurationField;
+                if (durationField === 1800) resultDurationField = '`30` minutes';
+                if (durationField === 3600) resultDurationField = '`1` hour';
+                if (durationField === 21600) resultDurationField = '`6` hours';
+                if (durationField === 43200) resultDurationField = '`12` hours';
+                if (durationField === 86400) resultDurationField = '`1` day';
+                if (durationField === 604800) resultDurationField = '`7` days';
+                if (durationField === 0) resultDurationField = '`Unlimited`';
 
         const limitField = interaction.options.getInteger('limit');
 
-            let resultLimit;
+            let resultLimitField;
                 if (limitField === 0) {
-                    resultLimit = '`No limit`';
+                    resultLimitField = '`No limit`';
                 }
                 else if (limitField === 1) {
-                    resultLimit = `\`${limitField}\` time`;
+                    resultLimitField = '`1` time';
                 }
                 else {
-                    resultLimit = `\`${limitField}\` times`;
+                    resultLimitField = `\`${limitField}\` times`;
                 }
 
         const { channel } = interaction;
@@ -49,8 +49,8 @@ module.exports = {
                 .setTitle(`${channel.name}`)
                 .setDescription(`${invite.url}`)
                 .addFields(
-                    { name: 'Duration', value: `${resultDuration}`, inline: true },
-                    { name: 'Limit', value: `${resultLimit}`, inline: true }
+                    { name: 'Duration', value: `${resultDurationField}`, inline: true },
+                    { name: 'Limit', value: `${resultLimitField}`, inline: true }
                 )
                 .setColor(embedColor);
 

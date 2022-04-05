@@ -14,23 +14,23 @@ module.exports = {
         if (!interaction.guild.me.permissions.has('MANAGE_NICKNAMES')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **MANAGE_NICKNAMES** permission in `Server Settings > Roles` to use this command.' });
         if (!interaction.member.permissions.has('MANAGE_NICKNAMES')) return interaction.reply({ content: 'Error: You have no permission to use this command.' });
 
-            const memberField = interaction.options.getMember('user');
-                if (memberField === interaction.member) return interaction.reply({ content: 'Error: You cannot set your own status as AFK.' });
+            const userField = interaction.options.getMember('user');
+                if (userField === interaction.member) return interaction.reply({ content: 'Error: You cannot set your own status as AFK.' });
 
-            const booleanField = interaction.options.getBoolean('option');
-                if (booleanField === true) {
+            const optionField = interaction.options.getBoolean('option');
+                if (optionField === true) {
                     const embed = new MessageEmbed()
-                        .setDescription(`***${memberField.user.username}** is now AFK*`)
+                        .setDescription(`***${userField.user.username}** is now AFK*`)
                         .setColor(embedColor);
 
-                    interaction.reply({ embeds: [embed] }).then(memberField.setNickname(`[AFK] ${memberField.user.username}`));
+                    interaction.reply({ embeds: [embed] }).then(userField.setNickname(`[AFK] ${userField.user.username}`));
                 }
-                if (booleanField === false) {
+                if (optionField === false) {
                     const embed = new MessageEmbed()
-                        .setDescription(`***${memberField.user.username}** is no longer AFK*`)
+                        .setDescription(`***${userField.user.username}** is no longer AFK*`)
                         .setColor(embedColor);
 
-                    interaction.reply({ embeds: [embed] }).then(memberField.setNickname(memberField.user.username));
+                    interaction.reply({ embeds: [embed] }).then(userField.setNickname(userField.user.username));
                 }
         }
 };

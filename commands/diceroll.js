@@ -9,11 +9,11 @@ module.exports = {
     cooldown: '3',
     guildOnly: false,
 	execute (interaction) {
-        const rand = Math.floor(Math.random() * 6 + 1);
+        const diceRoll = Math.floor(Math.random() * 6 + 1);
 
             const embed = new MessageEmbed()
                 .setTitle('Dice Roll')
-                .setDescription(`<@${interaction.user.id}>, you rolled a **${rand}**!`)
+                .setDescription(`<@${interaction.user.id}>, you rolled a **${diceRoll}**!`)
                 .setColor(embedColor);
             interaction.reply({ embeds: [embed] });
         }

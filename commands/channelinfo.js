@@ -25,9 +25,9 @@ module.exports = {
             if (type === 'UNKNOWN') resultType = 'Unknown';
 
         const { nsfw } = channelField;
-        let resultNSFW;
-            if (nsfw === true) resultNSFW = 'Yes';
-            else resultNSFW = 'No';
+        let resultNsfw;
+            if (nsfw === true) resultNsfw = 'Yes';
+            else resultNsfw = 'No';
 
             const embed = new MessageEmbed()
                 .setTitle(`${channelField.name}`)
@@ -35,7 +35,7 @@ module.exports = {
                     { name: 'Type', value: `\`${resultType}\``, inline: true },
                     { name: 'ID', value: `\`${channelField.id}\``, inline: true },
                     { name: 'Created At', value: `\`${channelField.createdAt}\`` },
-                    { name: 'NSFW', value: `\`${resultNSFW}\``, inline: true },
+                    { name: 'NSFW', value: `\`${resultNsfw}\``, inline: true },
                     { name: 'Rate Limit', value: `\`${channelField.rateLimitPerUser || '0'}\` second(s)`, inline: true }
                 )
                 .setColor(embedColor);

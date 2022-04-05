@@ -11,7 +11,7 @@ module.exports = {
 	guildOnly: true,
 	execute (interaction) {
 		const userField = interaction.options.getUser('user');
-		const memberField = interaction.options.getMember('user');
+		const memberUserField = interaction.options.getMember('user');
 
 		const { bot } = userField;
 		let resultBot;
@@ -22,13 +22,13 @@ module.exports = {
 				.setTitle(`${userField.tag}`)
 				.setThumbnail(`https://cdn.discordapp.com/avatars/${userField.id}/${userField.avatar}.jpeg`)
 				.addFields(
-					{ name: 'Nickname', value: `\`${memberField.nickname || 'None'}\``, inline: true },
+					{ name: 'Nickname', value: `\`${memberUserField.nickname || 'None'}\``, inline: true },
 					{ name: 'ID', value: `\`${userField.id}\``, inline: true },
 					{ name: 'Creation Date & Time', value: `\`${userField.createdAt}\`` },
 					{ name: 'Is Bot', value: `\`${resultBot}\``, inline: true },
-					{ name: 'Hoist Role', value: `${memberField.roles.hoist}`, inline: true },
-					{ name: 'Role Color (Hex)', value: `\`${memberField.displayHexColor}\``, inline: true },
-					{ name: 'Joined Guild At', value: `\`${memberField.joinedAt}\`` }
+					{ name: 'Hoist Role', value: `${memberUserField.roles.hoist}`, inline: true },
+					{ name: 'Role Color (Hex)', value: `\`${memberUserField.displayHexColor}\``, inline: true },
+					{ name: 'Joined Guild At', value: `\`${memberUserField.joinedAt}\`` }
 				)
 				.setColor(embedColor);
 			interaction.reply({ embeds: [embedOthers] });

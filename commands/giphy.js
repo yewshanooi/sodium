@@ -11,14 +11,14 @@ module.exports = {
     cooldown: '5',
     guildOnly: false,
     async execute (interaction) {
-        const stringField = interaction.options.getString('query');
+        const queryField = interaction.options.getString('query');
 
-        const data = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${process.env.GIPHY_API_KEY}&limit=1&q=${encodeURIComponent(stringField)}`)
+        const Gif = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${process.env.GIPHY_API_KEY}&limit=1&q=${encodeURIComponent(queryField)}`)
             .then(res => res.json())
             .then(body => body.data[0]);
 
-        if (!data) return interaction.reply({ content: 'Error: No results found.' });
+        if (!Gif) return interaction.reply({ content: 'Error: No results found.' });
 
-            return interaction.reply({ content: `${data.embed_url}` });
+            return interaction.reply({ content: `${Gif.embed_url}` });
         }
 };

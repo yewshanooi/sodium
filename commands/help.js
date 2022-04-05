@@ -11,19 +11,19 @@ module.exports = {
 	guildOnly: false,
 	execute (interaction) {
 		const { commands } = interaction.client;
-        const stringField = interaction.options.getString('command');
+        const commandField = interaction.options.getString('command');
 
-		if (!stringField) {
-			const noStringEmbed = new MessageEmbed()
+		if (!commandField) {
+			const noCommandEmbed = new MessageEmbed()
 				.setTitle('Help')
 				.setDescription('**Tip:** To get more info on a specific command use `/help {command}`')
 				.addFields({ name: 'Commands', value: `${commands.map(command => command.data.name).join(', ')}` })
 				.setColor(embedColor);
-			interaction.reply({ embeds: [noStringEmbed] });
+			interaction.reply({ embeds: [noCommandEmbed] });
 		}
 
-		if (stringField) {
-			const command = commands.get(stringField.toLowerCase());
+		if (commandField) {
+			const command = commands.get(commandField.toLowerCase());
 				if (!command) return interaction.reply({ content: 'Error: Please provide a valid command.' });
 
 				const { guildOnly } = command;
@@ -31,7 +31,7 @@ module.exports = {
 					if (guildOnly === true) resultGuildOnly = 'True';
 					else resultGuildOnly = 'False';
 
-				const stringEmbed = new MessageEmbed()
+				const commandEmbed = new MessageEmbed()
 					.setTitle(`${command.data.name}`)
 					.setDescription(`${command.data.description}`)
 					.addFields(
@@ -39,7 +39,7 @@ module.exports = {
 						{ name: 'Guild Only', value: `\`${resultGuildOnly}\``, inline: true }
 					)
 					.setColor(embedColor);
-				interaction.reply({ embeds: [stringEmbed] });
+				interaction.reply({ embeds: [commandEmbed] });
 			}
 		}
 };

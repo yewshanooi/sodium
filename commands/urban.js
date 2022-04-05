@@ -20,25 +20,23 @@ module.exports = {
 		const { list } = await fetch(`https://api.urbandictionary.com/v0/define?${query}`)
             .then(res => res.json());
 
-		if (!list.length) {
-			return interaction.reply({ content: 'Error: No results found.' });
-		}
+		if (!list.length) return interaction.reply({ content: 'Error: No such definition found.' });
 
-		const [answer] = list;
+		const [Answer] = list;
 
             const embed = new MessageEmbed()
-                .setTitle(`${answer.word}`)
+                .setTitle(`${Answer.word}`)
                 .addFields(
-                    { name: 'Definition', value: `${trim(answer.definition, 1024)}` },
-                    { name: 'Example', value: `${trim(answer.example, 1024)}` },
-                    { name: 'Rating', value: `▲ ${answer.thumbs_up} ▼ ${answer.thumbs_down}` }
+                    { name: 'Definition', value: `${trim(Answer.definition, 1024)}` },
+                    { name: 'Example', value: `${trim(Answer.example, 1024)}` },
+                    { name: 'Rating', value: `▲ ${Answer.thumbs_up} ▼ ${Answer.thumbs_down}` }
                 )
                 .setFooter({ text: 'Powered by Urban Dictionary' })
                 .setColor('#171f36');
 
                 const button = new MessageActionRow()
                     .addComponents(new MessageButton()
-                        .setURL(`${answer.permalink}`)
+                        .setURL(`${Answer.permalink}`)
                         .setLabel('More Definitions')
                         .setStyle('LINK'));
 

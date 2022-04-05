@@ -13,17 +13,17 @@ module.exports = {
         const roleField = interaction.options.getRole('role');
 
         const { mentionable } = roleField;
-        let resultMention;
-            if (mentionable === true) resultMention = 'Yes';
-            else resultMention = 'No';
+        let resultMentionable;
+            if (mentionable === true) resultMentionable = 'Yes';
+            else resultMentionable = 'No';
 
         const { hoist } = roleField;
         let resultHoist;
             if (hoist === true) resultHoist = 'Yes';
             else resultHoist = 'No';
 
-            const everyoneRole = interaction.guild.roles.cache.find(role => role.name === '@everyone');
-                if (roleField === everyoneRole) return interaction.reply({ content: 'Error: Unable to get information about this role.' });
+            const everyone = interaction.guild.roles.cache.find(role => role.name === '@everyone');
+                if (roleField === everyone) return interaction.reply({ content: 'Error: Unable to get information about this role.' });
 
         const embed = new MessageEmbed()
             .setTitle(`@${roleField.name}`)
@@ -33,7 +33,7 @@ module.exports = {
                 { name: 'ID', value: `\`${roleField.id}\``, inline: true },
                 { name: 'Creation Date & Time', value: `\`${roleField.createdAt}\`` },
                 { name: 'Members', value: `\`${roleField.members.size}\``, inline: true },
-                { name: 'Mentionable', value: `\`${resultMention}\``, inline: true },
+                { name: 'Mentionable', value: `\`${resultMentionable}\``, inline: true },
                 { name: 'Display Separately', value: `\`${resultHoist}\``, inline: true }
             )
             .setColor(embedColor);

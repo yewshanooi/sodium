@@ -17,11 +17,11 @@ module.exports = {
 
             if (userField === interaction.user) return interaction.reply({ content: 'Error: You cannot send a message to yourself.' });
 
-        const stringField = interaction.options.getString('message');
+        const messageField = interaction.options.getString('message');
 
             const embed = new MessageEmbed()
                 .setTitle('Message')
-                .setDescription(`${stringField}\n\n*from \`${interaction.user.tag}\`*`)
+                .setDescription(`${messageField}\n\n*from \`${interaction.user.tag}\`*`)
                 .setColor(embedColor);
 
             const successEmbed = new MessageEmbed()

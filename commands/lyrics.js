@@ -12,24 +12,24 @@ module.exports = {
     cooldown: '5',
     guildOnly: false,
     async execute (interaction) {
-        const stringField = interaction.options.getString('song');
+        const songField = interaction.options.getString('song');
 
-        const hits = await fetch(`https://api.genius.com/search?q=${encodeURIComponent(stringField)}&access_token=${process.env.GENIUS_API_KEY}`)
+        const Song = await fetch(`https://api.genius.com/search?q=${encodeURIComponent(songField)}&access_token=${process.env.GENIUS_API_KEY}`)
             .then(res => res.json())
             .then(body => body.response.hits);
 
-        if (!hits.length) return interaction.reply({ content: 'Error: No results found.' });
+        if (!Song.length) return interaction.reply({ content: 'Error: No results found.' });
 
         const embed = new MessageEmbed()
-            .setTitle(`${hits[0].result.title}`)
-            .setDescription(`by ${hits[0].result.artist_names}`)
-            .setImage(`${hits[0].result.song_art_image_thumbnail_url}`)
+            .setTitle(`${Song[0].result.title}`)
+            .setDescription(`by ${Song[0].result.artist_names}`)
+            .setImage(`${Song[0].result.song_art_image_thumbnail_url}`)
             .setFooter({ text: 'Powered by Genius' })
             .setColor('#ffff64');
 
             const button = new MessageActionRow()
                 .addComponents(new MessageButton()
-                .setURL(`${hits[0].result.url}`)
+                .setURL(`${Song[0].result.url}`)
                 .setLabel('View Lyrics')
                 .setStyle('LINK'));
 

@@ -15,7 +15,7 @@ module.exports = {
             .setDescription('Choose an option')
             .setColor(embedColor);
 
-        const buttonRow = new MessageActionRow()
+        const buttons = new MessageActionRow()
             .addComponents(new MessageButton()
                 .setCustomId('Rock')
                 .setLabel('Rock')
@@ -29,7 +29,7 @@ module.exports = {
                 .setLabel('Scissors')
                 .setStyle('SECONDARY'));
 
-        interaction.reply({ embeds: [embed], components: [buttonRow] });
+        interaction.reply({ embeds: [embed], components: [buttons] });
 
         const message = await interaction.fetchReply();
 
@@ -41,38 +41,38 @@ module.exports = {
         });
 
         const choices = ['Rock', 'Paper', 'Scissors'];
-        const me = choices[Math.floor(Math.random() * choices.length)];
+        const botOption = choices[Math.floor(Math.random() * choices.length)];
 
         collector.on('collect', async collected => {
-            if (collected.customId === 'Scissors' && me === 'Rock' || collected.customId === 'Paper' && me === 'Rock' || collected.customId === 'Paper' && me === 'Scissors') {
-                const lostEmbed = new MessageEmbed()
+            if (collected.customId === 'Scissors' && botOption === 'Rock' || collected.customId === 'Paper' && botOption === 'Rock' || collected.customId === 'Paper' && botOption === 'Scissors') {
+                const userLostEmbed = new MessageEmbed()
                     .setTitle('You Lost!')
                     .addFields(
                         { name: 'Your choice', value: `${collected.customId}` },
-                        { name: 'My choice', value: `${me}` }
+                        { name: 'My choice', value: `${botOption}` }
                     )
                     .setColor(embedColor);
-                await collected.update({ embeds: [lostEmbed] }).then(collector.stop());
+                await collected.update({ embeds: [userLostEmbed] }).then(collector.stop());
             }
-            else if (collected.customId === me) {
+            else if (collected.customId === botOption) {
                 const tieEmbed = new MessageEmbed()
                     .setTitle('It\'s a tie!')
                     .addFields(
                         { name: 'Your choice', value: `${collected.customId}` },
-                        { name: 'My choice', value: `${me}` }
+                        { name: 'My choice', value: `${botOption}` }
                     )
                     .setColor(embedColor);
                 await collected.update({ embeds: [tieEmbed] }).then(collector.stop());
             }
             else {
-                const wonEmbed = new MessageEmbed()
+                const userWonEmbed = new MessageEmbed()
                     .setTitle('You won!')
                     .addFields(
                         { name: 'Your choice', value: `${collected.customId}` },
-                        { name: 'My choice', value: `${me}` }
+                        { name: 'My choice', value: `${botOption}` }
                     )
                     .setColor(embedColor);
-                await collected.update({ embeds: [wonEmbed] }).then(collector.stop());
+                await collected.update({ embeds: [userWonEmbed] }).then(collector.stop());
                 }
             });
 

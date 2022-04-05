@@ -9,14 +9,14 @@ module.exports = {
     cooldown: '3',
     guildOnly: false,
     execute (interaction) {
-        const flip = Math.floor(Math.random() * 2);
-        let resultFlip;
-            if (flip === 1) resultFlip = 'heads';
-            else resultFlip = 'tails';
+        const coinFlip = Math.floor(Math.random() * 2);
+        let resultCoinFlip;
+            if (coinFlip === 1) resultCoinFlip = 'heads';
+            else resultCoinFlip = 'tails';
 
         const embed = new MessageEmbed()
             .setTitle('Coin Flip')
-            .setDescription(`${interaction.member} flipped **${resultFlip}**`)
+            .setDescription(`${interaction.member} flipped **${resultCoinFlip}**`)
             .setColor(embedColor);
         interaction.reply({ embeds: [embed] });
 	}

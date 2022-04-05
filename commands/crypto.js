@@ -12,26 +12,26 @@ module.exports = {
     async execute (interaction) {
         const currencyField = interaction.options.getString('currency');
 
-        const crypto = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${currencyField}&order=market_cap_desc`)
+        const Crypto = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${currencyField}&order=market_cap_desc`)
             .then(res => res.json());
 
-            if (!crypto[0]) return interaction.reply('Error: No such cryptocurrency found.');
+            if (!Crypto[0]) return interaction.reply('Error: No such cryptocurrency found.');
 
-            const uppercaseSymbol = crypto[0].symbol.toUpperCase();
+            const uppercaseSymbol = Crypto[0].symbol.toUpperCase();
 
-                const price = crypto[0].current_price.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
-                    const priceChange = crypto[0].price_change_percentage_24h.toFixed(2);
+                const price = Crypto[0].current_price.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+                    const priceChange = Crypto[0].price_change_percentage_24h.toFixed(2);
 
-                const low = crypto[0].low_24h.toLocaleString('en-US', { style: 'decimal' });
-                const high = crypto[0].high_24h.toLocaleString('en-US', { style: 'decimal' });
-                const supply = crypto[0].circulating_supply.toLocaleString('en-US', { style: 'decimal' });
+                const low = Crypto[0].low_24h.toLocaleString('en-US', { style: 'decimal' });
+                const high = Crypto[0].high_24h.toLocaleString('en-US', { style: 'decimal' });
+                const supply = Crypto[0].circulating_supply.toLocaleString('en-US', { style: 'decimal' });
 
-                const volume = crypto[0].total_volume.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
-                const marketCap = crypto[0].market_cap.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
-                    const marketCapChange = crypto[0].market_cap_change_percentage_24h.toFixed(2);
+                const volume = Crypto[0].total_volume.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+                const marketCap = Crypto[0].market_cap.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+                    const marketCapChange = Crypto[0].market_cap_change_percentage_24h.toFixed(2);
 
         const embed = new MessageEmbed()
-            .setTitle(`${crypto[0].name} (${uppercaseSymbol})`)
+            .setTitle(`${Crypto[0].name} (${uppercaseSymbol})`)
             .setDescription(`\`${price}\` **(${priceChange}%)**`)
             .addFields(
                 { name: 'Low (24h)', value: `\`${low}\``, inline: true },
@@ -40,7 +40,7 @@ module.exports = {
                 { name: 'Volume', value: `\`${volume}\`` },
                 { name: 'Market Cap', value: `\`${marketCap}\` **(${marketCapChange}%)**` }
             )
-            .setThumbnail(`${crypto[0].image}`)
+            .setThumbnail(`${Crypto[0].image}`)
             .setFooter({ text: 'Powered by CoinGecko' })
             .setColor('#8cc63f');
 

@@ -13,13 +13,13 @@ module.exports = {
         if (!interaction.guild.me.permissions.has('MANAGE_CHANNELS')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **MANAGE_CHANNELS** permission in `Server Settings > Roles` to use this command.' });
         if (!interaction.member.permissions.has('MANAGE_CHANNELS')) return interaction.reply({ content: 'Error: You have no permission to use this command.' });
 
-        const stringField = interaction.options.getString('name');
-            if (stringField.length > '100') return interaction.reply({ content: 'Error: Channel name must be 100 characters or fewer.' });
+        const nameField = interaction.options.getString('name');
+            if (nameField.length > '100') return interaction.reply({ content: 'Error: Channel name must be 100 characters or fewer.' });
 
         const embed = new MessageEmbed()
             .setTitle('Channel Rename')
-            .setDescription(`Successfully renamed channel to **${stringField}**`)
+            .setDescription(`Successfully renamed channel to **${nameField}**`)
             .setColor(embedColor);
-        interaction.reply({ embeds: [embed] }).then(interaction.channel.setName(stringField));
+        interaction.reply({ embeds: [embed] }).then(interaction.channel.setName(nameField));
 	}
 };

@@ -10,18 +10,18 @@ module.exports = {
     cooldown: '5',
     guildOnly: false,
     async execute (interaction) {
-        const stringField = interaction.options.getString('package');
+        const packageField = interaction.options.getString('package');
 
-        const body = await fetch(`https://registry.npmjs.com/${stringField}`)
+        const Npm = await fetch(`https://registry.npmjs.com/${packageField}`)
             .then(res => res.ok && res.json())
             .catch(() => null);
 
-            if (!body) return interaction.reply({ content: 'Error: No package found with that name.' });
+            if (!Npm) return interaction.reply({ content: 'Error: No such package found with that name.' });
 
-        const version = body.versions[body['dist-tags'].latest];
+        const version = Npm.versions[Npm['dist-tags'].latest];
 
         let deps = version.dependencies ? Object.keys(version.dependencies) : null;
-        let maintainers = body.maintainers.map(user => user.name);
+        let maintainers = Npm.maintainers.map(user => user.name);
 
             if (maintainers.length > 10) {
                 const len = maintainers.length - 10;
@@ -36,12 +36,12 @@ module.exports = {
             }
 
         const embed = new MessageEmbed()
-            .setTitle(`${stringField}`)
-            .setDescription(`${body.description || 'No Description'}`)
+            .setTitle(`${packageField}`)
+            .setDescription(`${Npm.description || 'No Description'}`)
             .addFields(
-                { name: 'Version', value: `\`${body['dist-tags'].latest}\``, inline: true },
-                { name: 'License', value: `\`${body.license || 'None'}\``, inline: true },
-                { name: 'Author', value: `\`${body.author ? body.author.name : 'Unknown'}\``, inline: true },
+                { name: 'Version', value: `\`${Npm['dist-tags'].latest}\``, inline: true },
+                { name: 'License', value: `\`${Npm.license || 'None'}\``, inline: true },
+                { name: 'Author', value: `\`${Npm.author ? Npm.author.name : 'Unknown'}\``, inline: true },
                 { name: 'Dependencies', value: `\`${deps && deps.length ? deps.join(', ') : 'None'}\`` }
             )
             .setFooter({ text: 'Powered by npm' })
@@ -49,7 +49,7 @@ module.exports = {
 
             const button = new MessageActionRow()
                 .addComponents(new MessageButton()
-                    .setURL(`https://npmjs.com/package/${stringField}`)
+                    .setURL(`https://npmjs.com/package/${packageField}`)
                     .setLabel('View Package')
                     .setStyle('LINK'));
 

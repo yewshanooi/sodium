@@ -13,16 +13,16 @@ module.exports = {
         if (!interaction.guild.me.permissions.has('MANAGE_MESSAGES')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **MANAGE_MESSAGES** permission in `Server Settings > Roles` to use this command.' });
         if (!interaction.member.permissions.has('MANAGE_MESSAGES')) return interaction.reply({ content: 'Error: You have no permission to use this command.' });
 
-            const memberField = interaction.options.getMember('user');
-                if (memberField.user.bot === true) return interaction.reply({ content: 'Error: You cannot warn a bot.' });
-                if (memberField === interaction.member) return interaction.reply({ content: 'Error: You cannot warn yourself.' });
+            const userField = interaction.options.getMember('user');
+                if (userField.user.bot === true) return interaction.reply({ content: 'Error: You cannot warn a bot.' });
+                if (userField === interaction.member) return interaction.reply({ content: 'Error: You cannot warn yourself.' });
 
             let reasonField = interaction.options.getString('reason');
                 if (!reasonField) {
                     reasonField = 'None';
                 }
 
-        const embedUserDM = new MessageEmbed()
+        const userDmEmbed = new MessageEmbed()
             .setTitle('Warn')
             .addFields(
                 { name: 'Guild', value: `\`${interaction.guild.name}\`` },
@@ -35,15 +35,15 @@ module.exports = {
         const embed = new MessageEmbed()
             .setTitle('Warn')
             .addFields(
-                { name: 'User', value: `${memberField}` },
-                { name: 'ID', value: `\`${memberField.user.id}\`` },
+                { name: 'User', value: `${userField}` },
+                { name: 'ID', value: `\`${userField.user.id}\`` },
                 { name: 'By', value: `${interaction.member}` },
                 { name: 'Reason', value: `\`${reasonField}\`` }
             )
             .setTimestamp()
             .setColor('#FF0000');
 
-        memberField.send({ embeds: [embedUserDM] })
+        userField.send({ embeds: [userDmEmbed] })
             .then(() => {
                 interaction.reply({ embeds: [embed] });
             })

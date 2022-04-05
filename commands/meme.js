@@ -14,19 +14,19 @@ module.exports = {
         const links = [url1, url2];
         const randomLinks = links[Math.floor(Math.random() * links.length)];
 
-        const memes = await fetch(randomLinks)
+        const Memes = await fetch(randomLinks)
             .then(res => res.json());
 
-        const getMemes = memes.data.children;
-        const randomMemes = getMemes[Math.floor(Math.random() * getMemes.length)];
+        const fetchData = Memes.data.children;
+        const randomMemes = fetchData[Math.floor(Math.random() * fetchData.length)];
 
-            const memeEmbed = new MessageEmbed()
+            const embed = new MessageEmbed()
                 .setTitle('Meme')
                 .setDescription(`${randomMemes.data.title}`)
                 .setImage(`${randomMemes.data.url}`)
                 .setFooter({ text: 'Powered by Reddit' })
                 .setColor('#ff4500');
 
-            return interaction.reply({ embeds: [memeEmbed] });
+            return interaction.reply({ embeds: [embed] });
         }
 };

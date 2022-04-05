@@ -10,14 +10,14 @@ module.exports = {
     cooldown: '5',
     guildOnly: false,
     async execute (interaction) {
-        const word = await fetch('https://random-words-api.vercel.app/word')
+        const Word = await fetch('https://random-words-api.vercel.app/word')
             .then(res => res.json());
 
             const embed = new MessageEmbed()
-                .setTitle(`${word[0].word}`)
+                .setTitle(`${Word[0].word}`)
                 .addFields(
-                    { name: 'Definition', value: `${word[0].definition}` },
-                    { name: 'Pronunciation', value: `${word[0].pronunciation}` }
+                    { name: 'Definition', value: `${Word[0].definition}` },
+                    { name: 'Pronunciation', value: `${Word[0].pronunciation}` }
                 )
                 .setColor(embedColor);
 
