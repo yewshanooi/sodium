@@ -61,11 +61,11 @@
     </tr>
     <tr>
       <td><a href="https://www.npmjs.com/package/@discordjs/rest">@discordjs/rest@0.3.0</a></td>
-      <td><a href="https://www.npmjs.com/package/eslint">eslint@8.12.0</a></td>
+      <td><a href="https://www.npmjs.com/package/eslint">eslint@8.13.0</a></td>
     </tr>
     <tr>
-      <td><a href="https://www.npmjs.com/package/discord-api-types">discord-api-types@0.30.0</a></td>
-      <td><a href="https://www.npmjs.com/package/mathjs">mathjs@10.4.2</a></td>
+      <td><a href="https://www.npmjs.com/package/discord-api-types">discord-api-types@0.31.1</a></td>
+      <td><a href="https://www.npmjs.com/package/mathjs">mathjs@10.4.3</a></td>
     </tr>
     <tr>
       <td><a href="https://www.npmjs.com/package/discord.js">discord.js@13.6.0</a></td>
