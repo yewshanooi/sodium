@@ -6,8 +6,8 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('invite')
         .setDescription('Generate an invite link for the guild')
-        .addIntegerOption(option => option.setName('duration').setDescription('Duration of invite link').addChoice('30 minutes', 1800).addChoice('1 hour', 3600).addChoice('6 hours', 21600).addChoice('12 hours', 43200).addChoice('1 day', 86400).addChoice('7 days', 604800).addChoice('Never expire', 0).setRequired(true))
-        .addIntegerOption(option => option.setName('limit').setDescription('Maximum number of uses').addChoice('No limit', 0).addChoice('1 use', 1).addChoice('5 uses', 5).addChoice('10 uses', 10).addChoice('25 uses', 25).addChoice('50 uses', 50).addChoice('100 uses', 100).setRequired(true)),
+        .addIntegerOption(option => option.setName('duration').setDescription('Duration of invite link').addChoices({ name: '30 minutes', value: 1800 }, { name: '1 hour', value: 3600 }, { name: '6 hours', value: 21600 }, { name: '12 hours', value: 43200 }, { name: '1 day', value: 86400 }, { name: '7 days', value: 604800 }, { name: 'Never expire', value: 0 }).setRequired(true))
+        .addIntegerOption(option => option.setName('limit').setDescription('Maximum number of uses').addChoices({ name: 'No limit', value: 0 }, { name: '1 use', value: 1 }, { name: '5 uses', value: 5 }, { name: '10 uses', value: 10 }, { name: '25 uses', value: 25 }, { name: '50 uses', value: 50 }, { name: '100 uses', value: 100 }).setRequired(true)),
     cooldown: '15',
     guildOnly: true,
     async execute (interaction) {

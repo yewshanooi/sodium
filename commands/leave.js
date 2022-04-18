@@ -14,7 +14,7 @@ module.exports = {
         const confirmationEmbed = new MessageEmbed()
             .setTitle('Remove Bot')
             .setDescription('Are you sure you want to remove this bot?')
-            .setColor('#FF0000');
+            .setColor('#ff0000');
 
         const confirmationButton = new MessageActionRow()
             .addComponents(new MessageButton()

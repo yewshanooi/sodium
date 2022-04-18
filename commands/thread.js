@@ -7,7 +7,7 @@ module.exports = {
         .setName('thread')
         .setDescription('Start a new thread')
         .addStringOption(option => option.setName('name').setDescription('Enter a thread name').setRequired(true))
-        .addIntegerOption(option => option.setName('duration').setDescription('Select a duration').addChoice('1 hour', 60).addChoice('24 hours', 1440).setRequired(true)),
+        .addIntegerOption(option => option.setName('duration').setDescription('Select a duration').addChoices({ name: '1 hour', value: 60 }, { name: '24 hours', value: 1440 }).setRequired(true)),
     cooldown: '10',
     guildOnly: true,
     async execute (interaction) {

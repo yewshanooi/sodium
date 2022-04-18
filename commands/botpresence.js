@@ -7,8 +7,8 @@ module.exports = {
         .setName('botpresence')
         .setDescription('Change bot\'s current presence in every server')
         .addStringOption(option => option.setName('activity').setDescription('Enter an activity').setRequired(true))
-        .addStringOption(option => option.setName('type').setDescription('Select a type').setRequired(true).addChoice('Playing', 'PLAYING').addChoice('Listening', 'LISTENING').addChoice('Watching', 'WATCHING').addChoice('Competing', 'COMPETING'))
-        .addStringOption(option => option.setName('status').setDescription('Select a status').setRequired(true).addChoice('Online', 'online').addChoice('Idle', 'idle').addChoice('Do Not Disturb', 'dnd').addChoice('Invisible', 'invisible')),
+        .addStringOption(option => option.setName('type').setDescription('Select a type').addChoices({ name: 'Playing', value: 'PLAYING' }, { name: 'Listening', value: 'LISTENING' }, { name: 'Watching', value: 'WATCHING' }, { name: 'Competing', value: 'COMPETING' }).setRequired(true))
+        .addStringOption(option => option.setName('status').setDescription('Select a status').addChoices({ name: 'Online', value: 'online' }, { name: 'Idle', value: 'idle' }, { name: 'Do Not Disturb', value: 'dnd' }, { name: 'Invisible', value: 'invisible' }).setRequired(true)),
     cooldown: '25',
     guildOnly: true,
     execute (interaction) {

@@ -8,7 +8,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('news')
         .setDescription('Get the latest news from different sources')
-        .addStringOption(option => option.setName('source').setDescription('Select a news source').addChoice('Al Jazeera English', 'al-jazeera-english').addChoice('BBC News', 'bbc-news').addChoice('CBS News', 'cbs-news').addChoice('CNN', 'cnn').addChoice('Reuters', 'reuters').addChoice('The Verge', 'the-verge').addChoice('The Wall Street Journal', 'the-wall-street-journal').addChoice('The Washington Post', 'the-washington-post').setRequired(true)),
+        .addStringOption(option => option.setName('source').setDescription('Select a news source').addChoices({ name: 'Al Jazeera English', value: 'al-jazeera-english' }, { name: 'BBC News', value: 'bbc-news' }, { name: 'CBS News', value: 'cbs-news' }, { name: 'CNN', value: 'cnn' }, { name: 'Reuters', value: 'reuters' }, { name: 'The Verge', value: 'the-verge' }, { name: 'The Wall Street Journal', value: 'the-wall-street-journal' }, { name: 'The Washington Post', value: 'the-washington-post' }).setRequired(true)),
     cooldown: '15',
     guildOnly: false,
     async execute (interaction) {

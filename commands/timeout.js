@@ -6,7 +6,7 @@ module.exports = {
         .setName('timeout')
         .setDescription('Timeout the selected user with or without a reason')
         .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))
-        .addIntegerOption(option => option.setName('duration').setDescription('Select a duration').addChoice('60 seconds', 60000).addChoice('5 minutes', 300000).addChoice('10 minutes', 600000).addChoice('1 hour', 3.6e+6).addChoice('1 day', 8.64e+7).addChoice('1 week', 6.048e+8).setRequired(true))
+        .addIntegerOption(option => option.setName('duration').setDescription('Select a duration').addChoices({ name: '60 seconds', value: 60000 }, { name: '5 minutes', value: 300000 }, { name: '10 minutes', value: 600000 }, { name: '1 hour', value: 3.6e+6 }, { name: '1 day', value: 8.64e+7 }, { name: '1 week', value: 6.048e+8 }).setRequired(true))
         .addStringOption(option => option.setName('reason').setDescription('Enter a reason')),
     cooldown: '15',
     guildOnly: true,
@@ -42,7 +42,7 @@ module.exports = {
                 { name: 'Reason', value: `\`${reasonField}\`` }
             )
             .setTimestamp()
-            .setColor('#FF0000');
+            .setColor('#ff0000');
 
         const embed = new MessageEmbed()
             .setTitle('Timeout')
@@ -54,7 +54,7 @@ module.exports = {
                 { name: 'Reason', value: `\`${reasonField}\`` }
             )
             .setTimestamp()
-            .setColor('#FF0000');
+            .setColor('#ff0000');
 
         userField.send({ embeds: [userDmEmbed] })
             .then(() => {

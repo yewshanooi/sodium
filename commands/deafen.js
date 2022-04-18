@@ -35,7 +35,7 @@ module.exports = {
                 { name: 'Reason', value: `\`${reasonField}\`` }
             )
             .setTimestamp()
-            .setColor('#FF0000');
+            .setColor('#ff0000');
 
         interaction.reply({ embeds: [embed] }).then(userField.voice.setDeaf(true));
 	}

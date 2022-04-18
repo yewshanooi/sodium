@@ -30,7 +30,7 @@ module.exports = {
                 { name: 'Reason', value: `\`${reasonField}\`` }
             )
             .setTimestamp()
-            .setColor('#FF0000');
+            .setColor('#ff0000');
 
         const embed = new MessageEmbed()
             .setTitle('Untimeout')
@@ -41,7 +41,7 @@ module.exports = {
                 { name: 'Reason', value: `\`${reasonField}\`` }
             )
             .setTimestamp()
-            .setColor('#FF0000');
+            .setColor('#ff0000');
 
         userField.send({ embeds: [userDmEmbed] })
             .then(() => {
