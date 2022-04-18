@@ -80,7 +80,7 @@
 git clone https://github.com/yewshanooi/ava.git
 cd ava
 ```
-2. Install the required **JavaScript packages**
+2. Install the required **npm packages**
 ```
 npm install
 ```

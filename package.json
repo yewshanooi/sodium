@@ -1,6 +1,6 @@
 {
   "name": "ava",
-  "version": "1.0.9",
+  "version": "1.1.0",
   "description": "Open source discord bot with application commands and a user-friendly interface",
   "main": "index.js",
   "author": "Ooi Yew Shan",
