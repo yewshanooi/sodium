@@ -6,21 +6,27 @@ module.exports = {
 	data: new SlashCommandBuilder()
         .setName('slowmode')
         .setDescription('Set the rate limit for the current channel')
-        .addIntegerOption(option => option.setName('value').setDescription('Enter a value (between 0 and 21600)').setRequired(true)),
+        .addIntegerOption(option => option.setName('duration').setDescription('Enter an integer (between 0 and 21600)').setRequired(true)),
     cooldown: '15',
     guildOnly: true,
     execute (interaction) {
         if (!interaction.guild.me.permissions.has('MANAGE_CHANNELS')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **MANAGE_CHANNELS** permission in `Server Settings > Roles` to use this command.' });
         if (!interaction.member.permissions.has('MANAGE_CHANNELS')) return interaction.reply({ content: 'Error: You have no permission to use this command.' });
 
-        const valueField = interaction.options.getInteger('value');
-            if (valueField < 0 || valueField > 21600) return interaction.reply({ content: 'Error: You need to input an integer between `0` and `21600`.' });
+        const durationField = interaction.options.getInteger('duration');
+            if (durationField < 0 || durationField > 21600) return interaction.reply({ content: 'Error: You need to input a valid integer between `0` and `21600`.' });
 
-            const embed = new MessageEmbed()
-                .setTitle('Slowmode')
-                .setDescription(`Successfully set ${interaction.channel} rate limit to **${valueField}** second(s)`)
-                .setTimestamp()
-                .setColor(embedColor);
-            interaction.reply({ embeds: [embed] }).then(interaction.channel.setRateLimitPerUser(valueField));
+            if (durationField === 0) {
+                const embedDisabled = new MessageEmbed()
+                    .setDescription('Successfully disabled slowmode for current channel')
+                    .setColor(embedColor);
+                interaction.reply({ embeds: [embedDisabled] }).then(interaction.channel.setRateLimitPerUser(0));
+            }
+            else {
+                const embed = new MessageEmbed()
+                    .setDescription(`Successfully set current channel's rate limit to **${durationField}** second(s)`)
+                    .setColor(embedColor);
+                interaction.reply({ embeds: [embed] }).then(interaction.channel.setRateLimitPerUser(durationField));
+            }
         }
 };

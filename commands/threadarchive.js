@@ -5,8 +5,8 @@ const { embedColor } = require('../config.json');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('threadarchive')
-        .setDescription('Archive an existing thread')
-        .addChannelOption(option => option.setName('thread').setDescription('Select a thread').setRequired(true)),
+        .setDescription('Archive an existing thread channel')
+        .addChannelOption(option => option.setName('thread').setDescription('Select a thread channel').setRequired(true)),
     cooldown: '15',
     guildOnly: true,
     execute (interaction) {
@@ -17,8 +17,7 @@ module.exports = {
 
             if (threadField.type === 'GUILD_PUBLIC_THREAD' || threadField.type === 'GUILD_PRIVATE_THREAD') {
                 const embed = new MessageEmbed()
-                    .setTitle('Thread Archive')
-                    .setDescription(`Successfully archived **${threadField}**`)
+                    .setDescription(`Successfully archived **${threadField}** channel`)
                     .setColor(embedColor);
 
                 threadField.setArchived(true)
@@ -26,11 +25,11 @@ module.exports = {
                         interaction.reply({ embeds: [embed] });
                     })
                     .catch(() => {
-                        interaction.reply('Error: There was an error trying to archive this thread.');
+                        interaction.reply('Error: There was an error trying to archive this thread channel.');
                     });
                 }
             else {
-                interaction.reply('Error: This is not a thread.');
+                interaction.reply('Error: This is not a thread channel.');
             }
 
         }

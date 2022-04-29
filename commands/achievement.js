@@ -143,7 +143,7 @@ module.exports = {
             .setColor(embedColor);
 
         const successEmbed = new MessageEmbed()
-            .setDescription(`*Successfully send achievement to ${userField}*`)
+            .setDescription(`Successfully send achievement to ${userField}`)
             .setColor(embedColor);
 
         userField.send({ embeds: [embed] })

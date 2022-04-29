@@ -21,7 +21,6 @@ module.exports = {
 
             if (nicknameField.length <= '33') {
                 const embed = new MessageEmbed()
-                    .setTitle('Nickname')
                     .setDescription(`**${userField.user.username}**'s nickname successfully changed to **${nicknameField}**`)
                     .setColor(embedColor);
 

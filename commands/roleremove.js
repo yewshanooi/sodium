@@ -26,8 +26,7 @@ module.exports = {
             }
             else {
                 const embed = new MessageEmbed()
-                    .setTitle('Role Remove')
-                    .setDescription(`Successfully removed **${roleField}** role from user **${userField}**`)
+                    .setDescription(`Successfully removed **${roleField}** role from **${userField}** user`)
                     .setColor(embedColor);
                 interaction.reply({ embeds: [embed] }).then(userField.roles.remove(roleField.id));
             }

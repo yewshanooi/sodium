@@ -26,8 +26,7 @@ module.exports = {
             }
             else {
                 const embed = new MessageEmbed()
-                    .setTitle('Role Add')
-                    .setDescription(`Successfully added **${roleField}** role to user **${userField}**`)
+                    .setDescription(`Successfully added **${roleField}** role to **${userField}** user`)
                     .setColor(embedColor);
                 interaction.reply({ embeds: [embed] }).then(userField.roles.add(roleField.id));
             }

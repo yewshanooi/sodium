@@ -17,7 +17,6 @@ module.exports = {
             if (nameField.length > '100') return interaction.reply({ content: 'Error: Channel name must be 100 characters or fewer.' });
 
         const embed = new MessageEmbed()
-            .setTitle('Guild Rename')
             .setDescription(`Successfully renamed guild to **${nameField}**`)
             .setColor(embedColor);
         interaction.reply({ embeds: [embed] }).then(interaction.guild.setName(nameField));

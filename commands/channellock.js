@@ -15,9 +15,7 @@ module.exports = {
         const currentChannel = interaction.channel;
 
             const embed = new MessageEmbed()
-                .setTitle('Channel Lock')
-                .setDescription(`Successfully locked channel ${currentChannel}`)
-                .setTimestamp()
+                .setDescription(`Successfully locked ${currentChannel} channel`)
                 .setColor(embedColor);
 
             interaction.reply({ embeds: [embed] }).then(interaction.guild.roles.cache.forEach(roles => {

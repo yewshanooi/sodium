@@ -33,8 +33,7 @@ module.exports = {
                     if (statusField === 'invisible') resultStatus = 'Invisible';
 
             const embed = new MessageEmbed()
-                .setTitle('Bot Presence')
-                .setDescription('Successfully changed bot\'s current presence')
+                .setDescription('Successfully changed bot\'s presence')
                 .addFields(
                     { name: 'Activity', value: `${activityField}` },
                     { name: 'Type', value: `\`${resultType}\``, inline: true },

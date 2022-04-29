@@ -95,7 +95,7 @@ module.exports = {
             .setColor(embedColor);
 
         const successEmbed = new MessageEmbed()
-            .setDescription(`*Successfully roasted ${userField}*`)
+            .setDescription(`Successfully roasted ${userField}`)
             .setColor(embedColor);
 
         userField.send({ embeds: [embed] })

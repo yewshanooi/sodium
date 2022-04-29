@@ -23,7 +23,7 @@ module.exports = {
                 .setStyle('DANGER'));
 
             const successEmbed = new MessageEmbed()
-                .setDescription('*Successfully left the guild. We hope to see you again next time!*')
+                .setDescription('Successfully left the guild. We hope to see you again next time!')
                 .setColor(embedColor);
 
         interaction.reply({ embeds: [confirmationEmbed], components: [confirmationButton] });

@@ -17,7 +17,6 @@ module.exports = {
             if (nameField.length > '100') return interaction.reply({ content: 'Error: Channel name must be 100 characters or fewer.' });
 
         const embed = new MessageEmbed()
-            .setTitle('Channel Rename')
             .setDescription(`Successfully renamed channel to **${nameField}**`)
             .setColor(embedColor);
         interaction.reply({ embeds: [embed] }).then(interaction.channel.setName(nameField));

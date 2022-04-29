@@ -126,7 +126,7 @@ module.exports = {
             .setColor(embedColor);
 
         const successEmbed = new MessageEmbed()
-            .setDescription(`*Successfully send compliment to ${userField}*`)
+            .setDescription(`Successfully send compliment to ${userField}`)
             .setColor(embedColor);
 
         userField.send({ embeds: [embed] })

@@ -25,7 +25,7 @@ module.exports = {
                 validate: null
             }),
             headers: {
-                'Authorization': `Bot ${process.env.BOT_TOKEN}`,
+                'Authorization': `Bot ${process.env.TOKEN}`,
                 'Content-Type': 'application/json'
             }
         }).then(res => res.json()).then(body => {

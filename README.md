@@ -92,7 +92,7 @@ npm install
 ```
 4. Create a new **.env** file and fill it with your own secret keys
 ```
-BOT_TOKEN=
+TOKEN=
 CLIENT_ID=
 FORTNITE_API_KEY=
 GIPHY_API_KEY=
