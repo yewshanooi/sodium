@@ -4,7 +4,7 @@
 
 <h1 align="center">
     Ava
-    <br>
+    <br/>
 </h1>
 
 <h4 align="center">Open source discord bot with application commands and a user-friendly interface</h4>
@@ -48,7 +48,7 @@
 - **Watch Together** *(with YouTube Activity)*
 - **Third Party API** commands *(Giphy, GitHub, Reddit, Wikipedia and more!)*
 
-## Installation
+## Dependencies
 ###### Node.js
 **Node.js v16.6.0** or newer is required
 
@@ -74,7 +74,8 @@
   </tbody>
 </table>
 
-###### Guide
+## Guide
+###### Configuration Files
 1. **Clone** this repository to your drive
 ```sh
 git clone https://github.com/yewshanooi/ava.git
@@ -109,6 +110,20 @@ node deploy.js
 node index.js
  -or-
 nodemon
+```
+
+###### Bot & Application
+1. Visit [Discord Developer Portal](https://discord.com/developers/applications) to create a new application
+
+2. Add a **bot user** to your application
+
+3. Enable `PUBLIC BOT` authorization flow option for the application **(OPTIONAL)**
+
+4. Enable `PRESENCE INTENT` and `SERVER MEMBERS INTENT` privileged gateway intent option for the application **(REQUIRED)**
+
+5. Replace this **OAuth2 URL** template with your **Client ID** and paste it in your browser to invite the application to your server
+```
+https://discord.com/api/oauth2/authorize?client_id={CLIENT_ID}&permissions=1497295481975&scope=bot%20applications.commands
 ```
 
 ## License
