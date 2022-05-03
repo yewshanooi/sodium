@@ -64,12 +64,12 @@
       <td><a href="https://www.npmjs.com/package/eslint">eslint@8.13.0</a></td>
     </tr>
     <tr>
-      <td><a href="https://www.npmjs.com/package/discord-api-types">discord-api-types@0.31.2</a></td>
-      <td><a href="https://www.npmjs.com/package/mathjs">mathjs@10.5.0</a></td>
+      <td><a href="https://www.npmjs.com/package/discord-api-types">discord-api-types@0.32.0</a></td>
+      <td><a href="https://www.npmjs.com/package/mathjs">mathjs@10.5.1</a></td>
     </tr>
     <tr>
       <td><a href="https://www.npmjs.com/package/discord.js">discord.js@13.6.0</a></td>
-      <td><a href="https://www.npmjs.com/package/nodemon">nodemon@2.0.15</a></td>
+      <td><a href="https://www.npmjs.com/package/nodemon">nodemon@2.0.16</a></td>
     </tr>
   </tbody>
 </table>
