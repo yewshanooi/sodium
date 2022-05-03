@@ -61,7 +61,7 @@
     </tr>
     <tr>
       <td><a href="https://www.npmjs.com/package/@discordjs/rest">@discordjs/rest@0.4.1</a></td>
-      <td><a href="https://www.npmjs.com/package/eslint">eslint@8.13.0</a></td>
+      <td><a href="https://www.npmjs.com/package/eslint">eslint@8.14.0</a></td>
     </tr>
     <tr>
       <td><a href="https://www.npmjs.com/package/discord-api-types">discord-api-types@0.32.0</a></td>
