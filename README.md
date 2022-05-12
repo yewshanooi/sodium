@@ -57,15 +57,15 @@
   <tbody>
     <tr>
       <td><a href="https://www.npmjs.com/package/@discordjs/builders">@discordjs/builders@0.13.0</a></td>
-      <td><a href="https://www.npmjs.com/package/dotenv">dotenv@16.0.0</a></td>
+      <td><a href="https://www.npmjs.com/package/dotenv">dotenv@16.0.1</a></td>
     </tr>
     <tr>
       <td><a href="https://www.npmjs.com/package/@discordjs/rest">@discordjs/rest@0.4.1</a></td>
-      <td><a href="https://www.npmjs.com/package/eslint">eslint@8.14.0</a></td>
+      <td><a href="https://www.npmjs.com/package/eslint">eslint@8.15.0</a></td>
     </tr>
     <tr>
       <td><a href="https://www.npmjs.com/package/discord-api-types">discord-api-types@0.32.1</a></td>
-      <td><a href="https://www.npmjs.com/package/mathjs">mathjs@10.5.1</a></td>
+      <td><a href="https://www.npmjs.com/package/mathjs">mathjs@10.5.3</a></td>
     </tr>
     <tr>
       <td><a href="https://www.npmjs.com/package/discord.js">discord.js@13.6.0</a></td>
