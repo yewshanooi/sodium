@@ -34,7 +34,7 @@
 ## Features
 **60+** commands and counting across **3** different categories!
 ###### Fun
-`8ball`, `achievement`, `beep`, `catfact`, `coinflip`, `color`, `compliment`, `crypto`, `diceroll`, `dictionary`, `dogfact`, `fact`, `fortnite`, `giphy`, `github`, `lyrics`, `meme`, `npm`, `roast`, `rps`, `say`, `spotify`, `urban`, `waifu`, `weather`, `wikipedia`, `word`, `youtube`
+`8ball`, `achievement`, `beep`, `catfact`, `chatbot`, `coinflip`, `color`, `compliment`, `crypto`, `diceroll`, `dictionary`, `dogfact`, `fact`, `fortnite`, `giphy`, `github`, `lyrics`, `meme`, `npm`, `roast`, `rps`, `say`, `spotify`, `urban`, `waifu`, `weather`, `wikipedia`, `word`, `youtube`
 
 ###### Utility
 `afk`, `announce`, `botinfo`, `botpresence`, `botsetnick`, `calculator`, `channeldelete`, `channelinfo`, `channelrename`, `guildinfo`, `guildname`, `help`, `invite`, `leave`, `message`, `news`, `ping`, `purge`, `roleadd`, `roleinfo`, `roleremove`, `setnick`, `thread`, `threadarchive`, `userinfo`
@@ -64,11 +64,11 @@
       <td><a href="https://www.npmjs.com/package/eslint">eslint@8.15.0</a></td>
     </tr>
     <tr>
-      <td><a href="https://www.npmjs.com/package/discord-api-types">discord-api-types@0.32.1</a></td>
+      <td><a href="https://www.npmjs.com/package/discord-api-types">discord-api-types@0.33.0</a></td>
       <td><a href="https://www.npmjs.com/package/mathjs">mathjs@10.5.3</a></td>
     </tr>
     <tr>
-      <td><a href="https://www.npmjs.com/package/discord.js">discord.js@13.6.0</a></td>
+      <td><a href="https://www.npmjs.com/package/discord.js">discord.js@13.7.0</a></td>
       <td><a href="https://www.npmjs.com/package/nodemon">nodemon@2.0.16</a></td>
     </tr>
   </tbody>
@@ -95,6 +95,8 @@ npm install
 ```
 TOKEN=
 CLIENT_ID=
+BRAINSHOP_BID=
+BRAINSHOP_API_KEY=
 FORTNITE_API_KEY=
 GIPHY_API_KEY=
 GENIUS_API_KEY=
