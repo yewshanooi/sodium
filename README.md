@@ -32,7 +32,7 @@
 </p>
 
 ## Features
-**60+** commands and counting across **3** different categories!
+**65+** commands and counting across **3** different categories!
 ###### Fun
 `8ball`, `achievement`, `beep`, `catfact`, `chatbot`, `coinflip`, `color`, `compliment`, `crypto`, `diceroll`, `dictionary`, `dogfact`, `fact`, `fortnite`, `giphy`, `github`, `lyrics`, `meme`, `npm`, `roast`, `rps`, `say`, `spotify`, `urban`, `waifu`, `weather`, `wikipedia`, `word`, `youtube`
 
@@ -61,11 +61,11 @@
     </tr>
     <tr>
       <td><a href="https://www.npmjs.com/package/@discordjs/rest">@discordjs/rest@0.4.1</a></td>
-      <td><a href="https://www.npmjs.com/package/eslint">eslint@8.15.0</a></td>
+      <td><a href="https://www.npmjs.com/package/eslint">eslint@8.16.0</a></td>
     </tr>
     <tr>
-      <td><a href="https://www.npmjs.com/package/discord-api-types">discord-api-types@0.33.0</a></td>
-      <td><a href="https://www.npmjs.com/package/mathjs">mathjs@10.5.3</a></td>
+      <td><a href="https://www.npmjs.com/package/discord-api-types">discord-api-types@0.33.1</a></td>
+      <td><a href="https://www.npmjs.com/package/mathjs">mathjs@10.6.0</a></td>
     </tr>
     <tr>
       <td><a href="https://www.npmjs.com/package/discord.js">discord.js@13.7.0</a></td>
