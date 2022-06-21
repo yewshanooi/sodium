@@ -31,9 +31,9 @@ module.exports = {
 
             const button = new MessageActionRow()
                 .addComponents(new MessageButton()
-                .setURL(`${Song[0].result.url}`)
-                .setLabel('View Lyrics')
-                .setStyle('LINK'));
+                    .setURL(`${Song[0].result.url}`)
+                    .setLabel('View lyrics')
+                    .setStyle('LINK'));
 
             return interaction.reply({ embeds: [embed], components: [button] });
         }

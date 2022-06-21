@@ -44,7 +44,7 @@ module.exports = {
                 const button = new MessageActionRow()
                     .addComponents(new MessageButton()
                         .setURL(trackUrl)
-                        .setLabel('Listen to Track')
+                        .setLabel('Listen to track')
                         .setStyle('LINK'));
 
                 interaction.reply({ embeds: [embed], components: [button] });

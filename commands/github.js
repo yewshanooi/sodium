@@ -47,7 +47,7 @@ module.exports = {
                 const buttons = new MessageActionRow()
                     .addComponents(new MessageButton()
                         .setURL(`${Github.html_url}`)
-                        .setLabel('View Repository')
+                        .setLabel('View repository')
                         .setStyle('LINK'))
                     .addComponents(new MessageButton()
                         .setURL(`${githubDevUrl}`)

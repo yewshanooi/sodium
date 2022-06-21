@@ -27,7 +27,7 @@ module.exports = {
 					{ name: 'Creation Date & Time', value: `\`${userField.createdAt}\`` },
 					{ name: 'Is Bot', value: `\`${resultBot}\``, inline: true },
 					{ name: 'Hoist Role', value: `${memberUserField.roles.hoist}`, inline: true },
-					{ name: 'Role Color (Hex)', value: `\`${memberUserField.displayHexColor}\``, inline: true },
+					{ name: 'Role Color (HEX)', value: `\`${memberUserField.displayHexColor}\``, inline: true },
 					{ name: 'Joined Guild At', value: `\`${memberUserField.joinedAt}\`` }
 				)
 				.setColor(embedColor);

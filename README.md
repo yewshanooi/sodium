@@ -34,7 +34,7 @@
 ## Features
 **65+** commands and counting across **3** different categories!
 ###### Fun
-`8ball`, `achievement`, `beep`, `catfact`, `chatbot`, `coinflip`, `color`, `compliment`, `crypto`, `diceroll`, `dictionary`, `dogfact`, `fact`, `fortnite`, `giphy`, `github`, `lyrics`, `meme`, `minecraft`, `npm`, `roast`, `rps`, `say`, `spotify`, `urban`, `waifu`, `weather`, `wikipedia`, `word`, `youtube`
+`8ball`, `achievement`, `beep`, `catfact`, `chatbot`, `coinflip`, `color`, `compliment`, `crypto`, `diceroll`, `dictionary`, `dogfact`, `fact`, `fortnite`, `giphy`, `github`, `lyrics`, `meme`, `minecraft`, `nasa`, `npm`, `roast`, `rps`, `say`, `spotify`, `urban`, `uselessfact`, `waifu`, `weather`, `wikipedia`, `word`, `youtube`
 
 ###### Utility
 `afk`, `announce`, `botinfo`, `botpresence`, `botsetnick`, `calculator`, `channeldelete`, `channelinfo`, `channelrename`, `guildinfo`, `guildname`, `help`, `invite`, `leave`, `message`, `news`, `ping`, `purge`, `roleadd`, `roleinfo`, `roleremove`, `setnick`, `thread`, `threadarchive`, `userinfo`
@@ -100,6 +100,7 @@ BRAINSHOP_API_KEY=
 FORTNITE_API_KEY=
 GIPHY_API_KEY=
 GENIUS_API_KEY=
+NASA_API_KEY=
 NEWS_API_KEY=
 OPENWEATHERMAP_API_KEY=
 ```

@@ -29,7 +29,7 @@ module.exports = {
             .setTitle(`@${roleField.name}`)
             .addFields(
                 { name: 'Position', value: `\`${roleField.position}\``, inline: true },
-                { name: 'Color (Hex)', value: `\`${roleField.hexColor}\``, inline: true },
+                { name: 'Color (HEX)', value: `\`${roleField.hexColor}\``, inline: true },
                 { name: 'ID', value: `\`${roleField.id}\``, inline: true },
                 { name: 'Creation Date & Time', value: `\`${roleField.createdAt}\`` },
                 { name: 'Members', value: `\`${roleField.members.size}\``, inline: true },

@@ -21,7 +21,8 @@ module.exports = {
             const embed = new MessageEmbed()
                 .setTitle(`${Mojang.name}`)
                 .addField('UUID', `\`${Mojang.id}\``)
-                .setFooter({ text: 'Powered by Mojang & NameMC' })
+                .setImage(`https://crafatar.com/renders/body/${Mojang.id}?overlay`)
+                .setFooter({ text: 'Powered by Mojang Studios' })
                 .setColor('#ef323d');
 
             const button = new MessageActionRow()

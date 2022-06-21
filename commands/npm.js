@@ -50,7 +50,7 @@ module.exports = {
             const button = new MessageActionRow()
                 .addComponents(new MessageButton()
                     .setURL(`https://npmjs.com/package/${packageField}`)
-                    .setLabel('View Package')
+                    .setLabel('View package')
                     .setStyle('LINK'));
 
             return interaction.reply({ embeds: [embed], components: [button] });

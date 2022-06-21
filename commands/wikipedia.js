@@ -27,7 +27,7 @@ module.exports = {
             const button = new MessageActionRow()
                 .addComponents(new MessageButton()
                     .setURL(`${Article.content_urls.desktop.page}`)
-                    .setLabel('Read More')
+                    .setLabel('Read more')
                     .setStyle('LINK'));
 
             return interaction.reply({ embeds: [embed], components: [button] });
