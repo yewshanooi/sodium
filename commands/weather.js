@@ -14,7 +14,7 @@ module.exports = {
     async execute (interaction) {
         const locationField = interaction.options.getString('location');
 
-            if (process.env.OPENWEATHERMAP_API_KEY === '') return interaction.reply({ content: 'Warning: No API key found. Please set one in the .env file.', ephemeral: true });
+            if (process.env.OPENWEATHERMAP_API_KEY === '') return interaction.reply({ content: 'Warning: No API key found. Please set one in the `.env` file.', ephemeral: true });
 
         const Weather = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${locationField}&units=metric&appid=${process.env.OPENWEATHERMAP_API_KEY}`)
             .then(res => res.json());
