@@ -18,11 +18,11 @@
   "dependencies": {
     "@discordjs/builders": "^0.15.0",
     "@discordjs/rest": "^0.5.0",
-    "discord-api-types": "^0.34.0",
-    "discord.js": "^13.8.0",
+    "discord-api-types": "^0.35.0",
+    "discord.js": "^13.8.1",
     "dotenv": "^16.0.1",
     "eslint": "^8.17.0",
-    "mathjs": "^10.6.1",
-    "nodemon": "^2.0.16"
+    "mathjs": "^10.6.2",
+    "nodemon": "^2.0.18"
   }
 }
