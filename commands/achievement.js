@@ -120,7 +120,13 @@ const achievements = [
     'Caves & Cliffs',
     'Feels Like Home',
     'Sound of Music',
-    'Star trader'
+    'Star trader',
+    'Sound of Music',
+    'Feels Like Home',
+    'It spreads',
+    'Birthday song',
+    'With our powers combined!',
+    'Sneak 100'
 ];
 
 module.exports = {
