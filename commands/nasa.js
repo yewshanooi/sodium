@@ -1,5 +1,6 @@
 const { MessageEmbed, MessageButton, MessageActionRow } = require('discord.js');
 const { SlashCommandBuilder } = require('@discordjs/builders');
+const noAPIKey = require('../errors/noAPIKey.js');
 const dotenv = require('dotenv');
     dotenv.config();
 const fetch = require('node-fetch');
@@ -11,7 +12,7 @@ module.exports = {
     cooldown: '25',
     guildOnly: false,
     async execute (interaction) {
-        if (process.env.NASA_API_KEY === '') return interaction.reply({ content: 'Warning: No API key found. Please set one in the `.env` file.', ephemeral: true });
+        if (process.env.NASA_API_KEY === '') return interaction.reply({ embeds: [noAPIKey], ephemeral: true });
 
         const Nasa = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${process.env.NASA_API_KEY}`)
             .then(res => res.json());

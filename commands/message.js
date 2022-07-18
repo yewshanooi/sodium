@@ -1,6 +1,7 @@
 const { MessageEmbed } = require('discord.js');
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { embedColor } = require('../config.json');
+const privateDM = require('../errors/privateDM.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -33,7 +34,7 @@ module.exports = {
                 interaction.reply({ embeds: [successEmbed], ephemeral: true });
             })
             .catch(() => {
-                interaction.reply({ content: 'Error: Cannot send messages to this user. User must enable **Allow direct messages from server members** in `User Settings > Privacy & Safety` to receive Direct Messages.' });
+                interaction.reply({ embeds: [privateDM] });
             });
         }
 };

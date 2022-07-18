@@ -1,6 +1,7 @@
 const { MessageEmbed } = require('discord.js');
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { embedColor } = require('../config.json');
+const noPermission = require('../errors/noPermission.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -12,7 +13,7 @@ module.exports = {
     guildOnly: true,
     async execute (interaction) {
         if (!interaction.guild.me.permissions.has('CREATE_INSTANT_INVITE')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **CREATE_INSTANT_INVITE** permission in `Server Settings > Roles` to use this command.' });
-        if (!interaction.member.permissions.has('CREATE_INSTANT_INVITE')) return interaction.reply({ content: 'Error: You have no permission to use this command.' });
+        if (!interaction.member.permissions.has('CREATE_INSTANT_INVITE')) return interaction.reply({ embeds: [noPermission] });
 
         const durationField = interaction.options.getInteger('duration');
 

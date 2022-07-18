@@ -1,6 +1,7 @@
 const { MessageEmbed, MessageButton, MessageActionRow } = require('discord.js');
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { embedColor } = require('../config.json');
+const noPermission = require('../errors/noPermission.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -9,7 +10,7 @@ module.exports = {
     cooldown: '15',
     guildOnly: true,
 	execute (interaction) {
-        if (!interaction.member.permissions.has('ADMINISTRATOR')) return interaction.reply({ content: 'Error: You have no permission to use this command.' });
+        if (!interaction.member.permissions.has('ADMINISTRATOR')) return interaction.reply({ embeds: [noPermission] });
 
         const confirmationEmbed = new MessageEmbed()
             .setTitle('Remove Bot')

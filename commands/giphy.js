@@ -1,4 +1,5 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
+const noAPIKey = require('../errors/noAPIKey.js');
 const dotenv = require('dotenv');
     dotenv.config();
 const fetch = require('node-fetch');
@@ -13,7 +14,7 @@ module.exports = {
     async execute (interaction) {
         const queryField = interaction.options.getString('query');
 
-            if (process.env.GIPHY_API_KEY === '') return interaction.reply({ content: 'Warning: No API key found. Please set one in the `.env` file.', ephemeral: true });
+            if (process.env.GIPHY_API_KEY === '') return interaction.reply({ embeds: [noAPIKey], ephemeral: true });
 
         const Gif = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${process.env.GIPHY_API_KEY}&limit=1&q=${encodeURIComponent(queryField)}`)
             .then(res => res.json())

@@ -1,6 +1,8 @@
 const { MessageEmbed } = require('discord.js');
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { embedColor } = require('../config.json');
+const privateDM = require('../errors/privateDM.js');
+const noPermission = require('../errors/noPermission.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -11,7 +13,7 @@ module.exports = {
     guildOnly: true,
     execute (interaction) {
         if (!interaction.guild.me.permissions.has('MANAGE_CHANNELS')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **MANAGE_CHANNELS** permission in `Server Settings > Roles` to use this command.' });
-        if (!interaction.member.permissions.has('MANAGE_CHANNELS')) return interaction.reply({ content: 'Error: You have no permission to use this command.' });
+        if (!interaction.member.permissions.has('MANAGE_CHANNELS')) return interaction.reply({ embeds: [noPermission] });
 
         const channelField = interaction.options.getChannel('channel');
 
@@ -25,7 +27,7 @@ module.exports = {
                     channelField.delete();
                 })
                 .catch(() => {
-                    interaction.reply({ content: 'Error: Cannot send messages to this user. Enable **Allow direct messages from server members** in `User Settings > Privacy & Safety` to use this command.' });
+                    interaction.reply({ embeds: [privateDM] });
                 });
         }
         else {

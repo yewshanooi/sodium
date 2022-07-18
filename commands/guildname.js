@@ -1,6 +1,7 @@
 const { MessageEmbed } = require('discord.js');
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { embedColor } = require('../config.json');
+const noPermission = require('../errors/noPermission.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -11,7 +12,7 @@ module.exports = {
     guildOnly: true,
     execute (interaction) {
         if (!interaction.guild.me.permissions.has('MANAGE_GUILD')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **MANAGE_GUILD** permission in `Server Settings > Roles` to use this command.' });
-        if (!interaction.member.permissions.has('MANAGE_GUILD')) return interaction.reply({ content: 'Error: You have no permission to use this command.' });
+        if (!interaction.member.permissions.has('MANAGE_GUILD')) return interaction.reply({ embeds: [noPermission] });
 
         const nameField = interaction.options.getString('name');
             if (nameField.length > '100') return interaction.reply({ content: 'Error: Channel name must be 100 characters or fewer.' });

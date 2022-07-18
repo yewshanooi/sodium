@@ -1,5 +1,6 @@
 const { MessageEmbed } = require('discord.js');
 const { SlashCommandBuilder } = require('@discordjs/builders');
+const noPermission = require('../errors/noPermission.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -11,7 +12,7 @@ module.exports = {
     guildOnly: true,
 	execute (interaction) {
         if (!interaction.guild.me.permissions.has('BAN_MEMBERS')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **BAN_MEMBERS** permission in `Server Settings > Roles` to use this command.' });
-        if (!interaction.member.permissions.has('BAN_MEMBERS')) return interaction.reply({ content: 'Error: You have no permission to use this command.' });
+        if (!interaction.member.permissions.has('BAN_MEMBERS')) return interaction.reply({ embeds: [noPermission] });
 
             const userField = interaction.options.getMember('user');
                 if (userField.user.bot === true) return interaction.reply({ content: 'Error: You cannot ban a bot.' });

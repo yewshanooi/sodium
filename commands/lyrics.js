@@ -1,5 +1,6 @@
 const { MessageEmbed, MessageButton, MessageActionRow } = require('discord.js');
 const { SlashCommandBuilder } = require('@discordjs/builders');
+const noAPIKey = require('../errors/noAPIKey.js');
 const dotenv = require('dotenv');
     dotenv.config();
 const fetch = require('node-fetch');
@@ -14,7 +15,7 @@ module.exports = {
     async execute (interaction) {
         const songField = interaction.options.getString('song');
 
-            if (process.env.GENIUS_API_KEY === '') return interaction.reply({ content: 'Warning: No API key found. Please set one in the `.env` file.', ephemeral: true });
+            if (process.env.GENIUS_API_KEY === '') return interaction.reply({ embeds: [noAPIKey], ephemeral: true });
 
         const Song = await fetch(`https://api.genius.com/search?q=${encodeURIComponent(songField)}&access_token=${process.env.GENIUS_API_KEY}`)
             .then(res => res.json())

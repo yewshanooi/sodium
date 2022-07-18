@@ -1,8 +1,9 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed, MessageActionRow, MessageButton } = require('discord.js');
-const fetch = require('node-fetch');
+const { SlashCommandBuilder } = require('@discordjs/builders');
+const noAPIKey = require('../errors/noAPIKey.js');
 const dotenv = require('dotenv');
 	dotenv.config();
+const fetch = require('node-fetch');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -14,7 +15,7 @@ module.exports = {
     async execute (interaction) {
         const sourceField = interaction.options.getString('source');
 
-            if (process.env.NEWS_API_KEY === '') return interaction.reply({ content: 'Warning: No API key found. Please set one in the `.env` file.', ephemeral: true });
+            if (process.env.NEWS_API_KEY === '') return interaction.reply({ embeds: [noAPIKey], ephemeral: true });
 
         const News = await fetch(`https://newsapi.org/v2/top-headlines?sources=${sourceField}&apiKey=${process.env.NEWS_API_KEY}`)
             .then(res => res.json());

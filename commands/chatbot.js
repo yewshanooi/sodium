@@ -1,5 +1,6 @@
 const { MessageEmbed } = require('discord.js');
 const { SlashCommandBuilder } = require('@discordjs/builders');
+const noAPIKey = require('../errors/noAPIKey.js');
 const dotenv = require('dotenv');
     dotenv.config();
 const fetch = require('node-fetch');
@@ -15,8 +16,8 @@ module.exports = {
         const uniqueId = interaction.user.id;
         const queryField = interaction.options.getString('query');
 
-            if (process.env.BRAINSHOP_BID === '') return interaction.reply({ content: 'Warning: No bot ID found. Please set one in the `.env` file.', ephemeral: true });
-            if (process.env.BRAINSHOP_API_KEY === '') return interaction.reply({ content: 'Warning: No API key found. Please set one in the `.env` file.', ephemeral: true });
+            if (process.env.BRAINSHOP_BID === '') return interaction.reply({ embeds: [noAPIKey], ephemeral: true });
+            if (process.env.BRAINSHOP_API_KEY === '') return interaction.reply({ embeds: [noAPIKey], ephemeral: true });
 
         const Answer = await fetch(`http://api.brainshop.ai/get?bid=${process.env.BRAINSHOP_BID}&key=${process.env.BRAINSHOP_API_KEY}&uid=${uniqueId}&msg=${encodeURIComponent(queryField)}`)
             .then(res => res.json())
