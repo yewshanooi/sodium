@@ -1,5 +1,4 @@
-const { MessageEmbed, MessageButton, MessageActionRow } = require('discord.js');
-const { SlashCommandBuilder } = require('@discordjs/builders');
+const { EmbedBuilder, ButtonBuilder, ActionRowBuilder, SlashCommandBuilder } = require('discord.js');
 const fetch = require('node-fetch');
 
 module.exports = {
@@ -18,17 +17,17 @@ module.exports = {
 
         if (!Article.content_urls) return interaction.reply({ content: 'Error: No article found with that title.' });
 
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
             .setTitle(`${Article.title}`)
             .setDescription(`${Article.extract}`)
             .setFooter({ text: 'Powered by Wikipedia' })
             .setColor('#ffffff');
 
-            const button = new MessageActionRow()
-                .addComponents(new MessageButton()
+            const button = new ActionRowBuilder()
+                .addComponents(new ButtonBuilder()
                     .setURL(`${Article.content_urls.desktop.page}`)
                     .setLabel('Read more')
-                    .setStyle('LINK'));
+                    .setStyle('Link'));
 
             return interaction.reply({ embeds: [embed], components: [button] });
         }

@@ -1,5 +1,4 @@
-const { MessageEmbed, MessageButton, MessageActionRow } = require('discord.js');
-const { SlashCommandBuilder } = require('@discordjs/builders');
+const { EmbedBuilder, ButtonBuilder, ActionRowBuilder, SlashCommandBuilder } = require('discord.js');
 const noAPIKey = require('../errors/noAPIKey.js');
 const dotenv = require('dotenv');
     dotenv.config();
@@ -23,18 +22,18 @@ module.exports = {
 
         if (!Song.length) return interaction.reply({ content: 'Error: No results found.' });
 
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
             .setTitle(`${Song[0].result.title}`)
             .setDescription(`by ${Song[0].result.artist_names}`)
             .setImage(`${Song[0].result.song_art_image_thumbnail_url}`)
             .setFooter({ text: 'Powered by Genius' })
             .setColor('#ffff64');
 
-            const button = new MessageActionRow()
-                .addComponents(new MessageButton()
+            const button = new ActionRowBuilder()
+                .addComponents(new ButtonBuilder()
                     .setURL(`${Song[0].result.url}`)
                     .setLabel('View lyrics')
-                    .setStyle('LINK'));
+                    .setStyle('Link'));
 
             return interaction.reply({ embeds: [embed], components: [button] });
         }

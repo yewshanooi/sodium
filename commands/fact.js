@@ -1,5 +1,4 @@
-const { MessageEmbed } = require('discord.js');
-const { SlashCommandBuilder } = require('@discordjs/builders');
+const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const { embedColor } = require('../config.json');
 const fetch = require('node-fetch');
 
@@ -13,7 +12,7 @@ module.exports = {
         const Fact = await fetch('https://nekos.life/api/v2/fact')
             .then(res => res.json());
 
-            const embed = new MessageEmbed()
+            const embed = new EmbedBuilder()
                 .setTitle('Fact')
                 .setDescription(`${Fact.fact}`)
                 .setColor(embedColor);

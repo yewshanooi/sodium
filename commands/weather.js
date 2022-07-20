@@ -1,5 +1,4 @@
-const { MessageEmbed } = require('discord.js');
-const { SlashCommandBuilder } = require('@discordjs/builders');
+const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const noAPIKey = require('../errors/noAPIKey.js');
 const dotenv = require('dotenv');
     dotenv.config();
@@ -24,7 +23,7 @@ module.exports = {
 
             const capitalizedDescription = Weather.weather[0].description.charAt(0).toUpperCase() + Weather.weather[0].description.slice(1);
 
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
             .setTitle(`${Weather.name}, ${Weather.sys.country}`)
             .setDescription(`${capitalizedDescription}`)
             .addFields(

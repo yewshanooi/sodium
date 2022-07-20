@@ -1,5 +1,4 @@
-const { MessageEmbed } = require('discord.js');
-const { SlashCommandBuilder } = require('@discordjs/builders');
+const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const { embedColor } = require('../config.json');
 const fetch = require('node-fetch');
 
@@ -13,7 +12,7 @@ module.exports = {
         const Word = await fetch('https://random-words-api.vercel.app/word')
             .then(res => res.json());
 
-            const embed = new MessageEmbed()
+            const embed = new EmbedBuilder()
                 .setTitle(`${Word[0].word}`)
                 .addFields(
                     { name: 'Definition', value: `${Word[0].definition}` },

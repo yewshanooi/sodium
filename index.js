@@ -1,13 +1,11 @@
 const newLocal = require('fs');
 const fs = newLocal;
-const Discord = require('discord.js');
+const { Client, Collection, GatewayIntentBits, InteractionType, Partials } = require('discord.js');
 const dotenv = require('dotenv');
 	dotenv.config();
 
-const client = new Discord.Client({ intents: ['GUILDS', 'GUILD_MEMBERS', 'GUILD_BANS', 'GUILD_INTEGRATIONS', 'GUILD_WEBHOOKS', 'GUILD_INVITES', 'GUILD_VOICE_STATES', 'GUILD_PRESENCES', 'GUILD_MESSAGES', 'GUILD_MESSAGE_REACTIONS', 'GUILD_MESSAGE_TYPING', 'DIRECT_MESSAGES', 'DIRECT_MESSAGE_REACTIONS', 'DIRECT_MESSAGE_TYPING'], partials: ['CHANNEL'] });
-client.commands = new Discord.Collection();
-
-const cooldowns = new Discord.Collection();
+const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers, GatewayIntentBits.GuildBans, GatewayIntentBits.GuildIntegrations, GatewayIntentBits.GuildWebhooks, GatewayIntentBits.GuildInvites, GatewayIntentBits.GuildVoiceStates, GatewayIntentBits.GuildPresences, GatewayIntentBits.GuildMessages, GatewayIntentBits.GuildMessageReactions, GatewayIntentBits.GuildMessageTyping, GatewayIntentBits.DirectMessages, GatewayIntentBits.DirectMessageReactions, GatewayIntentBits.DirectMessageTyping], partials: [Partials.Channel] });
+client.commands = new Collection();
 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
@@ -16,23 +14,26 @@ for (const file of commandFiles) {
 	client.commands.set(command.data.name, command);
 }
 
+const cooldowns = new Collection();
+
 client.once('ready', () => {
 	console.log(`Logged in as ${client.user.tag}\nServing ${client.users.cache.size} users and ${client.channels.cache.size} channels in ${client.guilds.cache.size} guilds`);
 });
 
 client.on('interactionCreate', async interaction => {
-	if (!interaction.isCommand()) return;
+	if (interaction.type !== InteractionType.ApplicationCommand) return;
 
 	const command = client.commands.get(interaction.commandName);
 
 	if (!command) return;
 
-	if (command.guildOnly && interaction.channel.type === 'DM') {
-		return interaction.reply({ content: 'Error: This command cannot be executed in Direct Messages.' });
+	if (command.guildOnly && interaction.channel.type === 1) {
+		const guildOnlyCmd = require('./errors/guildOnlyCmd.js');
+		return interaction.reply({ embeds: [guildOnlyCmd] });
 	}
 
 	if (!cooldowns.has(command.data.name)) {
-		cooldowns.set(command.data.name, new Discord.Collection());
+		cooldowns.set(command.data.name, new Collection());
 	}
 
 	const now = Date.now();

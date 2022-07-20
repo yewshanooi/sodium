@@ -1,6 +1,4 @@
-const { MessageEmbed, MessageButton, MessageActionRow } = require('discord.js');
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const { embedColor } = require('../config.json');
+const { EmbedBuilder, ButtonBuilder, ActionRowBuilder, SlashCommandBuilder } = require('discord.js');
 const fetch = require('node-fetch');
 
 module.exports = {
@@ -26,7 +24,7 @@ module.exports = {
             if (Github.fork) footer.push(`Forked from ${Github.parent.full_name}`);
             if (Github.archived) footer.push('This repository is Archived');
 
-            const embed = new MessageEmbed()
+            const embed = new EmbedBuilder()
                 .setTitle(`${Github.full_name}`)
                 .setThumbnail(`${Github.owner.avatar_url}`)
                 .setDescription(`${Github.description || 'No Description'}`)
@@ -39,20 +37,20 @@ module.exports = {
                     { name: 'Stars', value: `\`${Github.stargazers_count.toLocaleString()}\``, inline: true },
                     { name: 'Size', value: `\`${size}\``, inline: true }
                 )
-                .setFooter({ text: `${footer.length ? `\n${footer.join('\n')}` : ''}` })
-                .setColor(embedColor);
+                .setFooter({ text: 'Powered by GitHub' })
+                .setColor('#ffffff');
 
             const githubDevUrl = `https://github.dev/${Github.full_name}`;
 
-                const buttons = new MessageActionRow()
-                    .addComponents(new MessageButton()
+                const buttons = new ActionRowBuilder()
+                    .addComponents(new ButtonBuilder()
                         .setURL(`${Github.html_url}`)
                         .setLabel('View repository')
-                        .setStyle('LINK'))
-                    .addComponents(new MessageButton()
+                        .setStyle('Link'))
+                    .addComponents(new ButtonBuilder()
                         .setURL(`${githubDevUrl}`)
                         .setLabel('Edit on github.dev')
-                        .setStyle('LINK'));
+                        .setStyle('Link'));
 
             return interaction.reply({ embeds: [embed], components: [buttons] });
       }

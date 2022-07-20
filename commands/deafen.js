@@ -1,5 +1,4 @@
-const { MessageEmbed } = require('discord.js');
-const { SlashCommandBuilder } = require('@discordjs/builders');
+const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const noPermission = require('../errors/noPermission.js');
 
 module.exports = {
@@ -11,8 +10,8 @@ module.exports = {
     cooldown: '15',
     guildOnly: true,
     execute (interaction) {
-        if (!interaction.guild.me.permissions.has('DEAFEN_MEMBERS')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **DEAFEN_MEMBERS** permission in `Server Settings > Roles` to use this command.' });
-        if (!interaction.member.permissions.has('DEAFEN_MEMBERS')) return interaction.reply({ embeds: [noPermission] });
+        if (!interaction.guild.members.me.permissions.has('DeafenMembers')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Deafen Members** permission in `Server Settings > Roles` to use this command.' });
+        if (!interaction.member.permissions.has('DeafenMembers')) return interaction.reply({ embeds: [noPermission] });
 
             const userField = interaction.options.getMember('user');
                 if (userField.user.bot === true) return interaction.reply({ content: 'Error: You cannot deafen a bot.' });
@@ -27,7 +26,7 @@ module.exports = {
                     reasonField = 'None';
                 }
 
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
             .setTitle('Deafen')
             .addFields(
                 { name: 'User', value: `${userField}` },

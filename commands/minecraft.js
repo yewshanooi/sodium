@@ -1,5 +1,4 @@
-const { MessageEmbed, MessageButton, MessageActionRow } = require('discord.js');
-const { SlashCommandBuilder } = require('@discordjs/builders');
+const { EmbedBuilder, ButtonBuilder, ActionRowBuilder, SlashCommandBuilder } = require('discord.js');
 const fetch = require('node-fetch');
 
 module.exports = {
@@ -18,18 +17,18 @@ module.exports = {
             if (!Mojang) return interaction.reply({ content: 'Error: An error has occurred while trying to process your request.' });
 
         if (Mojang.id) {
-            const embed = new MessageEmbed()
+            const embed = new EmbedBuilder()
                 .setTitle(`${Mojang.name}`)
-                .addField('UUID', `\`${Mojang.id}\``)
-                .setImage(`https://crafatar.com/renders/body/${Mojang.id}?overlay`)
+                .addFields({ name: 'UUID', value: `\`${Mojang.id}\`` })
+                .setImage(`https://crafatar.com/renders/body/${Mojang.id}?overlay=true`)
                 .setFooter({ text: 'Powered by Mojang Studios' })
                 .setColor('#ef323d');
 
-            const button = new MessageActionRow()
-                .addComponents(new MessageButton()
+            const button = new ActionRowBuilder()
+                .addComponents(new ButtonBuilder()
                     .setURL(`https://namemc.com/profile/${usernameField}`)
                     .setLabel('View on NameMC')
-                    .setStyle('LINK'));
+                    .setStyle('Link'));
 
             interaction.reply({ embeds: [embed], components: [button] });
         }

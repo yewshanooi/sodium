@@ -1,5 +1,4 @@
-const { MessageEmbed } = require('discord.js');
-const { SlashCommandBuilder } = require('@discordjs/builders');
+const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const privateDM = require('../errors/privateDM.js');
 const noPermission = require('../errors/noPermission.js');
 
@@ -12,19 +11,20 @@ module.exports = {
     cooldown: '15',
     guildOnly: true,
     execute (interaction) {
-        if (!interaction.guild.me.permissions.has('MODERATE_MEMBERS')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **MODERATE_MEMBERS** permission in `Server Settings > Roles` to use this command.' });
-        if (!interaction.member.permissions.has('MODERATE_MEMBERS')) return interaction.reply({ embeds: [noPermission] });
+        if (!interaction.guild.members.me.permissions.has('ModerateMembers')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Moderate Members** permission in `Server Settings > Roles` to use this command.' });
+        if (!interaction.member.permissions.has('ModerateMembers')) return interaction.reply({ embeds: [noPermission] });
 
             const userField = interaction.options.getMember('user');
                 if (userField.user.bot === true) return interaction.reply({ content: 'Error: You cannot untimeout a bot.' });
                 if (userField === interaction.member) return interaction.reply({ content: 'Error: You cannot untimeout yourself.' });
+                if (userField.isCommunicationDisabled() === false) return interaction.reply({ content: 'Error: This user is currently not being timeout.' });
 
             let reasonField = interaction.options.getString('reason');
                 if (!reasonField) {
                     reasonField = 'None';
                 }
 
-        const userDmEmbed = new MessageEmbed()
+        const userDmEmbed = new EmbedBuilder()
             .setTitle('Untimeout')
             .addFields(
                 { name: 'Guild', value: `\`${interaction.guild.name}\`` },
@@ -34,7 +34,7 @@ module.exports = {
             .setTimestamp()
             .setColor('#ff0000');
 
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
             .setTitle('Untimeout')
             .addFields(
                 { name: 'User', value: `${userField}` },

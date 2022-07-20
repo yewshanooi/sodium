@@ -1,5 +1,4 @@
-const { MessageEmbed } = require('discord.js');
-const { SlashCommandBuilder } = require('@discordjs/builders');
+const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const { embedColor } = require('../config.json');
 const fetch = require('node-fetch');
 
@@ -13,7 +12,7 @@ module.exports = {
         const Fact = await fetch('http://dog-api.kinduff.com/api/facts?number=1')
             .then(res => res.json());
 
-            const embed = new MessageEmbed()
+            const embed = new EmbedBuilder()
                 .setTitle('Dog Fact')
                 .setDescription(`${Fact.facts[0]}`)
                 .setColor(embedColor);

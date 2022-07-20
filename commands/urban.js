@@ -1,7 +1,6 @@
 /* eslint-disable no-extra-parens */
 
-const { MessageEmbed, MessageButton, MessageActionRow } = require('discord.js');
-const { SlashCommandBuilder } = require('@discordjs/builders');
+const { EmbedBuilder, ButtonBuilder, ActionRowBuilder, SlashCommandBuilder } = require('discord.js');
 const fetch = require('node-fetch');
 
 module.exports = {
@@ -24,7 +23,7 @@ module.exports = {
 
 		const [Answer] = list;
 
-            const embed = new MessageEmbed()
+            const embed = new EmbedBuilder()
                 .setTitle(`${Answer.word}`)
                 .addFields(
                     { name: 'Definition', value: `${trim(Answer.definition, 1024)}` },
@@ -34,11 +33,11 @@ module.exports = {
                 .setFooter({ text: 'Powered by Urban Dictionary' })
                 .setColor('#171f36');
 
-                const button = new MessageActionRow()
-                    .addComponents(new MessageButton()
+                const button = new ActionRowBuilder()
+                    .addComponents(new ButtonBuilder()
                         .setURL(`${Answer.permalink}`)
                         .setLabel('More definitions')
-                        .setStyle('LINK'));
+                        .setStyle('Link'));
 
             return interaction.reply({ embeds: [embed], components: [button] });
         }

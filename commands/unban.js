@@ -1,27 +1,26 @@
-const { MessageEmbed } = require('discord.js');
-const { SlashCommandBuilder } = require('@discordjs/builders');
+const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const noPermission = require('../errors/noPermission.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
 		.setName('unban')
 		.setDescription('Unban the User ID with or without a reason')
-		.addStringOption(option => option.setName('userid').setDescription('Enter a user id').setRequired(true))
+		.addStringOption(option => option.setName('user_id').setDescription('Enter a user id').setRequired(true))
 		.addStringOption(option => option.setName('reason').setDescription('Enter a reason')),
 	cooldown: '25',
 	guildOnly: true,
     execute (interaction) {
-		if (!interaction.guild.me.permissions.has('BAN_MEMBERS')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **BAN_MEMBERS** permission in `Server Settings > Roles` to use this command.' });
-		if (!interaction.member.permissions.has('BAN_MEMBERS')) return interaction.reply({ embeds: [noPermission] });
+		if (!interaction.guild.members.me.permissions.has('BanMembers')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Ban Members** permission in `Server Settings > Roles` to use this command.' });
+		if (!interaction.member.permissions.has('BanMembers')) return interaction.reply({ embeds: [noPermission] });
 
-			const userIdField = interaction.options.getString('userid');
+			const userIdField = interaction.options.getString('user_id');
 
 			let reasonField = interaction.options.getString('reason');
 				if (!reasonField) {
 					reasonField = 'None';
 				}
 
-		const embed = new MessageEmbed()
+		const embed = new EmbedBuilder()
 			.setTitle('Unban')
 			.addFields(
 				{ name: 'ID', value: `\`${userIdField}\`` },
@@ -36,7 +35,7 @@ module.exports = {
 				interaction.reply({ embeds: [embed] });
 			})
 			.catch(() => {
-				interaction.reply({ content: 'Error: Invalid user ID.' });
+				interaction.reply({ content: 'Error: User ID not found or is invalid.' });
 			});
 		}
 };

@@ -1,5 +1,4 @@
-const { MessageEmbed } = require('discord.js');
-const { SlashCommandBuilder } = require('@discordjs/builders');
+const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const { embedColor } = require('../config.json');
 
 module.exports = {
@@ -18,7 +17,7 @@ module.exports = {
 			if (bot === true) resultBot = 'Yes';
 			else resultBot = 'No';
 
-			const embedOthers = new MessageEmbed()
+			const embedOthers = new EmbedBuilder()
 				.setTitle(`${userField.tag}`)
 				.setThumbnail(`https://cdn.discordapp.com/avatars/${userField.id}/${userField.avatar}.jpeg`)
 				.addFields(

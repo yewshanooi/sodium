@@ -1,5 +1,4 @@
-const { MessageEmbed } = require('discord.js');
-const { SlashCommandBuilder } = require('@discordjs/builders');
+const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const { embedColor } = require('../config.json');
 const noPermission = require('../errors/noPermission.js');
 
@@ -12,26 +11,24 @@ module.exports = {
     cooldown: '5',
     guildOnly: true,
     execute (interaction) {
-        if (!interaction.guild.me.permissions.has('MANAGE_ROLES')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **MANAGE_ROLES** permission in `Server Settings > Roles` to use this command.' });
-        if (!interaction.member.permissions.has('MANAGE_ROLES')) return interaction.reply({ embeds: [noPermission] });
+        if (!interaction.guild.members.me.permissions.has('ManageRoles')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Manage Roles** permission in `Server Settings > Roles` to use this command.' });
+        if (!interaction.member.permissions.has('ManageRoles')) return interaction.reply({ embeds: [noPermission] });
 
         const userField = interaction.options.getMember('user');
-
             if (userField === interaction.member) return interaction.reply({ content: 'Error: You cannot add a role to yourself.' });
 
         const roleField = interaction.options.getRole('role');
-            if (userField.roles.cache.has(roleField.id)) return interaction.reply({ content: 'Error: This user already have the role.' });
+            if (userField.roles.cache.has(roleField.id)) return interaction.reply({ content: 'Error: Selected user already have that role.' });
+            if (roleField.managed === true) return interaction.reply({ content: 'Error: This role cannot be added to the user.' });
 
             if (roleField === interaction.guild.roles.cache.find(role => role.name === '@everyone')) {
                 interaction.reply({ content: 'Error: This role cannot be added to the user.' });
             }
             else {
-                const embed = new MessageEmbed()
+                const embed = new EmbedBuilder()
                     .setDescription(`Successfully added **${roleField}** role to **${userField}** user`)
                     .setColor(embedColor);
                 interaction.reply({ embeds: [embed] }).then(userField.roles.add(roleField.id));
             }
         }
 };
-
-// Added role check to make sure that '@everyone' role is not added to user.

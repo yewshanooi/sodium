@@ -1,12 +1,11 @@
-const { MessageEmbed, MessageButton, MessageActionRow } = require('discord.js');
-const { SlashCommandBuilder } = require('@discordjs/builders');
+const { EmbedBuilder, ButtonBuilder, ActionRowBuilder, SlashCommandBuilder } = require('discord.js');
 const fetch = require('node-fetch');
 
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('npm')
         .setDescription('Search the npm registry for a package information')
-        .addStringOption(option => option.setName('package').setDescription('Enter a package').setRequired(true)),
+        .addStringOption(option => option.setName('package').setDescription('Enter a package name').setRequired(true)),
     cooldown: '5',
     guildOnly: false,
     async execute (interaction) {
@@ -35,7 +34,7 @@ module.exports = {
                 deps.push(`...${len} more.`);
             }
 
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
             .setTitle(`${packageField}`)
             .setDescription(`${Npm.description || 'No Description'}`)
             .addFields(
@@ -47,11 +46,11 @@ module.exports = {
             .setFooter({ text: 'Powered by npm' })
             .setColor('#cc3534');
 
-            const button = new MessageActionRow()
-                .addComponents(new MessageButton()
+            const button = new ActionRowBuilder()
+                .addComponents(new ButtonBuilder()
                     .setURL(`https://npmjs.com/package/${packageField}`)
                     .setLabel('View package')
-                    .setStyle('LINK'));
+                    .setStyle('Link'));
 
             return interaction.reply({ embeds: [embed], components: [button] });
         }

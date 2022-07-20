@@ -1,5 +1,4 @@
-const { MessageEmbed, MessageActionRow, MessageButton } = require('discord.js');
-const { SlashCommandBuilder } = require('@discordjs/builders');
+const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, SlashCommandBuilder } = require('discord.js');
 const noAPIKey = require('../errors/noAPIKey.js');
 const dotenv = require('dotenv');
 	dotenv.config();
@@ -22,7 +21,7 @@ module.exports = {
 
             if (News.status === 'error') return interaction.reply({ content: 'Error: There was an error trying to get the latest news.' });
 
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
             .setTitle('News')
             .addFields(
                 { name: `1. ${News.articles[0].title}`, value: `${News.articles[0].description}` },
@@ -34,27 +33,27 @@ module.exports = {
             .setFooter({ text: 'Powered by NewsAPI' })
             .setColor('#1a73e8');
 
-            const buttons = new MessageActionRow()
-                .addComponents(new MessageButton()
+            const buttons = new ActionRowBuilder()
+                .addComponents(new ButtonBuilder()
                     .setURL(News.articles[0].url)
                     .setLabel('Article 1')
-                    .setStyle('LINK'))
-                .addComponents(new MessageButton()
+                    .setStyle('Link'))
+                .addComponents(new ButtonBuilder()
                     .setURL(News.articles[1].url)
                     .setLabel('Article 2')
-                    .setStyle('LINK'))
-                .addComponents(new MessageButton()
+                    .setStyle('Link'))
+                .addComponents(new ButtonBuilder()
                     .setURL(News.articles[2].url)
                     .setLabel('Article 3')
-                    .setStyle('LINK'))
-                .addComponents(new MessageButton()
+                    .setStyle('Link'))
+                .addComponents(new ButtonBuilder()
                     .setURL(News.articles[3].url)
                     .setLabel('Article 4')
-                    .setStyle('LINK'))
-                .addComponents(new MessageButton()
+                    .setStyle('Link'))
+                .addComponents(new ButtonBuilder()
                     .setURL(News.articles[4].url)
                     .setLabel('Article 5')
-                    .setStyle('LINK'));
+                    .setStyle('Link'));
 
         return interaction.reply({ embeds: [embed], components: [buttons] });
     }

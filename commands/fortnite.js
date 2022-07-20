@@ -1,5 +1,4 @@
-const { MessageEmbed } = require('discord.js');
-const { SlashCommandBuilder } = require('@discordjs/builders');
+const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const noAPIKey = require('../errors/noAPIKey.js');
 const dotenv = require('dotenv');
     dotenv.config();
@@ -30,7 +29,7 @@ module.exports = {
 
             const winRate = Fortnite.data.stats.all.overall.winRate.toFixed(2);
 
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
             .setTitle(`${Fortnite.data.account.name} *(LVL **${Fortnite.data.battlePass.level}**)*`)
             .addFields(
                 { name: 'Epic Account ID', value: `\`${Fortnite.data.account.id}\`` },

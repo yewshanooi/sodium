@@ -1,5 +1,4 @@
-const { MessageEmbed } = require('discord.js');
-const { SlashCommandBuilder } = require('@discordjs/builders');
+const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const { embedColor } = require('../config.json');
 
 module.exports = {
@@ -14,10 +13,16 @@ module.exports = {
             if (coinFlip === 1) resultCoinFlip = 'heads';
             else resultCoinFlip = 'tails';
 
-        const embed = new MessageEmbed()
-            .setTitle('Coin Flip')
-            .setDescription(`${interaction.member} flipped **${resultCoinFlip}**`)
+        const embed = new EmbedBuilder()
+            .setDescription('*Flipping coin..*')
             .setColor(embedColor);
-        interaction.reply({ embeds: [embed] });
+        interaction.reply({ embeds: [embed], fetchReply: true }).then(() => {
+            const newEmbed = new EmbedBuilder()
+                .setTitle('Coin Flip')
+                .setDescription(`${interaction.member} flipped **${resultCoinFlip}**`)
+                .setColor(embedColor);
+            interaction.editReply({ embeds: [newEmbed] });
+        });
+
 	}
 };

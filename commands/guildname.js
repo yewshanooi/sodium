@@ -1,5 +1,4 @@
-const { MessageEmbed } = require('discord.js');
-const { SlashCommandBuilder } = require('@discordjs/builders');
+const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const { embedColor } = require('../config.json');
 const noPermission = require('../errors/noPermission.js');
 
@@ -11,13 +10,13 @@ module.exports = {
     cooldown: '20',
     guildOnly: true,
     execute (interaction) {
-        if (!interaction.guild.me.permissions.has('MANAGE_GUILD')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **MANAGE_GUILD** permission in `Server Settings > Roles` to use this command.' });
-        if (!interaction.member.permissions.has('MANAGE_GUILD')) return interaction.reply({ embeds: [noPermission] });
+        if (!interaction.guild.members.me.permissions.has('ManageGuild')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Manage Guild** permission in `Server Settings > Roles` to use this command.' });
+        if (!interaction.member.permissions.has('ManageGuild')) return interaction.reply({ embeds: [noPermission] });
 
         const nameField = interaction.options.getString('name');
-            if (nameField.length > '100') return interaction.reply({ content: 'Error: Channel name must be 100 characters or fewer.' });
+            if (nameField.length > '100') return interaction.reply({ content: 'Error: Guild name must be 100 characters or fewer.' });
 
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
             .setDescription(`Successfully renamed guild to **${nameField}**`)
             .setColor(embedColor);
         interaction.reply({ embeds: [embed] }).then(interaction.guild.setName(nameField));

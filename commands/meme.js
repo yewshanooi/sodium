@@ -1,5 +1,4 @@
-const { MessageEmbed } = require('discord.js');
-const { SlashCommandBuilder } = require('@discordjs/builders');
+const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const fetch = require('node-fetch');
 const url1 = 'https://www.reddit.com/r/meme.json?sort=top&t=week';
 const url2 = 'https://www.reddit.com/r/memes.json?sort=top&t=week';
@@ -20,7 +19,7 @@ module.exports = {
         const fetchData = Memes.data.children;
         const randomMemes = fetchData[Math.floor(Math.random() * fetchData.length)];
 
-            const embed = new MessageEmbed()
+            const embed = new EmbedBuilder()
                 .setTitle('Meme')
                 .setDescription(`${randomMemes.data.title}`)
                 .setImage(`${randomMemes.data.url}`)

@@ -1,5 +1,4 @@
-const { MessageEmbed, MessageButton, MessageActionRow } = require('discord.js');
-const { SlashCommandBuilder } = require('@discordjs/builders');
+const { EmbedBuilder, ButtonBuilder, ActionRowBuilder, SlashCommandBuilder } = require('discord.js');
 const { embedColor } = require('../config.json');
 const noPermission = require('../errors/noPermission.js');
 
@@ -10,24 +9,32 @@ module.exports = {
     cooldown: '15',
     guildOnly: true,
 	execute (interaction) {
-        if (!interaction.member.permissions.has('ADMINISTRATOR')) return interaction.reply({ embeds: [noPermission] });
+        if (!interaction.member.permissions.has('Administrator')) return interaction.reply({ embeds: [noPermission] });
 
-        const confirmationEmbed = new MessageEmbed()
-            .setTitle('Remove Bot')
-            .setDescription('Are you sure you want to remove this bot?')
-            .setColor('#ff0000');
+        const confirmationEmbed = new EmbedBuilder()
+            .setTitle('Leave')
+            .setDescription(`Are you sure you want to remove ${interaction.client.user}?`)
+            .setColor(embedColor);
 
-        const confirmationButton = new MessageActionRow()
-            .addComponents(new MessageButton()
-                .setCustomId('confirmed')
-                .setLabel('Confirm')
-                .setStyle('DANGER'));
+        const buttons = new ActionRowBuilder()
+            .addComponents(new ButtonBuilder()
+                .setCustomId('true')
+                .setLabel('Yes')
+                .setStyle('Success'))
+            .addComponents(new ButtonBuilder()
+                .setCustomId('false')
+                .setLabel('No')
+                .setStyle('Danger'));
 
-            const successEmbed = new MessageEmbed()
+            const leftEmbed = new EmbedBuilder()
                 .setDescription('Successfully left the guild. We hope to see you again next time!')
-                .setColor(embedColor);
+                .setColor('#00aa00');
 
-        interaction.reply({ embeds: [confirmationEmbed], components: [confirmationButton] });
+            const cancelEmbed = new EmbedBuilder()
+                .setDescription('You have cancelled the leave request.')
+                .setColor('#ff5555');
+
+        interaction.reply({ embeds: [confirmationEmbed], components: [buttons] });
 
             const filter = ft => ft.isButton() && ft.user.id === interaction.user.id;
             const collector = interaction.channel.createMessageComponentCollector({
@@ -37,9 +44,12 @@ module.exports = {
             });
 
             collector.on('collect', co => {
-                if (co.customId === 'confirmed') {
-                    co.update({ embeds: [successEmbed], components: [] });
+                if (co.customId === 'true') {
+                    co.update({ embeds: [leftEmbed], components: [] });
                     interaction.guild.leave();
+                }
+                if (co.customId === 'false') {
+                    co.update({ embeds: [cancelEmbed], components: [] }).then(collector.stop());
                 }
             });
 

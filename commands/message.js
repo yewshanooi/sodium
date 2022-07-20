@@ -1,12 +1,11 @@
-const { MessageEmbed } = require('discord.js');
-const { SlashCommandBuilder } = require('@discordjs/builders');
+const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const { embedColor } = require('../config.json');
 const privateDM = require('../errors/privateDM.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('message')
-        .setDescription('Sends a direct message to the selected user')
+        .setDescription('Sends a Direct Message to the selected user')
         .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))
         .addStringOption(option => option.setName('message').setDescription('Enter a message').setRequired(true)),
     cooldown: '8',
@@ -20,12 +19,12 @@ module.exports = {
 
         const messageField = interaction.options.getString('message');
 
-            const embed = new MessageEmbed()
+            const embed = new EmbedBuilder()
                 .setTitle('Message')
                 .setDescription(`${messageField}\n\n*from \`${interaction.user.tag}\`*`)
                 .setColor(embedColor);
 
-            const successEmbed = new MessageEmbed()
+            const successEmbed = new EmbedBuilder()
                 .setDescription(`Successfully send message to ${userField}`)
                 .setColor(embedColor);
 

@@ -1,5 +1,4 @@
-const { MessageEmbed } = require('discord.js');
-const { SlashCommandBuilder } = require('@discordjs/builders');
+const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const { embedColor } = require('../config.json');
 const noPermission = require('../errors/noPermission.js');
 
@@ -7,13 +6,13 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('invite')
         .setDescription('Generate an invite link for the guild')
-        .addIntegerOption(option => option.setName('duration').setDescription('Duration of invite link').addChoices({ name: '30 minutes', value: 1800 }, { name: '1 hour', value: 3600 }, { name: '6 hours', value: 21600 }, { name: '12 hours', value: 43200 }, { name: '1 day', value: 86400 }, { name: '7 days', value: 604800 }, { name: 'Never expire', value: 0 }).setRequired(true))
-        .addIntegerOption(option => option.setName('limit').setDescription('Maximum number of uses').addChoices({ name: 'No limit', value: 0 }, { name: '1 use', value: 1 }, { name: '5 uses', value: 5 }, { name: '10 uses', value: 10 }, { name: '25 uses', value: 25 }, { name: '50 uses', value: 50 }, { name: '100 uses', value: 100 }).setRequired(true)),
+        .addIntegerOption(option => option.setName('duration').setDescription('Select a duration').addChoices({ name: '30 minutes', value: 1800 }, { name: '1 hour', value: 3600 }, { name: '6 hours', value: 21600 }, { name: '12 hours', value: 43200 }, { name: '1 day', value: 86400 }, { name: '7 days', value: 604800 }, { name: 'Never expire', value: 0 }).setRequired(true))
+        .addIntegerOption(option => option.setName('limit').setDescription('Select the maximum number of uses').addChoices({ name: 'No limit', value: 0 }, { name: '1 use', value: 1 }, { name: '5 uses', value: 5 }, { name: '10 uses', value: 10 }, { name: '25 uses', value: 25 }, { name: '50 uses', value: 50 }, { name: '100 uses', value: 100 }).setRequired(true)),
     cooldown: '15',
     guildOnly: true,
     async execute (interaction) {
-        if (!interaction.guild.me.permissions.has('CREATE_INSTANT_INVITE')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **CREATE_INSTANT_INVITE** permission in `Server Settings > Roles` to use this command.' });
-        if (!interaction.member.permissions.has('CREATE_INSTANT_INVITE')) return interaction.reply({ embeds: [noPermission] });
+        if (!interaction.guild.members.me.permissions.has('CreateInstantInvite')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Create Instant Invite** permission in `Server Settings > Roles` to use this command.' });
+        if (!interaction.member.permissions.has('CreateInstantInvite')) return interaction.reply({ embeds: [noPermission] });
 
         const durationField = interaction.options.getInteger('duration');
 
@@ -46,7 +45,7 @@ module.exports = {
                     interaction.reply({ content: 'Error: An error has occured while trying to generate the link' });
                 });
 
-            const embed = new MessageEmbed()
+            const embed = new EmbedBuilder()
                 .setTitle(`${channel.name}`)
                 .setDescription(`${invite.url}`)
                 .addFields(

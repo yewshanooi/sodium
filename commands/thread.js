@@ -1,5 +1,4 @@
-const { MessageEmbed } = require('discord.js');
-const { SlashCommandBuilder } = require('@discordjs/builders');
+const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const { embedColor } = require('../config.json');
 const noPermission = require('../errors/noPermission.js');
 
@@ -12,8 +11,8 @@ module.exports = {
     cooldown: '10',
     guildOnly: true,
     async execute (interaction) {
-        if (!interaction.guild.me.permissions.has('MANAGE_THREADS')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **MANAGE_THREADS** permission in `Server Settings > Roles` to use this command.' });
-        if (!interaction.member.permissions.has('MANAGE_THREADS')) return interaction.reply({ embeds: [noPermission] });
+        if (!interaction.guild.members.me.permissions.has('ManageThreads')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Manage Threads** permission in `Server Settings > Roles` to use this command.' });
+        if (!interaction.member.permissions.has('ManageThreads')) return interaction.reply({ embeds: [noPermission] });
 
             const nameField = interaction.options.getString('name');
 
@@ -28,7 +27,7 @@ module.exports = {
                     autoArchiveDuration: durationField
                 });
 
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
             .setTitle('Thread')
             .addFields(
                 { name: 'Name', value: `${thread.name}` },

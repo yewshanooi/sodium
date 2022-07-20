@@ -1,5 +1,4 @@
-const { MessageEmbed } = require('discord.js');
-const { SlashCommandBuilder } = require('@discordjs/builders');
+const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const noPermission = require('../errors/noPermission.js');
 
 module.exports = {
@@ -11,19 +10,22 @@ module.exports = {
     cooldown: '25',
     guildOnly: true,
 	execute (interaction) {
-        if (!interaction.guild.me.permissions.has('BAN_MEMBERS')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **BAN_MEMBERS** permission in `Server Settings > Roles` to use this command.' });
-        if (!interaction.member.permissions.has('BAN_MEMBERS')) return interaction.reply({ embeds: [noPermission] });
+        if (!interaction.guild.members.me.permissions.has('BanMembers')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Ban Members** permission in `Server Settings > Roles` to use this command.' });
+        if (!interaction.member.permissions.has('BanMembers')) return interaction.reply({ embeds: [noPermission] });
 
             const userField = interaction.options.getMember('user');
                 if (userField.user.bot === true) return interaction.reply({ content: 'Error: You cannot ban a bot.' });
                 if (userField === interaction.member) return interaction.reply({ content: 'Error: You cannot ban yourself.' });
+
+                if (userField.id === interaction.guild.ownerId) return interaction.reply({ content: 'Error: You cannot ban a Guild Owner.' });
+                if (userField.permissions.has('Administrator')) return interaction.reply({ content: 'Error: You cannot ban a user with Administrator permission.' });
 
             let reasonField = interaction.options.getString('reason');
 				if (!reasonField) {
 					reasonField = 'None';
 				}
 
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
             .setTitle('Ban')
             .addFields(
                 { name: 'User', value: `${userField}` },

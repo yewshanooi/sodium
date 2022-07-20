@@ -1,5 +1,4 @@
-const { MessageEmbed } = require('discord.js');
-const { SlashCommandBuilder } = require('@discordjs/builders');
+const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const { embedColor } = require('../config.json');
 const noPermission = require('../errors/noPermission.js');
 
@@ -11,18 +10,18 @@ module.exports = {
     cooldown: '15',
     guildOnly: true,
 	execute (interaction) {
-        if (!interaction.guild.me.permissions.has('MANAGE_NICKNAMES')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **MANAGE_NICKNAMES** permission in `Server Settings > Roles` to use this command.' });
-        if (!interaction.member.permissions.has('MANAGE_NICKNAMES')) return interaction.reply({ embeds: [noPermission] });
+        if (!interaction.guild.members.me.permissions.has('ManageNicknames')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Manage Nicknames** permission in `Server Settings > Roles` to use this command.' });
+        if (!interaction.member.permissions.has('ManageNicknames')) return interaction.reply({ embeds: [noPermission] });
 
         const nicknameField = interaction.options.getString('nickname');
 
         if (nicknameField.length <= '32') {
-            const embed = new MessageEmbed()
+            const embed = new EmbedBuilder()
                 .setTitle('Bot Nickname')
                 .setDescription(`Nickname successfully changed to **${nicknameField}**`)
                 .setColor(embedColor);
 
-            interaction.guild.me.setNickname(nicknameField).then(interaction.reply({ embeds: [embed] }));
+            interaction.guild.members.me.setNickname(nicknameField).then(interaction.reply({ embeds: [embed] }));
         }
         else {
             return interaction.reply({ content: 'Error: Nickname must be 32 characters or fewer.' });

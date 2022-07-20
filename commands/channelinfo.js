@@ -1,5 +1,4 @@
-const { MessageEmbed } = require('discord.js');
-const { SlashCommandBuilder } = require('@discordjs/builders');
+const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const { embedColor } = require('../config.json');
 
 module.exports = {
@@ -14,28 +13,28 @@ module.exports = {
 
         const { type } = channelField;
         let resultType;
-            if (type === 'GUILD_TEXT') resultType = 'Text';
-            if (type === 'GUILD_VOICE') resultType = 'Voice';
-            if (type === 'GUILD_CATEGORY') resultType = 'Category';
-            if (type === 'GUILD_NEWS') resultType = 'News';
-            if (type === 'GUILD_NEWS_THREAD') resultType = 'News Thread';
-            if (type === 'GUILD_PUBLIC_THREAD') resultType = 'Public Thread';
-            if (type === 'GUILD_PRIVATE_THREAD') resultType = 'Private Thread';
-            if (type === 'GUILD_STAGE_VOICE') resultType = 'Stage Voice';
-            if (type === 'UNKNOWN') resultType = 'Unknown';
+            if (type === 0) resultType = 'Text';
+            if (type === 2) resultType = 'Voice';
+            if (type === 4) resultType = 'Category';
+            if (type === 5) resultType = 'News';
+            if (type === 10) resultType = 'News Thread';
+            if (type === 11) resultType = 'Public Thread';
+            if (type === 12) resultType = 'Private Thread';
+            if (type === 13) resultType = 'Stage Voice';
+            if (type === null) resultType = 'Unknown';
 
         const { nsfw } = channelField;
         let resultNsfw;
             if (nsfw === true) resultNsfw = 'Yes';
             else resultNsfw = 'No';
 
-            const embed = new MessageEmbed()
+            const embed = new EmbedBuilder()
                 .setTitle(`${channelField.name}`)
                 .addFields(
                     { name: 'Type', value: `\`${resultType}\``, inline: true },
                     { name: 'ID', value: `\`${channelField.id}\``, inline: true },
                     { name: 'Created At', value: `\`${channelField.createdAt}\`` },
-                    { name: 'NSFW', value: `\`${resultNsfw}\``, inline: true },
+                    { name: 'Age-Restricted', value: `\`${resultNsfw}\``, inline: true },
                     { name: 'Rate Limit', value: `\`${channelField.rateLimitPerUser || '0'}\` second(s)`, inline: true }
                 )
                 .setColor(embedColor);

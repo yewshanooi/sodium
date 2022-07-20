@@ -1,5 +1,4 @@
-const { MessageEmbed } = require('discord.js');
-const { SlashCommandBuilder } = require('@discordjs/builders');
+const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const { embedColor } = require('../config.json');
 const privateDM = require('../errors/privateDM.js');
 
@@ -144,12 +143,12 @@ module.exports = {
 
             if (userField === interaction.user) return interaction.reply({ content: 'Error: You cannot send an achievement to yourself.' });
 
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
             .setTitle('Achievement')
             .setDescription(`You have received the achievement **${achievements[Math.floor(Math.random() * achievements.length)]}**`)
             .setColor(embedColor);
 
-        const successEmbed = new MessageEmbed()
+        const successEmbed = new EmbedBuilder()
             .setDescription(`Successfully send achievement to ${userField}`)
             .setColor(embedColor);
 

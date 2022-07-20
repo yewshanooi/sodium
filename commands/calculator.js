@@ -1,5 +1,4 @@
-const { MessageActionRow, MessageButton } = require('discord.js');
-const { SlashCommandBuilder } = require('@discordjs/builders');
+const { ActionRowBuilder, ButtonBuilder, SlashCommandBuilder } = require('discord.js');
 const { evaluate } = require('mathjs');
 
 module.exports = {
@@ -13,35 +12,35 @@ module.exports = {
 		let data = '';
 
         const generateComponents = () => {
-            const row1 = new MessageActionRow().addComponents(
-                new MessageButton().setCustomId('clear').setLabel('C').setStyle('DANGER'),
-                new MessageButton().setCustomId('(').setLabel('(').setStyle('PRIMARY'),
-                new MessageButton().setCustomId(')').setLabel(')').setStyle('PRIMARY'),
-                new MessageButton().setCustomId('^').setLabel('^').setStyle('PRIMARY')
+            const row1 = new ActionRowBuilder().addComponents(
+                new ButtonBuilder().setCustomId('clear').setLabel('C').setStyle('Danger'),
+                new ButtonBuilder().setCustomId('(').setLabel('(').setStyle('Primary'),
+                new ButtonBuilder().setCustomId(')').setLabel(')').setStyle('Primary'),
+                new ButtonBuilder().setCustomId('^').setLabel('^').setStyle('Primary')
             );
-            const row2 = new MessageActionRow().addComponents(
-                new MessageButton().setCustomId('7').setLabel('７').setStyle('SECONDARY'),
-                new MessageButton().setCustomId('8').setLabel('８').setStyle('SECONDARY'),
-                new MessageButton().setCustomId('9').setLabel('９').setStyle('SECONDARY'),
-                new MessageButton().setCustomId('/').setLabel('÷').setStyle('PRIMARY')
+            const row2 = new ActionRowBuilder().addComponents(
+                new ButtonBuilder().setCustomId('7').setLabel('７').setStyle('Secondary'),
+                new ButtonBuilder().setCustomId('8').setLabel('８').setStyle('Secondary'),
+                new ButtonBuilder().setCustomId('9').setLabel('９').setStyle('Secondary'),
+                new ButtonBuilder().setCustomId('/').setLabel('÷').setStyle('Primary')
             );
-            const row3 = new MessageActionRow().addComponents(
-                new MessageButton().setCustomId('4').setLabel('４').setStyle('SECONDARY'),
-                new MessageButton().setCustomId('5').setLabel('５').setStyle('SECONDARY'),
-                new MessageButton().setCustomId('6').setLabel('６').setStyle('SECONDARY'),
-                new MessageButton().setCustomId('*').setLabel('×').setStyle('PRIMARY')
+            const row3 = new ActionRowBuilder().addComponents(
+                new ButtonBuilder().setCustomId('4').setLabel('４').setStyle('Secondary'),
+                new ButtonBuilder().setCustomId('5').setLabel('５').setStyle('Secondary'),
+                new ButtonBuilder().setCustomId('6').setLabel('６').setStyle('Secondary'),
+                new ButtonBuilder().setCustomId('*').setLabel('×').setStyle('Primary')
             );
-            const row4 = new MessageActionRow().addComponents(
-                new MessageButton().setCustomId('1').setLabel('１').setStyle('SECONDARY'),
-                new MessageButton().setCustomId('2').setLabel('２').setStyle('SECONDARY'),
-                new MessageButton().setCustomId('3').setLabel('３').setStyle('SECONDARY'),
-                new MessageButton().setCustomId('-').setLabel('−').setStyle('PRIMARY')
+            const row4 = new ActionRowBuilder().addComponents(
+                new ButtonBuilder().setCustomId('1').setLabel('１').setStyle('Secondary'),
+                new ButtonBuilder().setCustomId('2').setLabel('２').setStyle('Secondary'),
+                new ButtonBuilder().setCustomId('3').setLabel('３').setStyle('Secondary'),
+                new ButtonBuilder().setCustomId('-').setLabel('−').setStyle('Primary')
             );
-            const row5 = new MessageActionRow().addComponents(
-                new MessageButton().setCustomId('0').setLabel('０').setStyle('SECONDARY'),
-                new MessageButton().setCustomId('.').setLabel('.').setStyle('SECONDARY'),
-                new MessageButton().setCustomId('=').setLabel('=').setStyle('SUCCESS'),
-                new MessageButton().setCustomId('+').setLabel('+').setStyle('PRIMARY')
+            const row5 = new ActionRowBuilder().addComponents(
+                new ButtonBuilder().setCustomId('0').setLabel('０').setStyle('Secondary'),
+                new ButtonBuilder().setCustomId('.').setLabel('.').setStyle('Secondary'),
+                new ButtonBuilder().setCustomId('=').setLabel('=').setStyle('Success'),
+                new ButtonBuilder().setCustomId('+').setLabel('+').setStyle('Primary')
             );
             return [row1, row2, row3, row4, row5];
         };
@@ -82,14 +81,6 @@ module.exports = {
 			collector.resetTimer();
 			compInt.update({ content, components });
 		});
-
-        /*
-         * collector.on('end', () => {
-         *     message.edit({
-         *         content: `${content}*This session has timed out. You can start a new one with \`/calculator\`.*`
-         *     });
-         * });
-         */
 
 	}
 };

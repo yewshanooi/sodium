@@ -1,5 +1,4 @@
-const { MessageEmbed } = require('discord.js');
-const { SlashCommandBuilder } = require('@discordjs/builders');
+const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const noPermission = require('../errors/noPermission.js');
 
 module.exports = {
@@ -11,19 +10,22 @@ module.exports = {
 	cooldown: '25',
 	guildOnly: true,
 	execute (interaction) {
-        if (!interaction.guild.me.permissions.has('KICK_MEMBERS')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **KICK_MEMBERS** permission in `Server Settings > Roles` to use this command.' });
-		if (!interaction.member.permissions.has('KICK_MEMBERS')) return interaction.reply({ embeds: [noPermission] });
+        if (!interaction.guild.members.me.permissions.has('KickMembers')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Kick Members** permission in `Server Settings > Roles` to use this command.' });
+		if (!interaction.member.permissions.has('KickMembers')) return interaction.reply({ embeds: [noPermission] });
 
 			const userField = interaction.options.getMember('user');
 				if (userField.user.bot === true) return interaction.reply({ content: 'Error: You cannot kick a bot.' });
 				if (userField === interaction.member) return interaction.reply({ content: 'Error: You cannot kick yourself.' });
+
+				if (userField.id === interaction.guild.ownerId) return interaction.reply({ content: 'Error: You cannot kick a Guild Owner.' });
+				if (userField.permissions.has('Administrator')) return interaction.reply({ content: 'Error: You cannot kick a user with Administrator permission.' });
 
 			let reasonField = interaction.options.getString('reason');
 				if (!reasonField) {
 					reasonField = 'None';
 				}
 
-		const embed = new MessageEmbed()
+		const embed = new EmbedBuilder()
 			.setTitle('Kick')
 			.addFields(
 				{ name: 'User', value: `${userField}` },

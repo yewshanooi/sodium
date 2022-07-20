@@ -37,7 +37,7 @@
 `8ball`, `achievement`, `beep`, `catfact`, `chatbot`, `coinflip`, `color`, `compliment`, `crypto`, `diceroll`, `dictionary`, `dogfact`, `fact`, `fortnite`, `giphy`, `github`, `lyrics`, `meme`, `minecraft`, `nasa`, `npm`, `roast`, `rps`, `say`, `spotify`, `urban`, `uselessfact`, `waifu`, `weather`, `wikipedia`, `word`, `youtube`
 
 ###### Utility
-`afk`, `announce`, `botinfo`, `botpresence`, `botsetnick`, `calculator`, `channeldelete`, `channelinfo`, `channelrename`, `guildinfo`, `guildname`, `help`, `invite`, `leave`, `message`, `news`, `ping`, `purge`, `roleadd`, `roleinfo`, `roleremove`, `setnick`, `thread`, `threadarchive`, `userinfo`
+`afk`, `announce`, `botinfo`, `botsetnick`, `calculator`, `channeldelete`, `channelinfo`, `channelrename`, `guildinfo`, `guildname`, `help`, `invite`, `leave`, `message`, `news`, `ping`, `purge`, `roleadd`, `roleinfo`, `roleremove`, `setnick`, `thread`, `threadarchive`, `userinfo`
 
 ###### Moderation
 `ban`, `channellock`, `channelunlock`, `deafen`, `kick`, `slowmode`, `timeout`, `unban`, `undeafen`, `untimeout`, `warn`
@@ -50,25 +50,25 @@
 
 ## Dependencies
 ###### Node.js
-**Node.js v16.6.0** or newer is required
+**Node.js v16.9.0** or newer is required
 
 ###### Packages
 <table>
   <tbody>
     <tr>
-      <td><a href="https://www.npmjs.com/package/@discordjs/builders">@discordjs/builders@0.15.0</a></td>
-      <td><a href="https://www.npmjs.com/package/dotenv">dotenv@16.0.1</a></td>
+      <td><a href="https://www.npmjs.com/package/@discordjs/rest">@discordjs/rest@1.0.0</a></td>
+      <td><a href="https://www.npmjs.com/package/eslint">eslint@8.20.0</a></td>
     </tr>
     <tr>
-      <td><a href="https://www.npmjs.com/package/@discordjs/rest">@discordjs/rest@0.5.0</a></td>
-      <td><a href="https://www.npmjs.com/package/eslint">eslint@8.19.0</a></td>
-    </tr>
-    <tr>
-      <td><a href="https://www.npmjs.com/package/discord-api-types">discord-api-types@0.36.1</a></td>
+      <td><a href="https://www.npmjs.com/package/discord-api-types">discord-api-types@0.36.2</a></td>
       <td><a href="https://www.npmjs.com/package/mathjs">mathjs@10.6.4</a></td>
     </tr>
     <tr>
-      <td><a href="https://www.npmjs.com/package/discord.js">discord.js@13.8.1</a></td>
+      <td><a href="https://www.npmjs.com/package/discord.js">discord.js@14.0.3</a></td>
+      <td><a href="https://www.npmjs.com/package/node-fetch">node-fetch@2.6.7</a></td>
+    </tr>
+    <tr>
+      <td><a href="https://www.npmjs.com/package/dotenv">dotenv@16.0.1</a></td>
       <td><a href="https://www.npmjs.com/package/nodemon">nodemon@2.0.19</a></td>
     </tr>
   </tbody>

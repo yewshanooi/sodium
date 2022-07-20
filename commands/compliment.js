@@ -1,5 +1,4 @@
-const { MessageEmbed } = require('discord.js');
-const { SlashCommandBuilder } = require('@discordjs/builders');
+const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const { embedColor } = require('../config.json');
 const privateDM = require('../errors/privateDM.js');
 
@@ -121,12 +120,12 @@ module.exports = {
 
             if (userField === interaction.user) return interaction.reply({ content: 'Error: You cannot send a compliment to yourself.' });
 
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
             .setTitle('Compliment')
             .setDescription(`${compliments[Math.floor(Math.random() * compliments.length)]}\n\n*from \`${interaction.user.tag}\`*`)
             .setColor(embedColor);
 
-        const successEmbed = new MessageEmbed()
+        const successEmbed = new EmbedBuilder()
             .setDescription(`Successfully send compliment to ${userField}`)
             .setColor(embedColor);
 

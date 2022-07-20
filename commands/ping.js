@@ -1,5 +1,4 @@
-const { MessageEmbed } = require('discord.js');
-const { SlashCommandBuilder } = require('@discordjs/builders');
+const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const { embedColor } = require('../config.json');
 
 module.exports = {
@@ -9,19 +8,20 @@ module.exports = {
 	cooldown: '3',
 	guildOnly: false,
 	execute (interaction) {
-		const embed = new MessageEmbed()
-				.setDescription('*Calculating Latency..*')
+		const embed = new EmbedBuilder()
+			.setDescription('*Calculating latency..*')
+			.setColor(embedColor);
+		interaction.reply({ embeds: [embed], fetchReply: true }).then(itr => {
+			const timestamp = itr.createdTimestamp - interaction.createdTimestamp;
+			const newEmbed = new EmbedBuilder()
+				.setTitle('Ping')
+				.addFields(
+					{ name: 'API Latency', value: `\`${timestamp}\`ms` },
+					{ name: 'WebSocket Latency', value: `\`${interaction.client.ws.ping}\`ms` }
+				)
 				.setColor(embedColor);
-			interaction.reply({ embeds: [embed], fetchReply: true }).then(itr => {
-				const timestamp = itr.createdTimestamp - interaction.createdTimestamp;
-				const newEmbed = new MessageEmbed()
-					.setTitle('Ping')
-					.addFields(
-						{ name: 'API Latency', value: `\`${timestamp}\`ms` },
-						{ name: 'WebSocket Latency', value: `\`${interaction.client.ws.ping}\`ms` }
-					)
-					.setColor(embedColor);
-				interaction.editReply({ embeds: [newEmbed] });
-			});
-		}
+			interaction.editReply({ embeds: [newEmbed] });
+		});
+
+	}
 };

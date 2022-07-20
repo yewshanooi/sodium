@@ -1,5 +1,4 @@
-const { MessageEmbed } = require('discord.js');
-const { SlashCommandBuilder } = require('@discordjs/builders');
+const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const { embedColor } = require('../config.json');
 const noPermission = require('../errors/noPermission.js');
 
@@ -10,17 +9,17 @@ module.exports = {
     cooldown: '15',
     guildOnly: true,
     execute (interaction) {
-        if (!interaction.guild.me.permissions.has('MANAGE_CHANNELS')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **MANAGE_CHANNELS** permission in `Server Settings > Roles` to use this command.' });
-        if (!interaction.member.permissions.has('MANAGE_CHANNELS')) return interaction.reply({ embeds: [noPermission] });
+        if (!interaction.guild.members.me.permissions.has('ManageChannels')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Manage Channels** permission in `Server Settings > Roles` to use this command.' });
+        if (!interaction.member.permissions.has('ManageChannels')) return interaction.reply({ embeds: [noPermission] });
 
         const currentChannel = interaction.channel;
 
-            const embed = new MessageEmbed()
+            const embed = new EmbedBuilder()
                 .setDescription(`Successfully unlocked ${currentChannel} channel`)
                 .setColor(embedColor);
 
             interaction.reply({ embeds: [embed] }).then(interaction.guild.roles.cache.forEach(roles => {
-                currentChannel.permissionOverwrites.edit(roles, { SEND_MESSAGES: true, ADD_REACTIONS: true, CREATE_PUBLIC_THREADS: true });
+                currentChannel.permissionOverwrites.edit(roles, { SendMessages: true, AddReactions: true, CreatePublicThreads: true });
             }));
         }
 };

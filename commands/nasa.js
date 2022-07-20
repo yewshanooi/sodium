@@ -1,5 +1,4 @@
-const { MessageEmbed, MessageButton, MessageActionRow } = require('discord.js');
-const { SlashCommandBuilder } = require('@discordjs/builders');
+const { EmbedBuilder, ButtonBuilder, ActionRowBuilder, SlashCommandBuilder } = require('discord.js');
 const noAPIKey = require('../errors/noAPIKey.js');
 const dotenv = require('dotenv');
     dotenv.config();
@@ -19,18 +18,18 @@ module.exports = {
 
         if (!Nasa.explanation) return interaction.reply({ content: 'Error: An error has occurred while trying to get the image.' });
 
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
             .setTitle(`${Nasa.title}`)
             .setDescription(`${Nasa.explanation}`)
             .setImage(`${Nasa.url}`)
-            .setFooter({ text: `Copyright ©${Nasa.copyright}\nPowered by NASA` })
+            .setFooter({ text: 'Powered by NASA' })
             .setColor('#033a92');
 
-            const button = new MessageActionRow()
-                .addComponents(new MessageButton()
+            const button = new ActionRowBuilder()
+                .addComponents(new ButtonBuilder()
                     .setURL(`${Nasa.hdurl}`)
                     .setLabel('Image source')
-                    .setStyle('LINK'));
+                    .setStyle('Link'));
 
             return interaction.reply({ embeds: [embed], components: [button] });
         }

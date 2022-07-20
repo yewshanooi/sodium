@@ -1,5 +1,4 @@
-const { MessageEmbed } = require('discord.js');
-const { SlashCommandBuilder } = require('@discordjs/builders');
+const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const { embedColor } = require('../config.json');
 
 module.exports = {
@@ -9,8 +8,8 @@ module.exports = {
 	cooldown: '3',
 	guildOnly: false,
 	execute (interaction) {
-		const embed = new MessageEmbed()
-			.setDescription('Boop! ✨')
+		const embed = new EmbedBuilder()
+			.setDescription('**Boop!** ✨')
 			.setColor(embedColor);
 		interaction.reply({ embeds: [embed] });
 	}

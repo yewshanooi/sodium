@@ -1,12 +1,11 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const fetch = require('node-fetch');
 
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('crypto')
         .setDescription('Get the current market price of a cryptocurrency')
-        .addStringOption(option => option.setName('currency').setDescription('Enter a valid cryptocurrency').setRequired(true)),
+        .addStringOption(option => option.setName('currency').setDescription('Enter a cryptocurrency').setRequired(true)),
     cooldown: '5',
     guildOnly: false,
     async execute (interaction) {
@@ -30,7 +29,7 @@ module.exports = {
                 const marketCap = Crypto[0].market_cap.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
                     const marketCapChange = Crypto[0].market_cap_change_percentage_24h.toFixed(2);
 
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
             .setTitle(`${Crypto[0].name} (${uppercaseSymbol})`)
             .setDescription(`\`${price}\` **(${priceChange}%)**`)
             .addFields(

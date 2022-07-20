@@ -1,5 +1,4 @@
-const { MessageEmbed } = require('discord.js');
-const { SlashCommandBuilder } = require('@discordjs/builders');
+const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const { embedColor } = require('../config.json');
 
 const answers = [
@@ -28,14 +27,14 @@ const answers = [
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('8ball')
-        .setDescription('Ask the Magic 8-Ball for some psychic wisdom')
+        .setDescription('Ask the magic 8-Ball for some psychic wisdom')
         .addStringOption(option => option.setName('question').setDescription('Enter a question').setRequired(true)),
     cooldown: '3',
     guildOnly: false,
     execute (interaction) {
         const questionField = interaction.options.getString('question');
 
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
             .setTitle('8-Ball')
             .addFields(
                 { name: 'Question', value: `${questionField}` },

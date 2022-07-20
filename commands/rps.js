@@ -1,5 +1,4 @@
-const { MessageEmbed, MessageActionRow, MessageButton } = require('discord.js');
-const { SlashCommandBuilder } = require('@discordjs/builders');
+const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, SlashCommandBuilder } = require('discord.js');
 const { embedColor } = require('../config.json');
 
 module.exports = {
@@ -10,24 +9,24 @@ module.exports = {
     guildOnly: false,
     async execute (interaction) {
 
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
             .setTitle('Rock Paper Scissors')
             .setDescription('Choose an option')
             .setColor(embedColor);
 
-        const buttons = new MessageActionRow()
-            .addComponents(new MessageButton()
+        const buttons = new ActionRowBuilder()
+            .addComponents(new ButtonBuilder()
                 .setCustomId('Rock')
                 .setLabel('Rock')
-                .setStyle('SECONDARY'))
-            .addComponents(new MessageButton()
+                .setStyle('Secondary'))
+            .addComponents(new ButtonBuilder()
                 .setCustomId('Paper')
                 .setLabel('Paper')
-                .setStyle('SECONDARY'))
-            .addComponents(new MessageButton()
+                .setStyle('Secondary'))
+            .addComponents(new ButtonBuilder()
                 .setCustomId('Scissors')
                 .setLabel('Scissors')
-                .setStyle('SECONDARY'));
+                .setStyle('Secondary'));
 
         interaction.reply({ embeds: [embed], components: [buttons] });
 
@@ -45,7 +44,7 @@ module.exports = {
 
         collector.on('collect', async collected => {
             if (collected.customId === 'Scissors' && botOption === 'Rock' || collected.customId === 'Paper' && botOption === 'Rock' || collected.customId === 'Paper' && botOption === 'Scissors') {
-                const userLostEmbed = new MessageEmbed()
+                const userLostEmbed = new EmbedBuilder()
                     .setTitle('You Lost!')
                     .addFields(
                         { name: 'Your choice', value: `${collected.customId}` },
@@ -55,7 +54,7 @@ module.exports = {
                 await collected.update({ embeds: [userLostEmbed] }).then(collector.stop());
             }
             else if (collected.customId === botOption) {
-                const tieEmbed = new MessageEmbed()
+                const tieEmbed = new EmbedBuilder()
                     .setTitle('It\'s a tie!')
                     .addFields(
                         { name: 'Your choice', value: `${collected.customId}` },
@@ -65,7 +64,7 @@ module.exports = {
                 await collected.update({ embeds: [tieEmbed] }).then(collector.stop());
             }
             else {
-                const userWonEmbed = new MessageEmbed()
+                const userWonEmbed = new EmbedBuilder()
                     .setTitle('You won!')
                     .addFields(
                         { name: 'Your choice', value: `${collected.customId}` },

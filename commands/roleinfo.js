@@ -1,5 +1,4 @@
-const { MessageEmbed } = require('discord.js');
-const { SlashCommandBuilder } = require('@discordjs/builders');
+const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const { embedColor } = require('../config.json');
 
 module.exports = {
@@ -25,7 +24,7 @@ module.exports = {
             const everyone = interaction.guild.roles.cache.find(role => role.name === '@everyone');
                 if (roleField === everyone) return interaction.reply({ content: 'Error: Unable to get information about this role.' });
 
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
             .setTitle(`@${roleField.name}`)
             .addFields(
                 { name: 'Position', value: `\`${roleField.position}\``, inline: true },

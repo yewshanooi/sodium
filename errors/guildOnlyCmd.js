@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 
 const embed = new Discord.EmbedBuilder()
     .setTitle('Error')
-    .setDescription('You have no permission to use this command.')
+    .setDescription('This command cannot be executed in Direct Messages.')
     .setColor('#ff5555');
 
 module.exports = embed;

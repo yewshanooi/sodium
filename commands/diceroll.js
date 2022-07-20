@@ -1,5 +1,4 @@
-const { MessageEmbed } = require('discord.js');
-const { SlashCommandBuilder } = require('@discordjs/builders');
+const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const { embedColor } = require('../config.json');
 
 module.exports = {
@@ -11,10 +10,16 @@ module.exports = {
 	execute (interaction) {
         const diceRoll = Math.floor(Math.random() * 6 + 1);
 
-            const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
+            .setDescription('*Rolling dice..*')
+            .setColor(embedColor);
+        interaction.reply({ embeds: [embed], fetchReply: true }).then(() => {
+            const newEmbed = new EmbedBuilder()
                 .setTitle('Dice Roll')
                 .setDescription(`<@${interaction.user.id}>, you rolled a **${diceRoll}**!`)
                 .setColor(embedColor);
-            interaction.reply({ embeds: [embed] });
-        }
+            interaction.editReply({ embeds: [newEmbed] });
+        });
+
+    }
 };

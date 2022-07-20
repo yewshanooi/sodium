@@ -1,6 +1,4 @@
-const { MessageEmbed } = require('discord.js');
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const privateDM = require('../errors/privateDM.js');
+const { SlashCommandBuilder } = require('discord.js');
 const noPermission = require('../errors/noPermission.js');
 
 module.exports = {
@@ -13,57 +11,17 @@ module.exports = {
     cooldown: '15',
     guildOnly: true,
     execute (interaction) {
-        if (!interaction.guild.me.permissions.has('MODERATE_MEMBERS')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **MODERATE_MEMBERS** permission in `Server Settings > Roles` to use this command.' });
-        if (!interaction.member.permissions.has('MODERATE_MEMBERS')) return interaction.reply({ embeds: [noPermission] });
+        if (!interaction.guild.members.me.permissions.has('ModerateMembers')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Moderate Members** permission in `Server Settings > Roles` to use this command.' });
+        if (!interaction.member.permissions.has('ModerateMembers')) return interaction.reply({ embeds: [noPermission] });
 
             const userField = interaction.options.getMember('user');
-                if (userField.user.bot === true) return interaction.reply({ content: 'Error: You cannot timeout a bot.' });
-                if (userField === interaction.member) return interaction.reply({ content: 'Error: You cannot timeout yourself.' });
-
             const durationField = interaction.options.getInteger('duration');
-
-            let resultDurationField;
-                if (durationField === 60000) resultDurationField = '60 seconds';
-                if (durationField === 300000) resultDurationField = '5 minutes';
-                if (durationField === 600000) resultDurationField = '10 minutes';
-                if (durationField === 3.6e+6) resultDurationField = '1 hour';
-                if (durationField === 8.64e+7) resultDurationField = '1 day';
-                if (durationField === 6.048e+8) resultDurationField = '1 week';
 
             let reasonField = interaction.options.getString('reason');
                 if (!reasonField) {
                     reasonField = 'None';
                 }
 
-		const userDmEmbed = new MessageEmbed()
-            .setTitle('Timeout')
-            .addFields(
-                { name: 'Guild', value: `\`${interaction.guild.name}\`` },
-                { name: 'Duration', value: `\`${resultDurationField}\`` },
-                { name: 'By', value: `${interaction.member}` },
-                { name: 'Reason', value: `\`${reasonField}\`` }
-            )
-            .setTimestamp()
-            .setColor('#ff0000');
-
-        const embed = new MessageEmbed()
-            .setTitle('Timeout')
-            .addFields(
-                { name: 'User', value: `${userField}` },
-                { name: 'ID', value: `\`${userField.user.id}\`` },
-                { name: 'Duration', value: `\`${resultDurationField}\`` },
-                { name: 'By', value: `${interaction.member}` },
-                { name: 'Reason', value: `\`${reasonField}\`` }
-            )
-            .setTimestamp()
-            .setColor('#ff0000');
-
-        userField.send({ embeds: [userDmEmbed] })
-            .then(() => {
-                interaction.reply({ embeds: [embed] }).then(userField.timeout(durationField, reasonField));
-            })
-            .catch(() => {
-                interaction.reply({ embeds: [privateDM] });
-            });
+            userField.timeout(durationField, reasonField);
         }
 };

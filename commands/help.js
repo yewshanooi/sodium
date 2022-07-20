@@ -1,5 +1,4 @@
-const { MessageEmbed } = require('discord.js');
-const { SlashCommandBuilder } = require('@discordjs/builders');
+const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const { embedColor } = require('../config.json');
 
 module.exports = {
@@ -14,7 +13,7 @@ module.exports = {
         const commandField = interaction.options.getString('command');
 
 		if (!commandField) {
-			const noCommandEmbed = new MessageEmbed()
+			const noCommandEmbed = new EmbedBuilder()
 				.setTitle('Help')
 				.setDescription('**Tip:** To get more info on a specific command use `/help {command}`')
 				.addFields({ name: 'Commands', value: `${commands.map(command => command.data.name).join(', ')}` })
@@ -31,7 +30,7 @@ module.exports = {
 					if (guildOnly === true) resultGuildOnly = 'True';
 					else resultGuildOnly = 'False';
 
-				const commandEmbed = new MessageEmbed()
+				const commandEmbed = new EmbedBuilder()
 					.setTitle(`${command.data.name}`)
 					.setDescription(`${command.data.description}`)
 					.addFields(
