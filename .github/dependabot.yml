@@ -9,6 +9,8 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
+    ignore:
+      - dependency-name: "node-fetch"
 
   - package-ecosystem: "github-actions"
     directory: "/"
