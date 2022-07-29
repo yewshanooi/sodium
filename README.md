@@ -56,12 +56,12 @@
 <table>
   <tbody>
     <tr>
-      <td><a href="https://www.npmjs.com/package/@discordjs/rest">@discordjs/rest@1.0.0</a></td>
+      <td><a href="https://www.npmjs.com/package/@discordjs/rest">@discordjs/rest@1.0.1</a></td>
       <td><a href="https://www.npmjs.com/package/eslint">eslint@8.20.0</a></td>
     </tr>
     <tr>
-      <td><a href="https://www.npmjs.com/package/discord-api-types">discord-api-types@0.36.2</a></td>
-      <td><a href="https://www.npmjs.com/package/mathjs">mathjs@10.6.4</a></td>
+      <td><a href="https://www.npmjs.com/package/discord-api-types">discord-api-types@0.36.3</a></td>
+      <td><a href="https://www.npmjs.com/package/mathjs">mathjs@11.0.1</a></td>
     </tr>
     <tr>
       <td><a href="https://www.npmjs.com/package/discord.js">discord.js@14.0.3</a></td>
