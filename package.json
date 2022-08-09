@@ -1,6 +1,6 @@
 {
   "name": "ava",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Open source discord bot with application commands and a user-friendly interface",
   "main": "index.js",
   "author": "Ooi Yew Shan",
@@ -17,10 +17,10 @@
   },
   "dependencies": {
     "@discordjs/rest": "^1.0.1",
-    "discord-api-types": "^0.36.3",
-    "discord.js": "^14.0.3",
+    "discord-api-types": "^0.37.1",
+    "discord.js": "^14.1.2",
     "dotenv": "^16.0.1",
-    "eslint": "^8.20.0",
+    "eslint": "^8.21.0",
     "mathjs": "^11.0.1",
     "node-fetch": "^2.6.7",
     "nodemon": "^2.0.19"
