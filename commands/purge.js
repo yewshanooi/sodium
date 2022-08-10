@@ -1,5 +1,5 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
-
+const errors = require('../errors.js');
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -8,7 +8,7 @@ module.exports = {
 		.addIntegerOption(option => option.setName('amount').setDescription('Enter an amount (between 1 and 99)').setRequired(true)),
 	cooldown: '10',
 	guildOnly: true,
-	execute (interaction, configuration, errors) {
+	execute (interaction, configuration) {
 		if (!interaction.guild.members.me.permissions.has('ManageMessages')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Manage Messages** permission in `Server Settings > Roles` to use this command.' });
 		if (!interaction.member.permissions.has('ManageMessages')) return interaction.reply({ embeds: [errors[3]] });
 

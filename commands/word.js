@@ -1,5 +1,4 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
-
 const fetch = require('node-fetch');
 
 module.exports = {
@@ -8,7 +7,7 @@ module.exports = {
         .setDescription('Get a random word with its definition and pronunciation'),
     cooldown: '5',
     guildOnly: false,
-    async execute (interaction, configuration, errors) {
+    async execute (interaction, configuration) {
         const Word = await fetch('https://random-words-api.vercel.app/word')
             .then(res => res.json());
 

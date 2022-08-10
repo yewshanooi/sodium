@@ -1,8 +1,8 @@
 const { SlashCommandBuilder } = require('discord.js');
-
 const dotenv = require('dotenv');
     dotenv.config();
 const fetch = require('node-fetch');
+const errors = require('../errors.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -11,7 +11,7 @@ module.exports = {
         .addStringOption(option => option.setName('query').setDescription('Enter a query').setRequired(true)),
     cooldown: '5',
     guildOnly: false,
-    async execute (interaction, configuration, errors) {
+    async execute (interaction) {
         const queryField = interaction.options.getString('query');
 
             if (process.env.GIPHY_API_KEY === '') return interaction.reply({ embeds: [errors[1]], ephemeral: true });

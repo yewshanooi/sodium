@@ -1,13 +1,12 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 
-
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('guildinfo')
 		.setDescription('Display information(s) about the guild'),
 	cooldown: '3',
 	guildOnly: true,
-	execute (interaction, configuration, errors) {
+	execute (interaction, configuration) {
 		const { mfaLevel } = interaction.guild;
 		let resultMfaLevel;
 			if (mfaLevel === 0) resultMfaLevel = 'Disabled';

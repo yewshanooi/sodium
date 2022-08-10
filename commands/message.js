@@ -1,5 +1,5 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
-
+const errors = require('../errors.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -9,7 +9,7 @@ module.exports = {
         .addStringOption(option => option.setName('message').setDescription('Enter a message').setRequired(true)),
     cooldown: '8',
     guildOnly: true,
-    execute (interaction, configuration, errors) {
+    execute (interaction, configuration) {
 		const userField = interaction.options.getUser('user');
             if (userField === interaction.client.user) return interaction.reply({ content: 'Error: You cannot send a message to the bot.' });
             if (userField.bot === true) return interaction.reply({ content: 'Error: You cannot send a message to a bot.' });

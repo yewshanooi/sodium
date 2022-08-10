@@ -1,6 +1,5 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 
-
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('help')
@@ -8,7 +7,7 @@ module.exports = {
 		.addStringOption(option => option.setName('command').setDescription('Enter a command')),
 	cooldown: '0',
 	guildOnly: false,
-	execute (interaction, configuration, errors) {
+	execute (interaction, configuration) {
 		const { commands } = interaction.client;
         const commandField = interaction.options.getString('command');
 

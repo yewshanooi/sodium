@@ -1,5 +1,4 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
-
 const fetch = require('node-fetch');
 
 module.exports = {
@@ -8,7 +7,7 @@ module.exports = {
         .setDescription('Get a random fact'),
     cooldown: '5',
     guildOnly: false,
-    async execute (interaction, configuration, errors) {
+    async execute (interaction, configuration) {
         const Fact = await fetch('https://nekos.life/api/v2/fact')
             .then(res => res.json());
 

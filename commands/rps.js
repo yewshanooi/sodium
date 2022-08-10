@@ -1,13 +1,12 @@
 const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, SlashCommandBuilder } = require('discord.js');
 
-
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('rps')
         .setDescription('Play a game of Rock Paper Scissors with the bot'),
     cooldown: '3',
     guildOnly: false,
-    async execute (interaction, configuration, errors) {
+    async execute (interaction, configuration) {
 
         const embed = new EmbedBuilder()
             .setTitle('Rock Paper Scissors')

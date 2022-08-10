@@ -1,6 +1,5 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 
-
 const answers = [
     'It is certain.',
     'It is decidedly so.',
@@ -31,7 +30,7 @@ module.exports = {
         .addStringOption(option => option.setName('question').setDescription('Enter a question').setRequired(true)),
     cooldown: '3',
     guildOnly: false,
-    execute (interaction, configuration, errors) {
+    execute (interaction, configuration) {
         const questionField = interaction.options.getString('question');
 
         const embed = new EmbedBuilder()

@@ -1,13 +1,12 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 
-
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('diceroll')
         .setDescription('Roll a dice that contain six sides'),
     cooldown: '3',
     guildOnly: false,
-	execute (interaction, configuration, errors) {
+	execute (interaction, configuration) {
         const diceRoll = Math.floor(Math.random() * 6 + 1);
 
         const embed = new EmbedBuilder()

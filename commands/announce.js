@@ -1,6 +1,5 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 
-
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('announce')
@@ -9,7 +8,7 @@ module.exports = {
         .addStringOption(option => option.setName('description').setDescription('Enter a description').setRequired(true)),
     cooldown: '3',
     guildOnly: true,
-    execute (interaction, configuration, errors) {
+    execute (interaction, configuration) {
         const titleField = interaction.options.getString('title');
         const descriptionField = interaction.options.getString('description');
 

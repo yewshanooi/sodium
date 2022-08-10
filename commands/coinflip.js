@@ -1,13 +1,12 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 
-
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('coinflip')
         .setDescription('Flip a two-sided coin'),
     cooldown: '3',
     guildOnly: false,
-    execute (interaction, configuration, errors) {
+    execute (interaction, configuration) {
         const coinFlip = Math.floor(Math.random() * 2);
         let resultCoinFlip;
             if (coinFlip === 1) resultCoinFlip = 'heads';

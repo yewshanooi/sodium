@@ -1,9 +1,10 @@
 const newLocal = require('fs');
 const fs = newLocal;
-const { Client, Collection, GatewayIntentBits, InteractionType, Partials } = require('discord.js');
 const dotenv = require('dotenv');
 	dotenv.config();
-const errors = require('./errors/errors.js');
+const errors = require('./errors.js');
+
+const { Client, Collection, EmbedBuilder, GatewayIntentBits, InteractionType, Partials } = require('discord.js');
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers, GatewayIntentBits.GuildBans, GatewayIntentBits.GuildIntegrations, GatewayIntentBits.GuildWebhooks, GatewayIntentBits.GuildInvites, GatewayIntentBits.GuildVoiceStates, GatewayIntentBits.GuildPresences, GatewayIntentBits.GuildMessages, GatewayIntentBits.GuildMessageReactions, GatewayIntentBits.GuildMessageTyping, GatewayIntentBits.DirectMessages, GatewayIntentBits.DirectMessageReactions, GatewayIntentBits.DirectMessageTyping], partials: [Partials.Channel] });
 client.commands = new Collection();
 
@@ -26,21 +27,15 @@ client.on('interactionCreate', async interaction => {
 	const command = client.commands.get(interaction.commandName);
 
 	if (!command) return;
-	// guildOnlyCmd
+
+	// Outputs an error message if user tries to use guildOnly commands in Direct Messages
 	if (command.guildOnly && interaction.channel.type === 1) {
 		return interaction.reply({ embeds: [errors[0]] });
 	}
-	// noConfig
-	const configPath = './config.json';
-	if (!fs.existsSync(configPath)) {
 
-		/*
-		 * Example:
-		 * {
-		 * "embedColor": "Random"
-		 * }
-		 */
-		return interaction.reply({ embeds: [errors[2]] });
+	// Outputs an error message if config.json file is missing
+	if (!fs.existsSync('./config.json')) {
+		return interaction.reply({ embeds: [errors[2]], ephemeral: true });
 	}
 
 	if (!cooldowns.has(command.data.name)) {
@@ -56,7 +51,12 @@ client.on('interactionCreate', async interaction => {
 
 		if (now < expirationTime) {
 			const timeLeft = (expirationTime - now) / 1000;
-				return interaction.reply({ content: `Please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${command.data.name}\` command.`, ephemeral: true });
+
+				const inCooldown = new EmbedBuilder()
+					.setTitle('Cooldown')
+					.setDescription(`Please wait \`${timeLeft.toFixed(1)}\` more second(s) before reusing the **${command.data.name}** command.`)
+					.setColor('#5555ff');
+				return interaction.reply({ embeds: [inCooldown], ephemeral: true });
 			}
 		}
 
@@ -65,7 +65,7 @@ client.on('interactionCreate', async interaction => {
 
 	try {
 		const configuration = require('./config.json');
-		await command.execute(interaction, configuration, errors);
+		await command.execute(interaction, configuration);
 	}
 	catch (error) {
 		console.error(error);

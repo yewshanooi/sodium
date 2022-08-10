@@ -1,6 +1,5 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 
-
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('userinfo')
@@ -8,7 +7,7 @@ module.exports = {
 		.addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true)),
 	cooldown: '3',
 	guildOnly: true,
-	execute (interaction, configuration, errors) {
+	execute (interaction, configuration) {
 		const userField = interaction.options.getUser('user');
 		const memberUserField = interaction.options.getMember('user');
 

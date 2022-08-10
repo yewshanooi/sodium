@@ -1,6 +1,5 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 
-
 module.exports = {
 	data: new SlashCommandBuilder()
         .setName('roleinfo')
@@ -8,7 +7,7 @@ module.exports = {
         .addRoleOption(option => option.setName('role').setDescription('Select a role').setRequired(true)),
     cooldown: '3',
     guildOnly: true,
-    execute (interaction, configuration, errors) {
+    execute (interaction, configuration) {
         const roleField = interaction.options.getRole('role');
 
         const { mentionable } = roleField;

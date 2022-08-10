@@ -1,6 +1,5 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 
-
 module.exports = {
 	data: new SlashCommandBuilder()
         .setName('channelinfo')
@@ -8,7 +7,7 @@ module.exports = {
         .addChannelOption(option => option.setName('channel').setDescription('Select a channel').setRequired(true)),
     cooldown: '3',
     guildOnly: true,
-    execute (interaction, configuration, errors) {
+    execute (interaction, configuration) {
         const channelField = interaction.options.getChannel('channel');
 
         const { type } = channelField;

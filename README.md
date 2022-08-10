@@ -37,16 +37,16 @@
 `8ball`, `achievement`, `beep`, `catfact`, `chatbot`, `coinflip`, `color`, `compliment`, `crypto`, `diceroll`, `dictionary`, `dogfact`, `fact`, `fortnite`, `giphy`, `github`, `lyrics`, `meme`, `minecraft`, `nasa`, `npm`, `roast`, `rps`, `say`, `spotify`, `urban`, `uselessfact`, `waifu`, `weather`, `wikipedia`, `word`, `youtube`
 
 ###### Utility
-`afk`, `announce`, `botinfo`, `botsetnick`, `calculator`, `channeldelete`, `channelinfo`, `channelrename`, `guildinfo`, `guildname`, `help`, `invite`, `leave`, `message`, `news`, `ping`, `purge`, `roleadd`, `roleinfo`, `roleremove`, `setnick`, `thread`, `threadarchive`, `userinfo`
+`afk`, `announce`, `botinfo`, `botpresence`, `botsetnick`, `calculator`, `channeldelete`, `channelinfo`, `channelrename`, `guildinfo`, `guildname`, `help`, `invite`, `leave`, `message`, `news`, `ping`, `purge`, `roleadd`, `roleinfo`, `roleremove`, `setnick`, `thread`, `threadarchive`, `userinfo`
 
 ###### Moderation
 `ban`, `channellock`, `channelunlock`, `deafen`, `kick`, `slowmode`, `timeout`, `unban`, `undeafen`, `untimeout`, `warn`
 
 **Ava** also comes packed with other features, such as:
-- **Message Embed** and **Buttons** constructor
-- **Application Commands** *(integrated within each guild)*
+- **Message Embed** and **Buttons**
+- **Application Commands** *(formerly known as Slash Commands)*
 - **Watch Together** *(with YouTube Activity)*
-- **Third Party API** commands *(Giphy, GitHub, Reddit, Wikipedia and more!)*
+- **Third Party API** commands *(such as Giphy, Nasa, OpenWeatherMap and more!)*
 
 ## Dependencies
 ###### Node.js
@@ -55,10 +55,6 @@
 ###### Packages
 <table>
   <tbody>
-    <tr>
-      <td><a href="https://www.npmjs.com/package/@discordjs/rest">@discordjs/rest@1.0.1</a></td>
-      <td><a href="https://www.npmjs.com/package/eslint">eslint@8.21.0</a></td>
-    </tr>
     <tr>
       <td><a href="https://www.npmjs.com/package/discord-api-types">discord-api-types@0.37.1</a></td>
       <td><a href="https://www.npmjs.com/package/mathjs">mathjs@11.0.1</a></td>
@@ -70,6 +66,9 @@
     <tr>
       <td><a href="https://www.npmjs.com/package/dotenv">dotenv@16.0.1</a></td>
       <td><a href="https://www.npmjs.com/package/nodemon">nodemon@2.0.19</a></td>
+    </tr>
+    <tr>
+      <td><a href="https://www.npmjs.com/package/eslint">eslint@8.21.0</a></td>
     </tr>
   </tbody>
 </table>
@@ -130,8 +129,10 @@ nodemon
 ```
 https://discord.com/api/oauth2/authorize?client_id={CLIENT_ID}&permissions=1497295481975&scope=bot%20applications.commands
 ```
-<p align="center">
-    <img src=".github/generate_invite_url.png"/>
+
+###### OAuth2 URL Scopes & Permissions
+<p align="left">
+    <img src=".github/generate_oauth2_url.png"/>
 </p>
 
 ## License
@@ -145,4 +146,7 @@ THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ```
 
 ## Contributors
-###### yewshanooi
+<ul>
+  <li><a href="https://github.com/yewshanooi">yewshanooi</a></li>
+  <li><a href="https://github.com/Manzanitabot123">Manzanitabot123</a></li>
+</ul>

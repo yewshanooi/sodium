@@ -9,7 +9,7 @@ module.exports = {
         .setDescription('Start a YouTube activity in voice channel'),
     cooldown: '10',
     guildOnly: true,
-    execute (interaction, configuration, errors) {
+    execute (interaction) {
         if (!interaction.guild.members.me.permissions.has('CreateInstantInvite')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Create Instant Invite** permission in `Server Settings > Roles` to use this command.' });
         if (!interaction.member.voice.channel) return interaction.reply({ content: 'Error: You must join a voice channel to use this command.' });
 

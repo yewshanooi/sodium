@@ -1,13 +1,12 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 
-
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('ping')
 		.setDescription('Calculates Discord API and WebSocket latency'),
 	cooldown: '3',
 	guildOnly: false,
-	execute (interaction, configuration, errors) {
+	execute (interaction, configuration) {
 		const embed = new EmbedBuilder()
 			.setDescription('*Calculating latency..*')
 			.setColor(configuration.embedColor);

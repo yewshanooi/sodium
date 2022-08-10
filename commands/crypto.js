@@ -8,7 +8,7 @@ module.exports = {
         .addStringOption(option => option.setName('currency').setDescription('Enter a cryptocurrency').setRequired(true)),
     cooldown: '5',
     guildOnly: false,
-    async execute (interaction, configuration, errors) {
+    async execute (interaction) {
         const currencyField = interaction.options.getString('currency');
 
         const Crypto = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${currencyField}&order=market_cap_desc`)

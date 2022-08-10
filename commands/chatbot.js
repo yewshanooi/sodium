@@ -1,8 +1,8 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
-
 const dotenv = require('dotenv');
     dotenv.config();
 const fetch = require('node-fetch');
+const errors = require('../errors.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -11,7 +11,7 @@ module.exports = {
         .addStringOption(option => option.setName('message').setDescription('Enter a message').setRequired(true)),
     cooldown: '5',
     guildOnly: false,
-    async execute (interaction, configuration, errors) {
+    async execute (interaction) {
         const uniqueId = interaction.user.id;
         const queryField = interaction.options.getString('message');
 

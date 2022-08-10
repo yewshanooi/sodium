@@ -1,8 +1,8 @@
 const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, SlashCommandBuilder } = require('discord.js');
-
 const dotenv = require('dotenv');
 	dotenv.config();
 const fetch = require('node-fetch');
+const errors = require('../errors.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -11,7 +11,7 @@ module.exports = {
         .addStringOption(option => option.setName('source').setDescription('Select a news source').addChoices({ name: 'Al Jazeera English', value: 'al-jazeera-english' }, { name: 'BBC News', value: 'bbc-news' }, { name: 'CBS News', value: 'cbs-news' }, { name: 'CNN', value: 'cnn' }, { name: 'Reuters', value: 'reuters' }, { name: 'The Verge', value: 'the-verge' }, { name: 'The Wall Street Journal', value: 'the-wall-street-journal' }, { name: 'The Washington Post', value: 'the-washington-post' }).setRequired(true)),
     cooldown: '15',
     guildOnly: false,
-    async execute (interaction, configuration, errors) {
+    async execute (interaction) {
         const sourceField = interaction.options.getString('source');
 
             if (process.env.NEWS_API_KEY === '') return interaction.reply({ embeds: [errors[1]], ephemeral: true });

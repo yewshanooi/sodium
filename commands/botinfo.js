@@ -1,13 +1,12 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 
-
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('botinfo')
         .setDescription('Display information(s) about the bot'),
     cooldown: '3',
     guildOnly: false,
-	execute (interaction, configuration, errors) {
+	execute (interaction, configuration) {
         let totalSeconds = interaction.client.uptime / 1000;
             const days = Math.floor(totalSeconds / 86400);
                 totalSeconds %= 86400;
@@ -20,7 +19,7 @@ module.exports = {
             .setTitle(`${interaction.client.user.tag}`)
             .addFields(
                 { name: 'ID', value: `\`${interaction.client.user.id}\``, inline: true },
-                { name: 'Embed Color (HEX)', value: `\`#${embedColor}\``, inline: true },
+                { name: 'Embed Color (HEX)', value: `\`#${configuration.embedColor}\``, inline: true },
                 { name: 'Creation Date & Time', value: `\`${interaction.client.user.createdAt}\`` },
                 { name: 'Users', value: `\`${interaction.client.users.cache.size}\``, inline: true },
                 { name: 'Channels', value: `\`${interaction.client.channels.cache.size}\``, inline: true },

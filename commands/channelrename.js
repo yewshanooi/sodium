@@ -1,5 +1,5 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
-
+const errors = require('../errors.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -8,7 +8,7 @@ module.exports = {
         .addStringOption(option => option.setName('name').setDescription('Enter a name (max 100 characters)').setRequired(true)),
     cooldown: '8',
     guildOnly: true,
-    execute (interaction, configuration, errors) {
+    execute (interaction, configuration) {
         if (!interaction.guild.members.me.permissions.has('ManageChannels')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Manage Channels** permission in `Server Settings > Roles` to use this command.' });
         if (!interaction.member.permissions.has('ManageChannels')) return interaction.reply({ embeds: [errors[3]] });
 

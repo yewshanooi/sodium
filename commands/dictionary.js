@@ -1,5 +1,4 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
-
 const fetch = require('node-fetch');
 
 module.exports = {
@@ -9,7 +8,7 @@ module.exports = {
         .addStringOption(option => option.setName('query').setDescription('Enter a query').setRequired(true)),
     cooldown: '5',
     guildOnly: false,
-    async execute (interaction, configuration, errors) {
+    async execute (interaction, configuration) {
         const queryField = interaction.options.getString('query');
 
         const Dictionary = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${queryField}`)

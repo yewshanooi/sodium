@@ -1,8 +1,8 @@
 const { EmbedBuilder, ButtonBuilder, ActionRowBuilder, SlashCommandBuilder } = require('discord.js');
-
 const dotenv = require('dotenv');
     dotenv.config();
 const fetch = require('node-fetch');
+const errors = require('../errors.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -11,7 +11,7 @@ module.exports = {
         .addStringOption(option => option.setName('song').setDescription('Enter a song name').setRequired(true)),
     cooldown: '5',
     guildOnly: false,
-    async execute (interaction, configuration, errors) {
+    async execute (interaction) {
         const songField = interaction.options.getString('song');
 
             if (process.env.GENIUS_API_KEY === '') return interaction.reply({ embeds: [errors[1]], ephemeral: true });

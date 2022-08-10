@@ -1,5 +1,5 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
-
+const errors = require('../errors.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -9,7 +9,7 @@ module.exports = {
         .addIntegerOption(option => option.setName('duration').setDescription('Select a duration').addChoices({ name: '1 hour', value: 60 }, { name: '24 hours', value: 1440 }).setRequired(true)),
     cooldown: '10',
     guildOnly: true,
-    async execute (interaction, configuration, errors) {
+    async execute (interaction, configuration) {
         if (!interaction.guild.members.me.permissions.has('ManageThreads')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Manage Threads** permission in `Server Settings > Roles` to use this command.' });
         if (!interaction.member.permissions.has('ManageThreads')) return interaction.reply({ embeds: [errors[3]] });
 

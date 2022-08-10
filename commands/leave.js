@@ -1,5 +1,5 @@
 const { EmbedBuilder, ButtonBuilder, ActionRowBuilder, SlashCommandBuilder } = require('discord.js');
-
+const errors = require('../errors.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -7,7 +7,7 @@ module.exports = {
         .setDescription('Remove the bot from the current guild'),
     cooldown: '15',
     guildOnly: true,
-	execute (interaction, configuration, errors) {
+	execute (interaction, configuration) {
         if (!interaction.member.permissions.has('Administrator')) return interaction.reply({ embeds: [errors[3]] });
 
         const confirmationEmbed = new EmbedBuilder()

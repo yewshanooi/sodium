@@ -1,5 +1,5 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
-
+const errors = require('../errors.js');
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -9,7 +9,7 @@ module.exports = {
         .addBooleanOption(option => option.setName('option').setDescription('Select whether user is AFK').setRequired(true)),
     cooldown: '10',
     guildOnly: true,
-    execute (interaction, configuration, errors) {
+    execute (interaction, configuration) {
         if (!interaction.guild.members.me.permissions.has('ManageNicknames')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Manage Nicknames** permission in `Server Settings > Roles` to use this command.' });
         if (!interaction.member.permissions.has('ManageNicknames')) return interaction.reply({ embeds: [errors[3]] });
 

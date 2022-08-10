@@ -1,5 +1,5 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
-
+const errors = require('../errors.js');
 
 const achievements = [
     'Taking Inventory',
@@ -135,7 +135,7 @@ module.exports = {
         .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true)),
     cooldown: '8',
     guildOnly: true,
-    execute (interaction, configuration, errors) {
+    execute (interaction, configuration) {
         const userField = interaction.options.getUser('user');
             if (userField === interaction.client.user) return interaction.reply({ content: 'Error: You cannot send an achievement to the bot.' });
             if (userField.bot === true) return interaction.reply({ content: 'Error: You cannot send an achievement to a bot.' });

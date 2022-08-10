@@ -7,7 +7,7 @@ module.exports = {
         .setDescription('Bring up a simple calculator'),
     cooldown: '5',
     guildOnly: false,
-    async execute (interaction, configuration, errors) {
+    async execute (interaction) {
         let content = '';
 		let data = '';
 

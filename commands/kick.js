@@ -1,5 +1,5 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
-
+const errors = require('../errors.js');
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -9,7 +9,7 @@ module.exports = {
 		.addStringOption(option => option.setName('reason').setDescription('Enter a reason')),
 	cooldown: '25',
 	guildOnly: true,
-	execute (interaction, configuration, errors) {
+	execute (interaction) {
         if (!interaction.guild.members.me.permissions.has('KickMembers')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Kick Members** permission in `Server Settings > Roles` to use this command.' });
 		if (!interaction.member.permissions.has('KickMembers')) return interaction.reply({ embeds: [errors[3]] });
 

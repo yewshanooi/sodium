@@ -8,7 +8,7 @@ module.exports = {
         .addStringOption(option => option.setName('shade').setDescription('Select a color shade').addChoices({ name: 'Red', value: 'red' }, { name: 'Pink', value: 'pink' }, { name: 'Purple', value: 'purple' }, { name: 'Navy', value: 'navy' }, { name: 'Blue', value: 'blue' }, { name: 'Aqua', value: 'aqua' }, { name: 'Green', value: 'green' }, { name: 'Lime', value: 'lime' }, { name: 'Yellow', value: 'yellow' }, { name: 'Orange', value: 'orange' })),
     cooldown: '3',
     guildOnly: false,
-    async execute (interaction, configuration, errors) {
+    async execute (interaction) {
         const shadesField = interaction.options.getString('shade');
 
         if (!shadesField) {

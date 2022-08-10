@@ -8,7 +8,7 @@ module.exports = {
 		.addBooleanOption(option => option.setName('spoiler').setDescription('Select whether message contains spoiler').setRequired(true)),
 	cooldown: '3',
 	guildOnly: true,
-	execute (interaction, configuration, errors) {
+	execute (interaction, configuration) {
 		const messageField = interaction.options.getString('message');
 		const spoilerField = interaction.options.getBoolean('spoiler');
 

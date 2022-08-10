@@ -1,5 +1,5 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
-
+const errors = require('../errors.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -9,7 +9,7 @@ module.exports = {
         .addIntegerOption(option => option.setName('limit').setDescription('Select the maximum number of uses').addChoices({ name: 'No limit', value: 0 }, { name: '1 use', value: 1 }, { name: '5 uses', value: 5 }, { name: '10 uses', value: 10 }, { name: '25 uses', value: 25 }, { name: '50 uses', value: 50 }, { name: '100 uses', value: 100 }).setRequired(true)),
     cooldown: '15',
     guildOnly: true,
-    async execute (interaction, configuration, errors) {
+    async execute (interaction, configuration) {
         if (!interaction.guild.members.me.permissions.has('CreateInstantInvite')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Create Instant Invite** permission in `Server Settings > Roles` to use this command.' });
         if (!interaction.member.permissions.has('CreateInstantInvite')) return interaction.reply({ embeds: [errors[3]] });
 

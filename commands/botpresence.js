@@ -1,5 +1,5 @@
 const { EmbedBuilder, SlashCommandBuilder, ActivityType } = require('discord.js');
-
+const errors = require('../errors.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -10,7 +10,7 @@ module.exports = {
         .addStringOption(option => option.setName('status').setDescription('Select a status').addChoices({ name: 'Online', value: 'online' }, { name: 'Idle', value: 'idle' }, { name: 'Do Not Disturb', value: 'dnd' }, { name: 'Invisible', value: 'invisible' }).setRequired(true)),
     cooldown: '25',
     guildOnly: true,
-    execute (interaction, configuration, errors) {
+    execute (interaction, configuration) {
         if (!interaction.member.permissions.has('Administrator')) return interaction.reply({ embeds: [errors[3]] });
 
             const activityField = interaction.options.getString('activity');
