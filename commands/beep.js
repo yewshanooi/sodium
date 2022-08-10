@@ -1,5 +1,5 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
-const { embedColor } = require('../config.json');
+
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -7,10 +7,10 @@ module.exports = {
 		.setDescription('Boops back at you!'),
 	cooldown: '3',
 	guildOnly: false,
-	execute (interaction) {
+	execute (interaction, configuration, errors) {
 		const embed = new EmbedBuilder()
 			.setDescription('**Boop!** ✨')
-			.setColor(embedColor);
+			.setColor(configuration.embedColor);
 		interaction.reply({ embeds: [embed] });
 	}
 };

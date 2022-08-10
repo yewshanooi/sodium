@@ -1,6 +1,6 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
-const { embedColor } = require('../config.json');
-const privateDM = require('../errors/privateDM.js');
+
+
 
 const achievements = [
     'Taking Inventory',
@@ -136,7 +136,7 @@ module.exports = {
         .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true)),
     cooldown: '8',
     guildOnly: true,
-    execute (interaction) {
+    execute (interaction, configuration, errors) {
         const userField = interaction.options.getUser('user');
             if (userField === interaction.client.user) return interaction.reply({ content: 'Error: You cannot send an achievement to the bot.' });
             if (userField.bot === true) return interaction.reply({ content: 'Error: You cannot send an achievement to a bot.' });
@@ -146,18 +146,18 @@ module.exports = {
         const embed = new EmbedBuilder()
             .setTitle('Achievement')
             .setDescription(`You have received the achievement **${achievements[Math.floor(Math.random() * achievements.length)]}**`)
-            .setColor(embedColor);
+            .setColor(configuration.embedColor);
 
         const successEmbed = new EmbedBuilder()
             .setDescription(`Successfully send achievement to ${userField}`)
-            .setColor(embedColor);
+            .setColor(configuration.embedColor);
 
         userField.send({ embeds: [embed] })
             .then(() => {
                 interaction.reply({ embeds: [successEmbed], ephemeral: true });
             })
             .catch(() => {
-                interaction.reply({ embeds: [privateDM] });
+                interaction.reply({ embeds: [errors[4] /*privateDM*/ ] });
             });
         }
 };

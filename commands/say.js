@@ -1,5 +1,4 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
-const { embedColor } = require('../config.json');
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -9,21 +8,21 @@ module.exports = {
 		.addBooleanOption(option => option.setName('spoiler').setDescription('Select whether message contains spoiler').setRequired(true)),
 	cooldown: '3',
 	guildOnly: true,
-	execute (interaction) {
+	execute (interaction, configuration, errors) {
 		const messageField = interaction.options.getString('message');
 		const spoilerField = interaction.options.getBoolean('spoiler');
 
 		if (spoilerField === false) {
 			const embed = new EmbedBuilder()
 				.setDescription(`**${interaction.user.username} said:** ${messageField}`)
-				.setColor(embedColor);
+				.setColor(configuration.embedColor);
 			interaction.reply({ embeds: [embed] });
         }
 
 		if (spoilerField === true) {
 			const embed = new EmbedBuilder()
                 .setDescription(`**${interaction.user.username} said:** ||${messageField}||`)
-                .setColor(embedColor);
+                .setColor(configuration.embedColor);
             interaction.reply({ embeds: [embed] });
 		}
 

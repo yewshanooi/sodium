@@ -7,7 +7,7 @@ module.exports = {
         .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true)),
     cooldown: '5',
     guildOnly: true,
-    execute (interaction) {
+    execute (interaction, configuration, errors) {
         const userField = interaction.options.getMember('user');
             if (userField.user.bot === true) return interaction.reply({ content: 'Error: You cannot display a bot current Spotify status.' });
             if (userField.presence === null) return interaction.reply({ content: 'Error: This user is offline or invisible.' });

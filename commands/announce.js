@@ -1,5 +1,5 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
-const { embedColor } = require('../config.json');
+
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -9,7 +9,7 @@ module.exports = {
         .addStringOption(option => option.setName('description').setDescription('Enter a description').setRequired(true)),
     cooldown: '3',
     guildOnly: true,
-    execute (interaction) {
+    execute (interaction, configuration, errors) {
         const titleField = interaction.options.getString('title');
         const descriptionField = interaction.options.getString('description');
 
@@ -17,7 +17,7 @@ module.exports = {
             .setAuthor({ name: `${interaction.user.username}`, iconURL: `${interaction.user.displayAvatarURL({ size: 64 })}` })
             .setTitle(titleField)
             .setDescription(descriptionField)
-            .setColor(embedColor);
+            .setColor(configuration.embedColor);
 
         interaction.reply({ embeds: [embed] });
     }

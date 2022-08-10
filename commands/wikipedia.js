@@ -8,7 +8,7 @@ module.exports = {
         .addStringOption(option => option.setName('title').setDescription('Enter an article title').setRequired(true)),
     cooldown: '5',
     guildOnly: false,
-    async execute (interaction) {
+    async execute (interaction, configuration, errors) {
         const titleField = interaction.options.getString('title');
 
         const Article = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(titleField)}`)

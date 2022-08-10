@@ -1,5 +1,5 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
-const { embedColor } = require('../config.json');
+
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -8,7 +8,7 @@ module.exports = {
         .addChannelOption(option => option.setName('channel').setDescription('Select a channel').setRequired(true)),
     cooldown: '3',
     guildOnly: true,
-    execute (interaction) {
+    execute (interaction, configuration, errors) {
         const channelField = interaction.options.getChannel('channel');
 
         const { type } = channelField;
@@ -37,7 +37,7 @@ module.exports = {
                     { name: 'Age-Restricted', value: `\`${resultNsfw}\``, inline: true },
                     { name: 'Rate Limit', value: `\`${channelField.rateLimitPerUser || '0'}\` second(s)`, inline: true }
                 )
-                .setColor(embedColor);
+                .setColor(configuration.embedColor);
             interaction.reply({ embeds: [embed] });
         }
 };

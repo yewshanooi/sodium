@@ -115,6 +115,8 @@ node index.js
 nodemon
 ```
 
+⚠️ Don't forget to run **deploy.js** file before **index.js** file, otherwise the commands won't appear or they won't be updated. ⚠️
+
 ###### Bot & Application
 1. Visit [Discord Developer Portal](https://discord.com/developers/applications) to create a new application
 
@@ -128,6 +130,9 @@ nodemon
 ```
 https://discord.com/api/oauth2/authorize?client_id={CLIENT_ID}&permissions=1497295481975&scope=bot%20applications.commands
 ```
+<p align="center">
+    <img src=".github/generate_invite_url.png"/>
+</p>
 
 ## License
 This application is licensed under the **MIT License**

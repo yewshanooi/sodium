@@ -1,5 +1,5 @@
 const { EmbedBuilder, ButtonBuilder, ActionRowBuilder, SlashCommandBuilder } = require('discord.js');
-const noAPIKey = require('../errors/noAPIKey.js');
+
 const dotenv = require('dotenv');
     dotenv.config();
 const fetch = require('node-fetch');
@@ -10,8 +10,8 @@ module.exports = {
         .setDescription('Get an Astronomy Picture of the Day from NASA'),
     cooldown: '25',
     guildOnly: false,
-    async execute (interaction) {
-        if (process.env.NASA_API_KEY === '') return interaction.reply({ embeds: [noAPIKey], ephemeral: true });
+    async execute (interaction, configuration, errors) {
+        if (process.env.NASA_API_KEY === '') return interaction.reply({ embeds: [errors[1] /*noAPIKey*/ ], ephemeral: true });
 
         const Nasa = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${process.env.NASA_API_KEY}`)
             .then(res => res.json());

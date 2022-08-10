@@ -1,5 +1,5 @@
 const { EmbedBuilder, ButtonBuilder, ActionRowBuilder, SlashCommandBuilder } = require('discord.js');
-const { embedColor } = require('../config.json');
+
 const fetch = require('node-fetch');
 
 module.exports = {
@@ -8,14 +8,14 @@ module.exports = {
         .setDescription('Get a random useless fact'),
     cooldown: '5',
     guildOnly: false,
-    async execute (interaction) {
+    async execute (interaction, configuration, errors) {
         const Fact = await fetch('https://uselessfacts.jsph.pl/random.json?language=en')
             .then(res => res.json());
 
             const embed = new EmbedBuilder()
                 .setTitle('Useless Fact')
                 .setDescription(`${Fact.text}`)
-                .setColor(embedColor);
+                .setColor(configuration.embedColor);
 
                 const button = new ActionRowBuilder()
                     .addComponents(new ButtonBuilder()

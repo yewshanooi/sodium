@@ -1,6 +1,6 @@
 const { EmbedBuilder, ButtonBuilder, ActionRowBuilder, SlashCommandBuilder } = require('discord.js');
-const { embedColor } = require('../config.json');
-const noPermission = require('../errors/noPermission.js');
+
+
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -8,13 +8,13 @@ module.exports = {
         .setDescription('Remove the bot from the current guild'),
     cooldown: '15',
     guildOnly: true,
-	execute (interaction) {
-        if (!interaction.member.permissions.has('Administrator')) return interaction.reply({ embeds: [noPermission] });
+	execute (interaction, configuration, errors) {
+        if (!interaction.member.permissions.has('Administrator')) return interaction.reply({ embeds: [errors[3] /*noPermission*/ ] });
 
         const confirmationEmbed = new EmbedBuilder()
             .setTitle('Leave')
             .setDescription(`Are you sure you want to remove ${interaction.client.user}?`)
-            .setColor(embedColor);
+            .setColor(configuration.embedColor);
 
         const buttons = new ActionRowBuilder()
             .addComponents(new ButtonBuilder()

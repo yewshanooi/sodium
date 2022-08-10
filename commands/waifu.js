@@ -7,7 +7,7 @@ module.exports = {
         .setDescription('Get anime girl images from Pixiv'),
     cooldown: '5',
     guildOnly: false,
-    async execute (interaction) {
+    async execute (interaction, configuration, errors) {
         const Anime = await fetch('https://nekos.best/api/v2/neko')
             .then(res => res.json());
 

@@ -1,5 +1,5 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
-const { embedColor } = require('../config.json');
+
 
 const answers = [
     'It is certain.',
@@ -31,7 +31,7 @@ module.exports = {
         .addStringOption(option => option.setName('question').setDescription('Enter a question').setRequired(true)),
     cooldown: '3',
     guildOnly: false,
-    execute (interaction) {
+    execute (interaction, configuration, errors) {
         const questionField = interaction.options.getString('question');
 
         const embed = new EmbedBuilder()
@@ -40,7 +40,7 @@ module.exports = {
                 { name: 'Question', value: `${questionField}` },
                 { name: 'Answer', value: `${answers[Math.floor(Math.random() * answers.length)]}` }
             )
-            .setColor(embedColor);
+            .setColor(configuration.embedColor);
         interaction.reply({ embeds: [embed] });
     }
 };

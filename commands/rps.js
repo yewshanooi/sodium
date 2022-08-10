@@ -1,5 +1,5 @@
 const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, SlashCommandBuilder } = require('discord.js');
-const { embedColor } = require('../config.json');
+
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -7,12 +7,12 @@ module.exports = {
         .setDescription('Play a game of Rock Paper Scissors with the bot'),
     cooldown: '3',
     guildOnly: false,
-    async execute (interaction) {
+    async execute (interaction, configuration, errors) {
 
         const embed = new EmbedBuilder()
             .setTitle('Rock Paper Scissors')
             .setDescription('Choose an option')
-            .setColor(embedColor);
+            .setColor(configuration.embedColor);
 
         const buttons = new ActionRowBuilder()
             .addComponents(new ButtonBuilder()
@@ -50,7 +50,7 @@ module.exports = {
                         { name: 'Your choice', value: `${collected.customId}` },
                         { name: 'My choice', value: `${botOption}` }
                     )
-                    .setColor(embedColor);
+                    .setColor(configuration.embedColor);
                 await collected.update({ embeds: [userLostEmbed] }).then(collector.stop());
             }
             else if (collected.customId === botOption) {
@@ -60,7 +60,7 @@ module.exports = {
                         { name: 'Your choice', value: `${collected.customId}` },
                         { name: 'My choice', value: `${botOption}` }
                     )
-                    .setColor(embedColor);
+                    .setColor(configuration.embedColor);
                 await collected.update({ embeds: [tieEmbed] }).then(collector.stop());
             }
             else {
@@ -70,7 +70,7 @@ module.exports = {
                         { name: 'Your choice', value: `${collected.customId}` },
                         { name: 'My choice', value: `${botOption}` }
                     )
-                    .setColor(embedColor);
+                    .setColor(configuration.embedColor);
                 await collected.update({ embeds: [userWonEmbed] }).then(collector.stop());
                 }
             });

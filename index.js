@@ -3,7 +3,7 @@ const fs = newLocal;
 const { Client, Collection, GatewayIntentBits, InteractionType, Partials } = require('discord.js');
 const dotenv = require('dotenv');
 	dotenv.config();
-
+const errors = require('./errors/errors.js');
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers, GatewayIntentBits.GuildBans, GatewayIntentBits.GuildIntegrations, GatewayIntentBits.GuildWebhooks, GatewayIntentBits.GuildInvites, GatewayIntentBits.GuildVoiceStates, GatewayIntentBits.GuildPresences, GatewayIntentBits.GuildMessages, GatewayIntentBits.GuildMessageReactions, GatewayIntentBits.GuildMessageTyping, GatewayIntentBits.DirectMessages, GatewayIntentBits.DirectMessageReactions, GatewayIntentBits.DirectMessageTyping], partials: [Partials.Channel] });
 client.commands = new Collection();
 
@@ -26,10 +26,19 @@ client.on('interactionCreate', async interaction => {
 	const command = client.commands.get(interaction.commandName);
 
 	if (!command) return;
-
+	//guildOnlyCmd
 	if (command.guildOnly && interaction.channel.type === 1) {
-		const guildOnlyCmd = require('./errors/guildOnlyCmd.js');
-		return interaction.reply({ embeds: [guildOnlyCmd] });
+		return interaction.reply({ embeds: [errors[0]] });
+	}
+	//noConfig
+	const configPath = './config.json';
+	if (!fs.existsSync(configPath)) {
+		/* Example:
+		{
+			"embedColor": "Random"
+		}
+		*/
+		return interaction.reply({ embeds: [errors[2]] });
 	}
 
 	if (!cooldowns.has(command.data.name)) {
@@ -53,7 +62,8 @@ client.on('interactionCreate', async interaction => {
 	setTimeout(() => timestamps.delete(interaction.user.id), cooldownAmount);
 
 	try {
-		await command.execute(interaction);
+		const configuration = require('./config.json');
+		await command.execute(interaction, configuration, errors);
 	}
 	catch (error) {
 		console.error(error);

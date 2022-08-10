@@ -1,5 +1,5 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
-const { embedColor } = require('../config.json');
+
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -7,10 +7,10 @@ module.exports = {
 		.setDescription('Calculates Discord API and WebSocket latency'),
 	cooldown: '3',
 	guildOnly: false,
-	execute (interaction) {
+	execute (interaction, configuration, errors) {
 		const embed = new EmbedBuilder()
 			.setDescription('*Calculating latency..*')
-			.setColor(embedColor);
+			.setColor(configuration.embedColor);
 		interaction.reply({ embeds: [embed], fetchReply: true }).then(itr => {
 			const timestamp = itr.createdTimestamp - interaction.createdTimestamp;
 			const newEmbed = new EmbedBuilder()
@@ -19,7 +19,7 @@ module.exports = {
 					{ name: 'API Latency', value: `\`${timestamp}\`ms` },
 					{ name: 'WebSocket Latency', value: `\`${interaction.client.ws.ping}\`ms` }
 				)
-				.setColor(embedColor);
+				.setColor(configuration.embedColor);
 			interaction.editReply({ embeds: [newEmbed] });
 		});
 

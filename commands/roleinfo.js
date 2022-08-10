@@ -1,5 +1,5 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
-const { embedColor } = require('../config.json');
+
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -8,7 +8,7 @@ module.exports = {
         .addRoleOption(option => option.setName('role').setDescription('Select a role').setRequired(true)),
     cooldown: '3',
     guildOnly: true,
-    execute (interaction) {
+    execute (interaction, configuration, errors) {
         const roleField = interaction.options.getRole('role');
 
         const { mentionable } = roleField;
@@ -35,7 +35,7 @@ module.exports = {
                 { name: 'Mentionable', value: `\`${resultMentionable}\``, inline: true },
                 { name: 'Display Separately', value: `\`${resultHoist}\``, inline: true }
             )
-            .setColor(embedColor);
+            .setColor(configuration.embedColor);
         interaction.reply({ embeds: [embed] });
 	}
 };

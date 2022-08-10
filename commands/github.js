@@ -9,7 +9,7 @@ module.exports = {
         .addStringOption(option => option.setName('repository').setDescription('Enter a repository').setRequired(true)),
     cooldown: '5',
     guildOnly: false,
-    async execute (interaction) {
+    async execute (interaction, configuration, errors) {
         const userField = interaction.options.getString('user');
         const repositoryField = interaction.options.getString('repository');
 
