@@ -1,6 +1,5 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
-const { embedColor } = require('../config.json');
-const noPermission = require('../errors/noPermission.js');
+
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -10,9 +9,9 @@ module.exports = {
         .addIntegerOption(option => option.setName('duration').setDescription('Select a duration').addChoices({ name: '1 hour', value: 60 }, { name: '24 hours', value: 1440 }).setRequired(true)),
     cooldown: '10',
     guildOnly: true,
-    async execute (interaction) {
+    async execute (interaction, configuration, errors) {
         if (!interaction.guild.members.me.permissions.has('ManageThreads')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Manage Threads** permission in `Server Settings > Roles` to use this command.' });
-        if (!interaction.member.permissions.has('ManageThreads')) return interaction.reply({ embeds: [noPermission] });
+        if (!interaction.member.permissions.has('ManageThreads')) return interaction.reply({ embeds: [errors[3]] });
 
             const nameField = interaction.options.getString('name');
 
@@ -33,7 +32,7 @@ module.exports = {
                 { name: 'Name', value: `${thread.name}` },
                 { name: 'Archive After', value: `\`${resultDuration}\`` }
             )
-            .setColor(embedColor);
+            .setColor(configuration.embedColor);
 
         interaction.reply({ embeds: [embed] });
     }

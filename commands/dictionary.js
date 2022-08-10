@@ -1,5 +1,5 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
-const { embedColor } = require('../config.json');
+
 const fetch = require('node-fetch');
 
 module.exports = {
@@ -9,7 +9,7 @@ module.exports = {
         .addStringOption(option => option.setName('query').setDescription('Enter a query').setRequired(true)),
     cooldown: '5',
     guildOnly: false,
-    async execute (interaction) {
+    async execute (interaction, configuration, errors) {
         const queryField = interaction.options.getString('query');
 
         const Dictionary = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${queryField}`)
@@ -26,7 +26,7 @@ module.exports = {
                     { name: 'Definition', value: `${Dictionary[0].meanings[0].definitions[0].definition}` },
                     { name: 'Example', value: `${Dictionary[0].meanings[0].definitions[0].example || 'None'}` }
                 )
-                .setColor(embedColor);
+                .setColor(configuration.embedColor);
 
             return interaction.reply({ embeds: [embed] });
         }

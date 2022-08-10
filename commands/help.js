@@ -1,5 +1,5 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
-const { embedColor } = require('../config.json');
+
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -8,7 +8,7 @@ module.exports = {
 		.addStringOption(option => option.setName('command').setDescription('Enter a command')),
 	cooldown: '0',
 	guildOnly: false,
-	execute (interaction) {
+	execute (interaction, configuration, errors) {
 		const { commands } = interaction.client;
         const commandField = interaction.options.getString('command');
 
@@ -17,7 +17,7 @@ module.exports = {
 				.setTitle('Help')
 				.setDescription('**Tip:** To get more info on a specific command use `/help {command}`')
 				.addFields({ name: 'Commands', value: `${commands.map(command => command.data.name).join(', ')}` })
-				.setColor(embedColor);
+				.setColor(configuration.embedColor);
 			interaction.reply({ embeds: [noCommandEmbed] });
 		}
 
@@ -37,7 +37,7 @@ module.exports = {
 						{ name: 'Cooldown', value: `\`${command.cooldown}\` second(s)`, inline: true },
 						{ name: 'Guild Only', value: `\`${resultGuildOnly}\``, inline: true }
 					)
-					.setColor(embedColor);
+					.setColor(configuration.embedColor);
 				interaction.reply({ embeds: [commandEmbed] });
 			}
 		}

@@ -8,7 +8,7 @@ module.exports = {
         .addStringOption(option => option.setName('package').setDescription('Enter a package name').setRequired(true)),
     cooldown: '5',
     guildOnly: false,
-    async execute (interaction) {
+    async execute (interaction, configuration, errors) {
         const packageField = interaction.options.getString('package');
 
         const Npm = await fetch(`https://registry.npmjs.com/${packageField}`)

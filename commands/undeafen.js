@@ -1,5 +1,5 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
-const noPermission = require('../errors/noPermission.js');
+
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -9,9 +9,9 @@ module.exports = {
         .addStringOption(option => option.setName('reason').setDescription('Enter a reason')),
     cooldown: '15',
     guildOnly: true,
-    execute (interaction) {
+    execute (interaction, configuration, errors) {
         if (!interaction.guild.members.me.permissions.has('DeafenMembers')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Deafen Members** permission in `Server Settings > Roles` to use this command.' });
-        if (!interaction.member.permissions.has('DeafenMembers')) return interaction.reply({ embeds: [noPermission] });
+        if (!interaction.member.permissions.has('DeafenMembers')) return interaction.reply({ embeds: [errors[3]] });
 
             const userField = interaction.options.getMember('user');
                 if (userField.user.bot === true) return interaction.reply({ content: 'Error: You cannot undeafen a bot.' });

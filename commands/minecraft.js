@@ -8,7 +8,7 @@ module.exports = {
         .addStringOption(option => option.setName('username').setDescription('Enter a username').setRequired(true)),
     cooldown: '5',
     guildOnly: false,
-    async execute (interaction) {
+    async execute (interaction, configuration, errors) {
         const usernameField = interaction.options.getString('username');
 
         const Mojang = await fetch(`https://api.mojang.com/users/profiles/minecraft/${usernameField}`)

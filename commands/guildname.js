@@ -1,6 +1,5 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
-const { embedColor } = require('../config.json');
-const noPermission = require('../errors/noPermission.js');
+
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -9,16 +8,16 @@ module.exports = {
         .addStringOption(option => option.setName('name').setDescription('Enter a name (max 100 characters)').setRequired(true)),
     cooldown: '20',
     guildOnly: true,
-    execute (interaction) {
+    execute (interaction, configuration, errors) {
         if (!interaction.guild.members.me.permissions.has('ManageGuild')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Manage Guild** permission in `Server Settings > Roles` to use this command.' });
-        if (!interaction.member.permissions.has('ManageGuild')) return interaction.reply({ embeds: [noPermission] });
+        if (!interaction.member.permissions.has('ManageGuild')) return interaction.reply({ embeds: [errors[3]] });
 
         const nameField = interaction.options.getString('name');
             if (nameField.length > '100') return interaction.reply({ content: 'Error: Guild name must be 100 characters or fewer.' });
 
         const embed = new EmbedBuilder()
             .setDescription(`Successfully renamed guild to **${nameField}**`)
-            .setColor(embedColor);
+            .setColor(configuration.embedColor);
         interaction.reply({ embeds: [embed] }).then(interaction.guild.setName(nameField));
     }
 };

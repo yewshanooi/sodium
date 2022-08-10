@@ -1,6 +1,5 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
-const { embedColor } = require('../config.json');
-const noPermission = require('../errors/noPermission.js');
+
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -10,9 +9,9 @@ module.exports = {
         .addRoleOption(option => option.setName('role').setDescription('Select a role').setRequired(true)),
     cooldown: '5',
     guildOnly: true,
-    execute (interaction) {
+    execute (interaction, configuration, errors) {
         if (!interaction.guild.members.me.permissions.has('ManageRoles')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Manage Roles** permission in `Server Settings > Roles` to use this command.' });
-        if (!interaction.member.permissions.has('ManageRoles')) return interaction.reply({ embeds: [noPermission] });
+        if (!interaction.member.permissions.has('ManageRoles')) return interaction.reply({ embeds: [errors[3]] });
 
         const userField = interaction.options.getMember('user');
             if (userField === interaction.member) return interaction.reply({ content: 'Error: You cannot add a role to yourself.' });
@@ -27,7 +26,7 @@ module.exports = {
             else {
                 const embed = new EmbedBuilder()
                     .setDescription(`Successfully added **${roleField}** role to **${userField}** user`)
-                    .setColor(embedColor);
+                    .setColor(configuration.embedColor);
                 interaction.reply({ embeds: [embed] }).then(userField.roles.add(roleField.id));
             }
         }

@@ -1,6 +1,5 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
-const { embedColor } = require('../config.json');
-const noPermission = require('../errors/noPermission.js');
+
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -10,9 +9,9 @@ module.exports = {
         .addIntegerOption(option => option.setName('limit').setDescription('Select the maximum number of uses').addChoices({ name: 'No limit', value: 0 }, { name: '1 use', value: 1 }, { name: '5 uses', value: 5 }, { name: '10 uses', value: 10 }, { name: '25 uses', value: 25 }, { name: '50 uses', value: 50 }, { name: '100 uses', value: 100 }).setRequired(true)),
     cooldown: '15',
     guildOnly: true,
-    async execute (interaction) {
+    async execute (interaction, configuration, errors) {
         if (!interaction.guild.members.me.permissions.has('CreateInstantInvite')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Create Instant Invite** permission in `Server Settings > Roles` to use this command.' });
-        if (!interaction.member.permissions.has('CreateInstantInvite')) return interaction.reply({ embeds: [noPermission] });
+        if (!interaction.member.permissions.has('CreateInstantInvite')) return interaction.reply({ embeds: [errors[3]] });
 
         const durationField = interaction.options.getInteger('duration');
 
@@ -52,7 +51,7 @@ module.exports = {
                     { name: 'Duration', value: `${resultDurationField}`, inline: true },
                     { name: 'Limit', value: `${resultLimitField}`, inline: true }
                 )
-                .setColor(embedColor);
+                .setColor(configuration.embedColor);
 
             interaction.reply({ embeds: [embed] });
         }

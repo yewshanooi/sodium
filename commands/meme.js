@@ -9,7 +9,7 @@ module.exports = {
         .setDescription('Get fresh and new memes from Reddit'),
     cooldown: '5',
     guildOnly: false,
-    async execute (interaction) {
+    async execute (interaction, configuration, errors) {
         const links = [url1, url2];
         const randomLinks = links[Math.floor(Math.random() * links.length)];
 

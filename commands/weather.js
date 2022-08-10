@@ -1,5 +1,5 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
-const noAPIKey = require('../errors/noAPIKey.js');
+
 const dotenv = require('dotenv');
     dotenv.config();
 const fetch = require('node-fetch');
@@ -11,10 +11,10 @@ module.exports = {
         .addStringOption(option => option.setName('location').setDescription('Enter a location').setRequired(true)),
     cooldown: '5',
     guildOnly: false,
-    async execute (interaction) {
+    async execute (interaction, configuration, errors) {
         const locationField = interaction.options.getString('location');
 
-            if (process.env.OPENWEATHERMAP_API_KEY === '') return interaction.reply({ embeds: [noAPIKey], ephemeral: true });
+            if (process.env.OPENWEATHERMAP_API_KEY === '') return interaction.reply({ embeds: [errors[1]], ephemeral: true });
 
         const Weather = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${locationField}&units=metric&appid=${process.env.OPENWEATHERMAP_API_KEY}`)
             .then(res => res.json());

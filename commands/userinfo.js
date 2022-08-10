@@ -1,5 +1,5 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
-const { embedColor } = require('../config.json');
+
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -8,7 +8,7 @@ module.exports = {
 		.addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true)),
 	cooldown: '3',
 	guildOnly: true,
-	execute (interaction) {
+	execute (interaction, configuration, errors) {
 		const userField = interaction.options.getUser('user');
 		const memberUserField = interaction.options.getMember('user');
 
@@ -29,7 +29,7 @@ module.exports = {
 					{ name: 'Role Color (HEX)', value: `\`${memberUserField.displayHexColor}\``, inline: true },
 					{ name: 'Joined Guild At', value: `\`${memberUserField.joinedAt}\`` }
 				)
-				.setColor(embedColor);
+				.setColor(configuration.embedColor);
 			interaction.reply({ embeds: [embedOthers] });
 		}
 };

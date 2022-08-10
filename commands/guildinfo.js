@@ -1,5 +1,5 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
-const { embedColor } = require('../config.json');
+
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -7,7 +7,7 @@ module.exports = {
 		.setDescription('Display information(s) about the guild'),
 	cooldown: '3',
 	guildOnly: true,
-	execute (interaction) {
+	execute (interaction, configuration, errors) {
 		const { mfaLevel } = interaction.guild;
 		let resultMfaLevel;
 			if (mfaLevel === 0) resultMfaLevel = 'Disabled';
@@ -41,7 +41,7 @@ module.exports = {
 				{ name: 'Total Boosts', value: `\`${interaction.guild.premiumSubscriptionCount}\``, inline: true },
 				{ name: 'Boost Level', value: `\`${resultPremiumTier}\``, inline: true }
 			)
-			.setColor(embedColor);
+			.setColor(configuration.embedColor);
 		interaction.reply({ embeds: [embed] });
 	}
 };

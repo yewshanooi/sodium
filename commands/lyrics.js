@@ -1,5 +1,5 @@
 const { EmbedBuilder, ButtonBuilder, ActionRowBuilder, SlashCommandBuilder } = require('discord.js');
-const noAPIKey = require('../errors/noAPIKey.js');
+
 const dotenv = require('dotenv');
     dotenv.config();
 const fetch = require('node-fetch');
@@ -11,10 +11,10 @@ module.exports = {
         .addStringOption(option => option.setName('song').setDescription('Enter a song name').setRequired(true)),
     cooldown: '5',
     guildOnly: false,
-    async execute (interaction) {
+    async execute (interaction, configuration, errors) {
         const songField = interaction.options.getString('song');
 
-            if (process.env.GENIUS_API_KEY === '') return interaction.reply({ embeds: [noAPIKey], ephemeral: true });
+            if (process.env.GENIUS_API_KEY === '') return interaction.reply({ embeds: [errors[1]], ephemeral: true });
 
         const Song = await fetch(`https://api.genius.com/search?q=${encodeURIComponent(songField)}&access_token=${process.env.GENIUS_API_KEY}`)
             .then(res => res.json())

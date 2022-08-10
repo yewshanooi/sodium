@@ -10,7 +10,7 @@ module.exports = {
         .addStringOption(option => option.setName('query').setDescription('Enter a query').setRequired(true)),
     cooldown: '5',
     guildOnly: false,
-    async execute (interaction) {
+    async execute (interaction, configuration, errors) {
         const trim = (str, max) => (str.length > max ? `${str.slice(0, max - 3)}...` : str);
 
 		const term = interaction.options.getString('query');

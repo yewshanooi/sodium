@@ -1,5 +1,5 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
-const { embedColor } = require('../config.json');
+
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -7,7 +7,7 @@ module.exports = {
         .setDescription('Display information(s) about the bot'),
     cooldown: '3',
     guildOnly: false,
-	execute (interaction) {
+	execute (interaction, configuration, errors) {
         let totalSeconds = interaction.client.uptime / 1000;
             const days = Math.floor(totalSeconds / 86400);
                 totalSeconds %= 86400;
@@ -27,7 +27,7 @@ module.exports = {
                 { name: 'Guilds', value: `\`${interaction.client.guilds.cache.size}\``, inline: true },
                 { name: 'Uptime', value: `\`${days}\` day(s), \`${hours}\` hour(s), \`${minutes}\` minute(s), \`${seconds}\` second(s)` }
             )
-            .setColor(embedColor);
+            .setColor(configuration.embedColor);
         interaction.reply({ embeds: [embed] });
 	}
 };

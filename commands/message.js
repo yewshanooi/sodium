@@ -1,6 +1,5 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
-const { embedColor } = require('../config.json');
-const privateDM = require('../errors/privateDM.js');
+
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -10,7 +9,7 @@ module.exports = {
         .addStringOption(option => option.setName('message').setDescription('Enter a message').setRequired(true)),
     cooldown: '8',
     guildOnly: true,
-    execute (interaction) {
+    execute (interaction, configuration, errors) {
 		const userField = interaction.options.getUser('user');
             if (userField === interaction.client.user) return interaction.reply({ content: 'Error: You cannot send a message to the bot.' });
             if (userField.bot === true) return interaction.reply({ content: 'Error: You cannot send a message to a bot.' });
@@ -22,18 +21,18 @@ module.exports = {
             const embed = new EmbedBuilder()
                 .setTitle('Message')
                 .setDescription(`${messageField}\n\n*from \`${interaction.user.tag}\`*`)
-                .setColor(embedColor);
+                .setColor(configuration.embedColor);
 
             const successEmbed = new EmbedBuilder()
                 .setDescription(`Successfully send message to ${userField}`)
-                .setColor(embedColor);
+                .setColor(configuration.embedColor);
 
         userField.send({ embeds: [embed] })
             .then(() => {
                 interaction.reply({ embeds: [successEmbed], ephemeral: true });
             })
             .catch(() => {
-                interaction.reply({ embeds: [privateDM] });
+                interaction.reply({ embeds: [errors[4]] });
             });
         }
 };

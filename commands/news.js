@@ -1,5 +1,5 @@
 const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, SlashCommandBuilder } = require('discord.js');
-const noAPIKey = require('../errors/noAPIKey.js');
+
 const dotenv = require('dotenv');
 	dotenv.config();
 const fetch = require('node-fetch');
@@ -11,10 +11,10 @@ module.exports = {
         .addStringOption(option => option.setName('source').setDescription('Select a news source').addChoices({ name: 'Al Jazeera English', value: 'al-jazeera-english' }, { name: 'BBC News', value: 'bbc-news' }, { name: 'CBS News', value: 'cbs-news' }, { name: 'CNN', value: 'cnn' }, { name: 'Reuters', value: 'reuters' }, { name: 'The Verge', value: 'the-verge' }, { name: 'The Wall Street Journal', value: 'the-wall-street-journal' }, { name: 'The Washington Post', value: 'the-washington-post' }).setRequired(true)),
     cooldown: '15',
     guildOnly: false,
-    async execute (interaction) {
+    async execute (interaction, configuration, errors) {
         const sourceField = interaction.options.getString('source');
 
-            if (process.env.NEWS_API_KEY === '') return interaction.reply({ embeds: [noAPIKey], ephemeral: true });
+            if (process.env.NEWS_API_KEY === '') return interaction.reply({ embeds: [errors[1]], ephemeral: true });
 
         const News = await fetch(`https://newsapi.org/v2/top-headlines?sources=${sourceField}&apiKey=${process.env.NEWS_API_KEY}`)
             .then(res => res.json());

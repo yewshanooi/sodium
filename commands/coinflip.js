@@ -1,5 +1,5 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
-const { embedColor } = require('../config.json');
+
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -7,7 +7,7 @@ module.exports = {
         .setDescription('Flip a two-sided coin'),
     cooldown: '3',
     guildOnly: false,
-    execute (interaction) {
+    execute (interaction, configuration, errors) {
         const coinFlip = Math.floor(Math.random() * 2);
         let resultCoinFlip;
             if (coinFlip === 1) resultCoinFlip = 'heads';
@@ -15,12 +15,12 @@ module.exports = {
 
         const embed = new EmbedBuilder()
             .setDescription('*Flipping coin..*')
-            .setColor(embedColor);
+            .setColor(configuration.embedColor);
         interaction.reply({ embeds: [embed], fetchReply: true }).then(() => {
             const newEmbed = new EmbedBuilder()
                 .setTitle('Coin Flip')
                 .setDescription(`${interaction.member} flipped **${resultCoinFlip}**`)
-                .setColor(embedColor);
+                .setColor(configuration.embedColor);
             interaction.editReply({ embeds: [newEmbed] });
         });
 
