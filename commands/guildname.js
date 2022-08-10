@@ -1,7 +1,6 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 
 
-
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('guildname')
@@ -11,7 +10,7 @@ module.exports = {
     guildOnly: true,
     execute (interaction, configuration, errors) {
         if (!interaction.guild.members.me.permissions.has('ManageGuild')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Manage Guild** permission in `Server Settings > Roles` to use this command.' });
-        if (!interaction.member.permissions.has('ManageGuild')) return interaction.reply({ embeds: [errors[3] /*noPermission*/ ] });
+        if (!interaction.member.permissions.has('ManageGuild')) return interaction.reply({ embeds: [errors[3]] });
 
         const nameField = interaction.options.getString('name');
             if (nameField.length > '100') return interaction.reply({ content: 'Error: Guild name must be 100 characters or fewer.' });

@@ -15,8 +15,8 @@ module.exports = {
         const uniqueId = interaction.user.id;
         const queryField = interaction.options.getString('message');
 
-            if (process.env.BRAINSHOP_BID === '') return interaction.reply({ embeds: [errors[1] /*noAPIKey*/ ], ephemeral: true });
-            if (process.env.BRAINSHOP_API_KEY === '') return interaction.reply({ embeds: [errors[1] /*noAPIKey*/ ], ephemeral: true });
+            if (process.env.BRAINSHOP_BID === '') return interaction.reply({ embeds: [errors[1]], ephemeral: true });
+            if (process.env.BRAINSHOP_API_KEY === '') return interaction.reply({ embeds: [errors[1]], ephemeral: true });
 
         const Answer = await fetch(`http://api.brainshop.ai/get?bid=${process.env.BRAINSHOP_BID}&key=${process.env.BRAINSHOP_API_KEY}&uid=${uniqueId}&msg=${encodeURIComponent(queryField)}`)
             .then(res => res.json())

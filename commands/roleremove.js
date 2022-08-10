@@ -1,7 +1,6 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 
 
-
 module.exports = {
 	data: new SlashCommandBuilder()
         .setName('roleremove')
@@ -12,7 +11,7 @@ module.exports = {
     guildOnly: true,
     execute (interaction, configuration, errors) {
         if (!interaction.guild.members.me.permissions.has('ManageRoles')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Manage Roles** permission in `Server Settings > Roles` to use this command.' });
-        if (!interaction.member.permissions.has('ManageRoles')) return interaction.reply({ embeds: [errors[3] /*noPermission*/ ] });
+        if (!interaction.member.permissions.has('ManageRoles')) return interaction.reply({ embeds: [errors[3]] });
 
         const userField = interaction.options.getMember('user');
 

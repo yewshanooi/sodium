@@ -1,7 +1,6 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 
 
-
 const compliments = [
   'Your smile is contagious.',
   'You look great today.',
@@ -134,7 +133,7 @@ module.exports = {
                 interaction.reply({ embeds: [successEmbed], ephemeral: true });
             })
             .catch(() => {
-                interaction.reply({ embeds: [errors[4] /*privateDM*/ ] });
+                interaction.reply({ embeds: [errors[4]] });
             });
         }
 };

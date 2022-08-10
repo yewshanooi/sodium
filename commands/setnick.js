@@ -1,7 +1,6 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 
 
-
 module.exports = {
 	data: new SlashCommandBuilder()
         .setName('setnick')
@@ -12,7 +11,7 @@ module.exports = {
     guildOnly: true,
     execute (interaction, configuration, errors) {
         if (!interaction.guild.members.me.permissions.has('ManageNicknames')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Manage Nicknames** permission in `Server Settings > Roles` to use this command.' });
-        if (!interaction.member.permissions.has('ManageNicknames')) return interaction.reply({ embeds: [errors[3] /*noPermission*/ ] });
+        if (!interaction.member.permissions.has('ManageNicknames')) return interaction.reply({ embeds: [errors[3]] });
 
         const userField = interaction.options.getMember('user');
             if (userField === interaction.member) return interaction.reply({ content: 'Error: You cannot change your own nickname.' });

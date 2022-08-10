@@ -14,7 +14,7 @@ module.exports = {
     async execute (interaction, configuration, errors) {
         const queryField = interaction.options.getString('query');
 
-            if (process.env.GIPHY_API_KEY === '') return interaction.reply({ embeds: [errors[1] /*noAPIKey*/ ], ephemeral: true });
+            if (process.env.GIPHY_API_KEY === '') return interaction.reply({ embeds: [errors[1]], ephemeral: true });
 
         const Gif = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${process.env.GIPHY_API_KEY}&limit=1&q=${encodeURIComponent(queryField)}`)
             .then(res => res.json())

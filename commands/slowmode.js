@@ -1,7 +1,6 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 
 
-
 module.exports = {
 	data: new SlashCommandBuilder()
         .setName('slowmode')
@@ -11,7 +10,7 @@ module.exports = {
     guildOnly: true,
     execute (interaction, configuration, errors) {
         if (!interaction.guild.members.me.permissions.has('ManageChannels')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Manage Channels** permission in `Server Settings > Roles` to use this command.' });
-        if (!interaction.member.permissions.has('ManageChannels')) return interaction.reply({ embeds: [errors[3] /*noPermission*/ ] });
+        if (!interaction.member.permissions.has('ManageChannels')) return interaction.reply({ embeds: [errors[3]] });
 
         const durationField = interaction.options.getInteger('duration');
             if (durationField < 0 || durationField > 21600) return interaction.reply({ content: 'Error: You need to input a valid integer between `0` and `21600`.' });

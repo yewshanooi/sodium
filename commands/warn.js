@@ -1,7 +1,6 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 
 
-
 module.exports = {
 	data: new SlashCommandBuilder()
         .setName('warn')
@@ -12,7 +11,7 @@ module.exports = {
     guildOnly: true,
     execute (interaction, configuration, errors) {
         if (!interaction.guild.members.me.permissions.has('ManageMessages')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Manage Messages** permission in `Server Settings > Roles` to use this command.' });
-        if (!interaction.member.permissions.has('ManageMessages')) return interaction.reply({ embeds: [errors[3] /*noPermission*/ ] });
+        if (!interaction.member.permissions.has('ManageMessages')) return interaction.reply({ embeds: [errors[3]] });
 
             const userField = interaction.options.getMember('user');
                 if (userField.user.bot === true) return interaction.reply({ content: 'Error: You cannot warn a bot.' });
@@ -49,7 +48,7 @@ module.exports = {
                 interaction.reply({ embeds: [embed] });
             })
             .catch(() => {
-                interaction.reply({ embeds: [errors[4] /*privateDM*/ ] });
+                interaction.reply({ embeds: [errors[4]] });
             });
         }
 };

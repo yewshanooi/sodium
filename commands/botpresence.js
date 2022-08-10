@@ -7,11 +7,11 @@ module.exports = {
         .setDescription('Change bot\'s current presence in every server')
         .addStringOption(option => option.setName('activity').setDescription('Enter an activity').setRequired(true))
         .addStringOption(option => option.setName('type').setDescription('Select a type').addChoices({ name: 'Playing', value: 'Playing' }, { name: 'Listening', value: 'Listening' }, { name: 'Watching', value: 'Watching' }, { name: 'Competing', value: 'Competing' }).setRequired(true))
-        .addStringOption(option => option.setName('status').setDescription('Select a status').addChoices({ name: 'Online', value: 'online' }, { name: 'Idle', value: 'idle' }, { name: 'Do Not Disturb', value: 'dnd' }, { name: 'Invisible', value: 'invisible' }).setRequired(true)), 
+        .addStringOption(option => option.setName('status').setDescription('Select a status').addChoices({ name: 'Online', value: 'online' }, { name: 'Idle', value: 'idle' }, { name: 'Do Not Disturb', value: 'dnd' }, { name: 'Invisible', value: 'invisible' }).setRequired(true)),
     cooldown: '25',
     guildOnly: true,
     execute (interaction, configuration, errors) {
-        if (!interaction.member.permissions.has('Administrator')) return interaction.reply({ embeds: [errors[3] /*noPermission*/ ] });
+        if (!interaction.member.permissions.has('Administrator')) return interaction.reply({ embeds: [errors[3]] });
 
             const activityField = interaction.options.getString('activity');
 

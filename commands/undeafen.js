@@ -11,7 +11,7 @@ module.exports = {
     guildOnly: true,
     execute (interaction, configuration, errors) {
         if (!interaction.guild.members.me.permissions.has('DeafenMembers')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Deafen Members** permission in `Server Settings > Roles` to use this command.' });
-        if (!interaction.member.permissions.has('DeafenMembers')) return interaction.reply({ embeds: [errors[3] /*noPermission*/ ] });
+        if (!interaction.member.permissions.has('DeafenMembers')) return interaction.reply({ embeds: [errors[3]] });
 
             const userField = interaction.options.getMember('user');
                 if (userField.user.bot === true) return interaction.reply({ content: 'Error: You cannot undeafen a bot.' });

@@ -12,7 +12,7 @@ module.exports = {
     guildOnly: true,
     execute (interaction, configuration, errors) {
         if (!interaction.guild.members.me.permissions.has('ModerateMembers')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Moderate Members** permission in `Server Settings > Roles` to use this command.' });
-        if (!interaction.member.permissions.has('ModerateMembers')) return interaction.reply({ embeds: [errors[3] /*noPermission*/ ] });
+        if (!interaction.member.permissions.has('ModerateMembers')) return interaction.reply({ embeds: [errors[3]] });
 
             const userField = interaction.options.getMember('user');
             const durationField = interaction.options.getInteger('duration');

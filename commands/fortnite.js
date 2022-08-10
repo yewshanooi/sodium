@@ -14,7 +14,7 @@ module.exports = {
     async execute (interaction, configuration, errors) {
         const usernameField = interaction.options.getString('username');
 
-            if (process.env.FORTNITE_API_KEY === '') return interaction.reply({ embeds: [errors[1] /*noAPIKey*/ ], ephemeral: true });
+            if (process.env.FORTNITE_API_KEY === '') return interaction.reply({ embeds: [errors[1]], ephemeral: true });
 
         const Fortnite = await fetch(`https://fortnite-api.com/v2/stats/br/v2?name=${usernameField}`, {
             headers: {

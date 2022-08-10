@@ -1,7 +1,6 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 
 
-
 const achievements = [
     'Taking Inventory',
     'Getting Wood',
@@ -157,7 +156,7 @@ module.exports = {
                 interaction.reply({ embeds: [successEmbed], ephemeral: true });
             })
             .catch(() => {
-                interaction.reply({ embeds: [errors[4] /*privateDM*/ ] });
+                interaction.reply({ embeds: [errors[4]] });
             });
         }
 };

@@ -1,7 +1,6 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 
 
-
 const roasts = [
     'Bards will chant parables of your legendary stupidity for centuries, You',
     'Don\'t play hard to get when you are hard to want',
@@ -103,7 +102,7 @@ module.exports = {
                 interaction.reply({ embeds: [successEmbed], ephemeral: true });
             })
             .catch(() => {
-                interaction.reply({ embeds: [errors[4] /*privateDM*/ ] });
+                interaction.reply({ embeds: [errors[4]] });
             });
         }
 };

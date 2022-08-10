@@ -11,7 +11,7 @@ module.exports = {
     cooldown: '25',
     guildOnly: false,
     async execute (interaction, configuration, errors) {
-        if (process.env.NASA_API_KEY === '') return interaction.reply({ embeds: [errors[1] /*noAPIKey*/ ], ephemeral: true });
+        if (process.env.NASA_API_KEY === '') return interaction.reply({ embeds: [errors[1]], ephemeral: true });
 
         const Nasa = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${process.env.NASA_API_KEY}`)
             .then(res => res.json());

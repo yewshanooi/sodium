@@ -11,7 +11,7 @@ module.exports = {
 	guildOnly: true,
     execute (interaction, configuration, errors) {
 		if (!interaction.guild.members.me.permissions.has('BanMembers')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Ban Members** permission in `Server Settings > Roles` to use this command.' });
-		if (!interaction.member.permissions.has('BanMembers')) return interaction.reply({ embeds: [errors[3] /*noPermission*/ ] });
+		if (!interaction.member.permissions.has('BanMembers')) return interaction.reply({ embeds: [errors[3]] });
 
 			const userIdField = interaction.options.getString('user_id');
 

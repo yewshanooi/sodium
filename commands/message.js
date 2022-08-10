@@ -1,7 +1,6 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 
 
-
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('message')
@@ -33,7 +32,7 @@ module.exports = {
                 interaction.reply({ embeds: [successEmbed], ephemeral: true });
             })
             .catch(() => {
-                interaction.reply({ embeds: [errors[4] /*privateDM*/ ] });
+                interaction.reply({ embeds: [errors[4]] });
             });
         }
 };

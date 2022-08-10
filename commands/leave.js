@@ -1,7 +1,6 @@
 const { EmbedBuilder, ButtonBuilder, ActionRowBuilder, SlashCommandBuilder } = require('discord.js');
 
 
-
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('leave')
@@ -9,7 +8,7 @@ module.exports = {
     cooldown: '15',
     guildOnly: true,
 	execute (interaction, configuration, errors) {
-        if (!interaction.member.permissions.has('Administrator')) return interaction.reply({ embeds: [errors[3] /*noPermission*/ ] });
+        if (!interaction.member.permissions.has('Administrator')) return interaction.reply({ embeds: [errors[3]] });
 
         const confirmationEmbed = new EmbedBuilder()
             .setTitle('Leave')

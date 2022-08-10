@@ -14,7 +14,7 @@ module.exports = {
     async execute (interaction, configuration, errors) {
         const songField = interaction.options.getString('song');
 
-            if (process.env.GENIUS_API_KEY === '') return interaction.reply({ embeds: [errors[1] /*noAPIKey*/ ], ephemeral: true });
+            if (process.env.GENIUS_API_KEY === '') return interaction.reply({ embeds: [errors[1]], ephemeral: true });
 
         const Song = await fetch(`https://api.genius.com/search?q=${encodeURIComponent(songField)}&access_token=${process.env.GENIUS_API_KEY}`)
             .then(res => res.json())

@@ -1,7 +1,6 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 
 
-
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('purge')
@@ -11,7 +10,7 @@ module.exports = {
 	guildOnly: true,
 	execute (interaction, configuration, errors) {
 		if (!interaction.guild.members.me.permissions.has('ManageMessages')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Manage Messages** permission in `Server Settings > Roles` to use this command.' });
-		if (!interaction.member.permissions.has('ManageMessages')) return interaction.reply({ embeds: [errors[3] /*noPermission*/ ] });
+		if (!interaction.member.permissions.has('ManageMessages')) return interaction.reply({ embeds: [errors[3]] });
 
 		const amountField = interaction.options.getInteger('amount');
 			if (amountField < 1 || amountField > 99) return interaction.reply({ content: 'Error: You need to input a valid integer between `1` and `99`.' });

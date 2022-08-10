@@ -26,18 +26,20 @@ client.on('interactionCreate', async interaction => {
 	const command = client.commands.get(interaction.commandName);
 
 	if (!command) return;
-	//guildOnlyCmd
+	// guildOnlyCmd
 	if (command.guildOnly && interaction.channel.type === 1) {
 		return interaction.reply({ embeds: [errors[0]] });
 	}
-	//noConfig
+	// noConfig
 	const configPath = './config.json';
 	if (!fs.existsSync(configPath)) {
-		/* Example:
-		{
-			"embedColor": "Random"
-		}
-		*/
+
+		/*
+		 * Example:
+		 * {
+		 * "embedColor": "Random"
+		 * }
+		 */
 		return interaction.reply({ embeds: [errors[2]] });
 	}
 
