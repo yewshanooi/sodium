@@ -50,7 +50,7 @@
 
 ## Dependencies
 ###### Node.js
-**Node.js v16.9.0** or newer is required
+Node.js version **≥16.9.0** is required
 
 ###### Packages
 <table>
@@ -113,8 +113,7 @@ node index.js
  -or-
 nodemon
 ```
-
-⚠️ Don't forget to run **deploy.js** file before **index.js** file, otherwise the commands won't appear or they won't be updated. ⚠️
+💡 *Don't forget to run **deploy.js** file before **index.js** file, otherwise the commands won't appear as they are not updated*
 
 ###### Bot & Application
 1. Visit [Discord Developer Portal](https://discord.com/developers/applications) to create a new application
@@ -126,7 +125,7 @@ nodemon
 4. Enable `PRESENCE INTENT` and `SERVER MEMBERS INTENT` privileged gateway intent option for the application **(REQUIRED)**
 
 5. Replace this **OAuth2 URL** template with your **Client ID** and paste it in your browser to invite the application to your server
-```
+```url
 https://discord.com/api/oauth2/authorize?client_id={CLIENT_ID}&permissions=1497295481975&scope=bot%20applications.commands
 ```
 
@@ -146,7 +145,5 @@ THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ```
 
 ## Contributors
-<ul>
-  <li><a href="https://github.com/yewshanooi">yewshanooi</a></li>
-  <li><a href="https://github.com/Manzanitabot123">Manzanitabot123</a></li>
-</ul>
+- [yewshanooi](https://github.com/yewshanooi)
+- [Manzanitabot123](https://github.com/Manzanitabot123)

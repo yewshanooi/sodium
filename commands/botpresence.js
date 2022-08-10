@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const { EmbedBuilder, SlashCommandBuilder, ActivityType } = require('discord.js');
 const errors = require('../errors.js');
 

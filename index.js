@@ -1,3 +1,4 @@
+/* eslint-disable no-sync */
 const newLocal = require('fs');
 const fs = newLocal;
 const dotenv = require('dotenv');
