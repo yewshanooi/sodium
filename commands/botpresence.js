@@ -24,9 +24,11 @@ module.exports = {
                     if (typeField === 'Competing') resultType = ActivityType.Competing;
                     if (typeField === 'Streaming') resultType = ActivityType.Streaming;
 
-            let streamLink = interaction.options.getString('link')
+            let streamLink = interaction.options.getString('link');
             let resultLink = streamLink;
-                    if (!streamLink || !streamLink.includes("youtube.com") && !streamLink.includes("twitch.tv")) { resultLink = "None"; streamLink = "https://www.twitch.tv/discord"};
+                    if (!streamLink || !streamLink.includes("youtube.com") && !streamLink.includes("twitch.tv")) {
+ resultLink = "None"; streamLink = "https://www.twitch.tv/discord";
+}
 
             const statusField = interaction.options.getString('status');
             let resultStatus;
