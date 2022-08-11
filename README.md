@@ -60,7 +60,7 @@ Node.js version **≥16.9.0** is required
       <td><a href="https://www.npmjs.com/package/mathjs">mathjs@11.0.1</a></td>
     </tr>
     <tr>
-      <td><a href="https://www.npmjs.com/package/discord.js">discord.js@14.1.2</a></td>
+      <td><a href="https://www.npmjs.com/package/discord.js">discord.js@14.2.0</a></td>
       <td><a href="https://www.npmjs.com/package/node-fetch">node-fetch@2.6.7</a></td>
     </tr>
     <tr>

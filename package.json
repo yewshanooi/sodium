@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "discord-api-types": "^0.37.1",
-    "discord.js": "^14.1.2",
+    "discord.js": "^14.2.0",
     "dotenv": "^16.0.1",
     "eslint": "^8.21.0",
     "mathjs": "^11.0.1",
