@@ -26,10 +26,10 @@ module.exports = {
 
             let streamLink = interaction.options.getString('link');
             let resultLink = streamLink;
-                    if (!streamLink || !streamLink.includes("youtube.") && !streamLink.includes("twitch.")) { 
-                        resultLink = "None"; 
+                    if (!streamLink || !streamLink.includes("youtube.") && !streamLink.includes("twitch.")) {
+                        resultLink = "None";
                         streamLink = "https://www.twitch.tv/discord";
-                    };
+                    }
 
             const statusField = interaction.options.getString('status');
             let resultStatus;
