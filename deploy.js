@@ -7,7 +7,7 @@ const commands = [];
 const commandFolder = fs.readdirSync('./commands');
 
 for (const categories of commandFolder) {
-	for (const cmdFile of fs.readdirSync('commands/' + categories).filter(file => file.endsWith('.js'))) {
+	for (const cmdFile of fs.readdirSync(`commands/${categories}`).filter(file => file.endsWith('.js'))) {
 		const command = require(`./commands/${categories}/${cmdFile}`);
 		commands.push(command.data.toJSON());
 	}

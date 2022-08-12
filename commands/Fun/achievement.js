@@ -1,5 +1,4 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
-const errors = require('../../errors');
 
 const achievements = [
     'Taking Inventory',

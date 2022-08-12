@@ -36,7 +36,7 @@ module.exports = {
             .addFields(
                 { name: 'Activity', value: `${activityField}` },
                 { name: 'Type', value: `\`${typeField}\``, inline: true },
-                { name: 'Status', value: `\`${resultStatus}\``, inline: true },
+                { name: 'Status', value: `\`${resultStatus}\``, inline: true }
             )
             .setColor(configuration.embedColor);
 
@@ -46,7 +46,7 @@ module.exports = {
                     resultLink = 'None ```Example: https://www.twitch.tv/discord ```';
                     linkField = 'https://www.twitch.tv/discord';
                 }
-                if ( typeField === "Streaming" ) embed.addFields({ name: 'Stream Link', value: `${resultLink}` });
+                if (typeField === "Streaming") embed.addFields({ name: 'Stream Link', value: `${resultLink}` });
             
             interaction.client.user.setPresence({ activities: [{ name: `${activityField}`, type: resultType, url: linkField }], status: `${statusField}` });
                 interaction.reply({ embeds: [embed] });
