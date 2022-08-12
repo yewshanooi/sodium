@@ -3,20 +3,15 @@ const newLocal = require('fs');
 const fs = newLocal;
 const dotenv = require('dotenv');
 	dotenv.config();
-// ERROR MESSAGE FILE
 global.errors = require('./errors.js');
-// CAPITAL FIRST LETTER
-global.capitalize = function capitalize (str) {
- return str && str[0].toUpperCase() + str.slice(1);
-};
 
 const { Client, Collection, EmbedBuilder, GatewayIntentBits, InteractionType, Partials } = require('discord.js');
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers, GatewayIntentBits.GuildBans, GatewayIntentBits.GuildIntegrations, GatewayIntentBits.GuildWebhooks, GatewayIntentBits.GuildInvites, GatewayIntentBits.GuildVoiceStates, GatewayIntentBits.GuildPresences, GatewayIntentBits.GuildMessages, GatewayIntentBits.GuildMessageReactions, GatewayIntentBits.GuildMessageTyping, GatewayIntentBits.DirectMessages, GatewayIntentBits.DirectMessageReactions, GatewayIntentBits.DirectMessageTyping], partials: [Partials.Channel] });
 client.commands = new Collection();
 
-const commandFolder = fs.readdirSync('./commands');
+const commandsFolder = fs.readdirSync('./commands');
 
-for (const categories of commandFolder) {
+for (const categories of commandsFolder) {
 	for (const cmdFile of fs.readdirSync(`commands/${categories}`).filter(file => file.endsWith('.js'))) {
 		const command = require(`./commands/${categories}/${cmdFile}`);
 		client.commands.set(command.data.name, command);
