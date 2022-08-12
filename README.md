@@ -113,7 +113,7 @@ node index.js
  -or-
 nodemon
 ```
-💡 *Don't forget to run **deploy.js** file before **index.js** file, otherwise the commands won't appear as they are not updated*
+💡 *Don't forget to run **deploy.js** file before **index.js** file, otherwise commands won't appear as they are not updated*
 
 ###### Bot & Application
 1. Visit [Discord Developer Portal](https://discord.com/developers/applications) to create a new application

@@ -3,17 +3,22 @@ const newLocal = require('fs');
 const fs = newLocal;
 const dotenv = require('dotenv');
 	dotenv.config();
-const errors = require('./errors.js');
+//ERROR MESSAGE FILE
+global.errors = require('./errors.js');
+//CAPITAL FIRST LETTER
+global.capitalize = function(s){return s && s[0].toUpperCase() + s.slice(1);};
 
 const { Client, Collection, EmbedBuilder, GatewayIntentBits, InteractionType, Partials } = require('discord.js');
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers, GatewayIntentBits.GuildBans, GatewayIntentBits.GuildIntegrations, GatewayIntentBits.GuildWebhooks, GatewayIntentBits.GuildInvites, GatewayIntentBits.GuildVoiceStates, GatewayIntentBits.GuildPresences, GatewayIntentBits.GuildMessages, GatewayIntentBits.GuildMessageReactions, GatewayIntentBits.GuildMessageTyping, GatewayIntentBits.DirectMessages, GatewayIntentBits.DirectMessageReactions, GatewayIntentBits.DirectMessageTyping], partials: [Partials.Channel] });
 client.commands = new Collection();
 
-const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+const commandFolder = fs.readdirSync('./commands');
 
-for (const file of commandFiles) {
-	const command = require(`./commands/${file}`);
-	client.commands.set(command.data.name, command);
+for (const categories of commandFolder) {
+	for (const cmdFile of fs.readdirSync('commands/' + categories).filter(file => file.endsWith('.js'))) {
+		const command = require(`./commands/${categories}/${cmdFile}`);
+		client.commands.set(command.data.name, command);
+	}
 }
 
 const cooldowns = new Collection();
@@ -31,12 +36,12 @@ client.on('interactionCreate', async interaction => {
 
 	// Outputs an error message if user tries to use guildOnly commands in Direct Messages
 	if (command.guildOnly && interaction.channel.type === 1) {
-		return interaction.reply({ embeds: [errors[0]] });
+		return interaction.reply({ embeds: [global.errors[0]] });
 	}
 
 	// Outputs an error message if config.json file is missing
 	if (!fs.existsSync('./config.json')) {
-		return interaction.reply({ embeds: [errors[2]], ephemeral: true });
+		return interaction.reply({ embeds: [global.errors[2]], ephemeral: true });
 	}
 
 	if (!cooldowns.has(command.data.name)) {
