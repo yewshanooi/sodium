@@ -7,8 +7,8 @@ const dotenv = require('dotenv');
 global.errors = require('./errors.js');
 // CAPITAL FIRST LETTER
 global.capitalize = function capitalize(str){
-return str && str[0].toUpperCase() + str.slice(1);
-};
+ return str && str[0].toUpperCase() + str.slice(1);
+}
 
 const { Client, Collection, EmbedBuilder, GatewayIntentBits, InteractionType, Partials } = require('discord.js');
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers, GatewayIntentBits.GuildBans, GatewayIntentBits.GuildIntegrations, GatewayIntentBits.GuildWebhooks, GatewayIntentBits.GuildInvites, GatewayIntentBits.GuildVoiceStates, GatewayIntentBits.GuildPresences, GatewayIntentBits.GuildMessages, GatewayIntentBits.GuildMessageReactions, GatewayIntentBits.GuildMessageTyping, GatewayIntentBits.DirectMessages, GatewayIntentBits.DirectMessageReactions, GatewayIntentBits.DirectMessageTyping], partials: [Partials.Channel] });

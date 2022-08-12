@@ -31,8 +31,8 @@ module.exports = {
 				)
 				.setColor(configuration.embedColor);
 			interaction.reply({ embeds: [commandEmbed] });
-		} 
-else {
+		}
+ else {
 			// Primary or 1 | Secondary or 2 | Success or 3 | Danger or 4 | Link or 5
 			const buttons = [
 				new ButtonBuilder()
@@ -74,23 +74,23 @@ else {
 						box.components[1].setDisabled(false);
 						box.components[2].setDisabled(false);
 						await collected.deferUpdate();
-						interaction.editReply({ embeds: [noCommandEmbed], components: [box] })
-					} 
-else if (value === "modCategory") {
-						noCommandEmbed.data.fields[0] = { name: `Moderation commands [${moderation.map(commandC => commandC.data.name).length}]:`, value: moderation.map(commandD => "**☆** \`"+commandD.data.name+"\`").join('\n') }
+						interaction.editReply({ embeds: [noCommandEmbed], components: [box] });
+					}
+ else if (value === "modCategory") {
+						noCommandEmbed.data.fields[0] = { name: `Moderation commands [${moderation.map(commandC => commandC.data.name).length}]:`, value: moderation.map(commandD => `**☆** \`${commandD.data.name}\``).join('\n') };
 						box.components[0].setDisabled(false);
 						box.components[1].setDisabled(true);
 						box.components[2].setDisabled(false);
 						await collected.deferUpdate();
-						interaction.editReply({ embeds: [noCommandEmbed], components: [box] })
-					} 
-else if (value === "utilityCategory") {
-						noCommandEmbed.data.fields[0] = { name: `Utility commands [${utility.map(commandE => commandE.data.name).length}]:`, value: utility.map(commandF => "**☆** \`"+commandF.data.name+"\`").join('\n') }
+						interaction.editReply({ embeds: [noCommandEmbed], components: [box] });
+					}
+ else if (value === "utilityCategory") {
+						noCommandEmbed.data.fields[0] = { name: `Utility commands [${utility.map(commandE => commandE.data.name).length}]:`, value: utility.map(commandF => `**☆** \`${commandF.data.name}\``).join('\n') };
 						box.components[0].setDisabled(false);
 						box.components[1].setDisabled(false);
 						box.components[2].setDisabled(true);
 						await collected.deferUpdate();
-						interaction.editReply({ embeds: [noCommandEmbed], components: [box] })
+						interaction.editReply({ embeds: [noCommandEmbed], components: [box] });
 					}
 				});
 				});
