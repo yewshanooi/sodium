@@ -38,12 +38,14 @@ module.exports = {
             max: 1,
             time: 20000
         });
-
+        buttons.components[0].setDisabled(true);
+        buttons.components[1].setDisabled(true);
+        buttons.components[2].setDisabled(true);
         const choices = ['Rock', 'Paper', 'Scissors'];
         const botOption = choices[Math.floor(Math.random() * choices.length)];
 
         collector.on('collect', async collected => {
-            if (collected.customId === 'Scissors' && botOption === 'Rock' || collected.customId === 'Paper' && botOption === 'Rock' || collected.customId === 'Paper' && botOption === 'Scissors') {
+            if (collected.customId === 'Scissors' && botOption === 'Rock' || collected.customId === 'Paper' && botOption === 'Rock' || collected.customId === 'Paper' && botOption === 'Scissors' || collected.customId === 'Rock' && botOption === 'Paper') {
                 const userLostEmbed = new EmbedBuilder()
                     .setTitle('You Lost!')
                     .addFields(
@@ -51,7 +53,7 @@ module.exports = {
                         { name: 'My choice', value: `${botOption}` }
                     )
                     .setColor(configuration.embedColor);
-                await collected.update({ embeds: [userLostEmbed] }).then(collector.stop());
+                await collected.update({ embeds: [userLostEmbed], components: [buttons] }).then(collector.stop());
             }
             else if (collected.customId === botOption) {
                 const tieEmbed = new EmbedBuilder()
@@ -61,7 +63,7 @@ module.exports = {
                         { name: 'My choice', value: `${botOption}` }
                     )
                     .setColor(configuration.embedColor);
-                await collected.update({ embeds: [tieEmbed] }).then(collector.stop());
+                await collected.update({ embeds: [tieEmbed], components: [buttons] }).then(collector.stop());
             }
             else {
                 const userWonEmbed = new EmbedBuilder()
@@ -71,7 +73,17 @@ module.exports = {
                         { name: 'My choice', value: `${botOption}` }
                     )
                     .setColor(configuration.embedColor);
-                await collected.update({ embeds: [userWonEmbed] }).then(collector.stop());
+                await collected.update({ embeds: [userWonEmbed], components: [buttons] }).then(collector.stop());
+                }
+            });
+            collector.on('end', async (_, reason) => {
+                if (reason === 'time') {
+                    interaction.editReply({ embeds: [
+                    new EmbedBuilder()
+                        .setTitle('You took too long!')
+                        .setColor(configuration.embedColor)
+                        .setFooter({ text: 'You can try again whenever you want' })
+                    ], components: [buttons] });
                 }
             });
 
