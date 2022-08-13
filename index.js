@@ -17,8 +17,8 @@ for (const categories of commandsFolder) {
 		client.commands.set(command.data.name, command);
 	}
 }
-if(!process.env.TOKEN) throw new Error('❌ > The environmental variable TOKEN is not set');
-if(!process.env.CLIENT_ID) throw new Error('❌ > The environmental variable CLIENT_ID is not set');
+if (!process.env.TOKEN) throw new Error('❌ > The environmental variable TOKEN is not set');
+if (!process.env.CLIENT_ID) throw new Error('❌ > The environmental variable CLIENT_ID is not set');
 require('./event')(client);
 
 client.login(process.env.TOKEN);

@@ -76,14 +76,14 @@ module.exports = {
                 await collected.update({ embeds: [userWonEmbed], components: [buttons] }).then(collector.stop());
                 }
             });
-            collector.on('end', async(_, reason) => {
+            collector.on('end', async (_, reason) => {
                 if (reason === 'time') {
-                    interaction.editReply({embeds: [
+                    interaction.editReply({ embeds: [
                     new EmbedBuilder()
                         .setTitle('You took too long!')
                         .setColor(configuration.embedColor)
-                        .setFooter({text: 'You can try again whenever you want'})
-                    ], components: [buttons]})
+                        .setFooter({ text: 'You can try again whenever you want' })
+                    ], components: [buttons] });
                 }
             });
 

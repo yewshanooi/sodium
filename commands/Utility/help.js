@@ -62,8 +62,8 @@ module.exports = {
 					.setColor(configuration.embedColor);
 
 				interaction.reply({ embeds: [mainEmbed], components: [box] }).then(int => {
-					//interactive buttons for 5 minutes
-					const collector = int.createMessageComponentCollector({time: 30000});
+					// interactive buttons for 5 minutes
+					const collector = int.createMessageComponentCollector({ time: 30000 });
 					collector.on('collect', async collected => {
 						const value = collected.customId;
 
@@ -92,7 +92,7 @@ module.exports = {
 						interaction.editReply({ embeds: [mainEmbed], components: [box] });
 					}
 					}),
-					collector.on('end', async(_, reason) => {
+					collector.on('end', async (_, reason) => {
 						if (reason === 'time') {
 							return interaction.editReply({ embeds: [
 								new EmbedBuilder()
@@ -101,7 +101,7 @@ module.exports = {
 									.setDescription('**The bot help has been closed.** Retype `/help` when you need it.')
 							], components: [] });
 						}
-						interaction.editReply({components: []})
+						interaction.editReply({ components: [] });
 					});
 				});
 			}
