@@ -1,9 +1,10 @@
+/* eslint-disable no-sync */
 const { EmbedBuilder, Collection, InteractionType } = require('discord.js');
 const cooldowns = new Collection();
 const fs = require('fs');
 
-module.exports = async (interaction) => {
-    const client = interaction.client;
+module.exports = async interaction => {
+    const { client } = interaction;
     if (interaction.type !== InteractionType.ApplicationCommand) return;
 
 	const command = client.commands.get(interaction.commandName);
@@ -53,4 +54,4 @@ module.exports = async (interaction) => {
 		console.error(error);
 		await interaction.reply({ content: 'Error: There was an error while executing this command!' });
 	}
-}
+};

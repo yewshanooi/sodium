@@ -25,9 +25,9 @@ module.exports = {
 				.setTitle(`/${command.data.name}`)
 				.setDescription(`${command.data.description}`)
 				.addFields(
-					{ name: 'Cooldown', value: `\`${command.cooldown}\` second(s)`, inline: true },
+					{ name: 'Category', value: `\`${command.category}\``, inline: true },
 					{ name: 'Guild Only', value: `\`${resultGuildOnly}\``, inline: true },
-					{ name: 'Category', value: `\`${command.category}\``, inline: false }
+					{ name: 'Cooldown', value: `\`${command.cooldown}\` second(s)` }
 				)
 				.setColor(configuration.embedColor);
 			interaction.reply({ embeds: [commandEmbed] });
@@ -62,8 +62,9 @@ module.exports = {
 					.setColor(configuration.embedColor);
 
 				interaction.reply({ embeds: [mainEmbed], components: [box] }).then(int => {
-					// interactive buttons for 5 minutes
-					const collector = int.createMessageComponentCollector({ time: 30000 });
+					// 45 seconds timeout
+					const collector = int.createMessageComponentCollector({ time: 45000 });
+
 					collector.on('collect', async collected => {
 						const value = collected.customId;
 
@@ -91,19 +92,21 @@ module.exports = {
 						await collected.deferUpdate();
 						interaction.editReply({ embeds: [mainEmbed], components: [box] });
 					}
-					}),
-					collector.on('end', async (_, reason) => {
+					});
+
+					collector.on('end', async (__, reason) => {
 						if (reason === 'time') {
-							return interaction.editReply({ embeds: [
+							await interaction.editReply({ embeds: [
 								new EmbedBuilder()
 									.setTitle('Help')
+									.setDescription('**Bot help command has ended.** Retype `/help` to get another one.')
 									.setColor(configuration.embedColor)
-									.setDescription('**The bot help has been closed.** Retype `/help` when you need it.')
-							], components: [] });
-						}
+								], components: [] });
+							}
 						interaction.editReply({ components: [] });
 					});
 				});
+
 			}
 		}
 };

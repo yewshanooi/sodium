@@ -33,19 +33,22 @@ module.exports = {
         const message = await interaction.fetchReply();
 
         const filter = ft => ft.isButton() && ft.user.id === interaction.user.id;
+        // 15 seconds timeout
         const collector = message.createMessageComponentCollector({
             filter,
             max: 1,
-            time: 20000
+            time: 15000
         });
+
         buttons.components[0].setDisabled(true);
         buttons.components[1].setDisabled(true);
         buttons.components[2].setDisabled(true);
+
         const choices = ['Rock', 'Paper', 'Scissors'];
         const botOption = choices[Math.floor(Math.random() * choices.length)];
 
         collector.on('collect', async collected => {
-            if (collected.customId === 'Scissors' && botOption === 'Rock' || collected.customId === 'Paper' && botOption === 'Rock' || collected.customId === 'Paper' && botOption === 'Scissors' || collected.customId === 'Rock' && botOption === 'Paper') {
+            if (collected.customId === 'Paper' && botOption === 'Rock' || collected.customId === 'Paper' && botOption === 'Scissors' || collected.customId === 'Scissors' && botOption === 'Rock') {
                 const userLostEmbed = new EmbedBuilder()
                     .setTitle('You Lost!')
                     .addFields(
@@ -76,13 +79,14 @@ module.exports = {
                 await collected.update({ embeds: [userWonEmbed], components: [buttons] }).then(collector.stop());
                 }
             });
-            collector.on('end', async (_, reason) => {
-                if (reason === 'time') {
-                    interaction.editReply({ embeds: [
+
+        collector.on('end', async (__, reason) => {
+            if (reason === 'time') {
+                await interaction.editReply({ embeds: [
                     new EmbedBuilder()
                         .setTitle('You took too long!')
+                        .setDescription('You can try again whenever you want')
                         .setColor(configuration.embedColor)
-                        .setFooter({ text: 'You can try again whenever you want' })
                     ], components: [buttons] });
                 }
             });

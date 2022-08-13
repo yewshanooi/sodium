@@ -9,7 +9,7 @@ module.exports = {
 	guildOnly: false,
 	execute (interaction, configuration) {
 		const embed = new EmbedBuilder()
-			.setDescription('Pong!, *Calculating latency..*')
+			.setDescription('*Calculating latency..*')
 			.setColor(configuration.embedColor);
 		interaction.reply({ embeds: [embed], fetchReply: true }).then(itr => {
 			const timestamp = itr.createdTimestamp - interaction.createdTimestamp;
@@ -19,8 +19,7 @@ module.exports = {
 					{ name: 'API Latency', value: `\`${timestamp}\`ms` },
 					{ name: 'WebSocket Latency', value: `\`${interaction.client.ws.ping}\`ms` }
 				)
-				.setColor(configuration.embedColor)
-				.setThumbnail("https://cdn.dribbble.com/users/252645/screenshots/4275915/tt_bat.gif");
+				.setColor(configuration.embedColor);
 			interaction.editReply({ embeds: [newEmbed] });
 		});
 
