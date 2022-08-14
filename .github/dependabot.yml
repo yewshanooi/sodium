@@ -11,6 +11,7 @@ updates:
       interval: "daily"
     ignore:
       - dependency-name: "node-fetch"
+      - dependency-name: "chalk"
 
   - package-ecosystem: "github-actions"
     directory: "/"
