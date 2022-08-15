@@ -57,7 +57,7 @@ Node.js version **≥16.9.0** is required
   <tbody>
     <tr>
       <td><a href="https://www.npmjs.com/package/chalk">chalk@4.1.2</a></td>
-      <td><a href="https://www.npmjs.com/package/eslint">eslint@8.21.0</a></td>
+      <td><a href="https://www.npmjs.com/package/eslint">eslint@8.22.0</a></td>
     </tr>
     <tr>
       <td><a href="https://www.npmjs.com/package/discord-api-types">discord-api-types@0.37.2</a></td>
