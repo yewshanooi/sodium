@@ -1,6 +1,4 @@
 const { REST, Routes } = require('discord.js');
-const dotenv = require('dotenv');
-	dotenv.config();
 const fs = require('fs');
 
 const commands = [];

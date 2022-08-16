@@ -1,6 +1,4 @@
 const { SlashCommandBuilder } = require('discord.js');
-const dotenv = require('dotenv');
-    dotenv.config();
 const fetch = require('node-fetch');
 
 module.exports = {
