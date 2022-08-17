@@ -76,7 +76,7 @@ Node.js version **≥16.9.0** is required
 
 ## Guide
 ###### Configuration Files
-1. **Clone** this repository to your drive
+1. **Clone** this repository to your local drive
 ```sh
 git clone https://github.com/yewshanooi/ava.git
 cd ava
@@ -85,10 +85,14 @@ cd ava
 ```
 npm install
 ```
-3. Create a new **config.json** file and fill it with your preferred information
+3. Create a new **config.json** file and fill it with your preferred information<br/>
+💡 ***embedColor** is required while the rest is optional*
 ```json
 {
-  "embedColor": ""
+  "embedColor": "",
+  "debugChannelId": "",
+  "errorChannelId": "",
+  "warningChannelId": ""
 }
 ```
 4. Create a new **.env** file and fill it with your own secret keys
