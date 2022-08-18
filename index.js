@@ -28,6 +28,7 @@ client.on('debug', info => {
 
 	if (!debugChannel) return;
 
+	// White color embed
 	const debugEmbed = new EmbedBuilder()
 		.setDescription(info)
 		.setColor('#ffffff');
@@ -39,6 +40,7 @@ client.on('error', info => {
 
 	if (!errorChannel) return;
 
+	// Red color embed
 	const errorEmbed = new EmbedBuilder()
 		.setDescription(info)
 		.setColor('#ff5555');
@@ -50,6 +52,7 @@ client.on('warn', info => {
 
 	if (!warnChannel) return;
 
+	// Orange color embed
 	const warnEmbed = new EmbedBuilder()
 		.setDescription(info)
 		.setColor('#ffaa00');

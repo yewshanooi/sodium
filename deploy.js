@@ -16,3 +16,8 @@ const rest = new REST({ version: '10' }).setToken(process.env.TOKEN);
 rest.put(Routes.applicationCommands(process.env.CLIENT_ID), { body: commands })
 	.then(() => console.log('Successfully deployed application commands'))
 	.catch(console.error);
+
+/*
+ * Routes.applicationCommands(process.env.CLIENT_ID), for global application commands
+ * Routes.applicationGuildCommands(process.env.CLIENT_ID, process.env.GUILD_ID), for guild application commands
+ */
