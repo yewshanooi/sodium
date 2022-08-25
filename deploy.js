@@ -18,6 +18,6 @@ rest.put(Routes.applicationCommands(process.env.CLIENT_ID), { body: commands })
 	.catch(console.error);
 
 /*
- * Routes.applicationCommands(process.env.CLIENT_ID), for global application commands
- * Routes.applicationGuildCommands(process.env.CLIENT_ID, process.env.GUILD_ID), for guild application commands
+ * To deploy application commands in a single guild only, add a new variable 'GUILD_ID' in the .env file and use:
+ * Routes.applicationGuildCommands(process.env.CLIENT_ID, process.env.GUILD_ID)
  */
