@@ -17,12 +17,12 @@
   },
   "dependencies": {
     "chalk": "^4.1.2",
-    "discord-api-types": "^0.37.4",
-    "discord.js": "^14.3.0",
-    "dotenv": "^16.0.1",
-    "eslint": "^8.22.0",
-    "mathjs": "^11.1.0",
+    "discord-api-types": "^0.37.10",
+    "discord.js": "^14.4.0",
+    "dotenv": "^16.0.2",
+    "eslint": "^8.24.0",
+    "mathjs": "^11.2.1",
     "node-fetch": "^2.6.7",
-    "nodemon": "^2.0.19"
+    "nodemon": "^2.0.20"
   }
 }
