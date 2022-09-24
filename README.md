@@ -25,33 +25,18 @@
         <img alt="Last Commit" src="https://img.shields.io/github/last-commit/yewshanooi/ava?style=flat-square">
     </a>
 </p>
-<br/>
 
 ## Features
 **65+** commands and counting across **3** different categories!
 <table>
   <tr>
     <td><b>Fun</b></td>
-  </tr>
-  <tr>
-    <td>8ball, achievement, beep, catfact, chatbot, coinflip, color, compliment, crypto, diceroll, dictionary, dogfact, fact, fortnite, giphy, github, lyrics, meme, minecraft, nasa, npm, roast, rps, say, spotify, urban, uselessfact, waifu, weather, wikipedia, word, youtube</td>
-  </tr>
-</table>
-
-<table>
-  <tr>
     <td><b>Moderation</b></td>
-  </tr>
-  <tr>
-    <td>ban, channellock, channelunlock, deafen, kick, slowmode, timeout, unban, undeafen, untimeout, warn</td>
-  </tr>
-</table>
-
-<table>
-  <tr>
     <td><b>Utility</b></td>
   </tr>
   <tr>
+    <td>8ball, achievement, beep, catfact, chatbot, coinflip, color, compliment, crypto, diceroll, dictionary, dogfact, fact, fortnite, giphy, github, lyrics, meme, minecraft, nasa, npm, roast, rps, say, spotify, urban, uselessfact, waifu, weather, wikipedia, word, youtube</td>
+    <td>ban, channellock, channelunlock, deafen, kick, slowmode, timeout, unban, undeafen, untimeout, warn</td>
     <td>afk, announce, botinfo, botpresence, botsetnick, calculator, channeldelete, channelinfo, channelrename, guildinfo, guildname, help, invite, leave, message, news, ping, purge, roleadd, roleinfo, roleremove, setnick, thread, threadarchive, userinfo</td>
   </tr>
 </table>
@@ -69,24 +54,22 @@ Node.js version **≥16.9.0** is required
 
 ###### Packages
 <table>
-  <tbody>
-    <tr>
-      <td><a href="https://www.npmjs.com/package/chalk">chalk@4.1.2</a></td>
-      <td><a href="https://www.npmjs.com/package/eslint">eslint@8.24.0</a></td>
-    </tr>
-    <tr>
-      <td><a href="https://www.npmjs.com/package/discord-api-types">discord-api-types@0.37.10</a></td>
-      <td><a href="https://www.npmjs.com/package/mathjs">mathjs@11.2.1</a></td>
-    </tr>
-    <tr>
-      <td><a href="https://www.npmjs.com/package/discord.js">discord.js@14.4.0</a></td>
-      <td><a href="https://www.npmjs.com/package/node-fetch">node-fetch@2.6.7</a></td>
-    </tr>
-    <tr>
-      <td><a href="https://www.npmjs.com/package/dotenv">dotenv@16.0.2</a></td>
-      <td><a href="https://www.npmjs.com/package/nodemon">nodemon@2.0.20</a></td>
-    </tr>
-  </tbody>
+  <tr>
+    <td><a href="https://www.npmjs.com/package/chalk">chalk@4.1.2</a></td>
+    <td><a href="https://www.npmjs.com/package/eslint">eslint@8.24.0</a></td>
+  </tr>
+  <tr>
+    <td><a href="https://www.npmjs.com/package/discord-api-types">discord-api-types@0.37.10</a></td>
+    <td><a href="https://www.npmjs.com/package/mathjs">mathjs@11.2.1</a></td>
+  </tr>
+  <tr>
+    <td><a href="https://www.npmjs.com/package/discord.js">discord.js@14.4.0</a></td>
+    <td><a href="https://www.npmjs.com/package/node-fetch">node-fetch@2.6.7</a></td>
+  </tr>
+  <tr>
+    <td><a href="https://www.npmjs.com/package/dotenv">dotenv@16.0.2</a></td>
+    <td><a href="https://www.npmjs.com/package/nodemon">nodemon@2.0.20</a></td>
+  </tr>
 </table>
 
 ## Guide
