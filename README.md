@@ -27,7 +27,12 @@
 </p>
 
 ## Features
-**65+** commands and counting across **3** different categories!
+- **Message Embed** and **Buttons**
+- **Application Commands** *(formerly known as Slash Commands)*
+- **Watch Together** *(with YouTube Activity)*
+- **Third Party API** commands *(such as Giphy, Nasa, OpenWeatherMap and more!)*
+
+## Commands
 <table>
   <tr>
     <td><b>Fun</b></td>
@@ -40,13 +45,6 @@
     <td>afk, announce, botinfo, botpresence, botsetnick, calculator, channeldelete, channelinfo, channelrename, guildinfo, guildname, help, invite, leave, message, news, ping, purge, roleadd, roleinfo, roleremove, setnick, thread, threadarchive, userinfo</td>
   </tr>
 </table>
-<br/>
-
-**Ava** also comes packed with other features, such as:
-- **Message Embed** and **Buttons**
-- **Application Commands** *(formerly known as Slash Commands)*
-- **Watch Together** *(with YouTube Activity)*
-- **Third Party API** commands *(such as Giphy, Nasa, OpenWeatherMap and more!)*
 
 ## Dependencies
 ###### Node.js
