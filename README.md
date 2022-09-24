@@ -25,12 +25,14 @@
         <img alt="Last Commit" src="https://img.shields.io/github/last-commit/yewshanooi/ava?style=flat-square">
     </a>
 </p>
+<br/>
 
 ## Features
 - **Message Embed** and **Buttons**
 - **Application Commands** *(formerly known as Slash Commands)*
 - **Watch Together** *(with YouTube Activity)*
 - **Third Party API** commands *(such as Giphy, Nasa, OpenWeatherMap and more!)*
+<br/>
 
 ## Commands
 <table>
@@ -45,6 +47,7 @@
     <td>afk, announce, botinfo, botpresence, botsetnick, calculator, channeldelete, channelinfo, channelrename, guildinfo, guildname, help, invite, leave, message, news, ping, purge, roleadd, roleinfo, roleremove, setnick, thread, threadarchive, userinfo</td>
   </tr>
 </table>
+<br/>
 
 ## Dependencies
 ###### Node.js
@@ -69,6 +72,7 @@ Node.js version **≥16.9.0** is required
     <td><a href="https://www.npmjs.com/package/nodemon">nodemon@2.0.20</a></td>
   </tr>
 </table>
+<br/>
 
 ## Guide
 ###### Configuration Files
@@ -134,6 +138,7 @@ https://discord.com/api/oauth2/authorize?client_id={CLIENT_ID}&permissions=14972
 <p align="left">
     <img src=".github/generate_oauth2_url.png"/>
 </p>
+<br/>
 
 ## License
 This application is licensed under the **MIT License**
@@ -144,6 +149,7 @@ IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMA
 WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR 
 THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ```
+<br/>
 
 ## Contributors
 - [yewshanooi](https://github.com/yewshanooi)
