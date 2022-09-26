@@ -3,7 +3,7 @@ const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 module.exports = {
 	data: new SlashCommandBuilder()
         .setName('channelinfo')
-        .setDescription('Display information(s) about the selected channel')
+        .setDescription('Display information about the selected channel')
         .addChannelOption(option => option.setName('channel').setDescription('Select a channel').setRequired(true)),
     cooldown: '3',
     category: 'Utility',
@@ -16,8 +16,8 @@ module.exports = {
             if (type === 0) resultType = 'Text';
             if (type === 2) resultType = 'Voice';
             if (type === 4) resultType = 'Category';
-            if (type === 5) resultType = 'News';
-            if (type === 10) resultType = 'News Thread';
+            if (type === 5) resultType = 'Announcement';
+            if (type === 10) resultType = 'Announcement Thread';
             if (type === 11) resultType = 'Public Thread';
             if (type === 12) resultType = 'Private Thread';
             if (type === 13) resultType = 'Stage Voice';

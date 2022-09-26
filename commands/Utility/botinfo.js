@@ -3,7 +3,7 @@ const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('botinfo')
-        .setDescription('Display information(s) about the bot'),
+        .setDescription('Display information about the bot'),
     cooldown: '3',
     category: 'Utility',
     guildOnly: false,

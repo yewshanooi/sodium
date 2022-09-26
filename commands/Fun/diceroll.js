@@ -3,7 +3,7 @@ const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('diceroll')
-        .setDescription('Roll a dice that contain six sides'),
+        .setDescription('Roll a dice that has six sides'),
     cooldown: '3',
     category: 'Fun',
     guildOnly: false,

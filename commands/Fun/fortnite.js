@@ -4,7 +4,7 @@ const fetch = require('node-fetch');
 module.exports = {
 	data: new SlashCommandBuilder()
         .setName('fortnite')
-        .setDescription('Get fortnite player stats from Fortnite-API')
+        .setDescription('Get a Fortnite player\'s stats from Fortnite-API')
         .addStringOption(option => option.setName('username').setDescription('Enter a username').setRequired(true)),
     cooldown: '5',
     category: 'Fun',

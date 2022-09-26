@@ -4,7 +4,7 @@ const fetch = require('node-fetch');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('weather')
-        .setDescription('Get the current weather information(s) of a city')
+        .setDescription('Get the current weather information for a city')
         .addStringOption(option => option.setName('location').setDescription('Enter a location').setRequired(true)),
     cooldown: '5',
     category: 'Fun',

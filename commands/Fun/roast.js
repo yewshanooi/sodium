@@ -76,7 +76,7 @@ const roasts = [
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('roast')
-        .setDescription('Roasts the selected user')
+        .setDescription('Sends the selected user a random roast')
         .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true)),
     cooldown: '8',
     category: 'Fun',

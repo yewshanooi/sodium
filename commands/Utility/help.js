@@ -3,7 +3,7 @@ const { SlashCommandBuilder, EmbedBuilder, ButtonBuilder, ActionRowBuilder } = r
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('help')
-		.setDescription('List every commands or detailed info about a specific command')
+		.setDescription('List all commands or specific information about a command')
 		.addStringOption(option => option.setName('command').setDescription('Enter a command')),
 	cooldown: '0',
 	category: 'Utility',

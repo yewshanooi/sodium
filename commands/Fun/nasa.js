@@ -4,7 +4,7 @@ const fetch = require('node-fetch');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('nasa')
-        .setDescription('Get an Astronomy Picture of the Day from NASA'),
+        .setDescription('Get an Astronomy Picture of the Day (APOD) from NASA'),
     cooldown: '25',
     category: 'Fun',
     guildOnly: false,

@@ -4,7 +4,7 @@ const fetch = require('node-fetch');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('chatbot')
-        .setDescription('Chat with an AI developed by BrainShop')
+        .setDescription('Chat with Aco, an AI bot powered by BrainShop')
         .addStringOption(option => option.setName('message').setDescription('Enter a message').setRequired(true)),
     cooldown: '5',
     category: 'Fun',
@@ -26,7 +26,7 @@ module.exports = {
             .setTitle('Aco')
             .setDescription(`${Answer.cnt}`)
             .setFooter({ text: `Powered by BrainShop\nUnique ID: ${uniqueId}` })
-            .setColor('#93c24d');
+            .setColor('#92c24d');
 
         return interaction.reply({ embeds: [embed] });
     }

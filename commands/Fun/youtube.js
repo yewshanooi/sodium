@@ -4,7 +4,7 @@ const fetch = require('node-fetch');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('youtube')
-        .setDescription('Start a YouTube activity in voice channel'),
+        .setDescription('Start a YouTube activity on your voice channel'),
     cooldown: '10',
     category: 'Fun',
     guildOnly: true,

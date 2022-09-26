@@ -3,7 +3,7 @@ const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('thread')
-        .setDescription('Start a new thread')
+        .setDescription('Start a new thread channel')
         .addStringOption(option => option.setName('name').setDescription('Enter a thread name').setRequired(true))
         .addIntegerOption(option => option.setName('duration').setDescription('Select a duration').addChoices({ name: '1 hour', value: 60 }, { name: '24 hours', value: 1440 }).setRequired(true)),
     cooldown: '10',

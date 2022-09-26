@@ -3,7 +3,7 @@ const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 module.exports = {
     data: new SlashCommandBuilder()
 		.setName('unban')
-		.setDescription('Unban the User ID with or without a reason')
+		.setDescription('Unban the user ID with or without a reason')
 		.addStringOption(option => option.setName('user_id').setDescription('Enter a user id').setRequired(true))
 		.addStringOption(option => option.setName('reason').setDescription('Enter a reason')),
 	cooldown: '25',

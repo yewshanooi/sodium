@@ -1,12 +1,12 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const fetch = require('node-fetch');
-const url1 = 'https://www.reddit.com/r/meme.json?sort=top&t=week';
-const url2 = 'https://www.reddit.com/r/memes.json?sort=top&t=week';
+const url1 = 'https://www.reddit.com/r/meme.json';
+const url2 = 'https://www.reddit.com/r/memes.json';
 
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('meme')
-        .setDescription('Get fresh and new memes from Reddit'),
+        .setDescription('Get new memes from Reddit'),
     cooldown: '5',
     category: 'Fun',
     guildOnly: false,

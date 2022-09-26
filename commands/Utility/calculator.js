@@ -49,6 +49,7 @@ module.exports = {
 		const components = generateComponents();
 
 		interaction.reply({ content: '```\n \n ```', components });
+
 		const message = await interaction.fetchReply();
 
 		const filter = compInt => compInt.user.id === interaction.user.id;

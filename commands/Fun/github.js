@@ -4,7 +4,7 @@ const fetch = require('node-fetch');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('github')
-        .setDescription('View a GitHub repository details')
+        .setDescription('Get the selected GitHub repository details')
         .addStringOption(option => option.setName('user').setDescription('Enter a user').setRequired(true))
         .addStringOption(option => option.setName('repository').setDescription('Enter a repository').setRequired(true)),
     cooldown: '5',

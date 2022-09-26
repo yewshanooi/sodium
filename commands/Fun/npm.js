@@ -4,7 +4,7 @@ const fetch = require('node-fetch');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('npm')
-        .setDescription('Search the npm registry for a package information')
+        .setDescription('Search the npm registry for a package\'s information')
         .addStringOption(option => option.setName('package').setDescription('Enter a package name').setRequired(true)),
     cooldown: '5',
     category: 'Fun',

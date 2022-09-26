@@ -3,7 +3,7 @@ const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('spotify')
-        .setDescription('Display user\'s current Spotify status')
+        .setDescription('Get the selected user\'s current Spotify status')
         .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true)),
     cooldown: '5',
     category: 'Fun',

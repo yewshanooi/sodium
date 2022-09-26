@@ -3,7 +3,7 @@ const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 module.exports = {
 	data: new SlashCommandBuilder()
         .setName('roleinfo')
-        .setDescription('Display information(s) about the selected role')
+        .setDescription('Display information about the selected role')
         .addRoleOption(option => option.setName('role').setDescription('Select a role').setRequired(true)),
     cooldown: '3',
     category: 'Utility',

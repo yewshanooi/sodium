@@ -4,7 +4,7 @@ const fetch = require('node-fetch');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('dictionary')
-        .setDescription('Search the online dictionary for a definition')
+        .setDescription('Search the dictionary for a definition')
         .addStringOption(option => option.setName('query').setDescription('Enter a query').setRequired(true)),
     cooldown: '5',
     category: 'Fun',

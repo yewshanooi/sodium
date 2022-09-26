@@ -3,7 +3,7 @@ const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('guildinfo')
-		.setDescription('Display information(s) about the guild'),
+		.setDescription('Display information about the guild'),
 	cooldown: '3',
 	category: 'Utility',
 	guildOnly: true,

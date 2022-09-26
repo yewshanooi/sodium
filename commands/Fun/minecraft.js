@@ -4,7 +4,7 @@ const fetch = require('node-fetch');
 module.exports = {
 	data: new SlashCommandBuilder()
         .setName('minecraft')
-        .setDescription('Get a Minecraft player\'s UUID and details from Mojang & NameMC')
+        .setDescription('Get a Minecraft player\'s details from Mojang and NameMC')
         .addStringOption(option => option.setName('username').setDescription('Enter a username').setRequired(true)),
     cooldown: '5',
     category: 'Fun',

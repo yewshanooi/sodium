@@ -3,7 +3,7 @@ const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('purge')
-		.setDescription('Remove messages from guild text channel')
+		.setDescription('Remove messages from the guild text channel')
 		.addIntegerOption(option => option.setName('amount').setDescription('Enter an amount (between 1 and 99)').setRequired(true)),
 	cooldown: '10',
 	category: 'Utility',
