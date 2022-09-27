@@ -60,7 +60,7 @@ Node.js version **≥16.9.0** is required
     <td><a href="https://www.npmjs.com/package/eslint">eslint@8.24.0</a></td>
   </tr>
   <tr>
-    <td><a href="https://www.npmjs.com/package/discord-api-types">discord-api-types@0.37.10</a></td>
+    <td><a href="https://www.npmjs.com/package/discord-api-types">discord-api-types@0.37.11</a></td>
     <td><a href="https://www.npmjs.com/package/mathjs">mathjs@11.2.1</a></td>
   </tr>
   <tr>
@@ -108,17 +108,20 @@ NASA_API_KEY=
 NEWS_API_KEY=
 OPENWEATHERMAP_API_KEY=
 ```
-5. Run the **deploy.js** file to deploy application commands
+5. Run the **deploy-commands.js** file to deploy application commands<br/>
+💡 *Alternatively, run the **delete-commands.js** file to delete all application commands*
 ```
-node deploy.js
+node deploy-commands.js    |    node delete-commands.js
 ```
-6. Run the **index.js** file to start the bot
+6. Run the **index.js** file to start the bot<br/>
+💡 *Don't forget to run **deploy-commands.js** file before **index.js** file, otherwise commands won't appear as they are not updated*
 ```
 node index.js
  -or-
+npm start
+ -or-
 nodemon
 ```
-💡 *Don't forget to run **deploy.js** file before **index.js** file, otherwise commands won't appear as they are not updated*
 
 ###### Bot & Application
 1. Visit [Discord Developer Portal](https://discord.com/developers/applications) to create a new application
