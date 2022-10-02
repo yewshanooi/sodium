@@ -68,7 +68,7 @@ Node.js version **≥16.9.0** is required
     <td><a href="https://www.npmjs.com/package/node-fetch">node-fetch@2.6.7</a></td>
   </tr>
   <tr>
-    <td><a href="https://www.npmjs.com/package/dotenv">dotenv@16.0.2</a></td>
+    <td><a href="https://www.npmjs.com/package/dotenv">dotenv@16.0.3</a></td>
     <td><a href="https://www.npmjs.com/package/nodemon">nodemon@2.0.20</a></td>
   </tr>
 </table>
