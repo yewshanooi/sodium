@@ -126,7 +126,7 @@ nodemon
 ###### Bot & Application
 1. Visit [Discord Developer Portal](https://discord.com/developers/applications) to create a new application
 
-2. Add a **bot user** to your application
+2. Add a **Bot user** to your application
 
 3. Enable `PUBLIC BOT` authorization flow option for the application **(OPTIONAL)**
 
