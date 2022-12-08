@@ -14,6 +14,8 @@ module.exports = {
         if (!interaction.member.permissions.has('ManageNicknames')) return interaction.reply({ embeds: [global.errors[3]] });
 
             const userField = interaction.options.getMember('user');
+                if (userField.user.bot === true) return interaction.reply({ content: 'Error: You cannot set a bot\'s status as AFK.' });
+
                 if (userField === interaction.member) return interaction.reply({ content: 'Error: You cannot set your own status as AFK.' });
 
             const optionField = interaction.options.getBoolean('option');

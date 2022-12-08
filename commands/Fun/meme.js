@@ -1,7 +1,12 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const fetch = require('node-fetch');
-const url1 = 'https://www.reddit.com/r/meme.json';
-const url2 = 'https://www.reddit.com/r/memes.json';
+
+const subreddits = [
+    'meme',
+    'memes',
+    'dankmemes',
+    'wholesomememes'
+];
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -11,10 +16,9 @@ module.exports = {
     category: 'Fun',
     guildOnly: false,
     async execute (interaction) {
-        const links = [url1, url2];
-        const randomLinks = links[Math.floor(Math.random() * links.length)];
+        const randomSubreddit = subreddits[Math.floor(Math.random() * subreddits.length)];
 
-        const Memes = await fetch(randomLinks)
+        const Memes = await fetch(`https://www.reddit.com/r/${randomSubreddit}.json`)
             .then(res => res.json());
 
         const fetchData = Memes.data.children;
@@ -24,7 +28,7 @@ module.exports = {
                 .setTitle('Meme')
                 .setDescription(`${randomMemes.data.title}`)
                 .setImage(`${randomMemes.data.url}`)
-                .setFooter({ text: 'Powered by Reddit' })
+                .setFooter({ text: `Powered by Reddit\nPosted in: r/${randomSubreddit}` })
                 .setColor('#ff4500');
 
             return interaction.reply({ embeds: [embed] });

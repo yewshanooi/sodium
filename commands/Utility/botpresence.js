@@ -31,10 +31,10 @@ module.exports = {
                 if (statusField === 'dnd') resultStatus = 'Do Not Disturb';
                 if (statusField === 'invisible') resultStatus = 'Invisible';
 
-            const linkField = 'https://www.twitch.tv/discord';
+            const linkField = 'https://www.twitch.tv/directory';
 
                 const embed = new EmbedBuilder()
-                    .setDescription('Successfully changed bot\'s presence')
+                    .setTitle('Bot Presence')
                     .addFields(
                         { name: 'Activity', value: `${activityField}` },
                         { name: 'Type', value: `\`${typeField}\``, inline: true },

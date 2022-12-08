@@ -44,7 +44,7 @@
   <tr>
     <td>8ball, achievement, beep, catfact, chatbot, coinflip, color, compliment, crypto, diceroll, dictionary, dogfact, fact, fortnite, giphy, github, lyrics, meme, minecraft, nasa, npm, roast, rps, say, spotify, urban, uselessfact, waifu, weather, wikipedia, word, youtube</td>
     <td>ban, channellock, channelunlock, deafen, kick, slowmode, timeout, unban, undeafen, untimeout, warn</td>
-    <td>afk, announce, botinfo, botpresence, botsetnick, calculator, channeldelete, channelinfo, channelrename, guildinfo, guildname, help, invite, leave, message, news, ping, purge, roleadd, roleinfo, roleremove, setnick, thread, threadarchive, userinfo</td>
+    <td>afk, announce, botinfo, botpresence, botsetnick, calculator, channeldelete, channelinfo, channelrename, guildinfo, guildrename, help, invite, leave, message, news, ping, purge, roleadd, roleinfo, roleremove, setnick, thread, threadarchive, userinfo</td>
   </tr>
 </table>
 <br/>
@@ -57,7 +57,7 @@ Node.js version **≥16.9.0** is required
 <table>
   <tr>
     <td><a href="https://www.npmjs.com/package/chalk">chalk@4.1.2</a></td>
-    <td><a href="https://www.npmjs.com/package/mathjs">mathjs@11.4.0</a></td>
+    <td><a href="https://www.npmjs.com/package/mathjs">mathjs@11.5.0</a></td>
   </tr>
   <tr>
     <td><a href="https://www.npmjs.com/package/discord.js">discord.js@14.7.1</a></td>
@@ -68,7 +68,7 @@ Node.js version **≥16.9.0** is required
     <td><a href="https://www.npmjs.com/package/nodemon">nodemon@2.0.20</a></td>
   </tr>
   <tr>
-    <td><a href="https://www.npmjs.com/package/eslint">eslint@8.28.0</a></td>
+    <td><a href="https://www.npmjs.com/package/eslint">eslint@8.29.0</a></td>
   </tr>
 </table>
 <br/>

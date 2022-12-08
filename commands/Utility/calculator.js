@@ -20,25 +20,25 @@ module.exports = {
                 new ButtonBuilder().setCustomId('^').setLabel('^').setStyle('Primary')
             );
             const row2 = new ActionRowBuilder().addComponents(
-                new ButtonBuilder().setCustomId('7').setLabel('７').setStyle('Secondary'),
-                new ButtonBuilder().setCustomId('8').setLabel('８').setStyle('Secondary'),
-                new ButtonBuilder().setCustomId('9').setLabel('９').setStyle('Secondary'),
+                new ButtonBuilder().setCustomId('7').setLabel('7').setStyle('Secondary'),
+                new ButtonBuilder().setCustomId('8').setLabel('8').setStyle('Secondary'),
+                new ButtonBuilder().setCustomId('9').setLabel('9').setStyle('Secondary'),
                 new ButtonBuilder().setCustomId('/').setLabel('÷').setStyle('Primary')
             );
             const row3 = new ActionRowBuilder().addComponents(
-                new ButtonBuilder().setCustomId('4').setLabel('４').setStyle('Secondary'),
-                new ButtonBuilder().setCustomId('5').setLabel('５').setStyle('Secondary'),
-                new ButtonBuilder().setCustomId('6').setLabel('６').setStyle('Secondary'),
+                new ButtonBuilder().setCustomId('4').setLabel('4').setStyle('Secondary'),
+                new ButtonBuilder().setCustomId('5').setLabel('5').setStyle('Secondary'),
+                new ButtonBuilder().setCustomId('6').setLabel('6').setStyle('Secondary'),
                 new ButtonBuilder().setCustomId('*').setLabel('×').setStyle('Primary')
             );
             const row4 = new ActionRowBuilder().addComponents(
-                new ButtonBuilder().setCustomId('1').setLabel('１').setStyle('Secondary'),
-                new ButtonBuilder().setCustomId('2').setLabel('２').setStyle('Secondary'),
-                new ButtonBuilder().setCustomId('3').setLabel('３').setStyle('Secondary'),
+                new ButtonBuilder().setCustomId('1').setLabel('1').setStyle('Secondary'),
+                new ButtonBuilder().setCustomId('2').setLabel('2').setStyle('Secondary'),
+                new ButtonBuilder().setCustomId('3').setLabel('3').setStyle('Secondary'),
                 new ButtonBuilder().setCustomId('-').setLabel('−').setStyle('Primary')
             );
             const row5 = new ActionRowBuilder().addComponents(
-                new ButtonBuilder().setCustomId('0').setLabel('０').setStyle('Secondary'),
+                new ButtonBuilder().setCustomId('0').setLabel('0').setStyle('Secondary'),
                 new ButtonBuilder().setCustomId('.').setLabel('.').setStyle('Secondary'),
                 new ButtonBuilder().setCustomId('=').setLabel('=').setStyle('Success'),
                 new ButtonBuilder().setCustomId('+').setLabel('+').setStyle('Primary')

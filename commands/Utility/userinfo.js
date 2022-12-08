@@ -17,6 +17,11 @@ module.exports = {
 			if (bot === true) resultBot = 'Yes';
 			else resultBot = 'No';
 
+		const hoistRole = memberUserField.roles.hoist;
+		let resultHoistRole;
+			if (hoistRole === null) resultHoistRole = '`None`';
+			else resultHoistRole = hoistRole;
+
 			const embedOthers = new EmbedBuilder()
 				.setTitle(`${userField.tag}`)
 				.setThumbnail(`https://cdn.discordapp.com/avatars/${userField.id}/${userField.avatar}.jpeg`)
@@ -25,7 +30,7 @@ module.exports = {
 					{ name: 'ID', value: `\`${userField.id}\``, inline: true },
 					{ name: 'Creation Date & Time', value: `\`${userField.createdAt}\`` },
 					{ name: 'Is Bot', value: `\`${resultBot}\``, inline: true },
-					{ name: 'Hoist Role', value: `${memberUserField.roles.hoist}`, inline: true },
+					{ name: 'Hoist Role', value: `${resultHoistRole}`, inline: true },
 					{ name: 'Role Color (HEX)', value: `\`${memberUserField.displayHexColor}\``, inline: true },
 					{ name: 'Joined Guild At', value: `\`${memberUserField.joinedAt}\`` }
 				)

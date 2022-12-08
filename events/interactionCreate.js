@@ -38,7 +38,7 @@ module.exports = async interaction => {
 				const inCooldown = new EmbedBuilder()
 					.setTitle('Cooldown')
 					.setDescription(`Please wait \`${timeLeft.toFixed(1)}\` more second(s) before reusing the **${command.data.name}** command.`)
-					.setColor('#5555ff');
+					.setColor('#5865f2');
 				return interaction.reply({ embeds: [inCooldown], ephemeral: true });
 			}
 		}
