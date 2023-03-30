@@ -32,6 +32,7 @@
 - **Application Commands** *(formerly known as Slash Commands)*
 - **Watch Together** *(with YouTube Activity)*
 - **Third Party API** commands *(such as Giphy, Nasa, OpenWeatherMap and more!)*
+- **OpenAI GPT Model** integration *(chatbot powered by OpenAI's latest GPT model)*
 <br/>
 
 ## Commands
@@ -57,18 +58,19 @@ Node.js version **≥16.9.0** is required
 <table>
   <tr>
     <td><a href="https://www.npmjs.com/package/chalk">chalk@4.1.2</a></td>
-    <td><a href="https://www.npmjs.com/package/mathjs">mathjs@11.5.1</a></td>
+    <td><a href="https://www.npmjs.com/package/mathjs">mathjs@11.7.0</a></td>
   </tr>
   <tr>
-    <td><a href="https://www.npmjs.com/package/discord.js">discord.js@14.7.1</a></td>
+    <td><a href="https://www.npmjs.com/package/discord.js">discord.js@14.8.0</a></td>
     <td><a href="https://www.npmjs.com/package/node-fetch">node-fetch@2.6.9</a></td>
   </tr>
   <tr>
     <td><a href="https://www.npmjs.com/package/dotenv">dotenv@16.0.3</a></td>
-    <td><a href="https://www.npmjs.com/package/nodemon">nodemon@2.0.20</a></td>
+    <td><a href="https://www.npmjs.com/package/nodemon">nodemon@2.0.22</a></td>
   </tr>
   <tr>
-    <td><a href="https://www.npmjs.com/package/eslint">eslint@8.33.0</a></td>
+    <td><a href="https://www.npmjs.com/package/eslint">eslint@8.37.0</a></td>
+    <td><a href="https://www.npmjs.com/package/openai">openai@3.2.1</a></td>
   </tr>
 </table>
 <br/>
@@ -98,13 +100,12 @@ npm install
 ```
 TOKEN=
 CLIENT_ID=
-BRAINSHOP_BID=
-BRAINSHOP_API_KEY=
 FORTNITE_API_KEY=
 GIPHY_API_KEY=
 GENIUS_API_KEY=
 NASA_API_KEY=
 NEWS_API_KEY=
+OPENAI_API_KEY=
 OPENWEATHERMAP_API_KEY=
 ```
 5. Run the **deploy-commands.js** file to deploy application commands<br/>
