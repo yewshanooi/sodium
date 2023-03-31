@@ -29,10 +29,10 @@
 
 ## Features
 - **Message Embed** and **Buttons**
-- **Application Commands** *(formerly known as Slash Commands)*
+- **Application Commands** *(integrated directly within each guild)*
 - **Watch Together** *(with YouTube Activity)*
 - **AI Chatbot** *(powered by OpenAI GPT-3.5 model)*
-- **Third Party API** commands *(such as Giphy, Nasa, OpenWeatherMap and more!)*
+- **Third Party API** commands *(such as Giphy, Nasa, Wikipedia and more!)*
 <br/>
 
 ## Commands
@@ -110,7 +110,7 @@ OPENAI_API_KEY=
 OPENWEATHERMAP_API_KEY=
 ```
 5. Run the **deploy-commands.js** file to deploy application commands<br/>
-💡 *By default, application commands will only be deployed and deleted for a single guild. To deploy or delete application commands globally, check out the guides in the respective files.*
+💡 *Commands will only be deployed and deleted for a single guild. To deploy or delete commands globally, check out the guides in the respective files*
 ```
 node deploy-commands.js    |    node delete-commands.js
 ```
@@ -133,7 +133,7 @@ nodemon
 
 4. Enable `PRESENCE INTENT` and `SERVER MEMBERS INTENT` privileged gateway intent option for the application **(REQUIRED)**
 
-5. Replace this **OAuth2 URL** template with your **Client ID** and paste it in your browser to invite the application to your server
+5. Replace this **OAuth2 URL** template with your **Client ID** and paste it in your browser's address bar to invite the application to your guild
 ```url
 https://discord.com/api/oauth2/authorize?client_id={CLIENT_ID}&permissions=1497295481975&scope=bot%20applications.commands
 ```
