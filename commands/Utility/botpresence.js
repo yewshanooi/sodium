@@ -12,7 +12,7 @@ module.exports = {
     category: 'Utility',
     guildOnly: true,
     execute (interaction, configuration) {
-        if (!interaction.member.permissions.has('Administrator')) return interaction.reply({ embeds: [global.errors[3]] });
+        if (!interaction.member.permissions.has('Administrator')) return interaction.reply({ embeds: [global.errors[2]] });
 
             const activityField = interaction.options.getString('activity');
 

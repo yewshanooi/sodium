@@ -133,7 +133,7 @@ module.exports = {
                 interaction.reply({ embeds: [successEmbed], ephemeral: true });
             })
             .catch(() => {
-                interaction.reply({ embeds: [global.errors[4]] });
+                interaction.reply({ embeds: [global.errors[3]] });
             });
         }
 };

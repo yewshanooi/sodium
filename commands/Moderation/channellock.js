@@ -9,7 +9,7 @@ module.exports = {
     guildOnly: true,
 	execute (interaction, configuration) {
         if (!interaction.guild.members.me.permissions.has('ManageChannels')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Manage Channels** permission in `Server Settings > Roles` to use this command.' });
-        if (!interaction.member.permissions.has('ManageChannels')) return interaction.reply({ embeds: [global.errors[3]] });
+        if (!interaction.member.permissions.has('ManageChannels')) return interaction.reply({ embeds: [global.errors[2]] });
 
         const currentChannel = interaction.channel;
 

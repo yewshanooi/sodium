@@ -11,7 +11,7 @@ module.exports = {
     guildOnly: true,
     execute (interaction, configuration) {
         if (!interaction.guild.members.me.permissions.has('ManageNicknames')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Manage Nicknames** permission in `Server Settings > Roles` to use this command.' });
-        if (!interaction.member.permissions.has('ManageNicknames')) return interaction.reply({ embeds: [global.errors[3]] });
+        if (!interaction.member.permissions.has('ManageNicknames')) return interaction.reply({ embeds: [global.errors[2]] });
 
             const userField = interaction.options.getMember('user');
                 if (userField.user.bot === true) return interaction.reply({ content: 'Error: You cannot set a bot\'s status as AFK.' });

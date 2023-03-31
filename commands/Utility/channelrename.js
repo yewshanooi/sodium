@@ -4,16 +4,15 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('channelrename')
         .setDescription('Rename the current channel')
-        .addStringOption(option => option.setName('name').setDescription('Enter a name (max 100 characters)').setRequired(true)),
+        .addStringOption(option => option.setName('name').setDescription('Enter a name (max 100 characters)').setMaxLength(100).setRequired(true)),
     cooldown: '8',
     category: 'Utility',
     guildOnly: true,
     execute (interaction, configuration) {
         if (!interaction.guild.members.me.permissions.has('ManageChannels')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Manage Channels** permission in `Server Settings > Roles` to use this command.' });
-        if (!interaction.member.permissions.has('ManageChannels')) return interaction.reply({ embeds: [global.errors[3]] });
+        if (!interaction.member.permissions.has('ManageChannels')) return interaction.reply({ embeds: [global.errors[2]] });
 
         const nameField = interaction.options.getString('name');
-            if (nameField.length > '100') return interaction.reply({ content: 'Error: Channel name must be 100 characters or fewer.' });
 
         const embed = new EmbedBuilder()
             .setDescription(`Successfully renamed channel to **${nameField}**`)

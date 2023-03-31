@@ -31,8 +31,8 @@
 - **Message Embed** and **Buttons**
 - **Application Commands** *(formerly known as Slash Commands)*
 - **Watch Together** *(with YouTube Activity)*
+- **AI Chatbot** *(powered by OpenAI GPT-3.5 model)*
 - **Third Party API** commands *(such as Giphy, Nasa, OpenWeatherMap and more!)*
-- **OpenAI GPT Model** integration *(chatbot powered by OpenAI's latest GPT model)*
 <br/>
 
 ## Commands
@@ -100,6 +100,7 @@ npm install
 ```
 TOKEN=
 CLIENT_ID=
+GUILD_ID=
 FORTNITE_API_KEY=
 GIPHY_API_KEY=
 GENIUS_API_KEY=
@@ -109,7 +110,7 @@ OPENAI_API_KEY=
 OPENWEATHERMAP_API_KEY=
 ```
 5. Run the **deploy-commands.js** file to deploy application commands<br/>
-💡 *Alternatively, run the **delete-commands.js** file to delete all application commands*
+💡 *By default, application commands will only be deployed and deleted for a single guild. To deploy or delete application commands globally, check out the guides in the respective files.*
 ```
 node deploy-commands.js    |    node delete-commands.js
 ```

@@ -1,7 +1,5 @@
-/* eslint-disable no-sync */
 const { EmbedBuilder, Collection, InteractionType } = require('discord.js');
 const cooldowns = new Collection();
-const fs = require('fs');
 
 module.exports = async interaction => {
     const { client } = interaction;
@@ -14,11 +12,6 @@ module.exports = async interaction => {
 	// Outputs an error message if user tries to use guildOnly commands in Direct Messages
 	if (command.guildOnly && interaction.channel.type === 1) {
 		return interaction.reply({ embeds: [global.errors[0]] });
-	}
-
-	// Outputs an error message if config.json file is missing
-	if (!fs.existsSync('./config.json')) {
-		return interaction.reply({ embeds: [global.errors[2]], ephemeral: true });
 	}
 
 	if (!cooldowns.has(command.data.name)) {

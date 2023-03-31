@@ -11,7 +11,7 @@ module.exports = {
     guildOnly: true,
     execute (interaction) {
         if (!interaction.guild.members.me.permissions.has('ManageMessages')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Manage Messages** permission in `Server Settings > Roles` to use this command.' });
-        if (!interaction.member.permissions.has('ManageMessages')) return interaction.reply({ embeds: [global.errors[3]] });
+        if (!interaction.member.permissions.has('ManageMessages')) return interaction.reply({ embeds: [global.errors[2]] });
 
             const userField = interaction.options.getMember('user');
                 if (userField.user.bot === true) return interaction.reply({ content: 'Error: You cannot warn a bot.' });
@@ -48,7 +48,7 @@ module.exports = {
                 interaction.reply({ embeds: [embed] });
             })
             .catch(() => {
-                interaction.reply({ embeds: [global.errors[4]] });
+                interaction.reply({ embeds: [global.errors[3]] });
             });
         }
 };

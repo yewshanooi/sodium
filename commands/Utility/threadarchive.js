@@ -10,7 +10,7 @@ module.exports = {
     guildOnly: true,
     execute (interaction, configuration) {
         if (!interaction.guild.members.me.permissions.has('ManageThreads')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Manage Threads** permission in `Server Settings > Roles` to use this command.' });
-        if (!interaction.member.permissions.has('ManageThreads')) return interaction.reply({ embeds: [global.errors[3]] });
+        if (!interaction.member.permissions.has('ManageThreads')) return interaction.reply({ embeds: [global.errors[2]] });
 
             const threadField = interaction.options.getChannel('thread');
 

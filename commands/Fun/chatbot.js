@@ -6,8 +6,8 @@ const { Configuration, OpenAIApi } = require('openai');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('chatbot')
-        .setDescription('Chat with an AI bot powered by the OpenAI GPT model')
-        .addStringOption(option => option.setName('query').setDescription('Enter a query').setRequired(true)),
+        .setDescription('Chat with an AI bot powered by the OpenAI GPT-3.5 model')
+        .addStringOption(option => option.setName('query').setDescription('Enter a query (max 256 characters)').setMaxLength(256).setRequired(true)),
     cooldown: '10',
     category: 'Fun',
     guildOnly: false,
@@ -16,11 +16,7 @@ module.exports = {
         await interaction.deferReply();
 
         const queryField = interaction.options.getString('query');
-
-        /*
-         * Add limit for input field (to ensure token usage is balanced)
-         * Add check for spelling errors & regex input
-         */
+        // Add regex check for grammatical errors.
 
             if (!process.env.OPENAI_API_KEY) return interaction.reply({ embeds: [global.errors[1]], ephemeral: true });
 
@@ -29,13 +25,11 @@ module.exports = {
         const response = await openai.createCompletion({
             model: 'text-davinci-003',
             prompt: `${queryField}`,
-            max_tokens: 256,
+            max_tokens: 384,
             temperature: 1
         });
 
-        // Change model to gpt-3.5-turbo
-
-          const capitalizedTitle = queryField.charAt(0).toUpperCase() + queryField.slice(1);
+            const capitalizedTitle = queryField.charAt(0).toUpperCase() + queryField.slice(1);
 
         const embed = new EmbedBuilder()
             .setTitle(`${trim(capitalizedTitle, 256)}`)

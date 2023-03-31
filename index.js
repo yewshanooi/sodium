@@ -21,6 +21,7 @@ for (const categories of commandsFolder) {
 
 if (!process.env.TOKEN) throw new Error(`${chalk.redBright.bold('[Error]')} The enviromental variable ${chalk.bold('TOKEN')} is not set`);
 if (!process.env.CLIENT_ID) throw new Error(`${chalk.redBright.bold('[Error]')} The enviromental variable ${chalk.bold('CLIENT_ID')} is not set`);
+if (!process.env.GUILD_ID) throw new Error(`${chalk.redBright.bold('[Error]')} The enviromental variable ${chalk.bold('GUILD_ID')} is not set`);
 
 
 client.on('debug', info => {
