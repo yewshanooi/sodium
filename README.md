@@ -58,10 +58,10 @@ Node.js version **≥16.9.0** is required
 <table>
   <tr>
     <td><a href="https://www.npmjs.com/package/chalk">chalk@4.1.2</a></td>
-    <td><a href="https://www.npmjs.com/package/mathjs">mathjs@11.7.0</a></td>
+    <td><a href="https://www.npmjs.com/package/mathjs">mathjs@11.8.0</a></td>
   </tr>
   <tr>
-    <td><a href="https://www.npmjs.com/package/discord.js">discord.js@14.8.0</a></td>
+    <td><a href="https://www.npmjs.com/package/discord.js">discord.js@14.9.0</a></td>
     <td><a href="https://www.npmjs.com/package/node-fetch">node-fetch@2.6.9</a></td>
   </tr>
   <tr>
@@ -69,7 +69,7 @@ Node.js version **≥16.9.0** is required
     <td><a href="https://www.npmjs.com/package/nodemon">nodemon@2.0.22</a></td>
   </tr>
   <tr>
-    <td><a href="https://www.npmjs.com/package/eslint">eslint@8.37.0</a></td>
+    <td><a href="https://www.npmjs.com/package/eslint">eslint@8.38.0</a></td>
     <td><a href="https://www.npmjs.com/package/openai">openai@3.2.1</a></td>
   </tr>
 </table>
