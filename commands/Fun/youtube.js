@@ -12,7 +12,7 @@ module.exports = {
         if (!interaction.guild.members.me.permissions.has('CreateInstantInvite')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Create Instant Invite** permission in `Server Settings > Roles` to use this command.' });
         if (!interaction.member.voice.channel) return interaction.reply({ content: 'Error: You must join a voice channel to use this command.' });
 
-        fetch(`https://discord.com/api/v8/channels/${interaction.member.voice.channel.id}/invites`, {
+        fetch(`https://discord.com/api/v10/channels/${interaction.member.voice.channel.id}/invites`, {
             method: 'POST',
             body: JSON.stringify({
                 max_age: 10800,
@@ -29,7 +29,7 @@ module.exports = {
         }).then(res => res.json()).then(body => {
             const embed = new EmbedBuilder()
                 .setTitle('Watch Together')
-                .setDescription(`Party created! Use this link below to join the activity\nhttps://discord.gg/${body.code}`)
+                .setDescription('Link created! Click the button below to start watching')
                 .setFooter({ text: 'Powered by YouTube' })
                 .setColor('#ff0000');
 

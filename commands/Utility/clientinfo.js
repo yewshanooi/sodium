@@ -2,8 +2,8 @@ const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('botinfo')
-        .setDescription('Display information about the bot'),
+        .setName('clientinfo')
+        .setDescription('Display information about the client'),
     cooldown: '3',
     category: 'Utility',
     guildOnly: false,
@@ -17,7 +17,7 @@ module.exports = {
             const seconds = Math.floor(totalSeconds % 60);
 
         const embed = new EmbedBuilder()
-            .setTitle(`${interaction.client.user.tag}`)
+            .setTitle(`${interaction.client.user.username}`)
             .addFields(
                 { name: 'ID', value: `\`${interaction.client.user.id}\``, inline: true },
                 { name: 'Embed Color (HEX)', value: `\`#${configuration.embedColor}\``, inline: true },

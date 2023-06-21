@@ -23,14 +23,14 @@ module.exports = {
 			else resultHoistRole = hoistRole;
 
 			const embedOthers = new EmbedBuilder()
-				.setTitle(`${userField.tag}`)
+				.setTitle(`${userField.username}`)
 				.setThumbnail(`https://cdn.discordapp.com/avatars/${userField.id}/${userField.avatar}.jpeg`)
 				.addFields(
 					{ name: 'Nickname', value: `\`${memberUserField.nickname || 'None'}\``, inline: true },
 					{ name: 'ID', value: `\`${userField.id}\``, inline: true },
 					{ name: 'Creation Date & Time', value: `\`${userField.createdAt}\`` },
-					{ name: 'Is Bot', value: `\`${resultBot}\``, inline: true },
-					{ name: 'Hoist Role', value: `${resultHoistRole}`, inline: true },
+					{ name: 'Bot', value: `\`${resultBot}\``, inline: true },
+					{ name: 'Highest Role', value: `${resultHoistRole}`, inline: true },
 					{ name: 'Role Color (HEX)', value: `\`${memberUserField.displayHexColor}\``, inline: true },
 					{ name: 'Joined Guild At', value: `\`${memberUserField.joinedAt}\`` }
 				)

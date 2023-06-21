@@ -25,7 +25,7 @@ module.exports = {
                 if (roleField === everyone) return interaction.reply({ content: 'Error: Unable to get information about this role.' });
 
         const embed = new EmbedBuilder()
-            .setTitle(`@${roleField.name}`)
+            .setTitle(`${roleField.name}`)
             .addFields(
                 { name: 'Position', value: `\`${roleField.position}\``, inline: true },
                 { name: 'Color (HEX)', value: `\`${roleField.hexColor}\``, inline: true },

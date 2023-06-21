@@ -90,7 +90,7 @@ module.exports = {
 
         const embed = new EmbedBuilder()
             .setTitle('Roast')
-            .setDescription(`${roasts[Math.floor(Math.random() * roasts.length)]}\n\n*from \`${interaction.user.tag}\`*`)
+            .setDescription(`${roasts[Math.floor(Math.random() * roasts.length)]}\n\n*from \`${interaction.user.username}\`*`)
             .setColor(configuration.embedColor);
 
         const successEmbed = new EmbedBuilder()

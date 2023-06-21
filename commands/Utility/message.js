@@ -20,7 +20,7 @@ module.exports = {
 
             const embed = new EmbedBuilder()
                 .setTitle('Message')
-                .setDescription(`${messageField}\n\n*from \`${interaction.user.tag}\`*`)
+                .setDescription(`${messageField}\n\n*from \`${interaction.user.username}\`*`)
                 .setColor(configuration.embedColor);
 
             const successEmbed = new EmbedBuilder()

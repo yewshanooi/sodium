@@ -9,5 +9,5 @@ module.exports = client => {
 	if (!process.env.OPENAI_API_KEY) console.log(`${chalk.yellowBright.bold('[Warning]')} The enviromental variable ${chalk.bold('OPENAI_API_KEY')} is not set`);
 	if (!process.env.OPENWEATHERMAP_API_KEY) console.log(`${chalk.yellowBright.bold('[Warning]')} The enviromental variable ${chalk.bold('OPENWEATHERMAP_API_KEY')} is not set`);
 
-	console.log(`\nConnected to Discord as ${chalk.bold(`${client.user.tag}`)}\nServing ${chalk.bold(`${client.users.cache.size}`)} user(s) and ${chalk.bold(`${client.channels.cache.size}`)} channel(s) in ${chalk.bold(`${client.guilds.cache.size}`)} guild(s)\n`);
+	console.log(`\nConnected to Discord as ${chalk.bold(`${client.user.username}`)}\nServing ${chalk.bold(`${client.users.cache.size}`)} user(s) and ${chalk.bold(`${client.channels.cache.size}`)} channel(s) in ${chalk.bold(`${client.guilds.cache.size}`)} guild(s)\n`);
 };

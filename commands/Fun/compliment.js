@@ -121,7 +121,7 @@ module.exports = {
 
         const embed = new EmbedBuilder()
             .setTitle('Compliment')
-            .setDescription(`${compliments[Math.floor(Math.random() * compliments.length)]}\n\n*from \`${interaction.user.tag}\`*`)
+            .setDescription(`${compliments[Math.floor(Math.random() * compliments.length)]}\n\n*from \`${interaction.user.username}\`*`)
             .setColor(configuration.embedColor);
 
         const successEmbed = new EmbedBuilder()

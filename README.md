@@ -45,7 +45,7 @@
   <tr>
     <td>8ball, achievement, beep, catfact, chatbot, coinflip, color, compliment, crypto, diceroll, dictionary, dogfact, fact, fortnite, giphy, github, lyrics, meme, minecraft, nasa, npm, roast, rps, say, spotify, urban, uselessfact, waifu, weather, wikipedia, word, youtube</td>
     <td>ban, channellock, channelunlock, deafen, kick, slowmode, timeout, unban, undeafen, untimeout, warn</td>
-    <td>afk, announce, botinfo, botpresence, botsetnick, calculator, channeldelete, channelinfo, channelrename, guildinfo, guildrename, help, invite, leave, message, news, ping, purge, roleadd, roleinfo, roleremove, setnick, thread, threadarchive, userinfo</td>
+    <td>afk, announce, botpresence, botsetnick, calculator, channeldelete, channelinfo, channelrename, clientinfo, guildinfo, guildrename, help, invite, leave, message, news, ping, purge, roleadd, roleinfo, roleremove, setnick, thread, threadarchive, userinfo</td>
   </tr>
 </table>
 <br/>
@@ -58,19 +58,19 @@ Node.js version **≥16.9.0** is required
 <table>
   <tr>
     <td><a href="https://www.npmjs.com/package/chalk">chalk@4.1.2</a></td>
-    <td><a href="https://www.npmjs.com/package/mathjs">mathjs@11.8.0</a></td>
+    <td><a href="https://www.npmjs.com/package/mathjs">mathjs@11.8.2</a></td>
   </tr>
   <tr>
     <td><a href="https://www.npmjs.com/package/discord.js">discord.js@14.11.0</a></td>
     <td><a href="https://www.npmjs.com/package/node-fetch">node-fetch@2.6.11</a></td>
   </tr>
   <tr>
-    <td><a href="https://www.npmjs.com/package/dotenv">dotenv@16.1.4</a></td>
+    <td><a href="https://www.npmjs.com/package/dotenv">dotenv@16.3.1</a></td>
     <td><a href="https://www.npmjs.com/package/nodemon">nodemon@2.0.22</a></td>
   </tr>
   <tr>
-    <td><a href="https://www.npmjs.com/package/eslint">eslint@8.42.0</a></td>
-    <td><a href="https://www.npmjs.com/package/openai">openai@3.2.1</a></td>
+    <td><a href="https://www.npmjs.com/package/eslint">eslint@8.43.0</a></td>
+    <td><a href="https://www.npmjs.com/package/openai">openai@3.3.0</a></td>
   </tr>
 </table>
 <br/>

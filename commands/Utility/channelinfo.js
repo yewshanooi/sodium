@@ -21,6 +21,7 @@ module.exports = {
             if (type === 11) resultType = 'Public Thread';
             if (type === 12) resultType = 'Private Thread';
             if (type === 13) resultType = 'Stage Voice';
+            if (type === 15) resultType = 'Forum';
             if (type === null) resultType = 'Unknown';
 
         const { nsfw } = channelField;
