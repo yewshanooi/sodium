@@ -9,12 +9,12 @@ module.exports = {
     category: 'Fun',
     guildOnly: false,
     async execute (interaction, configuration) {
-        const Fact = await fetch('http://dog-api.kinduff.com/api/facts?number=1')
+        const Fact = await fetch('https://dogapi.dog/api/v2/facts')
             .then(res => res.json());
 
             const embed = new EmbedBuilder()
                 .setTitle('Dog Fact')
-                .setDescription(`${Fact.facts[0]}`)
+                .setDescription(`${Fact.data[0].attributes.body}`)
                 .setColor(configuration.embedColor);
 
             return interaction.reply({ embeds: [embed] });

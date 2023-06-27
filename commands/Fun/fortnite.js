@@ -28,7 +28,7 @@ module.exports = {
             const winRate = Fortnite.data.stats.all.overall.winRate.toFixed(2);
 
         const embed = new EmbedBuilder()
-            .setTitle(`${Fortnite.data.account.name} *(LVL **${Fortnite.data.battlePass.level}**)*`)
+            .setTitle(`${Fortnite.data.account.name} (LVL **${Fortnite.data.battlePass.level}**)`)
             .addFields(
                 { name: 'Epic Account ID', value: `\`${Fortnite.data.account.id}\`` },
                 { name: 'Matches Played', value: `\`${Fortnite.data.stats.all.overall.matches}\``, inline: true },

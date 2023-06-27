@@ -124,7 +124,10 @@ const achievements = [
     'It spreads',
     'Birthday song',
     'With our powers combined!',
-    'Sneak 100'
+    'Sneak 100',
+    'Planting the past',
+    'Careful restoration',
+    'Smithing with style'
 ];
 
 module.exports = {

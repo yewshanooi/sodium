@@ -9,11 +9,12 @@ module.exports = async interaction => {
 
 	if (!command) return;
 
-	// Outputs an error message if user tries to use guildOnly commands in Direct Messages
+	// Outputs an error message if user tries to run a guild-only command in a Direct Message
 	if (command.guildOnly && interaction.channel.type === 1) {
 		return interaction.reply({ embeds: [global.errors[0]] });
 	}
 
+	// Outputs an error message if user tries to run a command that is still on a cooldown
 	if (!cooldowns.has(command.data.name)) {
 		cooldowns.set(command.data.name, new Collection());
 	}
@@ -28,10 +29,11 @@ module.exports = async interaction => {
 		if (now < expirationTime) {
 			const timeLeft = (expirationTime - now) / 1000;
 
+				// Orange color embed
 				const inCooldown = new EmbedBuilder()
 					.setTitle('Cooldown')
 					.setDescription(`Please wait \`${timeLeft.toFixed(1)}\` more second(s) before reusing the **${command.data.name}** command.`)
-					.setColor('#5865f2');
+					.setColor('#ffaa00');
 				return interaction.reply({ embeds: [inCooldown], ephemeral: true });
 			}
 		}

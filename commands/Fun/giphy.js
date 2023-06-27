@@ -1,4 +1,4 @@
-const { SlashCommandBuilder } = require('discord.js');
+const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const fetch = require('node-fetch');
 
 module.exports = {
@@ -12,14 +12,22 @@ module.exports = {
     async execute (interaction) {
         const queryField = interaction.options.getString('query');
 
-            if (!process.env.GIPHY_API_KEY) return interaction.reply({ embeds: [global.errors[1]], ephemeral: true });
+        const randomGif = Math.floor(Math.random() * 19);
 
-        const Gif = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${process.env.GIPHY_API_KEY}&limit=1&q=${encodeURIComponent(queryField)}`)
+        if (!process.env.GIPHY_API_KEY) return interaction.reply({ embeds: [global.errors[1]], ephemeral: true });
+
+        const Gif = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${process.env.GIPHY_API_KEY}&q=${encodeURIComponent(queryField)}&limit=1&offset=${randomGif}`)
             .then(res => res.json())
             .then(body => body.data[0]);
 
-        if (!Gif) return interaction.reply({ content: 'Error: No results found.' });
+            if (!Gif) return interaction.reply({ content: 'Error: No results found.' });
 
-            return interaction.reply({ content: `${Gif.embed_url}` });
+            const embed = new EmbedBuilder()
+                .setTitle(`${Gif.title}`)
+                .setImage(`${Gif.images.original.url}`)
+                .setFooter({ text: 'Powered by Giphy' })
+                .setColor('#000000');
+
+            return interaction.reply({ embeds: [embed] });
         }
 };

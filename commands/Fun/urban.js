@@ -43,3 +43,5 @@ module.exports = {
             return interaction.reply({ embeds: [embed], components: [button] });
         }
 };
+
+// URLSearchParams() is used to create a query string parameters.
