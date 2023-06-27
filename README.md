@@ -28,8 +28,7 @@
 <br/>
 
 ## Features
-- **Message Embed** and **Buttons**
-- **Application Commands** *(integrated directly within each guild)*
+- **Application Commands**, **Buttons**, and **Message Embed**
 - **Watch Together** *(with YouTube Activity)*
 - **AI Chatbot** *(powered by OpenAI GPT-3.5 model)*
 - **Third Party API** commands *(such as Giphy, Nasa, Wikipedia and more!)*
@@ -87,7 +86,7 @@ cd ava
 npm install
 ```
 3. Create a new **config.json** file and fill it with your preferred information<br/>
-💡 ***embedColor** is required while the rest is optional*
+⚠️ ***embedColor** is required while the rest is optional*
 ```json
 {
   "embedColor": "",
@@ -110,37 +109,31 @@ OPENAI_API_KEY=
 OPENWEATHERMAP_API_KEY=
 ```
 5. Run the **deploy-commands.js** file to deploy application commands<br/>
-💡 *Commands will only be deployed and deleted for a single guild. To deploy or delete commands globally, check out the guides in the respective files*
+💡 *Commands are only deployed or deleted for a single guild by default. Check out the comments in the respective files to do it globally*
 ```
 node deploy-commands.js    |    node delete-commands.js
 ```
 6. Run the **index.js** file to start the bot<br/>
-💡 *Don't forget to run **deploy-commands.js** file before **index.js** file, otherwise commands won't appear as they are not updated*
+⚠️ *Don't forget to run **deploy-commands.js** file before **index.js** file, otherwise commands won't appear as they are not updated*
 ```
-node index.js
- -or-
-npm start
- -or-
-nodemon
+node index.js    -or-    npm start    -or-    nodemon
 ```
 
 ###### Bot & Application
 1. Visit [Discord Developer Portal](https://discord.com/developers/applications) to create a new application
 
-2. Add a **Bot user** to your application
+2. Enable `PUBLIC BOT` authorization flow option for the bot **(OPTIONAL)**
 
-3. Enable `PUBLIC BOT` authorization flow option for the application **(OPTIONAL)**
+3. Enable `PRESENCE INTENT` and `SERVER MEMBERS INTENT` privileged gateway intent option for the bot **(REQUIRED)**
 
-4. Enable `PRESENCE INTENT` and `SERVER MEMBERS INTENT` privileged gateway intent option for the application **(REQUIRED)**
-
-5. Replace this **OAuth2 URL** template with your **Client ID** and paste it in your browser's address bar to invite the application to your guild
+4. Paste this OAuth2 URL template in your browser's address bar and replace `{CLIENT_ID}` with your **Client ID** to invite the bot to your guild
 ```url
 https://discord.com/api/oauth2/authorize?client_id={CLIENT_ID}&permissions=1497295481975&scope=bot%20applications.commands
 ```
 
-###### OAuth2 URL Scopes & Permissions
+###### OAuth2 URL Scopes & Bot Permissions
 <p align="left">
-    <img src=".github/generate_oauth2_url.png"/>
+    <img src=".github/oauth2_url_generator.png"/>
 </p>
 <br/>
 
