@@ -61,14 +61,14 @@ Node.js version **≥16.9.0** is required
   </tr>
   <tr>
     <td><a href="https://www.npmjs.com/package/discord.js">discord.js@14.11.0</a></td>
-    <td><a href="https://www.npmjs.com/package/node-fetch">node-fetch@2.6.11</a></td>
+    <td><a href="https://www.npmjs.com/package/node-fetch">node-fetch@2.6.12</a></td>
   </tr>
   <tr>
     <td><a href="https://www.npmjs.com/package/dotenv">dotenv@16.3.1</a></td>
     <td><a href="https://www.npmjs.com/package/nodemon">nodemon@2.0.22</a></td>
   </tr>
   <tr>
-    <td><a href="https://www.npmjs.com/package/eslint">eslint@8.43.0</a></td>
+    <td><a href="https://www.npmjs.com/package/eslint">eslint@8.44.0</a></td>
     <td><a href="https://www.npmjs.com/package/openai">openai@3.3.0</a></td>
   </tr>
 </table>

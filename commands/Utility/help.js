@@ -14,7 +14,7 @@ module.exports = {
 
 		if (commandField) {
 			const command = commands.get(commandField.toLowerCase());
-			if (!command) return interaction.reply({ content: 'Error: Please provide a valid command.' });
+			if (!command) return interaction.reply({ content: 'Error: No such command found.' });
 
 			const { guildOnly } = command;
 			let resultGuildOnly;

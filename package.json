@@ -18,9 +18,9 @@
     "chalk": "^4.1.2",
     "discord.js": "^14.11.0",
     "dotenv": "^16.3.1",
-    "eslint": "^8.43.0",
+    "eslint": "^8.44.0",
     "mathjs": "^11.8.2",
-    "node-fetch": "^2.6.11",
+    "node-fetch": "^2.6.12",
     "nodemon": "^2.0.22",
     "openai": "^3.3.0"
   }

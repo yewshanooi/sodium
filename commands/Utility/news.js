@@ -17,7 +17,7 @@ module.exports = {
         const News = await fetch(`https://newsapi.org/v2/top-headlines?sources=${sourceField}&apiKey=${process.env.NEWS_API_KEY}`)
             .then(res => res.json());
 
-            if (News.status === 'error') return interaction.reply({ content: 'Error: There was an error trying to get the latest news.' });
+            if (News.status === 'error') return interaction.reply({ content: 'Error: There was an error getting the latest news.' });
 
         const embed = new EmbedBuilder()
             .setTitle('News')
