@@ -86,7 +86,7 @@ cd ava
 npm install
 ```
 3. Create a new **config.json** file and fill it with your preferred information<br/>
-⚠️ ***embedColor** is required while the rest is optional*
+⚠️ ***embedColor** field is required while the rest is optional*
 ```json
 {
   "embedColor": "",
@@ -108,7 +108,8 @@ NEWS_API_KEY=
 OPENAI_API_KEY=
 OPENWEATHERMAP_API_KEY=
 ```
-5. Run the **deploy-commands.js** file to deploy application commands<br/>
+5. Run the **deploy-commands.js** file to deploy application commands.<br/>
+💡 *To delete application commands, run the **delete-commands.js** file*<br/>
 💡 *Commands are only deployed or deleted for a single guild by default. Check out the comments in the respective files to do it globally*
 ```
 node deploy-commands.js    |    node delete-commands.js

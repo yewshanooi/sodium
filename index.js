@@ -19,9 +19,11 @@ for (const categories of commandsFolder) {
 	}
 }
 
-if (!process.env.TOKEN) throw new Error(`${chalk.redBright.bold('[Error]')} The enviromental variable ${chalk.bold('TOKEN')} is not set`);
-if (!process.env.CLIENT_ID) throw new Error(`${chalk.redBright.bold('[Error]')} The enviromental variable ${chalk.bold('CLIENT_ID')} is not set`);
-if (!process.env.GUILD_ID) throw new Error(`${chalk.redBright.bold('[Error]')} The enviromental variable ${chalk.bold('GUILD_ID')} is not set`);
+if (!process.env.TOKEN) throw new Error(`${chalk.redBright.bold('[Error]')} Missing ${chalk.bold('TOKEN')} field in the .env file`);
+if (!process.env.CLIENT_ID) throw new Error(`${chalk.redBright.bold('[Error]')} Missing ${chalk.bold('CLIENT_ID')} field in the .env file`);
+if (!process.env.GUILD_ID) throw new Error(`${chalk.redBright.bold('[Error]')} Missing ${chalk.bold('GUILD_ID')} field in the .env file`);
+
+if (!configuration.embedColor) throw new Error(`${chalk.redBright.bold('[Error]')} Missing ${chalk.bold('embedColor')} field in the config.json file`);
 
 
 client.on('debug', info => {
