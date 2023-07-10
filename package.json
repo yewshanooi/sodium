@@ -21,7 +21,7 @@
     "eslint": "^8.44.0",
     "mathjs": "^11.8.2",
     "node-fetch": "^2.6.12",
-    "nodemon": "^2.0.22",
+    "nodemon": "^3.0.1",
     "openai": "^3.3.0"
   }
 }
