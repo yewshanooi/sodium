@@ -5,7 +5,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('color')
         .setDescription('Get a random color in HEX format'),
-    cooldown: '0',
+    cooldown: '3',
     category: 'Fun',
     guildOnly: false,
     async execute (interaction) {
