@@ -65,7 +65,7 @@ Node.js version **≥16.9.0** is required
   </tr>
   <tr>
     <td><a href="https://www.npmjs.com/package/dotenv">dotenv@16.3.1</a></td>
-    <td><a href="https://www.npmjs.com/package/nodemon">nodemon@2.0.22</a></td>
+    <td><a href="https://www.npmjs.com/package/nodemon">nodemon@3.0.1</a></td>
   </tr>
   <tr>
     <td><a href="https://www.npmjs.com/package/eslint">eslint@8.44.0</a></td>
