@@ -108,14 +108,13 @@ NEWS_API_KEY=
 OPENAI_API_KEY=
 OPENWEATHERMAP_API_KEY=
 ```
-5. Run the **deploy-commands.js** file to deploy application commands.<br/>
-💡 *To delete application commands, run the **delete-commands.js** file*<br/>
-💡 *Commands are only deployed or deleted for a single guild by default. Check out the comments in the respective files to do it globally*
+5. Run the **commands.js** file to deploy or delete application commands.<br/>
+💡 *Commands are only deployed or deleted for a single guild by default. Check out the comment in commands.js to do it globally*
 ```
-node deploy-commands.js    |    node delete-commands.js
+node commands.js deploy    |    node commands.js delete
 ```
 6. Run the **index.js** file to start the bot<br/>
-⚠️ *Don't forget to run **deploy-commands.js** file before **index.js** file, otherwise commands won't appear as they are not updated*
+⚠️ *Don't forget to deploy commands before starting the bot, otherwise commands won't appear as they are not updated*
 ```
 node index.js    -or-    npm start    -or-    nodemon
 ```
