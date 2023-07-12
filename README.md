@@ -108,8 +108,8 @@ NEWS_API_KEY=
 OPENAI_API_KEY=
 OPENWEATHERMAP_API_KEY=
 ```
-5. Run the **commands.js** file to deploy or delete application commands.<br/>
-💡 *Commands are only deployed or deleted for a single guild by default. Check out the comment in commands.js to do it globally*
+5. Run the **commands.js** file to deploy or delete application commands<br/>
+💡 *Commands are only deployed or deleted for a single guild by default. Check out the comment in **commands.js** file to do it globally*
 ```
 node commands.js deploy    |    node commands.js delete
 ```
