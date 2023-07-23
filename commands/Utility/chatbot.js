@@ -9,14 +9,13 @@ module.exports = {
         .setDescription('Chat with an AI bot powered by the OpenAI GPT-3.5 model')
         .addStringOption(option => option.setName('query').setDescription('Enter a query (max 256 characters)').setMaxLength(256).setRequired(true)),
     cooldown: '10',
-    category: 'Fun',
+    category: 'Utility',
     guildOnly: false,
     async execute (interaction) {
         const trim = (str, max) => (str.length > max ? `${str.slice(0, max - 3)}...` : str);
         await interaction.deferReply();
 
         const queryField = interaction.options.getString('query');
-        // Add regex check for grammatical errors.
 
             if (!process.env.OPENAI_API_KEY) return interaction.reply({ embeds: [global.errors[1]], ephemeral: true });
 

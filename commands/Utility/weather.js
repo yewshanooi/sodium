@@ -7,7 +7,7 @@ module.exports = {
         .setDescription('Get the current weather information for a city')
         .addStringOption(option => option.setName('location').setDescription('Enter a location').setRequired(true)),
     cooldown: '5',
-    category: 'Fun',
+    category: 'Utility',
     guildOnly: false,
     async execute (interaction) {
         const locationField = interaction.options.getString('location');

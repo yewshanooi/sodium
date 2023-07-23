@@ -7,7 +7,7 @@ module.exports = {
         .setDescription('Find an article on Wikipedia')
         .addStringOption(option => option.setName('title').setDescription('Enter an article title').setRequired(true)),
     cooldown: '5',
-    category: 'Fun',
+    category: 'Utility',
     guildOnly: false,
     async execute (interaction) {
         const titleField = interaction.options.getString('title');

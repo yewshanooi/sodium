@@ -6,7 +6,7 @@ module.exports = {
 		.setDescription('Remove messages from the guild text channel')
 		.addIntegerOption(option => option.setName('amount').setDescription('Enter an amount (between 1 and 99)').setMinValue(1).setMaxValue(99).setRequired(true)),
 	cooldown: '10',
-	category: 'Utility',
+	category: 'Moderation',
 	guildOnly: true,
 	execute (interaction, configuration) {
 		if (!interaction.guild.members.me.permissions.has('ManageMessages')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Manage Messages** permission in `Server Settings > Roles` to use this command.' });

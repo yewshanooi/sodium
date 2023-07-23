@@ -1,6 +1,6 @@
 {
   "name": "ava",
-  "version": "1.4.4",
+  "version": "1.4.5",
   "description": "Open source discord bot with application commands and a user-friendly interface",
   "main": "index.js",
   "author": "Ooi Yew Shan",
@@ -18,8 +18,8 @@
     "chalk": "^4.1.2",
     "discord.js": "^14.11.0",
     "dotenv": "^16.3.1",
-    "eslint": "^8.44.0",
-    "mathjs": "^11.8.2",
+    "eslint": "^8.45.0",
+    "mathjs": "^11.9.0",
     "node-fetch": "^2.6.12",
     "nodemon": "^3.0.1",
     "openai": "^3.3.0"

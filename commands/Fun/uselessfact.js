@@ -9,7 +9,7 @@ module.exports = {
     category: 'Fun',
     guildOnly: false,
     async execute (interaction, configuration) {
-        const Fact = await fetch('https://uselessfacts.jsph.pl/random.json?language=en')
+        const Fact = await fetch('https://uselessfacts.jsph.pl/api/v2/facts/random?language=en')
             .then(res => res.json());
 
             const embed = new EmbedBuilder()

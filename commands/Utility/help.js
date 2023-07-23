@@ -99,7 +99,7 @@ module.exports = {
 							await interaction.editReply({ embeds: [
 								new EmbedBuilder()
 									.setTitle('Help')
-									.setDescription('**Bot help command has ended.** Retype `/help` to get another one.')
+									.setDescription('Help command has ended. Retype `/help` to get another one.')
 									.setColor(configuration.embedColor)
 								], components: [] });
 							}

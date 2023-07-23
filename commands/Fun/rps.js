@@ -84,8 +84,8 @@ module.exports = {
             if (reason === 'time') {
                 await interaction.editReply({ embeds: [
                     new EmbedBuilder()
-                        .setTitle('You took too long!')
-                        .setDescription('You can try again whenever you want')
+                        .setTitle('Rock Paper Scissors')
+                        .setDescription('You took too long! You can try again whenever you want.')
                         .setColor(configuration.embedColor)
                     ], components: [buttons] });
                 }

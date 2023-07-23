@@ -42,9 +42,9 @@
     <td><b>Utility</b></td>
   </tr>
   <tr>
-    <td>8ball, achievement, beep, catfact, chatbot, coinflip, color, compliment, crypto, diceroll, dictionary, dogfact, fact, fortnite, giphy, github, lyrics, meme, minecraft, nasa, npm, roast, rps, say, spotify, urban, uselessfact, waifu, weather, wikipedia, word, youtube</td>
-    <td>ban, channellock, channelunlock, deafen, kick, slowmode, timeout, unban, undeafen, untimeout, warn</td>
-    <td>afk, announce, botpresence, botsetnick, calculator, channeldelete, channelinfo, channelrename, clientinfo, guildinfo, guildrename, help, invite, leave, message, news, ping, purge, roleadd, roleinfo, roleremove, setnick, thread, userinfo</td>
+    <td>8ball, achievement, beep, catfact, coinflip, color, compliment, crypto, diceroll, dogfact, fact, fortnite, giphy, github, lyrics, meme, minecraft, nasa, npm, roast, rps, say, spotify, urban, uselessfact, waifu, word, youtube</td>
+    <td>ban, channellock, channelunlock, deafen, kick, purge, slowmode, timeout, unban, undeafen, untimeout, warn</td>
+    <td>afk, announce, botpresence, botsetnick, calculator, channeldelete, channelinfo, channelrename, chatbot, clientinfo, dictionary, guildinfo, guildrename, help, invite, leave, message, news, ping, qrcode, roleadd, roleinfo, roleremove, setnick, thread, userinfo, weather, wikipedia</td>
   </tr>
 </table>
 <br/>
@@ -57,7 +57,7 @@ Node.js version **≥16.9.0** is required
 <table>
   <tr>
     <td><a href="https://www.npmjs.com/package/chalk">chalk@4.1.2</a></td>
-    <td><a href="https://www.npmjs.com/package/mathjs">mathjs@11.8.2</a></td>
+    <td><a href="https://www.npmjs.com/package/mathjs">mathjs@11.9.0</a></td>
   </tr>
   <tr>
     <td><a href="https://www.npmjs.com/package/discord.js">discord.js@14.11.0</a></td>
@@ -68,7 +68,7 @@ Node.js version **≥16.9.0** is required
     <td><a href="https://www.npmjs.com/package/nodemon">nodemon@3.0.1</a></td>
   </tr>
   <tr>
-    <td><a href="https://www.npmjs.com/package/eslint">eslint@8.44.0</a></td>
+    <td><a href="https://www.npmjs.com/package/eslint">eslint@8.45.0</a></td>
     <td><a href="https://www.npmjs.com/package/openai">openai@3.3.0</a></td>
   </tr>
 </table>
