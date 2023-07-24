@@ -16,7 +16,7 @@ module.exports = {
         interaction.reply({ embeds: [embed], fetchReply: true }).then(() => {
             const newEmbed = new EmbedBuilder()
                 .setTitle('Dice Roll')
-                .setDescription(`<@${interaction.user.id}>, you rolled a **${diceRoll}**!`)
+                .setDescription(`${interaction.user} rolled a **${diceRoll}**!`)
                 .setColor(configuration.embedColor);
             interaction.editReply({ embeds: [newEmbed] });
         });

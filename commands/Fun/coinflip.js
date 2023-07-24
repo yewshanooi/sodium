@@ -19,7 +19,7 @@ module.exports = {
         interaction.reply({ embeds: [embed], fetchReply: true }).then(() => {
             const newEmbed = new EmbedBuilder()
                 .setTitle('Coin Flip')
-                .setDescription(`${interaction.member} flipped **${resultCoinFlip}**`)
+                .setDescription(`${interaction.user} flipped **${resultCoinFlip}**`)
                 .setColor(configuration.embedColor);
             interaction.editReply({ embeds: [newEmbed] });
         });
