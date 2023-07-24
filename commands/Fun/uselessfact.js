@@ -4,7 +4,7 @@ const fetch = require('node-fetch');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('uselessfact')
-        .setDescription('Get a random, meaningless fact'),
+        .setDescription('Get a random meaningless fact'),
     cooldown: '5',
     category: 'Fun',
     guildOnly: false,
