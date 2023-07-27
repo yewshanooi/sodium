@@ -86,7 +86,7 @@ cd ava
 npm install
 ```
 3. Create a new **config.json** file and fill it with your preferred information<br/>
-⚠️ ***embedColor** field is required while the rest is optional*
+> ⚠️ "embedColor" field is required while the rest is optional
 ```json
 {
   "embedColor": "",
@@ -109,12 +109,12 @@ OPENAI_API_KEY=
 OPENWEATHERMAP_API_KEY=
 ```
 5. Run the **commands.js** file to deploy or delete application commands<br/>
-💡 *Commands are only deployed or deleted for a single guild by default. Check out the comment in **commands.js** file to do it globally*
+> 💡 Commands are only deployed or deleted for a single guild by default. Check out the comment in commands.js file to do it globally
 ```
 node commands.js deploy    |    node commands.js delete
 ```
 6. Run the **index.js** file to start the bot<br/>
-⚠️ *Don't forget to deploy commands before starting the bot, otherwise commands won't appear as they are not updated*
+> ⚠️ Don't forget to deploy commands before starting the bot, otherwise commands won't appear as they are not updated
 ```
 node index.js    -or-    npm start    -or-    nodemon
 ```
