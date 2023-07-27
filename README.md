@@ -42,7 +42,7 @@
     <td><b>Utility</b></td>
   </tr>
   <tr>
-    <td>8ball, achievement, animequote, beep, catfact, coinflip, color, compliment, crypto, diceroll, dogfact, fact, fortnite, giphy, github, lyrics, meme, minecraft, nasa, npm, roast, rps, say, spotify, urban, uselessfact, waifu, word, youtube</td>
+    <td>8ball, achievement, animequote, beep, catfact, coinflip, color, compliment, crypto, diceroll, dogfact, fact, fortnite, giphy, github, lyrics, meme, minecraft, nasa, npm, pokemon, roast, rps, say, spotify, urban, uselessfact, waifu, word, youtube</td>
     <td>ban, channellock, channelunlock, deafen, kick, purge, slowmode, timeout, unban, undeafen, untimeout, warn</td>
     <td>afk, announce, botpresence, botsetnick, calculator, channeldelete, channelinfo, channelrename, chatbot, clientinfo, dictionary, guildinfo, guildrename, help, invite, leave, message, news, ping, qrcode, roleadd, roleinfo, roleremove, setnick, thread, userinfo, weather, wikipedia</td>
   </tr>
