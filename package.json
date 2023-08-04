@@ -16,9 +16,9 @@
   },
   "dependencies": {
     "chalk": "^4.1.2",
-    "discord.js": "^14.11.0",
+    "discord.js": "^14.12.1",
     "dotenv": "^16.3.1",
-    "eslint": "^8.45.0",
+    "eslint": "^8.46.0",
     "mathjs": "^11.9.0",
     "node-fetch": "^2.6.12",
     "nodemon": "^3.0.1",
