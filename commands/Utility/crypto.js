@@ -7,7 +7,7 @@ module.exports = {
         .setDescription('Get the current market price of a cryptocurrency')
         .addStringOption(option => option.setName('currency').setDescription('Enter a cryptocurrency').setRequired(true)),
     cooldown: '5',
-    category: 'Fun',
+    category: 'Utility',
     guildOnly: false,
     async execute (interaction) {
         const currencyField = interaction.options.getString('currency');

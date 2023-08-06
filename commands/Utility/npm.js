@@ -7,7 +7,7 @@ module.exports = {
         .setDescription('Search the npm registry for a package\'s information')
         .addStringOption(option => option.setName('package').setDescription('Enter a package name').setRequired(true)),
     cooldown: '5',
-    category: 'Fun',
+    category: 'Utility',
     guildOnly: false,
     async execute (interaction) {
         const packageField = interaction.options.getString('package');
