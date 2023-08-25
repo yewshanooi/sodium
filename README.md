@@ -30,7 +30,6 @@
 ## Features
 - **Application Commands**, **Buttons**, and **Message Embed**
 - **Watch Together** *(with YouTube Activity)*
-- **AI Chatbot** *(powered by OpenAI GPT-3.5 model)*
 - **Third Party API** commands *(such as Giphy, Nasa, Wikipedia and more!)*
 <br/>
 
@@ -44,7 +43,7 @@
   <tr>
     <td>8ball, achievement, animequote, beep, catfact, coinflip, color, compliment, diceroll, dogfact, fact, fortnite, giphy, leagueoflegends, lyrics, meme, minecraft, nasa, pokemon, roast, rps, say, spotify, urban, uselessfact, waifu, word, youtube</td>
     <td>ban, channellock, channelunlock, deafen, kick, purge, slowmode, timeout, unban, undeafen, untimeout, warn</td>
-    <td>afk, announce, botpresence, botsetnick, calculator, channeldelete, channelinfo, channelrename, chatbot, clientinfo, crypto, dictionary, github, guildinfo, guildrename, help, invite, leave, message, news, npm, ping, qrcode, roleadd, roleinfo, roleremove, setnick, thread, userinfo, weather, wikipedia</td>
+    <td>afk, announce, botpresence, botsetnick, calculator, channeldelete, channelinfo, channelrename, clientinfo, crypto, dictionary, github, guildinfo, guildrename, help, invite, leave, message, news, npm, ping, qrcode, roleadd, roleinfo, roleremove, setnick, thread, userinfo, weather, wikipedia</td>
   </tr>
 </table>
 <br/>
@@ -57,19 +56,18 @@ Node.js version **≥16.9.0** is required
 <table>
   <tr>
     <td><a href="https://www.npmjs.com/package/chalk">chalk@4.1.2</a></td>
-    <td><a href="https://www.npmjs.com/package/mathjs">mathjs@11.9.0</a></td>
+    <td><a href="https://www.npmjs.com/package/mathjs">mathjs@11.10.0</a></td>
   </tr>
   <tr>
-    <td><a href="https://www.npmjs.com/package/discord.js">discord.js@14.12.1</a></td>
-    <td><a href="https://www.npmjs.com/package/node-fetch">node-fetch@2.6.12</a></td>
+    <td><a href="https://www.npmjs.com/package/discord.js">discord.js@14.13.0</a></td>
+    <td><a href="https://www.npmjs.com/package/node-fetch">node-fetch@2.7.0</a></td>
   </tr>
   <tr>
     <td><a href="https://www.npmjs.com/package/dotenv">dotenv@16.3.1</a></td>
     <td><a href="https://www.npmjs.com/package/nodemon">nodemon@3.0.1</a></td>
   </tr>
   <tr>
-    <td><a href="https://www.npmjs.com/package/eslint">eslint@8.46.0</a></td>
-    <td><a href="https://www.npmjs.com/package/openai">openai@3.3.0</a></td>
+    <td><a href="https://www.npmjs.com/package/eslint">eslint@8.47.0</a></td>
   </tr>
 </table>
 <br/>
@@ -105,7 +103,6 @@ GIPHY_API_KEY=
 GENIUS_API_KEY=
 NASA_API_KEY=
 NEWS_API_KEY=
-OPENAI_API_KEY=
 OPENWEATHERMAP_API_KEY=
 RIOTGAMES_API_KEY=
 ```
