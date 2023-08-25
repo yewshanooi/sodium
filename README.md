@@ -50,7 +50,7 @@
 
 ## Dependencies
 ###### Node.js
-Node.js version **≥16.9.0** is required
+Node.js version **≥16.11.0** is required
 
 ###### Packages
 <table>
@@ -68,6 +68,7 @@ Node.js version **≥16.9.0** is required
   </tr>
   <tr>
     <td><a href="https://www.npmjs.com/package/eslint">eslint@8.47.0</a></td>
+    <td></td>
   </tr>
 </table>
 <br/>
