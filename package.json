@@ -12,7 +12,7 @@
     "start": "node index.js"
   },
   "engines": {
-    "node": ">=16.9.0"
+    "node": ">=16.11.0"
   },
   "dependencies": {
     "chalk": "^4.1.2",
