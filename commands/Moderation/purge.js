@@ -14,9 +14,9 @@ module.exports = {
 
 		const amountField = interaction.options.getInteger('amount');
 
-			const successEmbed = new EmbedBuilder()
+			const embed = new EmbedBuilder()
 				.setDescription(`Succesfully removed **${amountField}** message(s)`)
 				.setColor(configuration.embedColor);
-			interaction.reply({ embeds: [successEmbed], ephemeral: true }).then(interaction.channel.bulkDelete(amountField, true));
+			interaction.reply({ embeds: [embed], ephemeral: true }).then(interaction.channel.bulkDelete(amountField, true));
 		}
 };

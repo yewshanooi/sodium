@@ -42,6 +42,7 @@ module.exports = {
                 { name: 'Version', value: `\`${Npm['dist-tags'].latest}\``, inline: true },
                 { name: 'License', value: `\`${Npm.license || 'None'}\``, inline: true },
                 { name: 'Author', value: `\`${Npm.author ? Npm.author.name : 'Unknown'}\``, inline: true },
+                { name: 'Collaborators', value: `\`${maintainers && maintainers.length ? maintainers.join(', ') : 'None'}\`` },
                 { name: 'Dependencies', value: `\`${deps && deps.length ? deps.join(', ') : 'None'}\`` }
             )
             .setFooter({ text: 'Powered by npm' })

@@ -33,7 +33,7 @@ module.exports = {
                 if (durationField === 8.64e+7) resultDuration = '1 day';
                 if (durationField === 6.048e+8) resultDuration = '1 week';
 
-        const userDmEmbed = new EmbedBuilder()
+        const embedUserDM = new EmbedBuilder()
             .setTitle('Timeout')
             .addFields(
                 { name: 'Guild', value: `\`${interaction.guild.name}\`` },
@@ -56,7 +56,7 @@ module.exports = {
             .setTimestamp()
             .setColor('#ff0000');
 
-        userField.send({ embeds: [userDmEmbed] })
+        userField.send({ embeds: [embedUserDM] })
             .then(() => {
                 interaction.reply({ embeds: [embed] }).then(userField.timeout(durationField, reasonField));
             })

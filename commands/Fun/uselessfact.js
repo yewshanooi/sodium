@@ -1,4 +1,4 @@
-const { EmbedBuilder, ButtonBuilder, ActionRowBuilder, SlashCommandBuilder } = require('discord.js');
+const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const fetch = require('node-fetch');
 
 module.exports = {
@@ -17,12 +17,6 @@ module.exports = {
                 .setDescription(`${Fact.text}`)
                 .setColor(configuration.embedColor);
 
-                const button = new ActionRowBuilder()
-                    .addComponents(new ButtonBuilder()
-                        .setURL(`${Fact.source_url}`)
-                        .setLabel('View source')
-                        .setStyle('Link'));
-
-            return interaction.reply({ embeds: [embed], components: [button] });
+            return interaction.reply({ embeds: [embed] });
         }
 };

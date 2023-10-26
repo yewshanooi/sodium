@@ -15,16 +15,16 @@ module.exports = {
         const durationField = interaction.options.getInteger('duration');
 
             if (durationField === 0) {
-                const embedDisabled = new EmbedBuilder()
+                const embedFalse = new EmbedBuilder()
                     .setDescription('Successfully disabled slowmode for current channel')
                     .setColor(configuration.embedColor);
-                interaction.reply({ embeds: [embedDisabled] }).then(interaction.channel.setRateLimitPerUser(0));
+                interaction.reply({ embeds: [embedFalse] }).then(interaction.channel.setRateLimitPerUser(0));
             }
             else {
-                const embed = new EmbedBuilder()
+                const embedTrue = new EmbedBuilder()
                     .setDescription(`Successfully set current channel's rate limit to **${durationField}** second(s)`)
                     .setColor(configuration.embedColor);
-                interaction.reply({ embeds: [embed] }).then(interaction.channel.setRateLimitPerUser(durationField));
+                interaction.reply({ embeds: [embedTrue] }).then(interaction.channel.setRateLimitPerUser(durationField));
             }
         }
 };

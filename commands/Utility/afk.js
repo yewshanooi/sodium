@@ -5,7 +5,7 @@ module.exports = {
         .setName('afk')
         .setDescription('Set another user\'s status as AFK')
         .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))
-        .addBooleanOption(option => option.setName('option').setDescription('Select whether user is AFK').setRequired(true)),
+        .addStringOption(option => option.setName('option').setDescription('Select whether user is AFK').addChoices({ name: 'Yes', value: 'true' }, { name: 'No', value: 'false' }).setRequired(true)),
     cooldown: '10',
     category: 'Utility',
     guildOnly: true,
@@ -13,35 +13,28 @@ module.exports = {
         if (!interaction.guild.members.me.permissions.has('ManageNicknames')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Manage Nicknames** permission in `Server Settings > Roles` to use this command.' });
         if (!interaction.member.permissions.has('ManageNicknames')) return interaction.reply({ embeds: [global.errors[2]] });
 
-            const userField = interaction.options.getMember('user');
-                if (userField.user.bot === true) return interaction.reply({ content: 'Error: You cannot set a bot\'s status as AFK.' });
+            const userField = interaction.options.getUser('user');
+            const memberUserField = interaction.options.getMember('user');
 
-                if (userField === interaction.member) return interaction.reply({ content: 'Error: You cannot set your own status as AFK.' });
+                // Can use 'memberUserField.user.bot' or 'userField.bot'
+                if (memberUserField.user.bot === true) return interaction.reply({ content: 'Error: You cannot set a bot\'s status as AFK.' });
 
-            const optionField = interaction.options.getBoolean('option');
-                if (optionField === true) {
-                    const embed = new EmbedBuilder()
-                        .setDescription(`You are now AFK in **${interaction.guild.name}**`)
-                        .setColor(configuration.embedColor);
+                if (memberUserField === interaction.member) return interaction.reply({ content: 'Error: You cannot set your own status as AFK.' });
 
+            const optionField = interaction.options.getString('option');
+                if (optionField === 'true') {
                     const successEmbed = new EmbedBuilder()
-                        .setDescription(`**${userField.user.username}** is now AFK`)
+                        .setDescription(`**${userField.username}** is now AFK`)
                         .setColor(configuration.embedColor);
 
-                    interaction.reply({ embeds: [successEmbed] }).then(userField.send({ embeds: [embed] }));
-                    userField.setNickname(`[AFK] ${userField.user.username}`);
+                    interaction.reply({ embeds: [successEmbed] }).then(memberUserField.setNickname(`[AFK] ${userField.displayName}`));
                 }
-                if (optionField === false) {
-                    const embed = new EmbedBuilder()
-                        .setDescription(`You are no longer AFK in **${interaction.guild.name}**`)
-                        .setColor(configuration.embedColor);
-
+                if (optionField === 'false') {
                     const successEmbed = new EmbedBuilder()
-                        .setDescription(`**${userField.user.username}** is no longer AFK`)
+                        .setDescription(`**${userField.username}** is no longer AFK`)
                         .setColor(configuration.embedColor);
 
-                    interaction.reply({ embeds: [successEmbed] }).then(userField.send({ embeds: [embed] }));
-                    userField.setNickname(userField.user.username);
+                    interaction.reply({ embeds: [successEmbed] }).then(memberUserField.setNickname(userField.displayName));
                 }
         }
 };

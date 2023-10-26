@@ -21,9 +21,6 @@ module.exports = {
             if (!Github) return interaction.reply({ content: 'Error: No repository found.' });
 
         const size = Github.size <= 1024 ? `${Github.size} KB` : Math.floor(Github.size / 1024) > 1024 ? `${(Github.size / 1024 / 1024).toFixed(2)} GB` : `${(Github.size / 1024).toFixed(2)} MB`;
-        const footer = [];
-            if (Github.fork) footer.push(`Forked from ${Github.parent.full_name}`);
-            if (Github.archived) footer.push('This repository is Archived');
 
             const embed = new EmbedBuilder()
                 .setTitle(`${Github.full_name}`)
@@ -41,7 +38,10 @@ module.exports = {
                 .setFooter({ text: 'Powered by GitHub' })
                 .setColor('#ffffff');
 
-            const githubDevUrl = `https://github.dev/${Github.full_name}`;
+                if (Github.archived) embed.addFields({ name: 'Archived', value: '`True`', inline: true });
+                if (Github.fork) embed.addFields({ name: 'Forked From', value: `\`${Github.parent.full_name}\``, inline: true });
+
+            const githubDevURL = `https://github.dev/${Github.full_name}`;
 
                 const buttons = new ActionRowBuilder()
                     .addComponents(new ButtonBuilder()
@@ -49,7 +49,7 @@ module.exports = {
                         .setLabel('View repository')
                         .setStyle('Link'))
                     .addComponents(new ButtonBuilder()
-                        .setURL(`${githubDevUrl}`)
+                        .setURL(`${githubDevURL}`)
                         .setLabel('Edit on github.dev')
                         .setStyle('Link'));
 

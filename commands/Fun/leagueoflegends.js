@@ -14,6 +14,8 @@ module.exports = {
 		const summonerName = interaction.options.getString('name');
 		const summonerRegion = interaction.options.getString('region');
 
+			if (!process.env.RIOTGAMES_API_KEY) return interaction.reply({ embeds: [global.errors[1]], ephemeral: true });
+
 		const League = await fetch(`https://${summonerRegion}.api.riotgames.com/lol/summoner/v4/summoners/by-name/${encodeURIComponent(summonerName)}?api_key=${process.env.RIOTGAMES_API_KEY}`)
 			.then(res => res.json());
 

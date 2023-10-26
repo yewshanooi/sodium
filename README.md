@@ -67,7 +67,7 @@ Node.js version **≥16.11.0** is required
     <td><a href="https://www.npmjs.com/package/nodemon">nodemon@3.0.1</a></td>
   </tr>
   <tr>
-    <td><a href="https://www.npmjs.com/package/eslint">eslint@8.51.0</a></td>
+    <td><a href="https://www.npmjs.com/package/eslint">eslint@8.52.0</a></td>
     <td></td>
   </tr>
 </table>
@@ -85,7 +85,8 @@ cd ava
 npm install
 ```
 3. Create a new **config.json** file and fill it with your preferred information<br/>
-> ⚠️ "embedColor" field is required while the rest is optional
+> [!WARNING]
+> "embedColor" field is required while the rest is optional
 ```json
 {
   "embedColor": "",
@@ -108,12 +109,14 @@ OPENWEATHERMAP_API_KEY=
 RIOTGAMES_API_KEY=
 ```
 5. Run the **commands.js** file to deploy or delete application commands<br/>
-> 💡 Commands are only deployed or deleted for a single guild by default. Check out the comment in commands.js file to do it globally
+> [!IMPORTANT]
+> Commands are only deployed or deleted for a single guild by default. Check out the comment in commands.js file to do it globally
 ```
 node commands.js deploy    |    node commands.js delete
 ```
 6. Run the **index.js** file to start the bot<br/>
-> ⚠️ Don't forget to deploy commands before starting the bot, otherwise commands won't appear as they are not updated
+> [!WARNING] 
+> Don't forget to deploy commands before starting the bot, otherwise commands won't appear as they are not updated
 ```
 node index.js    -or-    npm start    -or-    nodemon
 ```

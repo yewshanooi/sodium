@@ -5,22 +5,22 @@ module.exports = {
 		.setName('say')
 		.setDescription('Send a message with or without a spoiler')
 		.addStringOption(option => option.setName('message').setDescription('Enter a message').setRequired(true))
-		.addBooleanOption(option => option.setName('spoiler').setDescription('Select whether message contains spoiler').setRequired(true)),
+		.addStringOption(option => option.setName('spoiler').setDescription('Select whether message contains spoiler').addChoices({ name: 'No', value: 'false' }, { name: 'Yes', value: 'true' }).setRequired(true)),
 	cooldown: '3',
 	category: 'Fun',
 	guildOnly: true,
 	execute (interaction, configuration) {
 		const messageField = interaction.options.getString('message');
-		const spoilerField = interaction.options.getBoolean('spoiler');
+		const spoilerField = interaction.options.getString('spoiler');
 
-		if (spoilerField === false) {
+		if (spoilerField === 'false') {
 			const embed = new EmbedBuilder()
 				.setDescription(`**${interaction.user.username} said:** ${messageField}`)
 				.setColor(configuration.embedColor);
 			interaction.reply({ embeds: [embed] });
         }
 
-		if (spoilerField === true) {
+		if (spoilerField === 'true') {
 			const embed = new EmbedBuilder()
                 .setDescription(`**${interaction.user.username} said:** ||${messageField}||`)
                 .setColor(configuration.embedColor);
