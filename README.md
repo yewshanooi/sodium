@@ -56,7 +56,7 @@ Node.js version **≥16.11.0** is required
 <table>
   <tr>
     <td><a href="https://www.npmjs.com/package/chalk">chalk@4.1.2</a></td>
-    <td><a href="https://www.npmjs.com/package/mathjs">mathjs@11.11.2</a></td>
+    <td><a href="https://www.npmjs.com/package/mathjs">mathjs@12.0.0</a></td>
   </tr>
   <tr>
     <td><a href="https://www.npmjs.com/package/discord.js">discord.js@14.13.0</a></td>
