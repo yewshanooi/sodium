@@ -9,7 +9,7 @@ module.exports = {
     category: 'Fun',
     guildOnly: false,
     async execute (interaction) {
-        if (!process.env.NASA_API_KEY) return interaction.reply({ embeds: [global.errors[1]], ephemeral: true });
+        if (!process.env.NASA_API_KEY) return interaction.reply({ embeds: [global.errors[1]] });
 
         const Nasa = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${process.env.NASA_API_KEY}`)
             .then(res => res.json());

@@ -12,7 +12,7 @@ module.exports = {
     async execute (interaction) {
         const sourceField = interaction.options.getString('source');
 
-            if (!process.env.NEWS_API_KEY) return interaction.reply({ embeds: [global.errors[1]], ephemeral: true });
+            if (!process.env.NEWS_API_KEY) return interaction.reply({ embeds: [global.errors[1]] });
 
         const News = await fetch(`https://newsapi.org/v2/top-headlines?sources=${sourceField}&apiKey=${process.env.NEWS_API_KEY}`)
             .then(res => res.json());

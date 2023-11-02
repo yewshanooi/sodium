@@ -9,7 +9,7 @@ const guildOnlyCmd = new Discord.EmbedBuilder()
 // global.errors[1]
 const noAPIKey = new Discord.EmbedBuilder()
     .setTitle('Error')
-    .setDescription('No API key found. Please set one in the `.env` file.')
+    .setDescription('No API key found. Please set one in the `.env` file to use this command.')
     .setColor('#ff5555');
 
 // global.errors[2]
@@ -25,9 +25,9 @@ const noPrivateDM = new Discord.EmbedBuilder()
     .setColor('#ff5555');
 
 // global.errors[4]
-const failExecuteCmd = new Discord.EmbedBuilder()
+const executeFailCmd = new Discord.EmbedBuilder()
     .setTitle('Error')
-    .setDescription('There was an error while executing this command!')
+    .setDescription('There was an error while executing this command.')
     .setColor('#ff5555');
 
-module.exports = [guildOnlyCmd, noAPIKey, noPermission, noPrivateDM, failExecuteCmd];
+module.exports = [guildOnlyCmd, noAPIKey, noPermission, noPrivateDM, executeFailCmd];
