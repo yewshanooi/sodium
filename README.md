@@ -84,22 +84,24 @@ cd ava
 ```
 npm install
 ```
-3. Create a new **config.json** file and fill it with your preferred information<br/>
+3. Create a new file named **config.json** and fill it with your own information<br/>
 > [!WARNING]
-> "embedColor" field is required while the rest is optional
-```json
+> embedColor field is required
+```
 {
-  "embedColor": "",
-  "debugChannelId": "",
-  "errorChannelId": "",
-  "warningChannelId": ""
+  "embedColor": ""
 }
 ```
-4. Create a new **.env** file and fill it with your own secret keys
+4. Create a new file named **.env** and fill it with your own variables<br/>
+> [!WARNING]
+> TOKEN, CLIENT_ID, and GUILD_ID fields are required, while the rest are optional (Certain features might not work as intended)
 ```
 TOKEN=
 CLIENT_ID=
 GUILD_ID=
+DEBUG_CHANNEL_ID=
+ERROR_CHANNEL_ID=
+WARNING_CHANNEL_ID=
 FORTNITE_API_KEY=
 GIPHY_API_KEY=
 GENIUS_API_KEY=

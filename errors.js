@@ -8,9 +8,9 @@ const guildOnlyCmd = new Discord.EmbedBuilder()
 
 // global.errors[1]
 const noAPIKey = new Discord.EmbedBuilder()
-    .setTitle('Warning')
+    .setTitle('Error')
     .setDescription('No API key found. Please set one in the `.env` file.')
-    .setColor('#ffaa00');
+    .setColor('#ff5555');
 
 // global.errors[2]
 const noPermission = new Discord.EmbedBuilder()
@@ -24,4 +24,10 @@ const noPrivateDM = new Discord.EmbedBuilder()
     .setDescription('Cannot send messages to this user. User must enable **Allow direct messages from server members** in `User Settings > Privacy & Safety` to receive Direct Messages.')
     .setColor('#ff5555');
 
-module.exports = [guildOnlyCmd, noAPIKey, noPermission, noPrivateDM];
+// global.errors[4]
+const failExecuteCmd = new Discord.EmbedBuilder()
+    .setTitle('Error')
+    .setDescription('There was an error while executing this command!')
+    .setColor('#ff5555');
+
+module.exports = [guildOnlyCmd, noAPIKey, noPermission, noPrivateDM, failExecuteCmd];

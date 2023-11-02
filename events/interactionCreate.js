@@ -47,6 +47,6 @@ module.exports = async interaction => {
 	}
 	catch (error) {
 		console.error(error);
-		await interaction.reply({ content: 'Error: There was an error while executing this command!' });
+		await interaction.reply({ embeds: [global.errors[4]] });
 	}
 };

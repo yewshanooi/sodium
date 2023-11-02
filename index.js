@@ -19,15 +19,15 @@ for (const categories of commandsFolder) {
 	}
 }
 
-if (!process.env.TOKEN) throw new Error(`${chalk.redBright.bold('[Error]')} Missing ${chalk.bold('TOKEN')} field in the .env file`);
-if (!process.env.CLIENT_ID) throw new Error(`${chalk.redBright.bold('[Error]')} Missing ${chalk.bold('CLIENT_ID')} field in the .env file`);
-if (!process.env.GUILD_ID) throw new Error(`${chalk.redBright.bold('[Error]')} Missing ${chalk.bold('GUILD_ID')} field in the .env file`);
+if (!process.env.TOKEN) throw new Error(`${chalk.red.bold('[Error] Missing \'TOKEN\' field in the .env file.')}`);
+if (!process.env.CLIENT_ID) throw new Error(`${chalk.red.bold('[Error] Missing \'CLIENT_ID\' field in the .env file.')}`);
+if (!process.env.GUILD_ID) throw new Error(`${chalk.red.bold('[Error] Missing \'GUILD_ID\' field in the .env file.')}`);
 
-if (!configuration.embedColor) throw new Error(`${chalk.redBright.bold('[Error]')} Missing ${chalk.bold('embedColor')} field in the config.json file`);
+if (!configuration.embedColor) throw new Error(`${chalk.red.bold('[Error] Missing \'embedColor\' field in the config.json file.')}`);
 
 
 client.on('debug', info => {
-	const debugChannel = client.channels.cache.get(configuration.debugChannelId);
+	const debugChannel = client.channels.cache.get(process.env.DEBUG_CHANNEL_ID);
 
 	if (!debugChannel) return;
 
@@ -39,7 +39,7 @@ client.on('debug', info => {
 });
 
 client.on('error', info => {
-	const errorChannel = client.channels.cache.get(configuration.errorChannelId);
+	const errorChannel = client.channels.cache.get(process.env.ERROR_CHANNEL_ID);
 
 	if (!errorChannel) return;
 
@@ -51,7 +51,7 @@ client.on('error', info => {
 });
 
 client.on('warn', info => {
-	const warnChannel = client.channels.cache.get(configuration.warningChannelId);
+	const warnChannel = client.channels.cache.get(process.env.WARNING_CHANNEL_ID);
 
 	if (!warnChannel) return;
 
