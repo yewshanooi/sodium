@@ -67,7 +67,7 @@ Node.js version **≥16.11.0** is required
     <td><a href="https://www.npmjs.com/package/nodemon">nodemon@3.0.1</a></td>
   </tr>
   <tr>
-    <td><a href="https://www.npmjs.com/package/eslint">eslint@8.52.0</a></td>
+    <td><a href="https://www.npmjs.com/package/eslint">eslint@8.53.0</a></td>
     <td></td>
   </tr>
 </table>
@@ -86,7 +86,7 @@ npm install
 ```
 3. Create a new file named **config.json** and fill it with your own information<br/>
 > [!WARNING]
-> embedColor field is required
+> The embedColor field is required
 ```
 {
   "embedColor": ""
@@ -94,7 +94,7 @@ npm install
 ```
 4. Create a new file named **.env** and fill it with your own variables<br/>
 > [!WARNING]
-> TOKEN, CLIENT_ID, and GUILD_ID fields are required, while the rest are optional (Certain features might not work as intended)
+> The TOKEN, CLIENT_ID, and GUILD_ID fields are required, while the rest are optional (Certain features might not work as intended)
 ```
 TOKEN=
 CLIENT_ID=
