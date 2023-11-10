@@ -50,7 +50,7 @@
 
 ## Dependencies
 ###### Node.js
-Node.js version **≥16.11.0** is required
+Node.js version **≥20.9.0** is required
 
 ###### Packages
 <table>
