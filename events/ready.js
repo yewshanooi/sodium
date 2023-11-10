@@ -1,10 +1,12 @@
 const chalk = require('chalk');
 
 module.exports = client => {
+	// Warning messages for missing Debug, Error, and Warning channel ID fields
 	if (!process.env.DEBUG_CHANNEL_ID) console.log(`${chalk.yellow.bold('[Warning] Missing \'DEBUG_CHANNEL_ID\' field in the .env file.')}`);
 	if (!process.env.ERROR_CHANNEL_ID) console.log(`${chalk.yellow.bold('[Warning] Missing \'ERROR_CHANNEL_ID\' field in the .env file.')}`);
 	if (!process.env.WARNING_CHANNEL_ID) console.log(`${chalk.yellow.bold('[Warning] Missing \'WARNING_CHANNEL_ID\' field in the .env file.')}`);
 
+	// Warning messages for missing API keys
 	if (!process.env.FORTNITE_API_KEY) console.log(`${chalk.yellow.bold('[Warning] Missing \'FORTNITE_API_KEY\' field in the .env file.')}`);
 	if (!process.env.GIPHY_API_KEY) console.log(`${chalk.yellow.bold('[Warning] Missing \'GIPHY_API_KEY\' field in the .env file.')}`);
 	if (!process.env.GENIUS_API_KEY) console.log(`${chalk.yellow.bold('[Warning] Missing \'GENIUS_API_KEY\' field in the .env file.')}`);

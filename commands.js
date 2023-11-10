@@ -30,7 +30,7 @@ else if (option === 'delete') {
         .catch(console.error);
 }
 else {
-    console.log(`${chalk.redBright.bold('[Error]')} Invalid option. Please use either ${chalk.bold('deploy')} or ${chalk.bold('delete')} as an option.`);
+    console.log(`${chalk.red.bold('[Error] Invalid option. Please use either \'deploy\' or \'delete\' as an option.')}`);
 }
 
 
