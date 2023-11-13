@@ -56,19 +56,15 @@ Node.js version **≥20.9.0** is required
 <table>
   <tr>
     <td><a href="https://www.npmjs.com/package/chalk">chalk@4.1.2</a></td>
+    <td><a href="https://www.npmjs.com/package/eslint">eslint@8.53.0</a></td>
+  </tr>
+  <tr>
+    <td><a href="https://www.npmjs.com/package/discord.js">discord.js@14.14.1</a></td>
     <td><a href="https://www.npmjs.com/package/mathjs">mathjs@12.0.0</a></td>
   </tr>
   <tr>
-    <td><a href="https://www.npmjs.com/package/discord.js">discord.js@14.13.0</a></td>
-    <td><a href="https://www.npmjs.com/package/node-fetch">node-fetch@2.7.0</a></td>
-  </tr>
-  <tr>
     <td><a href="https://www.npmjs.com/package/dotenv">dotenv@16.3.1</a></td>
-    <td><a href="https://www.npmjs.com/package/nodemon">nodemon@3.0.1</a></td>
-  </tr>
-  <tr>
-    <td><a href="https://www.npmjs.com/package/eslint">eslint@8.53.0</a></td>
-    <td></td>
+    <td><a href="https://www.npmjs.com/package/node-fetch">node-fetch@2.7.0</a></td>
   </tr>
 </table>
 <br/>
@@ -84,7 +80,13 @@ cd ava
 ```
 npm install
 ```
-3. Create a new file named **config.json** and fill it with your own information<br/>
+3. Install the **nodemon** npm package globally
+> [!NOTE]
+> Ignore this step if you already have nodemon installed
+```
+npm install -g nodemon
+```
+4. Create a new file named **config.json** and fill it with your own information<br/>
 > [!WARNING]
 > The embedColor field is required
 ```
@@ -92,7 +94,7 @@ npm install
   "embedColor": ""
 }
 ```
-4. Create a new file named **.env** and fill it with your own variables<br/>
+5. Create a new file named **.env** and fill it with your own variables<br/>
 > [!WARNING]
 > The TOKEN, CLIENT_ID, and GUILD_ID fields are required, while the rest are optional. With missing fields, certain features might not work as intended
 ```
@@ -110,13 +112,13 @@ NEWS_API_KEY=
 OPENWEATHERMAP_API_KEY=
 RIOTGAMES_API_KEY=
 ```
-5. Run the **commands.js** file to deploy or delete application commands<br/>
+6. Run the **commands.js** file to deploy or delete application commands<br/>
 > [!IMPORTANT]
 > Commands are only deployed or deleted for a single guild by default. Check out the comment in commands.js file to do it globally
 ```
 node commands.js deploy    |    node commands.js delete
 ```
-6. Run the **index.js** file to start the bot<br/>
+7. Run the **index.js** file to start the bot<br/>
 > [!WARNING] 
 > Don't forget to deploy commands before starting the bot, otherwise commands won't appear as they are not updated
 ```
