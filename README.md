@@ -13,16 +13,12 @@
         <img alt="Repository Size" src="https://img.shields.io/github/repo-size/yewshanooi/sodium?style=flat-square">
     </a>
   &nbsp;
-    <a href="https://github.com/yewshanooi/sodium/blob/main/LICENSE">
-        <img alt="License" src="https://img.shields.io/github/license/yewshanooi/sodium?style=flat-square">
+    <a href="https://github.com/yewshanooi/sodium/commits/">
+        <img alt="Last Commit" src="https://img.shields.io/github/last-commit/yewshanooi/sodium?style=flat-square">
     </a>
   &nbsp;
     <a href="https://www.codefactor.io/repository/github/yewshanooi/sodium/">
         <img alt="Code Quality" src="https://img.shields.io/codefactor/grade/github/yewshanooi/sodium?style=flat-square">
-    </a>
-  &nbsp;
-    <a href="https://github.com/yewshanooi/sodium/commits/">
-        <img alt="Last Commit" src="https://img.shields.io/github/last-commit/yewshanooi/sodium?style=flat-square">
     </a>
 </p>
 <br/>
