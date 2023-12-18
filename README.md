@@ -1,28 +1,28 @@
 <p align="center">
-    <img src=".github/readme_icon.png" width="161" height="161"/>
-    <h1 align="center">Ava</h1>
+    <img src=".github/readme_icon.png" width="128" height="128"/>
+    <h1 align="center">Sodium</h1>
     <h4 align="center">Open source discord bot with application commands and a user-friendly interface</h4>
 </p>
 
 <p align="center">
-    <a href="https://github.com/yewshanooi/ava/releases/">
-        <img alt="Latest Version" src="https://img.shields.io/github/v/release/yewshanooi/ava?include_prereleases&style=flat-square">
+    <a href="https://github.com/yewshanooi/sodium/releases/">
+        <img alt="Latest Version" src="https://img.shields.io/github/v/release/yewshanooi/sodium?include_prereleases&style=flat-square">
     </a>
   &nbsp;
-    <a href="https://github.com/yewshanooi/ava/">
-        <img alt="Repository Size" src="https://img.shields.io/github/repo-size/yewshanooi/ava?style=flat-square">
+    <a href="https://github.com/yewshanooi/sodium/">
+        <img alt="Repository Size" src="https://img.shields.io/github/repo-size/yewshanooi/sodium?style=flat-square">
     </a>
   &nbsp;
-    <a href="https://github.com/yewshanooi/ava/blob/main/LICENSE">
-        <img alt="License" src="https://img.shields.io/github/license/yewshanooi/ava?style=flat-square">
+    <a href="https://github.com/yewshanooi/sodium/blob/main/LICENSE">
+        <img alt="License" src="https://img.shields.io/github/license/yewshanooi/sodium?style=flat-square">
     </a>
   &nbsp;
-    <a href="https://www.codefactor.io/repository/github/yewshanooi/ava/">
-        <img alt="Code Quality" src="https://img.shields.io/codefactor/grade/github/yewshanooi/ava?style=flat-square">
+    <a href="https://www.codefactor.io/repository/github/yewshanooi/sodium/">
+        <img alt="Code Quality" src="https://img.shields.io/codefactor/grade/github/yewshanooi/sodium?style=flat-square">
     </a>
   &nbsp;
-    <a href="https://github.com/yewshanooi/ava/commits/">
-        <img alt="Last Commit" src="https://img.shields.io/github/last-commit/yewshanooi/ava?style=flat-square">
+    <a href="https://github.com/yewshanooi/sodium/commits/">
+        <img alt="Last Commit" src="https://img.shields.io/github/last-commit/yewshanooi/sodium?style=flat-square">
     </a>
 </p>
 <br/>
@@ -73,8 +73,8 @@ Node.js version **≥20.9.0** is required
 ###### Configuration Files
 1. **Clone** this repository to your local drive
 ```sh
-git clone https://github.com/yewshanooi/ava.git
-cd ava
+git clone https://github.com/yewshanooi/sodium.git
+cd sodium
 ```
 2. Install the required **npm packages**
 ```
