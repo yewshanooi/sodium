@@ -56,7 +56,7 @@ Node.js version **≥20.9.0** is required
   </tr>
   <tr>
     <td><a href="https://www.npmjs.com/package/discord.js">discord.js@14.14.1</a></td>
-    <td><a href="https://www.npmjs.com/package/mathjs">mathjs@12.2.1</a></td>
+    <td><a href="https://www.npmjs.com/package/mathjs">mathjs@12.3.0</a></td>
   </tr>
   <tr>
     <td><a href="https://www.npmjs.com/package/dotenv">dotenv@16.3.1</a></td>
@@ -110,9 +110,12 @@ RIOTGAMES_API_KEY=
 ```
 6. Run the **commands.js** file to deploy or delete application commands<br/>
 > [!IMPORTANT]
-> Commands are only deployed or deleted for a single guild by default. Check out the comment in commands.js file to do it globally
+> Commands are only deployed or deleted for a single guild by default. You can deploy all commands or a single command, but you can only delete all commands
 ```
-node commands.js deploy    |    node commands.js delete
+node commands.js deploy    |    node commands.js deploy {command_name}
+```
+```
+node commands.js delete
 ```
 7. Run the **index.js** file to start the bot<br/>
 > [!WARNING] 

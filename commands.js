@@ -16,11 +16,12 @@ for (const categories of commandsFolder) {
 
 const rest = new REST({ version: '10' }).setToken(process.env.TOKEN);
 
-const [, , option] = process.argv;
-// This line of code has been destructured from "const option = process.argv[2];".
+const [, , option, commandName] = process.argv;
+// This line of code has been destructured.
 
 if (option === 'deploy') {
-    rest.put(Routes.applicationGuildCommands(process.env.CLIENT_ID, process.env.GUILD_ID), { body: commands })
+    const body = commandName ? commands.filter(cmd => cmd.name === commandName) : commands;
+    rest.put(Routes.applicationGuildCommands(process.env.CLIENT_ID, process.env.GUILD_ID), { body })
         .then(data => console.log(`\nSuccessfully deployed ${chalk.bold(`${data.length}`)} application commands\n`))
         .catch(console.error);
 }
@@ -35,9 +36,12 @@ else {
 
 
 /*
- * To deploy application commands globally, use:
- * Routes.applicationCommands(process.env.CLIENT_ID), { body: commands }
+ * Due to Discord API's limitation, you can only deploy a maximum of 100 commands in a single guild per day.
+ * Trying to deploy more than 100 commands will cause the command to not execute.
  *
- * To delete all application commands globally, use:
- * Routes.applicationCommands(process.env.CLIENT_ID), { body: [] }
+ * Commands will only be deployed/deleted for a single guild by default for development purpose.
+ * Replace the specific line of code with the one given below to change this:
+ *
+ * To deploy globally:     Routes.applicationCommands(process.env.CLIENT_ID), { body }
+ * To delete globally:     Routes.applicationCommands(process.env.CLIENT_ID), { body: [] }
  */
