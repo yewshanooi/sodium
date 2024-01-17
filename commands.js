@@ -20,9 +20,10 @@ const [, , option, commandName] = process.argv;
 // This line of code has been destructured.
 
 if (option === 'deploy') {
+    // By using deploy {command_name}, it will delete (replace) all exising commands and deploy the specified (one) command only.
     const body = commandName ? commands.filter(cmd => cmd.name === commandName) : commands;
     rest.put(Routes.applicationGuildCommands(process.env.CLIENT_ID, process.env.GUILD_ID), { body })
-        .then(data => console.log(`\nSuccessfully deployed ${chalk.bold(`${data.length}`)} application commands\n`))
+        .then(data => console.log(`\nSuccessfully deployed ${chalk.bold(`${data.length}`)} application command(s)\n`))
         .catch(console.error);
 }
 else if (option === 'delete') {
@@ -36,8 +37,8 @@ else {
 
 
 /*
- * Due to Discord API's limitation, you can only deploy a maximum of 100 commands in a single guild per day.
- * Trying to deploy more than 100 commands will cause the command to not execute.
+ * Due to Discord API's limitation, you can only deploy a maximum of 200 commands in a single guild per day.
+ * Trying to deploy more than 200 commands will cause the command to not execute.
  *
  * Commands will only be deployed/deleted for a single guild by default for development purpose.
  * Replace the specific line of code with the one given below to change this:

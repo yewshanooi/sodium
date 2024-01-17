@@ -21,7 +21,7 @@ module.exports = {
             }
         }).then(res => res.json());
 
-            if (Fortnite.status === 400) return interaction.reply('Error: Invalid or missing parameter(s).');
+            if (Fortnite.status === 400) return interaction.reply('Error: Invalid or missing parameters.');
             if (Fortnite.status === 403) return interaction.reply('Error: User\'s account stats are private.');
             if (Fortnite.status === 404) return interaction.reply('Error: No such account found.');
 
