@@ -52,7 +52,7 @@ Node.js version **≥20.9.0** is required
 <table>
   <tr>
     <td><a href="https://www.npmjs.com/package/chalk">chalk@4.1.2</a></td>
-    <td><a href="https://www.npmjs.com/package/eslint">eslint@8.56.0</a></td>
+    <td><a href="https://www.npmjs.com/package/eslint">eslint@8.55.0</a></td>
   </tr>
   <tr>
     <td><a href="https://www.npmjs.com/package/discord.js">discord.js@14.14.1</a></td>
