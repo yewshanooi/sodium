@@ -5,11 +5,14 @@ module.exports = {
 	data: new SlashCommandBuilder()
         .setName('info')
         .setDescription('Display information about the channel, client, guild, role, or user')
-        .addSubcommand(subcommand => subcommand.setName('channel').setDescription('Display information about the selected channel').addChannelOption(option => option.setName('channel').setDescription('Select a channel').setRequired(true)))
+        .addSubcommand(subcommand => subcommand.setName('channel').setDescription('Display information about the selected channel')
+            .addChannelOption(option => option.setName('channel').setDescription('Select a channel').setRequired(true)))
         .addSubcommand(subcommand => subcommand.setName('client').setDescription('Display information about the client'))
         .addSubcommand(subcommand => subcommand.setName('guild').setDescription('Display information about the guild'))
-        .addSubcommand(subcommand => subcommand.setName('role').setDescription('Display information about the selected role').addRoleOption(option => option.setName('role').setDescription('Select a role').setRequired(true)))
-        .addSubcommand(subcommand => subcommand.setName('user').setDescription('Display information about the selected user').addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))),
+        .addSubcommand(subcommand => subcommand.setName('role').setDescription('Display information about the selected role')
+            .addRoleOption(option => option.setName('role').setDescription('Select a role').setRequired(true)))
+        .addSubcommand(subcommand => subcommand.setName('user').setDescription('Display information about the selected user')
+            .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))),
     cooldown: '3',
     category: 'Utility',
     guildOnly: true,

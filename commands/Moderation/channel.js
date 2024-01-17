@@ -4,9 +4,11 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('channel')
         .setDescription('Delete, lock, rename, or unlock a channel')
-        .addSubcommand(subcommand => subcommand.setName('delete').setDescription('Delete the selected channel').addChannelOption(option => option.setName('channel').setDescription('Select a channel').setRequired(true)))
+        .addSubcommand(subcommand => subcommand.setName('delete').setDescription('Delete the selected channel')
+            .addChannelOption(option => option.setName('channel').setDescription('Select a channel').setRequired(true)))
         .addSubcommand(subcommand => subcommand.setName('lock').setDescription('Lock the current channel'))
-        .addSubcommand(subcommand => subcommand.setName('rename').setDescription('Rename the current channel').addStringOption(option => option.setName('name').setDescription('Enter a name (max 100 characters)').setMaxLength(100).setRequired(true)))
+        .addSubcommand(subcommand => subcommand.setName('rename').setDescription('Rename the current channel')
+            .addStringOption(option => option.setName('name').setDescription('Enter a name (max 100 characters)').setMaxLength(100).setRequired(true)))
         .addSubcommand(subcommand => subcommand.setName('unlock').setDescription('Unlock the current channel')),
     cooldown: '15',
     category: 'Moderation',
