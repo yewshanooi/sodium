@@ -37,9 +37,9 @@
     <td><b>Utility</b></td>
   </tr>
   <tr>
-    <td>8ball, achievement, animequote, beep, coinflip, color, compliment, diceroll, fact <i>[cat/dog/general/useless]</i>, fortnite, giphy, leagueoflegends, lyrics, meme, minecraft, nasa, pokemon, roast, rps, say, spotify, urban, waifu, word, youtube</td>
-    <td>ban, channel <i>[delete/lock/rename/unlock]</i>, deafen, kick, purge, slowmode, timeout, unban, undeafen, untimeout, warn</td>
-    <td>afk, announce, botpresence, botsetnick, calculator, crypto, dictionary, github, guildrename, help, info <i>[channel/client/guild/role/user]</i>, invite, leave, message, news, npm, ping, qrcode, role <i>[add/remove]</i>, setnick, thread, weather, wikipedia</td>
+    <td>8ball, achievement, animequote, beep, coinflip, color, compliment, diceroll, fact <b>[cat | dog | general | useless]</b>, fortnite, giphy, leagueoflegends, lyrics, meme, minecraft, nasa, pokemon, roast, rps, say, spotify, urban, waifu, word, youtube</td>
+    <td>ban, channel <b>[delete | lock | rename | unlock]</b>, deafen, kick, purge, slowmode, timeout, unban, undeafen, untimeout, warn</td>
+    <td>afk, announce, botpresence, botsetnick, calculator, crypto, dictionary, github, guildrename, help, info <b>[channel | client | guild | role | user]</b>, invite, leave, message, news, npm, ping, qrcode, role <b>[add | remove]</b>, setnick, thread, weather, wikipedia</td>
   </tr>
 </table>
 <br/>
