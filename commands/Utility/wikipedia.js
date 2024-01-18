@@ -27,7 +27,7 @@ module.exports = {
             const button = new ActionRowBuilder()
                 .addComponents(new ButtonBuilder()
                     .setURL(`${Article.content_urls.desktop.page}`)
-                    .setLabel('Read more')
+                    .setLabel('View article')
                     .setStyle('Link'));
 
             return interaction.reply({ embeds: [embed], components: [button] });

@@ -21,7 +21,7 @@ module.exports = {
             const embed = new EmbedBuilder()
                 .setTitle(`${Mojang.name}`)
                 .addFields({ name: 'UUID', value: `\`${Mojang.id}\`` })
-                .setImage(`https://crafatar.com/renders/body/${Mojang.id}?overlay=true`)
+                .setImage(`https://mc-heads.net/body/${Mojang.id}/128.png`)
                 .setFooter({ text: 'Powered by Mojang Studios' })
                 .setColor('#ef323d');
 
@@ -31,11 +31,11 @@ module.exports = {
                     .setLabel('View on NameMC')
                     .setStyle('Link'));
 
-            interaction.reply({ embeds: [embed], components: [button] });
+            return interaction.reply({ embeds: [embed], components: [button] });
         }
 
         if (Mojang.error) {
-                interaction.reply({ content: 'Error: Invalid username or username does not exist.' });
+                return interaction.reply({ content: 'Error: Invalid username or username does not exist.' });
             }
         }
 };

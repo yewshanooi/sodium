@@ -26,7 +26,7 @@ module.exports = {
             const button = new ActionRowBuilder()
                 .addComponents(new ButtonBuilder()
                     .setURL(`${Nasa.hdurl}`)
-                    .setLabel('Image source')
+                    .setLabel('View source')
                     .setStyle('Link'));
 
             return interaction.reply({ embeds: [embed], components: [button] });

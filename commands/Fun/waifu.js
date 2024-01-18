@@ -4,7 +4,7 @@ const fetch = require('node-fetch');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('waifu')
-        .setDescription('Get anime girl images from Pixiv'),
+        .setDescription('Get a random anime girl image from Pixiv'),
     cooldown: '5',
     category: 'Fun',
     guildOnly: false,
@@ -21,7 +21,7 @@ module.exports = {
             const buttons = new ActionRowBuilder()
                 .addComponents(new ButtonBuilder()
                     .setURL(`${Anime.results[0].artist_href}`)
-                    .setLabel('Artist')
+                    .setLabel('View artist')
                     .setStyle('Link'))
                 .addComponents(new ButtonBuilder()
                     .setURL(`${Anime.results[0].source_url}`)
