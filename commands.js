@@ -20,7 +20,7 @@ const [, , option, commandName] = process.argv;
 // This line of code has been destructured.
 
 if (option === 'deploy') {
-    // By using deploy {command_name}, it will delete (replace) all exising commands and deploy the specified (one) command only.
+    // By using deploy {command_name}, it will delete all exising commands and deploy the specified (one) command only.
     const body = commandName ? commands.filter(cmd => cmd.name === commandName) : commands;
     rest.put(Routes.applicationGuildCommands(process.env.CLIENT_ID, process.env.GUILD_ID), { body })
         .then(data => console.log(`\nSuccessfully deployed ${chalk.bold(`${data.length}`)} application command(s)\n`))
