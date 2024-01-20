@@ -11,7 +11,7 @@ module.exports = {
             .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))
             .addRoleOption(option => option.setName('role').setDescription('Select a role').setRequired(true))),
     cooldown: '5',
-    category: 'Utility',
+    category: 'Moderation',
     guildOnly: true,
     execute (interaction, configuration) {
         if (!interaction.guild.members.me.permissions.has('ManageRoles')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Manage Roles** permission in `Server Settings > Roles` to use this command.' });
