@@ -16,7 +16,7 @@ module.exports = {
             .setTitle('Waifu')
             .setImage(`${Anime.results[0].url}`)
             .setFooter({ text: `Artist: ${Anime.results[0].artist_name}\nPowered by Pixiv` })
-            .setColor('#009dff');
+            .setColor('#0096fa');
 
             const buttons = new ActionRowBuilder()
                 .addComponents(new ButtonBuilder()

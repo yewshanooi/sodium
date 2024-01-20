@@ -38,7 +38,7 @@ module.exports = {
                 { name: 'Total Kills / Deaths', value: `\`${Fortnite.data.stats.all.overall.kills}\` / \`${Fortnite.data.stats.all.overall.deaths}\`` }
             )
             .setFooter({ text: 'Powered by Fortnite-API' })
-            .setColor('#f47818');
+            .setColor('#74c7ef');
         interaction.reply({ embeds: [embed] });
     }
 };

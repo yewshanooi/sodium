@@ -32,7 +32,7 @@ module.exports = {
                     { name: 'Rating', value: `▲ ${Answer.thumbs_up} ▼ ${Answer.thumbs_down}` }
                 )
                 .setFooter({ text: 'Powered by Urban Dictionary' })
-                .setColor('#171f36');
+                .setColor('#1b2936');
 
                 const button = new ActionRowBuilder()
                     .addComponents(new ButtonBuilder()

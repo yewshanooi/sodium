@@ -21,7 +21,7 @@ module.exports = {
             .setDescription(`${Nasa.explanation}`)
             .setImage(`${Nasa.url}`)
             .setFooter({ text: 'Powered by NASA' })
-            .setColor('#033a92');
+            .setColor('#0b3d91');
 
             const button = new ActionRowBuilder()
                 .addComponents(new ButtonBuilder()
