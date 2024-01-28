@@ -59,7 +59,7 @@ Node.js version **≥20.9.0** is required
     <td><a href="https://www.npmjs.com/package/mathjs">mathjs@12.3.0</a></td>
   </tr>
   <tr>
-    <td><a href="https://www.npmjs.com/package/dotenv">dotenv@16.3.1</a></td>
+    <td><a href="https://www.npmjs.com/package/dotenv">dotenv@16.4.1</a></td>
     <td><a href="https://www.npmjs.com/package/node-fetch">node-fetch@2.7.0</a></td>
   </tr>
 </table>
