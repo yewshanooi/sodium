@@ -10,9 +10,9 @@ module.exports = {
     category: 'Utility',
     guildOnly: false,
     async execute (interaction) {
-        const locationField = interaction.options.getString('location');
+        if (!process.env.OPENWEATHERMAP_API_KEY) return interaction.reply({ embeds: [global.errors[1]] });
 
-            if (!process.env.OPENWEATHERMAP_API_KEY) return interaction.reply({ embeds: [global.errors[1]] });
+        const locationField = interaction.options.getString('location');
 
         const Weather = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${locationField}&units=metric&appid=${process.env.OPENWEATHERMAP_API_KEY}`)
             .then(res => res.json());

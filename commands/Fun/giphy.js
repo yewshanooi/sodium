@@ -10,11 +10,11 @@ module.exports = {
     category: 'Fun',
     guildOnly: false,
     async execute (interaction) {
+        if (!process.env.GIPHY_API_KEY) return interaction.reply({ embeds: [global.errors[1]] });
+
         const queryField = interaction.options.getString('query');
 
         const randomGif = Math.floor(Math.random() * 19);
-
-        if (!process.env.GIPHY_API_KEY) return interaction.reply({ embeds: [global.errors[1]] });
 
         const Gif = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${process.env.GIPHY_API_KEY}&q=${encodeURIComponent(queryField)}&limit=1&offset=${randomGif}`)
             .then(res => res.json())

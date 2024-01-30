@@ -10,9 +10,9 @@ module.exports = {
     category: 'Fun',
     guildOnly: false,
     async execute (interaction) {
-        const usernameField = interaction.options.getString('username');
+        if (!process.env.FORTNITE_API_KEY) return interaction.reply({ embeds: [global.errors[1]] });
 
-            if (!process.env.FORTNITE_API_KEY) return interaction.reply({ embeds: [global.errors[1]] });
+        const usernameField = interaction.options.getString('username');
 
         const Fortnite = await fetch(`https://fortnite-api.com/v2/stats/br/v2?name=${usernameField}`, {
             headers: {
@@ -38,7 +38,7 @@ module.exports = {
                 { name: 'Total Kills / Deaths', value: `\`${Fortnite.data.stats.all.overall.kills}\` / \`${Fortnite.data.stats.all.overall.deaths}\`` }
             )
             .setFooter({ text: 'Powered by Fortnite-API' })
-            .setColor('#74c7ef');
+            .setColor('#f4f4f4');
         interaction.reply({ embeds: [embed] });
     }
 };

@@ -39,7 +39,7 @@
   <tr>
     <td>8ball, achievement, beep, coinflip, color, compliment, diceroll, fact <b>[cat | dog | general | useless]</b>, fortnite, giphy, leagueoflegends, lyrics, meme, minecraft, nasa, pokemon, roast, rps, say, spotify, urban, waifu, word, youtube</td>
     <td>ban, channel <b>[delete | lock | rename | unlock]</b>, deafen, kick, purge, role <b>[add | remove]</b>, setnick, slowmode, timeout, unban, undeafen, untimeout, warn</td>
-    <td>afk, announce, botpresence, botsetnick, calculator, crypto, dictionary, github, guildrename, help, info <b>[channel | client | guild | role | user]</b>, invite, leave, message, news, npm, ping, qrcode, thread, weather, wikipedia</td>
+    <td>afk, announce, botpresence, botsetnick, calculator, crypto, dictionary, gemini, github, guildrename, help, info <b>[channel | client | guild | role | user]</b>, invite, leave, message, news, npm, ping, qrcode, thread, weather, wikipedia</td>
   </tr>
 </table>
 <br/>
@@ -51,17 +51,21 @@ Node.js version **≥20.9.0** is required
 ###### Packages
 <table>
   <tr>
+    <td><a href="https://www.npmjs.com/package/@google/generative-ai">@google/generative-ai@0.1.3</a></td>
     <td><a href="https://www.npmjs.com/package/chalk">chalk@4.1.2</a></td>
-    <td><a href="https://www.npmjs.com/package/eslint">eslint@8.56.0</a></td>
   </tr>
   <tr>
     <td><a href="https://www.npmjs.com/package/discord.js">discord.js@14.14.1</a></td>
+    <td><a href="https://www.npmjs.com/package/dotenv">dotenv@16.4.1</a></td>
+  </tr>
+  <tr>
+    <td><a href="https://www.npmjs.com/package/eslint">eslint@8.56.0</a></td>
     <td><a href="https://www.npmjs.com/package/mathjs">mathjs@12.3.0</a></td>
   </tr>
   <tr>
-    <td><a href="https://www.npmjs.com/package/dotenv">dotenv@16.4.1</a></td>
     <td><a href="https://www.npmjs.com/package/node-fetch">node-fetch@2.7.0</a></td>
-  </tr>
+    <td></td>
+  </td>
 </table>
 <br/>
 
@@ -101,8 +105,9 @@ DEBUG_CHANNEL_ID=
 ERROR_CHANNEL_ID=
 WARNING_CHANNEL_ID=
 FORTNITE_API_KEY=
-GIPHY_API_KEY=
 GENIUS_API_KEY=
+GIPHY_API_KEY=
+GOOGLE_API_KEY=
 NASA_API_KEY=
 NEWS_API_KEY=
 OPENWEATHERMAP_API_KEY=

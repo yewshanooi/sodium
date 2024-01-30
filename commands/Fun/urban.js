@@ -1,5 +1,4 @@
 /* eslint-disable no-extra-parens */
-
 const { EmbedBuilder, ButtonBuilder, ActionRowBuilder, SlashCommandBuilder } = require('discord.js');
 const fetch = require('node-fetch');
 
