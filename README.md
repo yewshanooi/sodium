@@ -25,7 +25,7 @@
 
 ## Features
 - **Application Commands**, **Buttons**, and **Message Embed**
-- **AI Chatbot** ✨ *(powered by Google's Gemini language model)*
+- **AI Chatbot** ✨ *(powered by Google's Gemini Pro language model)*
 - **Watch Together** *(with YouTube Activity)*
 - **Third Party API** commands *(such as Giphy, Nasa, Wikipedia and more!)*
 <br/>
