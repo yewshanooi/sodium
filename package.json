@@ -1,6 +1,6 @@
 {
   "name": "sodium",
-  "version": "1.5.5",
+  "version": "1.5.6",
   "description": "Open source discord bot with application commands and a user-friendly interface",
   "main": "index.js",
   "author": "Ooi Yew Shan",

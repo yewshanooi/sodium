@@ -52,7 +52,7 @@ Node.js version **≥20.9.0** is required
 ###### Packages
 <table>
   <tr>
-    <td><a href="https://www.npmjs.com/package/@google/generative-ai">@google/generative-ai@0.1.3</a></td>
+    <td><a href="https://www.npmjs.com/package/@google/generative-ai">@google/generative-ai@0.2.0</a></td>
     <td><a href="https://www.npmjs.com/package/chalk">chalk@4.1.2</a></td>
   </tr>
   <tr>
