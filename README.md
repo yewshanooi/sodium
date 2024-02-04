@@ -1,5 +1,5 @@
 <p align="center">
-    <img src=".github/readme_icon.png" width="128" height="128"/>
+    <img src=".github/icons/sodium.png" width="128" height="128"/>
     <h1 align="center">Sodium</h1>
     <h4 align="center">Open source discord bot with application commands and a user-friendly interface</h4>
 </p>
@@ -25,7 +25,7 @@
 
 ## Features
 - **Application Commands**, **Buttons**, and **Message Embed**
-- **AI Chatbot** ✨ *(powered by Google's Gemini Pro language model)*
+- **AI Chatbot** <img src=".github/icons/sparkles.png" width="16" height="16"/> *(powered by Google's Gemini Pro language model)*
 - **Watch Together** *(with YouTube Activity)*
 - **Third Party API** commands *(such as Giphy, Nasa, Wikipedia and more!)*
 <br/>
