@@ -6,19 +6,19 @@
 
 <p align="center">
     <a href="https://github.com/yewshanooi/sodium/releases/">
-        <img alt="Latest Version" src="https://img.shields.io/github/v/release/yewshanooi/sodium?include_prereleases&style=flat-square">
+        <img alt="Latest Version" src="https://img.shields.io/github/v/release/yewshanooi/sodium?include_prereleases&style=flat">
     </a>
   &nbsp;
     <a href="https://github.com/yewshanooi/sodium/">
-        <img alt="Repository Size" src="https://img.shields.io/github/repo-size/yewshanooi/sodium?style=flat-square">
+        <img alt="Repository Size" src="https://img.shields.io/github/repo-size/yewshanooi/sodium?style=flat">
     </a>
   &nbsp;
     <a href="https://github.com/yewshanooi/sodium/commits/">
-        <img alt="Last Commit" src="https://img.shields.io/github/last-commit/yewshanooi/sodium?style=flat-square">
+        <img alt="Last Commit" src="https://img.shields.io/github/last-commit/yewshanooi/sodium?style=flat">
     </a>
   &nbsp;
     <a href="https://www.codefactor.io/repository/github/yewshanooi/sodium/">
-        <img alt="Code Quality" src="https://img.shields.io/codefactor/grade/github/yewshanooi/sodium?style=flat-square">
+        <img alt="Code Quality" src="https://img.shields.io/codefactor/grade/github/yewshanooi/sodium?style=flat">
     </a>
 </p>
 <br/>
