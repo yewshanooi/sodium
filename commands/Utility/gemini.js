@@ -5,7 +5,7 @@ const { GoogleGenerativeAI, HarmCategory, HarmBlockThreshold } = require('@googl
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('gemini')
-		.setDescription('Chat with an AI bot powered by Google\'s Gemini Pro language model')
+		.setDescription('Chat with an AI bot powered by Google Gemini Pro')
 		.addStringOption(option => option.setName('query').setDescription('Enter a query (max 1024 characters)').setMaxLength(1024).setRequired(true)),
 	cooldown: '10',
 	category: 'Utility',
@@ -20,36 +20,15 @@ module.exports = {
 		const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY);
 			const model = genAI.getGenerativeModel({ model: 'gemini-pro' });
 
-			const generationConfig = {
-				temperature: 0.5,
-				topP: 0.5,
-				topK: 20,
-				maxOutputTokens: 1024
-			};
-
-			const safetySettings = [
-				{
-					category: HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT,
-					threshold: HarmBlockThreshold.BLOCK_NONE
-				},
-				{
-					category: HarmCategory.HARM_CATEGORY_HARASSMENT,
-					threshold: HarmBlockThreshold.BLOCK_NONE
-				},
-				{
-					category: HarmCategory.HARM_CATEGORY_HATE_SPEECH,
-					threshold: HarmBlockThreshold.BLOCK_NONE
-				},
-				{
-					category: HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT,
-					threshold: HarmBlockThreshold.BLOCK_NONE
-				}
-			];
-
 			const result = await model.generateContent({
 				contents: [{ role: 'USER', parts: [{ text: queryField }] }],
-				generationConfig,
-				safetySettings
+				generationConfig: { temperature: 0.5, topP: 0.5, topK: 20, maxOutputTokens: 1024 },
+				safetySettings: [
+					{ category: HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT, threshold: HarmBlockThreshold.BLOCK_NONE },
+					{ category: HarmCategory.HARM_CATEGORY_HARASSMENT, threshold: HarmBlockThreshold.BLOCK_NONE },
+					{ category: HarmCategory.HARM_CATEGORY_HATE_SPEECH, threshold: HarmBlockThreshold.BLOCK_NONE },
+					{ category: HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT, threshold: HarmBlockThreshold.BLOCK_NONE }
+				]
 			});
 
 		if (result.response.promptFeedback.blockReason === 'SAFETY' || result.response.promptFeedback.blockReason === 'BLOCKED_REASON_UNSPECIFIED' || result.response.promptFeedback.blockReason === 'OTHER') {
