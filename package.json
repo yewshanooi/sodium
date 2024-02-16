@@ -15,10 +15,10 @@
     "node": ">=20.9.0"
   },
   "dependencies": {
-    "@google/generative-ai": "^0.2.0",
+    "@google/generative-ai": "^0.2.1",
     "chalk": "^4.1.2",
     "discord.js": "^14.14.1",
-    "dotenv": "^16.4.2",
+    "dotenv": "^16.4.4",
     "eslint": "^8.56.0",
     "mathjs": "^12.3.2",
     "node-fetch": "^2.7.0"
