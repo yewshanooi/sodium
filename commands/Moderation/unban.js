@@ -42,9 +42,13 @@ module.exports = {
 				$push: {
 					items: {
 						type: 'Unban',
-						userId: userIdField,
-						modName: interaction.user.username,
-						modId: interaction.user.id,
+						user: {
+                            id: userIdField
+                        },
+                        mod: {
+                            name: interaction.user.username,
+                            id: interaction.user.id
+                        },
 						reason: reasonField,
 						timestamp: getTimestamp
 					}
@@ -62,5 +66,6 @@ module.exports = {
 			.catch(() => {
 				interaction.reply({ content: 'Error: User ID is invalid or not found.' });
 			});
+
 		}
 };

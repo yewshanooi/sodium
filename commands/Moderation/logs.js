@@ -40,8 +40,6 @@ module.exports = {
 
         const viewLog = new EmbedBuilder()
             .setTitle('Logs')
-            .setFooter({ text: `${guildLog.guildName}`, iconURL: interaction.guild.iconURL() })
-            .setTimestamp()
             .setColor(configuration.embedColor);
 
         // Display the 10 latest moderation logs for the current guild
@@ -50,7 +48,7 @@ module.exports = {
         let description = '';
         if (latestItems.length > 0) {
             latestItems.forEach(item => {
-                description += `\n**Type:** ${item.type}\n**User:** ${item.userName ? item.userName : ''} \`${item.userId}\`\n**By:** ${item.modName} \`${item.modId}\`\n`;
+                description += `\n**Type:** ${item.type}\n**User:** ${item.user.name ? item.user.name : ''} \`${item.user.id}\`\n**By:** ${item.mod.name} \`${item.mod.id}\`\n`;
                     if (item.duration) {
                         description += `**Duration:** ${item.duration}\n`;
                     }
@@ -67,3 +65,7 @@ module.exports = {
 
 	}
 };
+
+// [To-Do] Add subcommands: logs [create | view | delete], etc.
+
+// [To-Do] Add logs with subcommands to README.md - Commands > Moderation.

@@ -57,10 +57,14 @@ module.exports = {
                 $push: {
                     items: {
                         type: 'Timeout',
-                        userName: userField.user.username,
-                        userId: userField.user.id,
-                        modName: interaction.user.username,
-                        modId: interaction.user.id,
+                        user: {
+                            name: userField.user.username,
+                            id: userField.user.id
+                        },
+                        mod: {
+                            name: interaction.user.username,
+                            id: interaction.user.id
+                        },
                         duration: resultDuration,
                         reason: reasonField,
                         timestamp: getTimestamp

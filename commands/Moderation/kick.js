@@ -47,10 +47,14 @@ module.exports = {
 				$push: {
 					items: {
 						type: 'Kick',
-						userName: userField.user.username,
-						userId: userField.user.id,
-						modName: interaction.user.username,
-						modId: interaction.user.id,
+                        user: {
+                            name: userField.user.username,
+                            id: userField.user.id
+                        },
+                        mod: {
+                            name: interaction.user.username,
+                            id: interaction.user.id
+                        },
 						reason: reasonField,
 						timestamp: getTimestamp
 					}
