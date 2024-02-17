@@ -125,7 +125,7 @@ module.exports = {
                 .setTitle('Logs')
                 .setColor(configuration.embedColor);
 
-            // Display only 10 latest items in the logs
+            // Display 10 latest items from the log
             const latestItems = guildLog.items.slice(-10);
 
             let description = '';
