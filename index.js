@@ -6,7 +6,7 @@ const chalk = require('chalk');
 global.errors = require('./errors.js');
 const configuration = require('./config.json');
 
-// Initialise mongoose npm package to manage MongoDB database
+// Initialize mongoose npm package to manage MongoDB database
 const mongoose = require('mongoose');
 
 const { Client, Collection, EmbedBuilder, GatewayIntentBits, Partials } = require('discord.js');
@@ -22,11 +22,11 @@ for (const categories of commandsFolder) {
 	}
 }
 
-// Error messages for missing Token, Client ID, Guild ID, MongoDB Token, and embedColor fields
+// Error messages for missing Token, MongoDB Token, Client ID, Guild ID, and embedColor fields
 if (!process.env.TOKEN) throw new Error(`${chalk.red.bold('[Error] Missing \'TOKEN\' field in the .env file.')}`);
+if (!process.env.MONGODB_TOKEN) throw new Error(`${chalk.red.bold('[Error] Missing \'MONGODB_TOKEN\' field in the .env file.')}`);
 if (!process.env.CLIENT_ID) throw new Error(`${chalk.red.bold('[Error] Missing \'CLIENT_ID\' field in the .env file.')}`);
 if (!process.env.GUILD_ID) throw new Error(`${chalk.red.bold('[Error] Missing \'GUILD_ID\' field in the .env file.')}`);
-if (!process.env.MONGODB_TOKEN) throw new Error(`${chalk.red.bold('[Error] Missing \'MONGODB_TOKEN\' field in the .env file.')}`);
 
 if (!configuration.embedColor) throw new Error(`${chalk.red.bold('[Error] Missing \'embedColor\' field in the config.json file.')}`);
 

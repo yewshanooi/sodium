@@ -20,7 +20,7 @@ const rest = new REST({ version: '10' }).setToken(process.env.TOKEN);
 const [, , option, commandName] = process.argv;
 
 if (option === 'deploy') {
-    // By using "node commands.js deploy {command_name}", it will delete all existing commands and only deploy a single command
+    // By using "node commands.js deploy {command}", it will delete all existing commands and only deploy a single command
     const body = commandName ? commands.filter(cmd => cmd.name === commandName) : commands;
     rest.put(Routes.applicationGuildCommands(process.env.CLIENT_ID, process.env.GUILD_ID), { body })
         .then(data => console.log(`\nSuccessfully deployed ${chalk.bold(`${data.length}`)} application command(s)\n`))
@@ -32,7 +32,7 @@ else if (option === 'delete') {
         .catch(console.error);
 }
 else {
-    console.log(`${chalk.red.bold('[Error] Invalid option. Please use either \'deploy\', \'deploy {command_name}\', or \'delete\' as an option.')}`);
+    console.log(`${chalk.red.bold('[Error] Invalid option. Please use either \'deploy\', \'deploy {command}\', or \'delete\' as an option.')}`);
 }
 
 
