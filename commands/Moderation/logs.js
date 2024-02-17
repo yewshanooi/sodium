@@ -13,13 +13,15 @@ module.exports = {
 	async execute (interaction, configuration) {
         if (!interaction.member.permissions.has('Administrator')) return interaction.reply({ embeds: [global.errors[2]] });
 
-        let guildLog = await Log.findOne({ guildId: interaction.guild.id });
+        let guildLog = await Log.findOne({ 'guild.id': interaction.guild.id });
 
         if (!guildLog) {
             guildLog = await new Log({
                 _id: new mongoose.Types.ObjectId(),
-                guildName: interaction.guild.name,
-                guildId: interaction.guild.id,
+                guild: {
+                    name: interaction.guild.name,
+                    id: interaction.guild.id
+                },
                 items: []
             });
 
@@ -65,7 +67,3 @@ module.exports = {
 
 	}
 };
-
-// [To-Do] Add subcommands: logs [create | view | delete], etc.
-
-// [To-Do] Add logs with subcommands to README.md - Commands > Moderation.

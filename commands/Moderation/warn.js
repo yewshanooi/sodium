@@ -12,7 +12,7 @@ module.exports = {
     category: 'Moderation',
     guildOnly: true,
     async execute (interaction) {
-        const guildLog = await Log.findOne({ guildId: interaction.guild.id });
+        const guildLog = await Log.findOne({ 'guild.id': interaction.guild.id });
             if (guildLog === null) return interaction.reply({ embeds: [global.errors[5]] });
 
         if (!interaction.guild.members.me.permissions.has('ManageMessages')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Manage Messages** permission in `Server Settings > Roles` to use this command.' });
@@ -49,7 +49,7 @@ module.exports = {
 
         try {
             await Log.findOneAndUpdate({
-                guildId: interaction.guild.id
+                'guild.id': interaction.guild.id
             }, {
                 $push: {
                     items: {

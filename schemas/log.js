@@ -3,8 +3,10 @@ const logItemSchema = require('./logItem').schema;
 
 const logSchema = new Schema({
     _id: Schema.Types.ObjectId,
-    guildName: String,
-    guildId: String,
+    guild: {
+        name: String,
+        id: String
+    },
     items: [logItemSchema]
 });
 
