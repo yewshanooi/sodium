@@ -102,7 +102,7 @@ npm install -g nodemon
 ```
 5. Create a new file named **.env** and fill it with your own variables<br/>
 > [!WARNING]
-> The TOKEN, CLIENT_ID, and GUILD_ID fields are required, while the rest are optional. With missing fields, certain features might not work as intended
+> The TOKEN, CLIENT_ID, GUILD_ID, and MONGODB_TOKEN fields are required, while the rest are optional. With missing fields, certain features might not work as intended
 ```
 TOKEN=
 CLIENT_ID=

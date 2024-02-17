@@ -26,10 +26,8 @@ module.exports = {
             const guildLog = await Log.findOne({ 'guild.id': interaction.guild.id });
                 if (guildLog === null) return interaction.editReply({ embeds: [global.errors[5]] });
 
-            // Collecting & organizing fields
             const typeField = interaction.options.getString('type');
                 const resultType = typeField.charAt(0).toUpperCase() + typeField.slice(1);
-
             const userField = interaction.options.getMember('user');
 
             let reasonField = interaction.options.getString('reason');
@@ -39,7 +37,6 @@ module.exports = {
 
             const getTimestamp = new Date();
 
-            // Creating a Discord embed
             const addLog = new EmbedBuilder()
                 .setTitle('Logs')
                 .addFields(
@@ -51,7 +48,6 @@ module.exports = {
                 )
                 .setColor(configuration.embedColor);
 
-            // Pushing fields into log as logItem
             try {
                 await Log.findOneAndUpdate({
                     'guild.id': interaction.guild.id
@@ -129,7 +125,7 @@ module.exports = {
                 .setTitle('Logs')
                 .setColor(configuration.embedColor);
 
-            // Display the 10 latest moderation logs for the current guild
+            // Display only 10 latest items in the logs
             const latestItems = guildLog.items.slice(-10);
 
             let description = '';
