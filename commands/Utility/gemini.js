@@ -18,7 +18,7 @@ module.exports = {
 		const queryField = interaction.options.getString('query');
 
 		const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY);
-			const model = genAI.getGenerativeModel({ model: 'gemini-pro' });
+			const model = genAI.getGenerativeModel({ model: 'gemini-1.0-pro-latest' });
 
 			const result = await model.generateContent({
 				contents: [{ role: 'USER', parts: [{ text: queryField }] }],

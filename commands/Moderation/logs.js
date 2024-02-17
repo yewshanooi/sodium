@@ -17,12 +17,12 @@ module.exports = {
 	category: 'Moderation',
 	guildOnly: true,
 	async execute (interaction, configuration) {
-        await interaction.deferReply();
-
         if (!interaction.member.permissions.has('Administrator')) return interaction.editReply({ embeds: [global.errors[2]] });
 
         // log add Subcommand
         if (interaction.options.getSubcommand() === 'add') {
+            await interaction.deferReply();
+
             const guildLog = await Log.findOne({ 'guild.id': interaction.guild.id });
                 if (guildLog === null) return interaction.editReply({ embeds: [global.errors[5]] });
 
@@ -78,6 +78,8 @@ module.exports = {
 
         // log initialize Subcommand
         if (interaction.options.getSubcommand() === 'initialize') {
+            await interaction.deferReply();
+
             let guildLog = await Log.findOne({ 'guild.id': interaction.guild.id });
 
             if (guildLog) {
@@ -119,7 +121,7 @@ module.exports = {
         // log view Subcommand
         if (interaction.options.getSubcommand() === 'view') {
             const guildLog = await Log.findOne({ 'guild.id': interaction.guild.id });
-                if (guildLog === null) return interaction.editReply({ embeds: [global.errors[5]] });
+                if (guildLog === null) return interaction.reply({ embeds: [global.errors[5]] });
 
             const viewLog = new EmbedBuilder()
                 .setTitle('Logs')
@@ -140,7 +142,7 @@ module.exports = {
 
             viewLog.setDescription(description);
 
-            return interaction.editReply({ embeds: [viewLog], ephemeral: true });
+            return interaction.reply({ embeds: [viewLog], ephemeral: true });
         }
 
 	}
