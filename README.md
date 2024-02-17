@@ -25,9 +25,10 @@
 
 ## Features
 - **Application Commands**, **Buttons**, and **Message Embed**
-- **AI Chatbot** <img src=".github/icons/sparkles.png" width="16" height="16"/> *(powered by Google's Gemini Pro language model)*
-- **Watch Together** *(with YouTube Activity)*
+- **AI Chatbot** <img src=".github/icons/sparkles.png" width="16" height="16"/> *(powered by Google Gemini Pro)*
+- **Moderation Logs** *(stored using MongoDB)*
 - **Third Party API** commands *(such as Giphy, Nasa, Wikipedia and more!)*
+- **Watch Together** *(with YouTube Activity)*
 <br/>
 
 ## Commands
@@ -39,7 +40,7 @@
   </tr>
   <tr>
     <td>8ball, achievement, beep, coinflip, color, compliment, diceroll, fact <b>[cat | dog | general | useless]</b>, fortnite, giphy, leagueoflegends, lyrics, meme, minecraft, nasa, pokemon, roast, rps, say, spotify, urban, waifu, word, youtube</td>
-    <td>ban, channel <b>[delete | lock | rename | unlock]</b>, deafen, kick, purge, role <b>[add | remove]</b>, setnick, slowmode, timeout, unban, undeafen, untimeout, warn</td>
+    <td>ban, channel <b>[delete | lock | rename | unlock]</b>, deafen, kick, logs, purge, role <b>[add | remove]</b>, setnick, slowmode, timeout, unban, undeafen, untimeout, warn</td>
     <td>afk, announce, botpresence, botsetnick, calculator, crypto, dictionary, gemini, github, guildrename, help, info <b>[channel | client | guild | role | user]</b>, invite, leave, message, news, npm, ping, qrcode, thread, weather, wikipedia</td>
   </tr>
 </table>
@@ -63,6 +64,10 @@ Node.js version **≥20.9.0** is required
     <td><a href="https://www.npmjs.com/package/eslint">eslint@8.56.0</a></td>
     <td><a href="https://www.npmjs.com/package/mathjs">mathjs@12.3.2</a></td>
   </tr>
+  <tr>
+    <td><a href="https://www.npmjs.com/package/mongodb">mongodb@6.3.0</a></td>
+    <td><a href="https://www.npmjs.com/package/mongoose">mongoose@8.1.2</a></td>
+  </td>
   <tr>
     <td><a href="https://www.npmjs.com/package/node-fetch">node-fetch@2.7.0</a></td>
     <td></td>
@@ -105,6 +110,7 @@ GUILD_ID=
 DEBUG_CHANNEL_ID=
 ERROR_CHANNEL_ID=
 WARNING_CHANNEL_ID=
+MONGODB_TOKEN=
 FORTNITE_API_KEY=
 GENIUS_API_KEY=
 GIPHY_API_KEY=

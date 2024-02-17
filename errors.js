@@ -30,4 +30,10 @@ const executeFailCmd = new Discord.EmbedBuilder()
     .setDescription('There was an error while executing this command.')
     .setColor('#ff5555');
 
-module.exports = [guildOnlyCmd, noAPIKey, noPermission, noPrivateDM, executeFailCmd];
+// global.errors[5]
+const noGuildLog = new Discord.EmbedBuilder()
+    .setTitle('Error')
+    .setDescription('No existing moderation logs found. Guild administrator must run `/logs` to use this command.')
+    .setColor('#ff5555');
+
+module.exports = [guildOnlyCmd, noAPIKey, noPermission, noPrivateDM, executeFailCmd, noGuildLog];

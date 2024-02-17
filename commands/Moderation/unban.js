@@ -1,4 +1,6 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
+const Log = require('../../schemas/log');
+const getTimestamp = new Date();
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -9,7 +11,10 @@ module.exports = {
 	cooldown: '25',
 	category: 'Moderation',
 	guildOnly: true,
-    execute (interaction) {
+    async execute (interaction) {
+		const guildLog = await Log.findOne({ guildId: interaction.guild.id });
+			if (guildLog === null) return interaction.reply({ embeds: [global.errors[5]] });
+
 		if (!interaction.guild.members.me.permissions.has('BanMembers')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Ban Members** permission in `Server Settings > Roles` to use this command.' });
 		if (!interaction.member.permissions.has('BanMembers')) return interaction.reply({ embeds: [global.errors[2]] });
 
@@ -23,19 +28,39 @@ module.exports = {
 		const embed = new EmbedBuilder()
 			.setTitle('Unban')
 			.addFields(
-				{ name: 'ID', value: `\`${userIdField}\`` },
-				{ name: 'By', value: `${interaction.member}` },
-				{ name: 'Reason', value: `\`${reasonField}\`` }
+				{ name: 'User ID', value: `\`${userIdField}\`` },
+				{ name: 'By', value: `${interaction.user.username} \`${interaction.user.id}\`` },
+				{ name: 'Reason', value: `${reasonField}` }
 			)
 			.setTimestamp()
 			.setColor('#ff0000');
+
+		try {
+			await Log.findOneAndUpdate({
+				guildId: interaction.guild.id
+			}, {
+				$push: {
+					items: {
+						type: 'Unban',
+						userId: userIdField,
+						modName: interaction.user.username,
+						modId: interaction.user.id,
+						reason: reasonField,
+						timestamp: getTimestamp
+					}
+				}
+			});
+		}
+		catch (err) {
+			console.error(err);
+		}
 
 		interaction.guild.members.unban(userIdField)
 			.then(() => {
 				interaction.reply({ embeds: [embed] });
 			})
 			.catch(() => {
-				interaction.reply({ content: 'Error: User ID not found or is invalid.' });
+				interaction.reply({ content: 'Error: User ID is invalid or not found.' });
 			});
 		}
 };

@@ -1,4 +1,6 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
+const Log = require('../../schemas/log');
+const getTimestamp = new Date();
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -10,7 +12,10 @@ module.exports = {
     cooldown: '15',
     category: 'Moderation',
     guildOnly: true,
-    execute (interaction) {
+    async execute (interaction) {
+        const guildLog = await Log.findOne({ guildId: interaction.guild.id });
+            if (guildLog === null) return interaction.reply({ embeds: [global.errors[5]] });
+
         if (!interaction.guild.members.me.permissions.has('ModerateMembers')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Moderate Members** permission in `Server Settings > Roles` to use this command.' });
         if (!interaction.member.permissions.has('ModerateMembers')) return interaction.reply({ embeds: [global.errors[2]] });
 
@@ -18,6 +23,7 @@ module.exports = {
             const durationField = interaction.options.getInteger('duration');
                 if (userField.user.bot === true) return interaction.reply({ content: 'Error: You cannot timeout a bot.' });
                 if (userField === interaction.member) return interaction.reply({ content: 'Error: You cannot timeout yourself.' });
+
                 if (userField.isCommunicationDisabled() === true) return interaction.reply({ content: 'Error: This user is already being timeout.' });
 
             let reasonField = interaction.options.getString('reason');
@@ -33,35 +39,39 @@ module.exports = {
                 if (durationField === 8.64e+7) resultDuration = '1 day';
                 if (durationField === 6.048e+8) resultDuration = '1 week';
 
-        const embedUserDM = new EmbedBuilder()
-            .setTitle('Timeout')
-            .addFields(
-                { name: 'Guild', value: `\`${interaction.guild.name}\`` },
-                { name: 'Duration', value: `\`${resultDuration}\`` },
-                { name: 'By', value: `${interaction.member}` },
-                { name: 'Reason', value: `\`${reasonField}\`` }
-            )
-            .setTimestamp()
-            .setColor('#ff0000');
-
         const embed = new EmbedBuilder()
-            .setTitle('Timeout')
-            .addFields(
-                { name: 'User', value: `${userField}` },
-                { name: 'ID', value: `\`${userField.user.id}\`` },
-                { name: 'Duration', value: `\`${resultDuration}\`` },
-                { name: 'By', value: `${interaction.member}` },
-                { name: 'Reason', value: `\`${reasonField}\`` }
-            )
-            .setTimestamp()
-            .setColor('#ff0000');
+			.setTitle('Timeout')
+			.addFields(
+				{ name: 'User', value: `${userField.user.username} \`${userField.user.id}\`` },
+				{ name: 'By', value: `${interaction.user.username} \`${interaction.user.id}\`` },
+                { name: 'Duration', value: `${resultDuration}` },
+				{ name: 'Reason', value: `${reasonField}` }
+			)
+			.setTimestamp()
+			.setColor('#ff0000');
 
-        userField.send({ embeds: [embedUserDM] })
-            .then(() => {
-                interaction.reply({ embeds: [embed] }).then(userField.timeout(durationField, reasonField));
-            })
-            .catch(() => {
-                interaction.reply({ embeds: [global.errors[3]] });
+        try {
+            await Log.findOneAndUpdate({
+                guildId: interaction.guild.id
+            }, {
+                $push: {
+                    items: {
+                        type: 'Timeout',
+                        userName: userField.user.username,
+                        userId: userField.user.id,
+                        modName: interaction.user.username,
+                        modId: interaction.user.id,
+                        duration: resultDuration,
+                        reason: reasonField,
+                        timestamp: getTimestamp
+                    }
+                }
             });
         }
+        catch (err) {
+            console.error(err);
+        }
+
+        return interaction.reply({ embeds: [embed] }).then(userField.timeout(durationField, reasonField));
+    }
 };

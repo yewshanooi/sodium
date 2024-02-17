@@ -1,4 +1,6 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
+const Log = require('../../schemas/log');
+const getTimestamp = new Date();
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -9,7 +11,10 @@ module.exports = {
     cooldown: '15',
     category: 'Moderation',
     guildOnly: true,
-    execute (interaction) {
+    async execute (interaction) {
+        const guildLog = await Log.findOne({ guildId: interaction.guild.id });
+            if (guildLog === null) return interaction.reply({ embeds: [global.errors[5]] });
+
         if (!interaction.guild.members.me.permissions.has('DeafenMembers')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Deafen Members** permission in `Server Settings > Roles` to use this command.' });
         if (!interaction.member.permissions.has('DeafenMembers')) return interaction.reply({ embeds: [global.errors[2]] });
 
@@ -29,14 +34,34 @@ module.exports = {
         const embed = new EmbedBuilder()
             .setTitle('Deafen')
             .addFields(
-                { name: 'User', value: `${userField}` },
-                { name: 'ID', value: `\`${userField.user.id}\`` },
-                { name: 'By', value: `${interaction.member}` },
-                { name: 'Reason', value: `\`${reasonField}\`` }
+                { name: 'User', value: `${userField.user.username} \`${userField.user.id}\`` },
+                { name: 'By', value: `${interaction.user.username} \`${interaction.user.id}\`` },
+                { name: 'Reason', value: `${reasonField}` }
             )
             .setTimestamp()
             .setColor('#ff0000');
 
-        interaction.reply({ embeds: [embed] }).then(userField.voice.setDeaf(true));
+        try {
+            await Log.findOneAndUpdate({
+                guildId: interaction.guild.id
+            }, {
+                $push: {
+                    items: {
+                        type: 'Deafen',
+                        userName: userField.user.username,
+                        userId: userField.user.id,
+                        modName: interaction.user.username,
+                        modId: interaction.user.id,
+                        reason: reasonField,
+                        timestamp: getTimestamp
+                    }
+                }
+            });
+        }
+        catch (err) {
+            console.error(err);
+        }
+
+        return interaction.reply({ embeds: [embed] }).then(userField.voice.setDeaf(true));
 	}
 };

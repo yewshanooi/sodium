@@ -1,4 +1,6 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
+const Log = require('../../schemas/log');
+const getTimestamp = new Date();
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -9,7 +11,10 @@ module.exports = {
     cooldown: '25',
     category: 'Moderation',
     guildOnly: true,
-	execute (interaction) {
+	async execute (interaction) {
+        const guildLog = await Log.findOne({ guildId: interaction.guild.id });
+            if (guildLog === null) return interaction.reply({ embeds: [global.errors[5]] });
+
         if (!interaction.guild.members.me.permissions.has('BanMembers')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Ban Members** permission in `Server Settings > Roles` to use this command.' });
         if (!interaction.member.permissions.has('BanMembers')) return interaction.reply({ embeds: [global.errors[2]] });
 
@@ -17,7 +22,7 @@ module.exports = {
                 if (userField.user.bot === true) return interaction.reply({ content: 'Error: You cannot ban a bot.' });
                 if (userField === interaction.member) return interaction.reply({ content: 'Error: You cannot ban yourself.' });
 
-                if (userField.id === interaction.guild.ownerId) return interaction.reply({ content: 'Error: You cannot ban a Guild Owner.' });
+                if (userField.user.id === interaction.guild.ownerId) return interaction.reply({ content: 'Error: You cannot ban a Guild Owner.' });
                 if (userField.permissions.has('Administrator')) return interaction.reply({ content: 'Error: You cannot ban a user with Administrator permission.' });
 
             let reasonField = interaction.options.getString('reason');
@@ -28,14 +33,34 @@ module.exports = {
         const embed = new EmbedBuilder()
             .setTitle('Ban')
             .addFields(
-                { name: 'User', value: `${userField}` },
-                { name: 'ID', value: `\`${userField.user.id}\`` },
-                { name: 'By', value: `${interaction.member}` },
-                { name: 'Reason', value: `\`${reasonField}\`` }
+                { name: 'User', value: `${userField.user.username} \`${userField.user.id}\`` },
+                { name: 'By', value: `${interaction.user.username} \`${interaction.user.id}\`` },
+                { name: 'Reason', value: `${reasonField}` }
             )
             .setTimestamp()
             .setColor('#ff0000');
 
-        interaction.reply({ embeds: [embed] }).then(userField.ban({ reason: reasonField }));
+        try {
+            await Log.findOneAndUpdate({
+                guildId: interaction.guild.id
+            }, {
+                $push: {
+                    items: {
+                        type: 'Ban',
+                        userName: userField.user.username,
+                        userId: userField.user.id,
+                        modName: interaction.user.username,
+                        modId: interaction.user.id,
+                        reason: reasonField,
+                        timestamp: getTimestamp
+                    }
+                }
+            });
+        }
+        catch (err) {
+            console.error(err);
+        }
+
+        return interaction.reply({ embeds: [embed] }).then(userField.ban({ reason: reasonField }));
 	}
 };

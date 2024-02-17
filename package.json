@@ -21,6 +21,8 @@
     "dotenv": "^16.4.4",
     "eslint": "^8.56.0",
     "mathjs": "^12.3.2",
+    "mongodb": "^6.3.0",
+    "mongoose": "^8.1.2",
     "node-fetch": "^2.7.0"
   }
 }

@@ -1,4 +1,6 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
+const Log = require('../../schemas/log');
+const getTimestamp = new Date();
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -9,7 +11,10 @@ module.exports = {
     cooldown: '15',
     category: 'Moderation',
     guildOnly: true,
-    execute (interaction) {
+    async execute (interaction) {
+        const guildLog = await Log.findOne({ guildId: interaction.guild.id });
+            if (guildLog === null) return interaction.reply({ embeds: [global.errors[5]] });
+
         if (!interaction.guild.members.me.permissions.has('ManageMessages')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Manage Messages** permission in `Server Settings > Roles` to use this command.' });
         if (!interaction.member.permissions.has('ManageMessages')) return interaction.reply({ embeds: [global.errors[2]] });
 
@@ -25,23 +30,43 @@ module.exports = {
         const embedUserDM = new EmbedBuilder()
             .setTitle('Warn')
             .addFields(
-                { name: 'Guild', value: `\`${interaction.guild.name}\`` },
-                { name: 'By', value: `${interaction.member}` },
-                { name: 'Reason', value: `\`${reasonField}\`` }
+                { name: 'Guild', value: `${interaction.guild.name}` },
+                { name: 'By', value: `${interaction.user.username} \`${interaction.user.id}\`` },
+                { name: 'Reason', value: `${reasonField}` }
             )
             .setTimestamp()
             .setColor('#ff0000');
 
         const embed = new EmbedBuilder()
-            .setTitle('Warn')
-            .addFields(
-                { name: 'User', value: `${userField}` },
-                { name: 'ID', value: `\`${userField.user.id}\`` },
-                { name: 'By', value: `${interaction.member}` },
-                { name: 'Reason', value: `\`${reasonField}\`` }
-            )
-            .setTimestamp()
-            .setColor('#ff0000');
+			.setTitle('Warn')
+			.addFields(
+				{ name: 'User', value: `${userField.user.username} \`${userField.user.id}\`` },
+				{ name: 'By', value: `${interaction.user.username} \`${interaction.user.id}\`` },
+				{ name: 'Reason', value: `${reasonField}` }
+			)
+			.setTimestamp()
+			.setColor('#ff0000');
+
+        try {
+            await Log.findOneAndUpdate({
+                guildId: interaction.guild.id
+            }, {
+                $push: {
+                    items: {
+                        type: 'Warn',
+                        userName: userField.user.username,
+                        userId: userField.user.id,
+                        modName: interaction.user.username,
+                        modId: interaction.user.id,
+                        reason: reasonField,
+                        timestamp: getTimestamp
+                    }
+                }
+            });
+        }
+        catch (err) {
+            console.error(err);
+        }
 
         userField.send({ embeds: [embedUserDM] })
             .then(() => {
