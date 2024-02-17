@@ -5,8 +5,8 @@ const chalk = require('chalk');
 
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('log')
-		.setDescription('Add, initialize, or view logs for moderation commands')
+        .setName('logs')
+        .setDescription('Add, initialize, or view logs for moderation commands')
         .addSubcommand(subcommand => subcommand.setName('add').setDescription('Add a new entry in the log')
             .addStringOption(option => option.setName('type').setDescription('Select a type').addChoices({ name: 'Ban', value: 'ban' }, { name: 'Deafen', value: 'deafen' }, { name: 'Kick', value: 'kick' }, { name: 'Timeout', value: 'timeout' }, { name: 'Unban', value: 'unban' }, { name: 'Undeafen', value: 'undeafen' }, { name: 'Untimeout', value: 'untimeout' }, { name: 'Warn', value: 'warn' }).setRequired(true))
             .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))
@@ -41,7 +41,7 @@ module.exports = {
 
             // Creating a Discord embed
             const addLog = new EmbedBuilder()
-                .setTitle('Log')
+                .setTitle('Logs')
                 .addFields(
                     { name: 'Type', value: `${resultType}` },
                     { name: 'User', value: `${userField.user.username} \`${userField.user.id}\`` },
@@ -107,7 +107,7 @@ module.exports = {
                     console.log(`${chalk.white.bold(`[MongoDB] Initialized moderation logs for ${interaction.guild.name} (${interaction.guild.id})`)}`);
 
                     const createLog = new EmbedBuilder()
-                        .setTitle('Log')
+                        .setTitle('Logs')
                         .setDescription(`Successfully initialized moderation logs for **${interaction.guild.name}**`)
                         .setColor(configuration.embedColor)
                         .setTimestamp();
@@ -126,7 +126,7 @@ module.exports = {
                 if (guildLog === null) return interaction.editReply({ embeds: [global.errors[5]] });
 
             const viewLog = new EmbedBuilder()
-                .setTitle('Log')
+                .setTitle('Logs')
                 .setColor(configuration.embedColor);
 
             // Display the 10 latest moderation logs for the current guild
