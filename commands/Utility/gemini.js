@@ -5,7 +5,7 @@ const { GoogleGenerativeAI, HarmCategory, HarmBlockThreshold } = require('@googl
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('gemini')
-		.setDescription('Chat with an AI bot powered by Google Gemini Pro')
+		.setDescription('Chat with an AI bot powered by Gemini')
 		.addStringOption(option => option.setName('query').setDescription('Enter a query (max 1024 characters)').setMaxLength(1024).setRequired(true)),
 	cooldown: '10',
 	category: 'Utility',
