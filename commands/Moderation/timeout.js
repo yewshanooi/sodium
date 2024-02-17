@@ -65,7 +65,6 @@ module.exports = {
                             name: interaction.user.username,
                             id: interaction.user.id
                         },
-                        duration: resultDuration,
                         reason: reasonField,
                         timestamp: getTimestamp
                     }

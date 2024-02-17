@@ -33,7 +33,7 @@ const executeFailCmd = new Discord.EmbedBuilder()
 // global.errors[5]
 const noGuildLog = new Discord.EmbedBuilder()
     .setTitle('Error')
-    .setDescription('No existing moderation logs found. Guild administrator must run `/logs` to use this command.')
+    .setDescription('No existing moderation logs found. Guild administrator must run `/log initialize` to use this command.')
     .setColor('#ff5555');
 
 module.exports = [guildOnlyCmd, noAPIKey, noPermission, noPrivateDM, executeFailCmd, noGuildLog];

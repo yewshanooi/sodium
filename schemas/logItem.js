@@ -10,7 +10,6 @@ const logItemSchema = new Schema({
         name: String,
         id: String
     },
-    duration: { type: String, default: null },
     reason: String,
     timestamp: String
 });
