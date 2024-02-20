@@ -7,7 +7,7 @@ module.exports = {
 		.setName('gemini')
 		.setDescription('Chat with an AI bot powered by Gemini')
 		.addStringOption(option => option.setName('query').setDescription('Enter a query (max 1024 characters)').setMaxLength(1024).setRequired(true)),
-	cooldown: '10',
+	cooldown: '5',
 	category: 'Utility',
 	guildOnly: false,
 	async execute (interaction) {
@@ -18,7 +18,7 @@ module.exports = {
 		const queryField = interaction.options.getString('query');
 
 		const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY);
-			const model = genAI.getGenerativeModel({ model: 'gemini-1.0-pro-latest' });
+			const model = genAI.getGenerativeModel({ model: 'gemini-1.0-pro' });
 
 			const result = await model.generateContent({
 				contents: [{ role: 'USER', parts: [{ text: queryField }] }],

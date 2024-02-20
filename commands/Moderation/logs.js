@@ -120,8 +120,10 @@ module.exports = {
 
         // log view Subcommand
         if (interaction.options.getSubcommand() === 'view') {
+            await interaction.deferReply({ ephemeral: true });
+
             const guildLog = await Log.findOne({ 'guild.id': interaction.guild.id });
-                if (guildLog === null) return interaction.reply({ embeds: [global.errors[5]] });
+                if (guildLog === null) return interaction.editReply({ embeds: [global.errors[5]] });
 
             const viewLog = new EmbedBuilder()
                 .setTitle('Logs')
@@ -142,7 +144,7 @@ module.exports = {
 
             viewLog.setDescription(description);
 
-            return interaction.reply({ embeds: [viewLog], ephemeral: true });
+            return interaction.editReply({ embeds: [viewLog] });
         }
 
 	}
