@@ -18,7 +18,7 @@
     "@google/generative-ai": "^0.2.1",
     "chalk": "^4.1.2",
     "discord.js": "^14.14.1",
-    "dotenv": "^16.4.4",
+    "dotenv": "^16.4.5",
     "eslint": "^8.56.0",
     "mathjs": "^12.3.2",
     "mongodb": "^6.3.0",
