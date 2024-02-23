@@ -62,11 +62,11 @@ Node.js version **≥20.9.0** is required
   </tr>
   <tr>
     <td><a href="https://www.npmjs.com/package/eslint">eslint@8.56.0</a></td>
-    <td><a href="https://www.npmjs.com/package/mathjs">mathjs@12.3.2</a></td>
+    <td><a href="https://www.npmjs.com/package/mathjs">mathjs@12.4.0</a></td>
   </tr>
   <tr>
     <td><a href="https://www.npmjs.com/package/mongodb">mongodb@6.3.0</a></td>
-    <td><a href="https://www.npmjs.com/package/mongoose">mongoose@8.1.3</a></td>
+    <td><a href="https://www.npmjs.com/package/mongoose">mongoose@8.2.0</a></td>
   </td>
   <tr>
     <td><a href="https://www.npmjs.com/package/node-fetch">node-fetch@2.7.0</a></td>

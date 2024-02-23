@@ -28,7 +28,7 @@ module.exports = {
                 .setTitle('Meme')
                 .setDescription(`${randomMemes.data.title}`)
                 .setImage(`${randomMemes.data.url}`)
-                .setFooter({ text: `Powered by Reddit\nPosted in r/${randomSubreddit}` })
+                .setFooter({ text: `Posted in r/${randomSubreddit}\nPowered by Reddit` })
                 .setColor('#ff4500');
 
             return interaction.reply({ embeds: [embed] });

@@ -31,22 +31,41 @@ module.exports = {
 				]
 			});
 
-		if (result.response.promptFeedback.blockReason === 'SAFETY' || result.response.promptFeedback.blockReason === 'BLOCKED_REASON_UNSPECIFIED' || result.response.promptFeedback.blockReason === 'OTHER') {
+			const { totalTokens } = await model.countTokens(queryField);
+
+		// blockReason === 'SAFETY' will only work if safetySettings above is other than BLOCK_NONE
+		if (result.response.promptFeedback.blockReason === 'SAFETY') {
 			return interaction.editReply({ content: `Error: This response is blocked due to \`${result.response.promptFeedback.blockReason}\` violation.` });
 		}
 
-		const trim = (str, max) => (str.length > max ? `${str.slice(0, max - 3)}...` : str);
+		if (result.response.candidates[0].finishReason === 'RECITATION') {
+			return interaction.editReply({ content: `Error: This response is blocked due to \`${result.response.candidates[0].finishReason}\` violation.` });
+		}
 
+		const trim = (str, max) => (str.length > max ? `${str.slice(0, max - 3)}...` : str);
 		const capitalizedTitle = queryField.charAt(0).toUpperCase() + queryField.slice(1);
 
 		const embed = new EmbedBuilder()
 			.setTitle(`${trim(capitalizedTitle, 256)}`)
 			.setDescription(`${trim(result.response.text(), 4096)}`)
-			.setFooter({ text: 'Powered by Google' })
+			.setFooter({ text: `Prompt Tokens: ${totalTokens}\nPowered by Google` })
 			.setColor('#4fabff');
 
 		return interaction.editReply({ embeds: [embed] });
 	}
 };
 
-// Use 'console.log(result.response.promptFeedback)' to get the safety rating probability for each category.
+// Response Docs: https://cloud.google.com/vertex-ai/docs/generative-ai/model-reference/gemini.
+
+/*
+ * Use this code block to debug errors:
+ *
+ * return interaction.editReply({ embeds: [embed] }).then(
+ *  console.log(result.response),
+ *  console.log(result.response.promptFeedback),
+ *  console.log(result.response.candidates[0].finishReason),
+ *  console.log(result.response.candidates[0].safetyRatings)
+ * );
+ */
+
+// Sometimes this "GoogleGenerativeAIError: [500 Internal Server Error] An internal error has occurred. Please retry or report in https://developers.generativeai.google/guide/troubleshooting" error might occur.
