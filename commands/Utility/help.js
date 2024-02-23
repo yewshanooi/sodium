@@ -62,8 +62,8 @@ module.exports = {
 					.setColor(configuration.embedColor);
 
 				interaction.reply({ embeds: [mainEmbed], components: [box] }).then(int => {
-					// 45 seconds timeout
-					const collector = int.createMessageComponentCollector({ time: 45000 });
+					// 60 seconds timeout
+					const collector = int.createMessageComponentCollector({ time: 60000 });
 
 					collector.on('collect', async collected => {
 						const value = collected.customId;
@@ -99,7 +99,7 @@ module.exports = {
 							await interaction.editReply({ embeds: [
 								new EmbedBuilder()
 									.setTitle('Help')
-									.setDescription('Help command has ended. Retype `/help` to get another one.')
+									.setDescription('Command has ended. Retype `/help` to get another one.')
 									.setColor(configuration.embedColor)
 								], components: [] });
 							}

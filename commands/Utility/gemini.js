@@ -13,7 +13,7 @@ module.exports = {
         if (!process.env.GOOGLE_API_KEY) return interaction.reply({ embeds: [global.errors[1]] });
 
         const modal = new ModalBuilder()
-            .setCustomId('queryModal')
+            .setCustomId(`modal-${interaction.id}`)
             .setTitle('Gemini');
 
         const queryField = new TextInputBuilder()
@@ -31,8 +31,8 @@ module.exports = {
 
         try {
             const modalResponse = await interaction.awaitModalSubmit({
-                filter: ft => ft.customId === 'queryModal' && ft.user.id === interaction.user.id,
-                // Wait up to 5 minutes for a response
+                filter: ft => ft.customId === `modal-${interaction.id}` && ft.user.id === interaction.user.id,
+                // 300 seconds timeout
                 time: 300000
             });
 
@@ -78,9 +78,8 @@ module.exports = {
                 return modalResponse.editReply({ embeds: [embed] });
             }
         }
-        catch (error) {
-            console.error(error);
-            // [To-Do] Create an error message for request timeout
+        catch (err) {
+            console.error(err);
         }
 
     }

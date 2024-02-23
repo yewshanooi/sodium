@@ -39,6 +39,7 @@ module.exports = {
             const collector = interaction.channel.createMessageComponentCollector({
                 filter,
                 max: 1,
+                // 30 seconds timeout
                 time: 30000
             });
 

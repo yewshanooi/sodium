@@ -33,10 +33,10 @@ module.exports = {
         const message = await interaction.fetchReply();
 
         const filter = ft => ft.isButton() && ft.user.id === interaction.user.id;
-        // 15 seconds timeout
         const collector = message.createMessageComponentCollector({
             filter,
             max: 1,
+            // 15 seconds timeout
             time: 15000
         });
 
