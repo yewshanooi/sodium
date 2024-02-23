@@ -1,58 +1,89 @@
 /* eslint-disable no-extra-parens */
-const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
+const { EmbedBuilder, SlashCommandBuilder, ActionRowBuilder, ModalBuilder, TextInputBuilder, TextInputStyle } = require('discord.js');
 const { GoogleGenerativeAI, HarmCategory, HarmBlockThreshold } = require('@google/generative-ai');
 
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('gemini')
-		.setDescription('Chat with an AI bot powered by Gemini')
-		.addStringOption(option => option.setName('query').setDescription('Enter a query (max 1024 characters)').setMaxLength(1024).setRequired(true)),
+		.setDescription('Chat with an AI bot powered by Gemini'),
 	cooldown: '5',
 	category: 'Utility',
 	guildOnly: false,
 	async execute (interaction) {
-		if (!process.env.GOOGLE_API_KEY) return interaction.reply({ embeds: [global.errors[1]] });
+        if (!process.env.GOOGLE_API_KEY) return interaction.reply({ embeds: [global.errors[1]] });
 
-		await interaction.deferReply();
+        const modal = new ModalBuilder()
+            .setCustomId('queryModal')
+            .setTitle('Gemini');
 
-		const queryField = interaction.options.getString('query');
+        const queryField = new TextInputBuilder()
+            .setCustomId('queryField')
+            .setLabel('Prompt')
+            .setPlaceholder('Enter a prompt here')
+            .setStyle(TextInputStyle.Paragraph)
+            .setMaxLength(1024)
+            .setRequired(true);
 
-		const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY);
-			const model = genAI.getGenerativeModel({ model: 'gemini-1.0-pro' });
+        const actionRow = new ActionRowBuilder().addComponents(queryField);
+            modal.addComponents(actionRow);
 
-			const result = await model.generateContent({
-				contents: [{ role: 'USER', parts: [{ text: queryField }] }],
-				generationConfig: { temperature: 0.5, topP: 0.5, topK: 20, maxOutputTokens: 1024 },
-				safetySettings: [
-					{ category: HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT, threshold: HarmBlockThreshold.BLOCK_NONE },
-					{ category: HarmCategory.HARM_CATEGORY_HARASSMENT, threshold: HarmBlockThreshold.BLOCK_NONE },
-					{ category: HarmCategory.HARM_CATEGORY_HATE_SPEECH, threshold: HarmBlockThreshold.BLOCK_NONE },
-					{ category: HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT, threshold: HarmBlockThreshold.BLOCK_NONE }
-				]
-			});
+        await interaction.showModal(modal);
 
-			const { totalTokens } = await model.countTokens(queryField);
+        try {
+            const modalResponse = await interaction.awaitModalSubmit({
+                filter: ft => ft.customId === 'queryModal' && ft.user.id === interaction.user.id,
+                // Wait up to 5 minutes for a response
+                time: 300000
+            });
 
-		// blockReason === 'SAFETY' will only work if safetySettings above is other than BLOCK_NONE
-		if (result.response.promptFeedback.blockReason === 'SAFETY') {
-			return interaction.editReply({ content: `Error: This response is blocked due to \`${result.response.promptFeedback.blockReason}\` violation.` });
-		}
+            if (modalResponse.isModalSubmit()) {
+                await modalResponse.deferReply();
 
-		if (result.response.candidates[0].finishReason === 'RECITATION') {
-			return interaction.editReply({ content: `Error: This response is blocked due to \`${result.response.candidates[0].finishReason}\` violation.` });
-		}
+                const description = modalResponse.fields.getTextInputValue('queryField');
 
-		const trim = (str, max) => (str.length > max ? `${str.slice(0, max - 3)}...` : str);
-		const capitalizedTitle = queryField.charAt(0).toUpperCase() + queryField.slice(1);
+                const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY);
+                const model = genAI.getGenerativeModel({ model: 'gemini-1.0-pro' });
 
-		const embed = new EmbedBuilder()
-			.setTitle(`${trim(capitalizedTitle, 256)}`)
-			.setDescription(`${trim(result.response.text(), 4096)}`)
-			.setFooter({ text: `Prompt Tokens: ${totalTokens}\nPowered by Google` })
-			.setColor('#4fabff');
+                const result = await model.generateContent({
+                    contents: [{ role: 'USER', parts: [{ text: description }] }],
+                    generationConfig: { temperature: 0.5, topP: 0.5, topK: 20, maxOutputTokens: 1024 },
+                    safetySettings: [
+                        { category: HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT, threshold: HarmBlockThreshold.BLOCK_NONE },
+                        { category: HarmCategory.HARM_CATEGORY_HARASSMENT, threshold: HarmBlockThreshold.BLOCK_NONE },
+                        { category: HarmCategory.HARM_CATEGORY_HATE_SPEECH, threshold: HarmBlockThreshold.BLOCK_NONE },
+                        { category: HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT, threshold: HarmBlockThreshold.BLOCK_NONE }
+                    ]
+                });
 
-		return interaction.editReply({ embeds: [embed] });
-	}
+                const { totalTokens } = await model.countTokens(description);
+
+                // blockReason === 'SAFETY' will only work if safetySettings above is other than BLOCK_NONE
+                if (result.response.promptFeedback.blockReason === 'SAFETY') {
+                    return modalResponse.editReply({ content: `Error: This response is blocked due to \`${result.response.promptFeedback.blockReason}\` violation.` });
+                }
+
+                if (result.response.candidates[0].finishReason === 'RECITATION') {
+                    return modalResponse.editReply({ content: `Error: This response is blocked due to \`${result.response.candidates[0].finishReason}\` violation.` });
+                }
+
+                const trim = (str, max) => (str.length > max ? `${str.slice(0, max - 3)}...` : str);
+                const capitalizedTitle = description.charAt(0).toUpperCase() + description.slice(1);
+
+                const embed = new EmbedBuilder()
+                    .setTitle(`${trim(capitalizedTitle, 256)}`)
+                    .setDescription(`${trim(result.response.text(), 4096)}`)
+                    .setFooter({ text: `Prompt Tokens: ${totalTokens}\nPowered by Google` })
+                    .setColor('#4fabff');
+
+                return modalResponse.editReply({ embeds: [embed] });
+            }
+        }
+        catch (error) {
+            console.error(error);
+            // [To-Do] Create an error message for request timeout
+        }
+
+    }
 };
 
 // Response Docs: https://cloud.google.com/vertex-ai/docs/generative-ai/model-reference/gemini.
@@ -60,7 +91,7 @@ module.exports = {
 /*
  * Use this code block to debug errors:
  *
- * return interaction.editReply({ embeds: [embed] }).then(
+ * return modalResponse.editReply({ embeds: [embed] }).then(
  *  console.log(result.response),
  *  console.log(result.response.promptFeedback),
  *  console.log(result.response.candidates[0].finishReason),
