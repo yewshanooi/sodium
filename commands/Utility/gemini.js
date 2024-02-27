@@ -13,11 +13,11 @@ module.exports = {
         if (!process.env.GOOGLE_API_KEY) return interaction.reply({ embeds: [global.errors[1]] });
 
         const modal = new ModalBuilder()
-            .setCustomId(`modal-${interaction.id}`)
+            .setCustomId(`gmiModal-${interaction.id}`)
             .setTitle('Gemini');
 
         const queryField = new TextInputBuilder()
-            .setCustomId('queryField')
+            .setCustomId('gmiQuery')
             .setLabel('Prompt')
             .setPlaceholder('Enter a prompt here')
             .setStyle(TextInputStyle.Paragraph)
@@ -31,7 +31,7 @@ module.exports = {
 
         try {
             const modalResponse = await interaction.awaitModalSubmit({
-                filter: ft => ft.customId === `modal-${interaction.id}` && ft.user.id === interaction.user.id,
+                filter: ft => ft.customId === `gmiModal-${interaction.id}` && ft.user.id === interaction.user.id,
                 // 300 seconds timeout
                 time: 300000
             });
@@ -39,7 +39,7 @@ module.exports = {
             if (modalResponse.isModalSubmit()) {
                 await modalResponse.deferReply();
 
-                const description = modalResponse.fields.getTextInputValue('queryField');
+                const description = modalResponse.fields.getTextInputValue('gmiQuery');
 
                 const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY);
                 const model = genAI.getGenerativeModel({ model: 'gemini-1.0-pro' });

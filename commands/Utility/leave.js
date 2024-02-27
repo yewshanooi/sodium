@@ -17,11 +17,11 @@ module.exports = {
 
         const buttons = new ActionRowBuilder()
             .addComponents(new ButtonBuilder()
-                .setCustomId('true')
+                .setCustomId('optYes')
                 .setLabel('Yes')
                 .setStyle('Success'))
             .addComponents(new ButtonBuilder()
-                .setCustomId('false')
+                .setCustomId('optNo')
                 .setLabel('No')
                 .setStyle('Danger'));
 
@@ -44,11 +44,11 @@ module.exports = {
             });
 
             collector.on('collect', co => {
-                if (co.customId === 'true') {
+                if (co.customId === 'optYes') {
                     co.update({ embeds: [leftEmbed], components: [] });
                     interaction.guild.leave();
                 }
-                if (co.customId === 'false') {
+                if (co.customId === 'optNo') {
                     co.update({ embeds: [cancelEmbed], components: [] }).then(collector.stop());
                 }
             });

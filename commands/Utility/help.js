@@ -36,15 +36,15 @@ module.exports = {
 			// Primary === 1, Secondary === 2, Success === 3, Danger === 4, Link === 5
 			const buttons = [
 				new ButtonBuilder()
-					.setCustomId('funCategory')
+					.setCustomId('ctgFun')
 					.setLabel('Fun')
 					.setStyle(2),
 				new ButtonBuilder()
-					.setCustomId('modCategory')
+					.setCustomId('ctgModeration')
 					.setLabel('Moderation')
 					.setStyle(2),
 				new ButtonBuilder()
-					.setCustomId('utilityCategory')
+					.setCustomId('ctgUtility')
 					.setLabel('Utility')
 					.setStyle(2)
 				];
@@ -68,7 +68,7 @@ module.exports = {
 					collector.on('collect', async collected => {
 						const value = collected.customId;
 
-						if (value === 'funCategory') {
+						if (value === 'ctgFun') {
 							mainEmbed.data.fields[0] = { name: `Fun commands [${fun.map(commandA => commandA.data.name).length}]`, value: fun.map(commandB => `\`${commandB.data.name}\``).join('\n') };
 							box.components[0].setDisabled(true);
 							box.components[1].setDisabled(false);
@@ -76,7 +76,7 @@ module.exports = {
 						await collected.deferUpdate();
 						interaction.editReply({ embeds: [mainEmbed], components: [box] });
 					}
-						else if (value === 'modCategory') {
+						else if (value === 'ctgModeration') {
 							mainEmbed.data.fields[0] = { name: `Moderation commands [${moderation.map(commandC => commandC.data.name).length}]`, value: moderation.map(commandD => `\`${commandD.data.name}\``).join('\n') };
 							box.components[0].setDisabled(false);
 							box.components[1].setDisabled(true);
@@ -84,7 +84,7 @@ module.exports = {
 						await collected.deferUpdate();
 						interaction.editReply({ embeds: [mainEmbed], components: [box] });
 					}
-						else if (value === 'utilityCategory') {
+						else if (value === 'ctgUtility') {
 							mainEmbed.data.fields[0] = { name: `Utility commands [${utility.map(commandE => commandE.data.name).length}]`, value: utility.map(commandF => `\`${commandF.data.name}\``).join('\n') };
 							box.components[0].setDisabled(false);
 							box.components[1].setDisabled(false);
