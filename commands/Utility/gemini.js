@@ -67,10 +67,9 @@ module.exports = {
                 }
 
                 const trim = (str, max) => (str.length > max ? `${str.slice(0, max - 3)}...` : str);
-                const capitalizedTitle = description.charAt(0).toUpperCase() + description.slice(1);
 
                 const embed = new EmbedBuilder()
-                    .setTitle(`${trim(capitalizedTitle, 256)}`)
+                    .setTitle(`${trim(description, 256)}`)
                     .setDescription(`${trim(result.response.text(), 4096)}`)
                     .setFooter({ text: `Prompt Tokens: ${totalTokens}\nPowered by Google` })
                     .setColor('#4fabff');
