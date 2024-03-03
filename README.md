@@ -65,7 +65,7 @@ Node.js version **≥20.9.0** is required
     <td><a href="https://www.npmjs.com/package/mathjs">mathjs@12.4.0</a></td>
   </tr>
   <tr>
-    <td><a href="https://www.npmjs.com/package/mongodb">mongodb@6.3.0</a></td>
+    <td><a href="https://www.npmjs.com/package/mongodb">mongodb@6.4.0</a></td>
     <td><a href="https://www.npmjs.com/package/mongoose">mongoose@8.2.0</a></td>
   </td>
   <tr>
