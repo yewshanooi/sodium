@@ -61,7 +61,7 @@ Node.js version **≥20.9.0** is required
     <td><a href="https://www.npmjs.com/package/dotenv">dotenv@16.4.5</a></td>
   </tr>
   <tr>
-    <td><a href="https://www.npmjs.com/package/eslint">eslint@8.57.0</a></td>
+    <td><a href="https://www.npmjs.com/package/eslint">eslint@9.0.0</a></td>
     <td><a href="https://www.npmjs.com/package/mathjs">mathjs@12.4.1</a></td>
   </tr>
   <tr>
