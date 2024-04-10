@@ -25,7 +25,7 @@
 
 ## Features
 - **Application Commands**, **Buttons**, and **Message Embed**
-- **AI Chatbot** <img src=".github/icons/sparkles.png" width="16" height="16"/> *(powered by Gemini)*
+- **AI Chatbot** <img src=".github/icons/sparkles.png" width="16" height="16"/> *(powered by Google)*
 - **Moderation Logs** *(stored using MongoDB)*
 - **Third Party API** commands *(such as Giphy, Nasa, Wikipedia and more!)*
 - **Watch Together** *(with YouTube Activity)*
