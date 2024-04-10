@@ -6,7 +6,7 @@ const logItemSchema = new Schema({
         name: { type: String, default: null },
         id: String
     },
-    mod: {
+    staff: {
         name: String,
         id: String
     },

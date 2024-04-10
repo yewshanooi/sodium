@@ -59,7 +59,7 @@ module.exports = {
                                 name: userField.user.username,
                                 id: userField.user.id
                             },
-                            mod: {
+                            staff: {
                                 name: interaction.user.username,
                                 id: interaction.user.id
                             },
@@ -135,7 +135,7 @@ module.exports = {
             let description = '';
             if (latestItems.length > 0) {
                 latestItems.forEach(item => {
-                    description += `\n**Type:** ${item.type}\n**User:** ${item.user.name ? item.user.name : ''} \`${item.user.id}\`\n**By:** ${item.mod.name} \`${item.mod.id}\`\n**Reason:** ${item.reason}\n**Timestamp:** ${item.timestamp}\n`;
+                    description += `\n**Type:** ${item.type}\n**User:** ${item.user.name ? item.user.name : ''} \`${item.user.id}\`\n**By:** ${item.staff.name} \`${item.staff.id}\`\n**Reason:** ${item.reason}\n**Timestamp:** ${item.timestamp}\n`;
                 });
             }
             else {

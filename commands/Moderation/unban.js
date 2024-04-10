@@ -45,7 +45,7 @@ module.exports = {
 						user: {
                             id: userIdField
                         },
-                        mod: {
+                        staff: {
                             name: interaction.user.username,
                             id: interaction.user.id
                         },

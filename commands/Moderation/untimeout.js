@@ -50,7 +50,7 @@ module.exports = {
                             name: userField.user.username,
                             id: userField.user.id
                         },
-                        mod: {
+                        staff: {
                             name: interaction.user.username,
                             id: interaction.user.id
                         },
