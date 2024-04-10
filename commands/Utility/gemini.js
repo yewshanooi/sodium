@@ -57,8 +57,10 @@ module.exports = {
 
                 const { totalTokens } = await model.countTokens(description);
 
-                if (result.response.candidates[0].finishReason === 'STOP' || result.response.candidates[0].finishReason === 'RECITATION') {
-                    return modalResponse.editReply({ content: `Error: This response is blocked due to \`${result.response.candidates[0].finishReason}\`.` });
+                // Error handling for safetySettings have been removed for now. This is due to the lack of documentation from Google.
+
+                if (result.response.candidates[0].finishReason === 'RECITATION') {
+                    return modalResponse.editReply({ content: `Error: This response is blocked due to \`${result.response.candidates[0].finishReason}\` violation.` });
                 }
 
                 const trim = (str, max) => (str.length > max ? `${str.slice(0, max - 3)}...` : str);
