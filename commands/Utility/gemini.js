@@ -57,13 +57,8 @@ module.exports = {
 
                 const { totalTokens } = await model.countTokens(description);
 
-                // blockReason === 'SAFETY' will only work if safetySettings above is other than BLOCK_NONE
-                if (result.response.promptFeedback.blockReason === 'SAFETY') {
-                    return modalResponse.editReply({ content: `Error: This response is blocked due to \`${result.response.promptFeedback.blockReason}\` violation.` });
-                }
-
-                if (result.response.candidates[0].finishReason === 'RECITATION') {
-                    return modalResponse.editReply({ content: `Error: This response is blocked due to \`${result.response.candidates[0].finishReason}\` violation.` });
+                if (result.response.candidates[0].finishReason === 'STOP' || result.response.candidates[0].finishReason === 'RECITATION') {
+                    return modalResponse.editReply({ content: `Error: This response is blocked due to \`${result.response.candidates[0].finishReason}\`.` });
                 }
 
                 const trim = (str, max) => (str.length > max ? `${str.slice(0, max - 3)}...` : str);
@@ -84,17 +79,16 @@ module.exports = {
     }
 };
 
-// Response Docs: https://cloud.google.com/vertex-ai/docs/generative-ai/model-reference/gemini.
+// Response Docs: https://cloud.google.com/vertex-ai/generative-ai/docs/model-reference/gemini.
 
 /*
  * Use this code block to debug errors:
  *
  * return modalResponse.editReply({ embeds: [embed] }).then(
  *  console.log(result.response),
- *  console.log(result.response.promptFeedback),
  *  console.log(result.response.candidates[0].finishReason),
  *  console.log(result.response.candidates[0].safetyRatings)
  * );
  */
 
-// Sometimes this "GoogleGenerativeAIError: [500 Internal Server Error] An internal error has occurred. Please retry or report in https://developers.generativeai.google/guide/troubleshooting" error might occur.
+// Sometimes "GoogleGenerativeAIError: [500 Internal Server Error] An internal error has occurred. Please retry or report in https://developers.generativeai.google/guide/troubleshooting" error might occur.
