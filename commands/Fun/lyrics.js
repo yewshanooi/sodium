@@ -10,7 +10,9 @@ module.exports = {
     category: 'Fun',
     guildOnly: false,
     async execute (interaction) {
-        if (!process.env.GENIUS_API_KEY) return interaction.reply({ embeds: [global.errors[1]] });
+        await interaction.deferReply();
+
+        if (!process.env.GENIUS_API_KEY) return interaction.editReply({ embeds: [global.errors[1]] });
 
         const songField = interaction.options.getString('song');
 
@@ -18,7 +20,7 @@ module.exports = {
             .then(res => res.json())
             .then(body => body.response.hits);
 
-        if (!Song.length) return interaction.reply({ content: 'Error: No results found.' });
+        if (!Song.length) return interaction.editReply({ content: 'Error: No results found.' });
 
         const embed = new EmbedBuilder()
             .setTitle(`${Song[0].result.title}`)
@@ -33,6 +35,6 @@ module.exports = {
                     .setLabel('View lyrics')
                     .setStyle('Link'));
 
-            return interaction.reply({ embeds: [embed], components: [button] });
+            return interaction.editReply({ embeds: [embed], components: [button] });
         }
 };
