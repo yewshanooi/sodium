@@ -53,7 +53,7 @@ Node.js version **≥20.9.0** is required
 ###### npm Packages
 <table>
   <tr>
-    <td><a href="https://www.npmjs.com/package/@google/generative-ai">@google/generative-ai@0.5.0</a></td>
+    <td><a href="https://www.npmjs.com/package/@google/generative-ai">@google/generative-ai@0.7.1</a></td>
     <td><a href="https://www.npmjs.com/package/chalk">chalk@4.1.2</a></td>
   </tr>
   <tr>
@@ -66,7 +66,7 @@ Node.js version **≥20.9.0** is required
   </tr>
   <tr>
     <td><a href="https://www.npmjs.com/package/mongodb">mongodb@6.5.0</a></td>
-    <td><a href="https://www.npmjs.com/package/mongoose">mongoose@8.3.0</a></td>
+    <td><a href="https://www.npmjs.com/package/mongoose">mongoose@8.3.2</a></td>
   </td>
   <tr>
     <td><a href="https://www.npmjs.com/package/node-fetch">node-fetch@2.7.0</a></td>
@@ -124,7 +124,7 @@ RIOTGAMES_API_KEY=
 > [!IMPORTANT]
 > Commands are only deployed or deleted for a single guild by default. You can deploy all commands or a single command, but you can only delete all commands
 ```
-node commands.js deploy    |    node commands.js deploy {command}
+node commands.js deploy    -or-    node commands.js deploy {command}
 ```
 ```
 node commands.js delete
