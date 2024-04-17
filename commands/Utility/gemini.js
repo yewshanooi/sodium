@@ -57,7 +57,7 @@ module.exports = {
 
                 const { totalTokens } = await model.countTokens(description);
 
-                // Due to the lack of documentation from Google, error handling for safetySettings might not work as intended.
+                // Due to the lack of proper documentation from Google, error handling for safetySettings might not work as intended.
 
                 if (result.response.candidates[0].finishReason === 'SAFETY' || result.response.candidates[0].finishReason === 'RECITATION') {
                     return modalResponse.editReply({ content: `Error: This response is blocked due to \`${result.response.candidates[0].finishReason}\` violation.` });
@@ -92,5 +92,3 @@ module.exports = {
  *  console.log(result.response.candidates[0].safetyRatings)
  * );
  */
-
-// Sometimes "GoogleGenerativeAIError: [500 Internal Server Error] An internal error has occurred. Please retry or report in https://developers.generativeai.google/guide/troubleshooting" error might occur.

@@ -80,12 +80,12 @@ mongoose.connection.on('connected', () => {
 
 // Mongoose Connection Event: Disconnected
 mongoose.connection.on('disconnected', () => {
-	console.log(`${chalk.redBright.bold('[MongoDB - Error] Disconnected from MongoDB')}`);
+	console.log(`${chalk.redBright.bold('[MongoDB Error] Disconnected from database')}`);
 });
 
 // Mongoose Connection Event: Error
 mongoose.connection.on('error', err => {
-	console.log(`${chalk.redBright.bold('[MongoDB - Error] There was a problem connecting to MongoDB')}`, err);
+	console.log(`${chalk.redBright.bold('[MongoDB Error] There was a problem connecting to database')}`, err);
 });
 
 
