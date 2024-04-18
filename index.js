@@ -1,15 +1,20 @@
+// Module
 const newLocal = require('fs');
 const fs = newLocal;
+
+// Files
+const reqEvent = event => require(`./events/${event}`);
+const configuration = require('./config.json');
+global.errors = require('./errors.js');
+
+// Packages
+const chalk = require('chalk');
+const { Client, Collection, EmbedBuilder, GatewayIntentBits, Partials } = require('discord.js');
 const dotenv = require('dotenv');
 	dotenv.config();
-const chalk = require('chalk');
-global.errors = require('./errors.js');
-const configuration = require('./config.json');
-
-// Initialize mongoose npm package to manage MongoDB database
 const mongoose = require('mongoose');
 
-const { Client, Collection, EmbedBuilder, GatewayIntentBits, Partials } = require('discord.js');
+
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers, GatewayIntentBits.GuildModeration, GatewayIntentBits.GuildIntegrations, GatewayIntentBits.GuildWebhooks, GatewayIntentBits.GuildInvites, GatewayIntentBits.GuildVoiceStates, GatewayIntentBits.GuildPresences, GatewayIntentBits.GuildMessages, GatewayIntentBits.GuildMessageReactions, GatewayIntentBits.GuildMessageTyping, GatewayIntentBits.DirectMessages, GatewayIntentBits.DirectMessageReactions, GatewayIntentBits.DirectMessageTyping], partials: [Partials.Channel] });
 client.commands = new Collection();
 
@@ -30,6 +35,10 @@ if (!process.env.GUILD_ID) throw new Error(`${chalk.red.bold('[Error] Missing \'
 
 if (!configuration.embedColor) throw new Error(`${chalk.red.bold('[Error] Missing \'embedColor\' field in the config.json file.')}`);
 
+
+// Discord events
+client.on('interactionCreate', reqEvent('interactionCreate'));
+client.once('ready', reqEvent('ready'));
 
 client.on('debug', info => {
 	const debugChannel = client.channels.cache.get(process.env.DEBUG_CHANNEL_ID);
@@ -67,29 +76,12 @@ client.on('warn', info => {
 	warnChannel.send({ embeds: [warnEmbed] });
 });
 
+// MongoDB events
+mongoose.connection.on('connecting', () => { console.log(`${chalk.greenBright.bold('[MongoDB] Connecting to database')}`) });
+mongoose.connection.on('connected', () => { console.log(`${chalk.greenBright.bold('[MongoDB] Successfully connected to database')}`) });
+mongoose.connection.on('disconnected', () => { console.log(`${chalk.redBright.bold('[MongoDB Error] Disconnected from database')}`) });
+mongoose.connection.on('error', err => { console.log(`${chalk.redBright.bold('[MongoDB Error] There was a problem connecting to database')}`, err) });
 
-// Mongoose Connection Event: Connecting
-mongoose.connection.on('connecting', () => {
-	console.log(`${chalk.greenBright.bold('[MongoDB] Connecting to database')}`);
-});
-
-// Mongoose Connection Event: Connected
-mongoose.connection.on('connected', () => {
-	console.log(`${chalk.greenBright.bold('[MongoDB] Successfully connected to database')}`);
-});
-
-// Mongoose Connection Event: Disconnected
-mongoose.connection.on('disconnected', () => {
-	console.log(`${chalk.redBright.bold('[MongoDB Error] Disconnected from database')}`);
-});
-
-// Mongoose Connection Event: Error
-mongoose.connection.on('error', err => {
-	console.log(`${chalk.redBright.bold('[MongoDB Error] There was a problem connecting to database')}`, err);
-});
-
-
-require('./event')(client);
 
 client.login(process.env.TOKEN);
 

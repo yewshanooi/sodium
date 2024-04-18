@@ -62,8 +62,8 @@ module.exports = {
 					.setColor(configuration.embedColor);
 
 				interaction.reply({ embeds: [mainEmbed], components: [box] }).then(int => {
-					// 60 seconds timeout
-					const collector = int.createMessageComponentCollector({ time: 60000 });
+					// 180 seconds timeout
+					const collector = int.createMessageComponentCollector({ time: 180000 });
 
 					collector.on('collect', async collected => {
 						const value = collected.customId;
