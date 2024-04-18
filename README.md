@@ -141,7 +141,7 @@ node index.js    -or-    npm start    -or-    nodemon
 
 2. Enable `PUBLIC BOT` authorization flow option for the bot **(OPTIONAL)**
 
-3. Enable `PRESENCE INTENT` and `SERVER MEMBERS INTENT` privileged gateway intent option for the bot **(REQUIRED)**
+3. Enable `PRESENCE INTENT` and `SERVER MEMBERS INTENT` privileged gateway intent options for the bot **(REQUIRED)**
 
 4. Paste this OAuth2 URL template in your browser's address bar and replace `{CLIENT_ID}` with your **Client ID** to invite the bot to your guild
 ```url
@@ -150,7 +150,7 @@ https://discord.com/api/oauth2/authorize?client_id={CLIENT_ID}&permissions=14972
 
 ###### OAuth2 URL Scopes & Bot Permissions
 <p align="left">
-    <img src=".github/oauth2_url_generator.png"/>
+    <img src=".github/oauth2.png"/>
 </p>
 <br/>
 
