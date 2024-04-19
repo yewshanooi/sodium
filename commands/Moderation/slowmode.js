@@ -3,7 +3,7 @@ const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 module.exports = {
 	data: new SlashCommandBuilder()
         .setName('slowmode')
-        .setDescription('Set the rate limit for the current channel')
+        .setDescription('Set the rate limit for current channel')
         .addIntegerOption(option => option.setName('duration').setDescription('Enter a duration in seconds (between 0 and 21600)').setMinValue(0).setMaxValue(21600).setRequired(true)),
     cooldown: '15',
     category: 'Moderation',

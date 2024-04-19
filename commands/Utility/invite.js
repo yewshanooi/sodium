@@ -3,7 +3,7 @@ const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('invite')
-        .setDescription('Generate an invite link for the guild')
+        .setDescription('Generate an invite link for current guild')
         .addIntegerOption(option => option.setName('duration').setDescription('Select a duration').addChoices({ name: '30 minutes', value: 1800 }, { name: '1 hour', value: 3600 }, { name: '6 hours', value: 21600 }, { name: '12 hours', value: 43200 }, { name: '1 day', value: 86400 }, { name: '7 days', value: 604800 }, { name: 'Never expire', value: 0 }).setRequired(true))
         .addIntegerOption(option => option.setName('limit').setDescription('Select the maximum number of uses').addChoices({ name: 'No limit', value: 0 }, { name: '1 use', value: 1 }, { name: '5 uses', value: 5 }, { name: '10 uses', value: 10 }, { name: '25 uses', value: 25 }, { name: '50 uses', value: 50 }, { name: '100 uses', value: 100 }).setRequired(true)),
     cooldown: '15',

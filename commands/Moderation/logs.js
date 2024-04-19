@@ -7,12 +7,12 @@ module.exports = {
 	data: new SlashCommandBuilder()
         .setName('logs')
         .setDescription('Add, initialize, or view logs for moderation commands')
-        .addSubcommand(subcommand => subcommand.setName('add').setDescription('Add a new entry in the log')
+        .addSubcommand(subcommand => subcommand.setName('add').setDescription('Add a moderation log entry')
             .addStringOption(option => option.setName('type').setDescription('Select a type').addChoices({ name: 'Ban', value: 'ban' }, { name: 'Deafen', value: 'deafen' }, { name: 'Kick', value: 'kick' }, { name: 'Timeout', value: 'timeout' }, { name: 'Unban', value: 'unban' }, { name: 'Undeafen', value: 'undeafen' }, { name: 'Untimeout', value: 'untimeout' }, { name: 'Warn', value: 'warn' }).setRequired(true))
             .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))
             .addStringOption(option => option.setName('reason').setDescription('Enter a reason')))
-        .addSubcommand(subcommand => subcommand.setName('initialize').setDescription('Initialize moderation logs for the current guild'))
-        .addSubcommand(subcommand => subcommand.setName('view').setDescription('View latest logs for the current guild (maximum of 10)')),
+        .addSubcommand(subcommand => subcommand.setName('initialize').setDescription('Initialize moderation logs for current guild'))
+        .addSubcommand(subcommand => subcommand.setName('view').setDescription('Show the 10 latest logs')),
 	cooldown: '5',
 	category: 'Moderation',
 	guildOnly: true,
