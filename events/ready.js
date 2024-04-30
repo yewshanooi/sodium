@@ -11,6 +11,7 @@ module.exports = client => {
 	if (!process.env.GENIUS_API_KEY) console.log(`${chalk.yellow.bold('[Warning] Missing \'GENIUS_API_KEY\' field in the .env file.')}`);
 	if (!process.env.GIPHY_API_KEY) console.log(`${chalk.yellow.bold('[Warning] Missing \'GIPHY_API_KEY\' field in the .env file.')}`);
 	if (!process.env.GOOGLE_API_KEY) console.log(`${chalk.yellow.bold('[Warning] Missing \'GOOGLE_API_KEY\' field in the .env file.')}`);
+	if (!process.env.HYPIXEL_API_KEY) console.log(`${chalk.yellow.bold('[Warning] Missing \'HYPIXEL_API_KEY\' field in the .env file.')}`);
 	if (!process.env.NASA_API_KEY) console.log(`${chalk.yellow.bold('[Warning] Missing \'NASA_API_KEY\' field in the .env file.')}`);
 	if (!process.env.NEWS_API_KEY) console.log(`${chalk.yellow.bold('[Warning] Missing \'NEWS_API_KEY\' field in the .env file.')}`);
 	if (!process.env.OPENWEATHERMAP_API_KEY) console.log(`${chalk.yellow.bold('[Warning] Missing \'OPENWEATHERMAP_API_KEY\' field in the .env file.')}`);

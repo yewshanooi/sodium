@@ -35,9 +35,9 @@ module.exports = {
 		const embed = new EmbedBuilder()
 			.setTitle(`${RiotAccount.gameName}#${RiotAccount.tagLine}`)
 			.setFields(
-				{ name: 'Region', value: `${region}`, inline: true },
-				{ name: 'Level', value: `${League.summonerLevel}` },
-				{ name: 'Last Updated', value: `${lastUpdated}` }
+				{ name: 'Region', value: `\`${region}\``, inline: true },
+				{ name: 'Level', value: `\`${League.summonerLevel}\`` },
+				{ name: 'Last Updated', value: `\`${lastUpdated}\`` }
 			)
 			.setFooter({ text: 'Powered by Riot Games' })
 			.setColor('#eb0029');

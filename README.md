@@ -39,7 +39,7 @@
     <td><b>Utility</b></td>
   </tr>
   <tr>
-    <td>8ball, achievement, beep, coinflip, color, compliment, diceroll, fact <b>[cat | dog | general | useless]</b>, fortnite, giphy, leagueoflegends, lyrics, meme, minecraft, nasa, pokemon, rps, say, spotify, urban, waifu, word, youtube</td>
+    <td>8ball, achievement, beep, coinflip, color, compliment, diceroll, fact <b>[cat | dog | general | useless]</b>, fortnite, giphy, hypixel, leagueoflegends, lyrics, meme, minecraft, nasa, pokemon, rps, say, spotify, urban, waifu, word, youtube</td>
     <td>ban, channel <b>[delete | lock | rename | unlock]</b>, deafen, kick, logs <b>[add | initialize | view]</b>, purge, role <b>[add | remove]</b>, setnick, slowmode, timeout, unban, undeafen, untimeout, warn</td>
     <td>afk, announce, botpresence, botsetnick, calculator, crypto, dictionary, gemini, github, guildrename, help, info <b>[channel | client | guild | role | user]</b>, invite, leave, message, news, npm, ping, qrcode, thread, weather, wikipedia</td>
   </tr>
@@ -115,6 +115,7 @@ FORTNITE_API_KEY=
 GENIUS_API_KEY=
 GIPHY_API_KEY=
 GOOGLE_API_KEY=
+HYPIXEL_API_KEY=
 NASA_API_KEY=
 NEWS_API_KEY=
 OPENWEATHERMAP_API_KEY=
