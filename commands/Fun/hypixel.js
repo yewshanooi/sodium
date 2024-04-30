@@ -24,14 +24,15 @@ module.exports = {
             .then(res => res.json());
 
             if (Hypixel.success === false) return interaction.reply({ content: 'Error: There was a problem fetching the player.' });
-            
+            if (Hypixel.player === null) return interaction.reply({ content: 'Error: The player has not joined the server.' });
+
                 const firstJoined = new Date(Hypixel.player.firstLogin).toLocaleString('en-US', { timeZone: 'UTC' });
 
             const embed = new EmbedBuilder()
                 .setTitle(`${Hypixel.player.displayname}`)
-                .addFields({ name: 'Network EXP', value: `\`${Hypixel.player.networkExp}\`` })
-                .addFields({ name: 'Karma', value: `\`${Hypixel.player.karma}\`` })
-                .addFields({ name: 'Achievement Points', value: `\`${Hypixel.player.achievementPoints}\`` })
+                .addFields({ name: 'Network EXP', value: `\`${Hypixel.player.networkExp || '0'}\`` })
+                .addFields({ name: 'Karma', value: `\`${Hypixel.player.karma || '0'}\`` })
+                .addFields({ name: 'Achievement Points', value: `\`${Hypixel.player.achievementPoints || '0'}\`` })
                 .addFields({ name: 'First Joined', value: `\`${firstJoined}\`` })
                 .setFooter({ text: 'Powered by Hypixel' })
                 .setColor('#ffb405');
