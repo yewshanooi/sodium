@@ -18,13 +18,16 @@ module.exports = {
 
         if (response.ok) {
             const Pokemon = await response.json();
-            const capitalizedName = Pokemon.name.charAt(0).toUpperCase() + Pokemon.name.slice(1);
+
+                const capitalizedName = Pokemon.name.charAt(0).toUpperCase() + Pokemon.name.slice(1);
+                const heightInCM = Pokemon.height * 10
+                const weightInKG = Pokemon.weight / 10
 
             const embed = new EmbedBuilder()
                 .setTitle(`#${Pokemon.id} ${capitalizedName}`)
                 .addFields(
-                    { name: 'Height', value: `${Pokemon.height}` },
-                    { name: 'Weight', value: `${Pokemon.weight}` }
+                    { name: 'Height', value: `${heightInCM} cm` },
+                    { name: 'Weight', value: `${weightInKG} kg` }
                 )
                 .setThumbnail(`${Pokemon.sprites.other['official-artwork'].front_default}`)
                 .setFooter({ text: 'Powered by PokéAPI' })
