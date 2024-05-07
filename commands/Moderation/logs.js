@@ -6,13 +6,15 @@ const chalk = require('chalk');
 module.exports = {
 	data: new SlashCommandBuilder()
         .setName('logs')
-        .setDescription('Add, initialize, or view logs for moderation commands')
-        .addSubcommand(subcommand => subcommand.setName('add').setDescription('Add a moderation log entry')
+        .setDescription('Add, initialize, remove, or view logs for moderation commands')
+        .addSubcommand(subcommand => subcommand.setName('add').setDescription('Add a new log entry')
             .addStringOption(option => option.setName('type').setDescription('Select a type').addChoices({ name: 'Ban', value: 'ban' }, { name: 'Deafen', value: 'deafen' }, { name: 'Kick', value: 'kick' }, { name: 'Timeout', value: 'timeout' }, { name: 'Unban', value: 'unban' }, { name: 'Undeafen', value: 'undeafen' }, { name: 'Untimeout', value: 'untimeout' }, { name: 'Warn', value: 'warn' }).setRequired(true))
             .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))
             .addStringOption(option => option.setName('reason').setDescription('Enter a reason')))
         .addSubcommand(subcommand => subcommand.setName('initialize').setDescription('Initialize moderation logs for current guild'))
-        .addSubcommand(subcommand => subcommand.setName('view').setDescription('Show the 10 latest logs')),
+        .addSubcommand(subcommand => subcommand.setName('remove').setDescription('Remove an existing log entry by ID')
+            .addStringOption(option => option.setName('log_id').setDescription('Enter a log id').setRequired(true)))
+        .addSubcommand(subcommand => subcommand.setName('view').setDescription('Show the 10 latest log entries')),
 	cooldown: '5',
 	category: 'Moderation',
 	guildOnly: true,
@@ -117,6 +119,48 @@ module.exports = {
                 .catch(console.error);
 
                 return [guildLog];
+            }
+        }
+
+        // log remove Subcommand
+        if (interaction.options.getSubcommand() === 'remove') {
+            await interaction.deferReply();
+
+            const guildLog = await Log.findOne({ 'guild.id': interaction.guild.id });
+                if (guildLog === null) return interaction.editReply({ embeds: [global.errors[5]] });
+
+            if (guildLog.items.length > 0) {
+                const logIdField = interaction.options.getString('log_id');
+                    if (!mongoose.Types.ObjectId.isValid(logIdField)) return interaction.editReply({ content: 'Error: Log ID is invalid.' });
+
+                    const idFound = guildLog.items.some(item => item._id.toString() === logIdField);
+                        if (!idFound) return interaction.editReply({ content: 'Error: No log entry found with that ID.' });
+
+                try {
+                    await Log.updateOne({
+                        'guild.id': interaction.guild.id
+                    }, {
+                        $pull: {
+                            items: {
+                                _id: logIdField
+                            }
+                        }
+                    });
+
+                    const removeLog = new EmbedBuilder()
+                        .setTitle('Logs')
+                        .setDescription(`Successfully removed log entry with ID of **${logIdField}**`)
+                        .setColor(configuration.embedColor)
+                        .setTimestamp();
+
+                    return interaction.editReply({ embeds: [removeLog] });
+                }
+                catch (err) {
+                    console.error(err);
+                }
+            }
+            else {
+                return interaction.editReply({ content: 'Error: No log history found.' });
             }
         }
 
