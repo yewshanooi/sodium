@@ -35,17 +35,18 @@ module.exports = {
                     reasonField = 'None';
                 }
 
+            const getId = new mongoose.Types.ObjectId();
             const getTimestamp = new Date();
 
             const addLog = new EmbedBuilder()
-                .setTitle('Logs')
+                .setTitle(`${resultType}`)
+                .setDescription(`\`${getId}\``)
                 .addFields(
-                    { name: 'Type', value: `${resultType}` },
                     { name: 'User', value: `${userField.user.username} \`${userField.user.id}\`` },
                     { name: 'By', value: `${interaction.user.username} \`${interaction.user.id}\`` },
-                    { name: 'Reason', value: `${reasonField}` },
-                    { name: 'Timestamp', value: `${getTimestamp}` }
+                    { name: 'Reason', value: `${reasonField}` }
                 )
+                .setTimestamp()
                 .setColor(configuration.embedColor);
 
             try {
@@ -54,6 +55,7 @@ module.exports = {
                 }, {
                     $push: {
                         items: {
+                            _id: getId,
                             type: resultType,
                             user: {
                                 name: userField.user.username,
@@ -135,7 +137,7 @@ module.exports = {
             let description = '';
             if (latestItems.length > 0) {
                 latestItems.forEach(item => {
-                    description += `\n**Type:** ${item.type}\n**User:** ${item.user.name ? item.user.name : ''} \`${item.user.id}\`\n**By:** ${item.staff.name} \`${item.staff.id}\`\n**Reason:** ${item.reason}\n**Timestamp:** ${item.timestamp}\n`;
+                    description += `\n**Type:** ${item.type} \`${item._id.toString()}\`\n**User:** ${item.user.name ? item.user.name : ''} \`${item.user.id}\`\n**By:** ${item.staff.name} \`${item.staff.id}\`\n**Reason:** ${item.reason}\n**Timestamp:** ${item.timestamp}\n`;
                 });
             }
             else {

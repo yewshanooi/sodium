@@ -1,6 +1,6 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const Log = require('../../schemas/log');
-const getTimestamp = new Date();
+const mongoose = require('mongoose');
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -39,16 +39,20 @@ module.exports = {
                 if (durationField === 8.64e+7) resultDuration = '1 day';
                 if (durationField === 6.048e+8) resultDuration = '1 week';
 
+        const getId = new mongoose.Types.ObjectId();
+        const getTimestamp = new Date();
+
         const embed = new EmbedBuilder()
-			.setTitle('Timeout')
-			.addFields(
-				{ name: 'User', value: `${userField.user.username} \`${userField.user.id}\`` },
-				{ name: 'By', value: `${interaction.user.username} \`${interaction.user.id}\`` },
+            .setTitle('Timeout')
+            .setDescription(`\`${getId}\``)
+            .addFields(
+                { name: 'User', value: `${userField.user.username} \`${userField.user.id}\`` },
+                { name: 'By', value: `${interaction.user.username} \`${interaction.user.id}\`` },
                 { name: 'Duration', value: `${resultDuration}` },
-				{ name: 'Reason', value: `${reasonField}` }
-			)
-			.setTimestamp()
-			.setColor('#ff0000');
+                { name: 'Reason', value: `${reasonField}` }
+            )
+            .setTimestamp()
+            .setColor('#ff0000');
 
         try {
             await Log.findOneAndUpdate({
@@ -56,6 +60,7 @@ module.exports = {
             }, {
                 $push: {
                     items: {
+                        _id: getId,
                         type: 'Timeout',
                         user: {
                             name: userField.user.username,

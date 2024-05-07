@@ -1,6 +1,6 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const Log = require('../../schemas/log');
-const getTimestamp = new Date();
+const mongoose = require('mongoose');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -25,8 +25,12 @@ module.exports = {
 					reasonField = 'None';
 				}
 
+		const getId = new mongoose.Types.ObjectId();
+		const getTimestamp = new Date();
+
 		const embed = new EmbedBuilder()
 			.setTitle('Unban')
+			.setDescription(`\`${getId}\``)
 			.addFields(
 				{ name: 'User ID', value: `\`${userIdField}\`` },
 				{ name: 'By', value: `${interaction.user.username} \`${interaction.user.id}\`` },
@@ -41,6 +45,7 @@ module.exports = {
 			}, {
 				$push: {
 					items: {
+						_id: getId,
 						type: 'Unban',
 						user: {
                             id: userIdField

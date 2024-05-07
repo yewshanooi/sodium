@@ -1,6 +1,6 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const Log = require('../../schemas/log');
-const getTimestamp = new Date();
+const mongoose = require('mongoose');
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -27,8 +27,12 @@ module.exports = {
                     reasonField = 'None';
                 }
 
+        const getId = new mongoose.Types.ObjectId();
+        const getTimestamp = new Date();
+
         const embedUserDM = new EmbedBuilder()
             .setTitle('Warn')
+            .setDescription(`\`${getId}\``)
             .addFields(
                 { name: 'Guild', value: `${interaction.guild.name}` },
                 { name: 'By', value: `${interaction.user.username} \`${interaction.user.id}\`` },
@@ -38,14 +42,15 @@ module.exports = {
             .setColor('#ff0000');
 
         const embed = new EmbedBuilder()
-			.setTitle('Warn')
-			.addFields(
-				{ name: 'User', value: `${userField.user.username} \`${userField.user.id}\`` },
-				{ name: 'By', value: `${interaction.user.username} \`${interaction.user.id}\`` },
-				{ name: 'Reason', value: `${reasonField}` }
-			)
-			.setTimestamp()
-			.setColor('#ff0000');
+            .setTitle('Warn')
+            .setDescription(`\`${getId}\``)
+            .addFields(
+                { name: 'User', value: `${userField.user.username} \`${userField.user.id}\`` },
+                { name: 'By', value: `${interaction.user.username} \`${interaction.user.id}\`` },
+                { name: 'Reason', value: `${reasonField}` }
+            )
+            .setTimestamp()
+            .setColor('#ff0000');
 
         try {
             await Log.findOneAndUpdate({
@@ -53,6 +58,7 @@ module.exports = {
             }, {
                 $push: {
                     items: {
+                        _id: getId,
                         type: 'Warn',
                         user: {
                             name: userField.user.username,
