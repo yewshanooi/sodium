@@ -45,3 +45,5 @@ module.exports = {
             });
         }
 };
+
+// Playback of videos is limited to 180 minutes if watching with a group or 30 minutes if watching alone.

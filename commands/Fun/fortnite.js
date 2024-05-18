@@ -10,7 +10,9 @@ module.exports = {
     category: 'Fun',
     guildOnly: false,
     async execute (interaction) {
-        if (!process.env.FORTNITE_API_KEY) return interaction.reply({ embeds: [global.errors[1]] });
+        await interaction.deferReply();
+
+        if (!process.env.FORTNITE_API_KEY) return interaction.editReply({ embeds: [global.errors[1]] });
 
         const usernameField = interaction.options.getString('username');
 
@@ -21,9 +23,9 @@ module.exports = {
             }
         }).then(res => res.json());
 
-            if (Fortnite.status === 400) return interaction.reply('Error: Invalid or missing parameters.');
-            if (Fortnite.status === 403) return interaction.reply('Error: User\'s account stats are private.');
-            if (Fortnite.status === 404) return interaction.reply('Error: No such account found.');
+            if (Fortnite.status === 400) return interaction.editReply('Error: Invalid or missing parameters.');
+            if (Fortnite.status === 403) return interaction.editReply('Error: User\'s account stats are private.');
+            if (Fortnite.status === 404) return interaction.editReply('Error: No such account found.');
 
             const winRate = Fortnite.data.stats.all.overall.winRate.toFixed(2);
 
@@ -39,6 +41,6 @@ module.exports = {
             )
             .setFooter({ text: 'Powered by Fortnite-API' })
             .setColor('#f4f4f4');
-        interaction.reply({ embeds: [embed] });
+        return interaction.editReply({ embeds: [embed] });
     }
 };

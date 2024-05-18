@@ -10,21 +10,23 @@ module.exports = {
     category: 'Fun',
     guildOnly: false,
     async execute (interaction) {
-        if (!process.env.HYPIXEL_API_KEY) return interaction.reply({ embeds: [global.errors[1]] });
+        await interaction.deferReply();
+
+        if (!process.env.HYPIXEL_API_KEY) return interaction.editReply({ embeds: [global.errors[1]] });
 
         const usernameField = interaction.options.getString('username');
 
         const Mojang = await fetch(`https://api.mojang.com/users/profiles/minecraft/${usernameField}`)
             .then(res => res.json());
 
-            if (!Mojang) return interaction.reply({ content: 'Error: An error has occurred while trying to process your request.' });
-            if (Mojang.errorMessage) return interaction.reply({ content: 'Error: Invalid username or username does not exist.' });
+            if (!Mojang) return interaction.editReply({ content: 'Error: An error has occurred while trying to process your request.' });
+            if (Mojang.errorMessage) return interaction.editReply({ content: 'Error: Invalid username or username does not exist.' });
 
         const Hypixel = await fetch(`https://api.hypixel.net/v2/player?key=${process.env.HYPIXEL_API_KEY}&uuid=${Mojang.id}`)
             .then(res => res.json());
 
-            if (Hypixel.success === false) return interaction.reply({ content: 'Error: There was a problem fetching the player.' });
-            if (Hypixel.player === null) return interaction.reply({ content: 'Error: The player has not joined the server.' });
+            if (Hypixel.success === false) return interaction.editReply({ content: 'Error: There was a problem fetching the player.' });
+            if (Hypixel.player === null) return interaction.editReply({ content: 'Error: The player has not joined the server.' });
 
                 const firstJoined = new Date(Hypixel.player.firstLogin).toLocaleString('en-US', { timeZone: 'UTC' });
 
@@ -43,7 +45,7 @@ module.exports = {
                     .setLabel('View on Plancke')
                     .setStyle('Link'));
 
-            return interaction.reply({ embeds: [embed], components: [button] });
+            return interaction.editReply({ embeds: [embed], components: [button] });
         }
 };
 

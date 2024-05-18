@@ -42,10 +42,10 @@ module.exports = {
                 const description = modalResponse.fields.getTextInputValue('gmiQuery');
 
                 const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY);
-                const model = genAI.getGenerativeModel({ model: 'gemini-1.0-pro' });
+                const model = genAI.getGenerativeModel({ model: 'gemini-1.5-pro-latest' });
 
                 const result = await model.generateContent({
-                    contents: [{ role: 'USER', parts: [{ text: description }] }],
+                    contents: [{ role: 'user', parts: [{ text: description }] }],
                     generationConfig: { temperature: 0.5, topP: 0.5, topK: 20, maxOutputTokens: 1024 },
                     safetySettings: [
                         { category: HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT, threshold: HarmBlockThreshold.BLOCK_NONE },

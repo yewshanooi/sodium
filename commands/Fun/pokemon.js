@@ -10,6 +10,8 @@ module.exports = {
     category: 'Fun',
     guildOnly: false,
     async execute (interaction) {
+        await interaction.deferReply();
+
         try {
             const nameField = interaction.options.getString('name');
 			const lowercaseNameField = nameField.toLowerCase();
@@ -57,14 +59,14 @@ module.exports = {
 
                 embed.addFields({ name: 'Stats', value: `**HP** ${Pokemon.stats[0].base_stat}\n**Attack** ${Pokemon.stats[1].base_stat}\n**Defense** ${Pokemon.stats[2].base_stat}\n**Special Attack** ${Pokemon.stats[3].base_stat}\n**Special Defense** ${Pokemon.stats[4].base_stat}\n**Speed** ${Pokemon.stats[5].base_stat}` });
 
-            return interaction.reply({ embeds: [embed] });
+            return interaction.editReply({ embeds: [embed] });
         }
 
-        return interaction.reply('Error: No such Pokémon found.');
+        return interaction.editReply('Error: No such Pokémon found.');
     }
         catch (error) {
             console.error(error);
-            return interaction.reply('Error: An error has occurred while processing your request.');
+            return interaction.editReply('Error: An error has occurred while processing your request.');
         }
     }
 };

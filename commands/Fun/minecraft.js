@@ -10,13 +10,15 @@ module.exports = {
     category: 'Fun',
     guildOnly: false,
     async execute (interaction) {
+        await interaction.deferReply();
+
         const usernameField = interaction.options.getString('username');
 
         const Mojang = await fetch(`https://api.mojang.com/users/profiles/minecraft/${usernameField}`)
             .then(res => res.json());
 
-            if (!Mojang) return interaction.reply({ content: 'Error: An error has occurred while trying to process your request.' });
-            if (Mojang.errorMessage) return interaction.reply({ content: 'Error: Invalid username or username does not exist.' });
+            if (!Mojang) return interaction.editReply({ content: 'Error: An error has occurred while trying to process your request.' });
+            if (Mojang.errorMessage) return interaction.editReply({ content: 'Error: Invalid username or username does not exist.' });
 
         const embed = new EmbedBuilder()
             .setTitle(`${Mojang.name}`)
@@ -31,6 +33,6 @@ module.exports = {
                 .setLabel('View on NameMC')
                 .setStyle('Link'));
 
-        return interaction.reply({ embeds: [embed], components: [button] });
+        return interaction.editReply({ embeds: [embed], components: [button] });
     }
 };
