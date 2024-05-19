@@ -55,8 +55,6 @@ module.exports = {
                     ]
                 });
 
-                const { totalTokens } = await model.countTokens(description);
-
                 // Due to the lack of proper documentation from Google, error handling for safetySettings might not work as intended.
 
                 if (result.response.candidates[0].finishReason === 'SAFETY' || result.response.candidates[0].finishReason === 'RECITATION') {
@@ -68,7 +66,7 @@ module.exports = {
                 const embed = new EmbedBuilder()
                     .setTitle(`${trim(description, 256)}`)
                     .setDescription(`${trim(result.response.text(), 4096)}`)
-                    .setFooter({ text: `Prompt Tokens: ${totalTokens}\nPowered by Google` })
+                    .setFooter({ text: `Powered by Google` })
                     .setColor('#4fabff');
 
                 return modalResponse.editReply({ embeds: [embed] });
