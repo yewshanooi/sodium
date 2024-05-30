@@ -53,7 +53,7 @@ Node.js version **≥20.9.0** is required
 ###### npm Packages
 <table>
   <tr>
-    <td><a href="https://www.npmjs.com/package/@google/generative-ai">@google/generative-ai@0.11.3</a></td>
+    <td><a href="https://www.npmjs.com/package/@google/generative-ai">@google/generative-ai@0.12.0</a></td>
     <td><a href="https://www.npmjs.com/package/chalk">chalk@4.1.2</a></td>
   </tr>
   <tr>
@@ -65,7 +65,7 @@ Node.js version **≥20.9.0** is required
     <td><a href="https://www.npmjs.com/package/mathjs">mathjs@12.4.2</a></td>
   </tr>
   <tr>
-    <td><a href="https://www.npmjs.com/package/mongodb">mongodb@6.6.2</a></td>
+    <td><a href="https://www.npmjs.com/package/mongodb">mongodb@6.7.0</a></td>
     <td><a href="https://www.npmjs.com/package/mongoose">mongoose@8.4.0</a></td>
   </td>
   <tr>
