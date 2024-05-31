@@ -13,8 +13,7 @@ module.exports = {
         await interaction.deferReply();
 
         try {
-            const nameField = interaction.options.getString('name');
-			const lowercaseNameField = nameField.toLowerCase();
+            const lowercaseNameField = interaction.options.getString('name').toLowerCase();
 
             const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${lowercaseNameField}/`);
 
