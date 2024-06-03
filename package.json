@@ -20,7 +20,7 @@
     "discord.js": "^14.15.2",
     "dotenv": "^16.4.5",
     "eslint": "^9.3.0",
-    "mathjs": "^12.4.2",
+    "mathjs": "^13.0.0",
     "mongodb": "^6.7.0",
     "mongoose": "^8.4.0",
     "node-fetch": "^2.7.0"
