@@ -61,7 +61,7 @@ Node.js version **≥20.9.0** is required
     <td><a href="https://www.npmjs.com/package/dotenv">dotenv@16.4.5</a></td>
   </tr>
   <tr>
-    <td><a href="https://www.npmjs.com/package/eslint">eslint@9.4.0</a></td>
+    <td><a href="https://www.npmjs.com/package/eslint">eslint@9.5.0</a></td>
     <td><a href="https://www.npmjs.com/package/mathjs">mathjs@13.0.0</a></td>
   </tr>
   <tr>
@@ -140,13 +140,13 @@ node index.js    -or-    npm start    -or-    nodemon
 ###### Bot & Application
 1. Visit [Discord Developer Portal](https://discord.com/developers/applications) to create a new application
 
-2. Enable `PUBLIC BOT` authorization flow option for the bot **(OPTIONAL)**
+2. In Installation tab, enable `Guild Install` option under Authorization Methods
 
-3. Enable `PRESENCE INTENT` and `SERVER MEMBERS INTENT` privileged gateway intent options for the bot **(REQUIRED)**
+3. In Bot tab, enable `Presence Intent` and `Server Members Intent` options under Privileged Gateway Intents
 
 4. Paste this OAuth2 URL template in your browser's address bar and replace `{CLIENT_ID}` with your **Client ID** to invite the bot to your guild
 ```url
-https://discord.com/api/oauth2/authorize?client_id={CLIENT_ID}&permissions=1497295481975&scope=bot%20applications.commands
+https://discord.com/oauth2/authorize?client_id={CLIENT_ID}&permissions=1497295481975&integration_type=0&scope=bot+applications.commands
 ```
 
 ###### OAuth2 URL Scopes & Bot Permissions
