@@ -53,7 +53,7 @@ Node.js version **≥20.15.0** is required
 ###### npm Packages
 <table>
   <tr>
-    <td><a href="https://www.npmjs.com/package/@google/generative-ai">@google/generative-ai@0.14.0</a></td>
+    <td><a href="https://www.npmjs.com/package/@google/generative-ai">@google/generative-ai@0.14.1</a></td>
     <td><a href="https://www.npmjs.com/package/chalk">chalk@4.1.2</a></td>
   </tr>
   <tr>
@@ -62,7 +62,7 @@ Node.js version **≥20.15.0** is required
   </tr>
   <tr>
     <td><a href="https://www.npmjs.com/package/eslint">eslint@9.6.0</a></td>
-    <td><a href="https://www.npmjs.com/package/mathjs">mathjs@13.0.1</a></td>
+    <td><a href="https://www.npmjs.com/package/mathjs">mathjs@13.0.2</a></td>
   </tr>
   <tr>
     <td><a href="https://www.npmjs.com/package/mongodb">mongodb@6.8.0</a></td>
