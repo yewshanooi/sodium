@@ -25,7 +25,7 @@
 
 ## Features
 - **Application Commands**, **Buttons**, and **Message Embed**
-- **AI Chatbot** <img src=".github/icons/sparkles.png" width="16" height="16"/> *(powered by Google)*
+- **AI Chatbot** *(powered by Google)*
 - **Moderation Logs** *(stored using MongoDB)*
 - **Third Party API** commands *(such as Giphy, Nasa, Wikipedia and more!)*
 - **Watch Together** *(with YouTube Activity)*
@@ -66,7 +66,7 @@ Node.js version **≥20.15.0** is required
   </tr>
   <tr>
     <td><a href="https://www.npmjs.com/package/mongodb">mongodb@6.8.0</a></td>
-    <td><a href="https://www.npmjs.com/package/mongoose">mongoose@8.4.4</a></td>
+    <td><a href="https://www.npmjs.com/package/mongoose">mongoose@8.5.0</a></td>
   </td>
   <tr>
     <td><a href="https://www.npmjs.com/package/node-fetch">node-fetch@2.7.0</a></td>
