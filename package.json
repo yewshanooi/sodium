@@ -15,14 +15,14 @@
     "node": ">=20.15.0"
   },
   "dependencies": {
-    "@google/generative-ai": "^0.14.1",
+    "@google/generative-ai": "^0.16.0",
     "chalk": "^4.1.2",
     "discord.js": "^14.15.3",
     "dotenv": "^16.4.5",
-    "eslint": "^9.6.0",
-    "mathjs": "^13.0.2",
+    "eslint": "^9.7.0",
+    "mathjs": "^13.0.3",
     "mongodb": "^6.8.0",
-    "mongoose": "^8.5.0",
+    "mongoose": "^8.5.1",
     "node-fetch": "^2.7.0"
   }
 }
