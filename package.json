@@ -19,10 +19,10 @@
     "chalk": "^4.1.2",
     "discord.js": "^14.15.3",
     "dotenv": "^16.4.5",
-    "eslint": "^9.7.0",
+    "eslint": "^9.8.0",
     "mathjs": "^13.0.3",
     "mongodb": "^6.8.0",
-    "mongoose": "^8.5.1",
+    "mongoose": "^8.5.2",
     "node-fetch": "^2.7.0"
   }
 }
