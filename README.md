@@ -53,20 +53,20 @@ Node.js version **≥20.15.0** is required
 ###### npm Packages
 <table>
   <tr>
-    <td><a href="https://www.npmjs.com/package/@google/generative-ai">@google/generative-ai@0.16.0</a></td>
+    <td><a href="https://www.npmjs.com/package/@google/generative-ai">@google/generative-ai@0.17.1</a></td>
     <td><a href="https://www.npmjs.com/package/chalk">chalk@4.1.2</a></td>
   </tr>
   <tr>
-    <td><a href="https://www.npmjs.com/package/discord.js">discord.js@14.15.3</a></td>
+    <td><a href="https://www.npmjs.com/package/discord.js">discord.js@14.16.1</a></td>
     <td><a href="https://www.npmjs.com/package/dotenv">dotenv@16.4.5</a></td>
   </tr>
   <tr>
-    <td><a href="https://www.npmjs.com/package/eslint">eslint@9.8.0</a></td>
-    <td><a href="https://www.npmjs.com/package/mathjs">mathjs@13.0.3</a></td>
+    <td><a href="https://www.npmjs.com/package/eslint">eslint@9.10.0</a></td>
+    <td><a href="https://www.npmjs.com/package/mathjs">mathjs@13.1.1</a></td>
   </tr>
   <tr>
-    <td><a href="https://www.npmjs.com/package/mongodb">mongodb@6.8.0</a></td>
-    <td><a href="https://www.npmjs.com/package/mongoose">mongoose@8.5.2</a></td>
+    <td><a href="https://www.npmjs.com/package/mongodb">mongodb@6.8.1</a></td>
+    <td><a href="https://www.npmjs.com/package/mongoose">mongoose@8.6.1</a></td>
   </td>
   <tr>
     <td><a href="https://www.npmjs.com/package/node-fetch">node-fetch@2.7.0</a></td>

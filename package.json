@@ -1,6 +1,6 @@
 {
   "name": "sodium",
-  "version": "1.6.6",
+  "version": "1.6.7",
   "description": "Open source discord bot with application commands and a user-friendly interface",
   "main": "index.js",
   "author": "Ooi Yew Shan",
@@ -15,14 +15,14 @@
     "node": ">=20.15.0"
   },
   "dependencies": {
-    "@google/generative-ai": "^0.16.0",
+    "@google/generative-ai": "^0.17.1",
     "chalk": "^4.1.2",
-    "discord.js": "^14.15.3",
+    "discord.js": "^14.16.1",
     "dotenv": "^16.4.5",
-    "eslint": "^9.8.0",
-    "mathjs": "^13.0.3",
-    "mongodb": "^6.8.0",
-    "mongoose": "^8.5.2",
+    "eslint": "^9.10.0",
+    "mathjs": "^13.1.1",
+    "mongodb": "^6.8.1",
+    "mongoose": "^8.6.1",
     "node-fetch": "^2.7.0"
   }
 }
