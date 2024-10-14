@@ -79,8 +79,8 @@ client.on('warn', info => {
 // MongoDB events
 mongoose.connection.on('connecting', () => { console.log(`${chalk.greenBright.bold('[MongoDB] Connecting to database')}`) });
 mongoose.connection.on('connected', () => { console.log(`${chalk.greenBright.bold('[MongoDB] Successfully connected to database')}`) });
-mongoose.connection.on('disconnected', () => { console.log(`${chalk.redBright.bold('[MongoDB Error] Disconnected from database')}`) });
-mongoose.connection.on('error', err => { console.log(`${chalk.redBright.bold('[MongoDB Error] There was a problem connecting to database')}`, err) });
+mongoose.connection.on('disconnected', () => { console.log(`${chalk.redBright.bold('[MongoDB] Error: Disconnected from database')}`) });
+mongoose.connection.on('error', err => { console.log(`${chalk.redBright.bold('[MongoDB] Error: There was a problem connecting to database')}\n`, err) });
 
 
 client.login(process.env.TOKEN);

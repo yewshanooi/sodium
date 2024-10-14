@@ -42,11 +42,12 @@ module.exports = {
                 const description = modalResponse.fields.getTextInputValue('gmiQuery');
 
                 const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY);
-                const model = genAI.getGenerativeModel({ model: 'gemini-1.0-pro' });
+                const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash-002' });
 
                 const result = await model.generateContent({
                     contents: [{ role: 'user', parts: [{ text: description }] }],
-                    generationConfig: { temperature: 0.5, topP: 0.5, topK: 20, maxOutputTokens: 1024 },
+                    generationConfig: { temperature: 1.0, topP: 0.95, candidateCount: 1, maxOutputTokens: 1024 },
+                    systemInstruction: { parts: [{ text: 'All questions should be answered comprehensively with details, unless the user requests a concise response specifically. Respond in the same language as the query.' }] },
                     safetySettings: [
                         { category: HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT, threshold: HarmBlockThreshold.BLOCK_NONE },
                         { category: HarmCategory.HARM_CATEGORY_HARASSMENT, threshold: HarmBlockThreshold.BLOCK_NONE },
@@ -79,7 +80,8 @@ module.exports = {
     }
 };
 
-// Response Docs: https://cloud.google.com/vertex-ai/generative-ai/docs/model-reference/gemini.
+// Model Responses: https://cloud.google.com/vertex-ai/generative-ai/docs/model-reference/gemini
+// Model Versions: https://cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions
 
 /*
  * Use this code block to debug errors:
