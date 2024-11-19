@@ -1,15 +1,14 @@
 <p align="center">
 	<a href="https://skyelements.github.io/sodium.html">
-		<img src=".github/icons/sodium.png" height="128">
+		<img src=".github/images/sodium.png" height="128">
 		<h1 align="center">Sodium</h1>
 		<p align="center">Open source discord bot with application commands and a user-friendly interface</p>
 	</a>
 </p>
 
 <p align="center">
-	<a href="https://github.com/yewshanooi/sodium/releases"><strong>Changelog</strong></a> ·
-	<a href="https://github.com/yewshanooi/sodium/blob/main/README.md#guide"><strong>Documentation</strong></a> ·
 	<a href="https://skyelements.github.io/commands.html"><strong>Preview</strong></a> ·
+	<a href="https://github.com/yewshanooi/sodium/releases"><strong>Releases</strong></a> ·
 	<a href="https://www.codefactor.io/repository/github/yewshanooi/sodium"><strong>CodeFactor</strong></a>
 </p>
 <br/>
@@ -39,7 +38,7 @@
 
 ## Dependencies
 ###### Node.js
-Node.js version **≥20.18.0** is required
+Node.js version **≥22.11.0** is required
 
 ###### npm Packages
 <table>
@@ -142,7 +141,7 @@ https://discord.com/oauth2/authorize?client_id={CLIENT_ID}&permissions=149729548
 
 ###### OAuth2 URL Scopes & Bot Permissions
 <p align="left">
-	<img src=".github/oauth2.png"/>
+	<img src=".github/images/oauth2.png" width="893" height="1075"/>
 </p>
 <br/>
 
