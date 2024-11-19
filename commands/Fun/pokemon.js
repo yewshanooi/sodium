@@ -21,8 +21,8 @@ module.exports = {
             const Pokemon = await response.json();
 
                 const capitalizedName = Pokemon.name.charAt(0).toUpperCase() + Pokemon.name.slice(1);
-                const heightInCM = Pokemon.height * 10
-                const weightInKG = Pokemon.weight / 10
+                const heightInCM = Pokemon.height * 10;
+                const weightInKG = Pokemon.weight / 10;
 
             const embed = new EmbedBuilder()
                 .setTitle(`#${Pokemon.id} ${capitalizedName}`)
