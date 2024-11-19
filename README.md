@@ -141,7 +141,7 @@ https://discord.com/oauth2/authorize?client_id={CLIENT_ID}&permissions=149729548
 
 ###### OAuth2 URL Scopes & Bot Permissions
 <p align="left">
-	<img src=".github/images/oauth2.png" width="893" height="1075"/>
+	<img src=".github/images/oauth2.png" width="750"/>
 </p>
 <br/>
 
