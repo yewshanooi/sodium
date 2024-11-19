@@ -1,16 +1,16 @@
 <p align="center">
-  <a href="https://skyelements.github.io/sodium.html">
-    <img src=".github/icons/sodium.png" height="128">
-    <h1 align="center">Sodium</h1>
-    <h4 align="center">Open source discord bot with application commands and a user-friendly interface</h4>
-  </a>
+	<a href="https://skyelements.github.io/sodium.html">
+		<img src=".github/icons/sodium.png" height="128">
+		<h1 align="center">Sodium</h1>
+		<p align="center">Open source discord bot with application commands and a user-friendly interface</p>
+	</a>
 </p>
 
 <p align="center">
-  <a href="https://github.com/yewshanooi/sodium/releases"><strong>Changelog</strong></a> ·
-  <a href="https://github.com/yewshanooi/sodium/blob/main/README.md#guide"><strong>Documentation</strong></a> ·
-  <a href="https://skyelements.github.io/commands.html"><strong>Preview</strong></a> ·
-  <a href="https://www.codefactor.io/repository/github/yewshanooi/sodium"><strong>CodeFactor</strong></a>
+	<a href="https://github.com/yewshanooi/sodium/releases"><strong>Changelog</strong></a> ·
+	<a href="https://github.com/yewshanooi/sodium/blob/main/README.md#guide"><strong>Documentation</strong></a> ·
+	<a href="https://skyelements.github.io/commands.html"><strong>Preview</strong></a> ·
+	<a href="https://www.codefactor.io/repository/github/yewshanooi/sodium"><strong>CodeFactor</strong></a>
 </p>
 <br/>
 
@@ -24,16 +24,16 @@
 
 ## Commands
 <table>
-  <tr>
-    <td><b>Fun</b></td>
-    <td><b>Moderation</b></td>
-    <td><b>Utility</b></td>
-  </tr>
-  <tr>
-    <td>8ball, achievement, beep, coinflip, color, compliment, diceroll, fact <b>[cat | dog | general | useless]</b>, fortnite, giphy, hypixel, leagueoflegends, lyrics, meme, minecraft, nasa, pokemon, rps, say, spotify, urban, waifu, word, youtube</td>
-    <td>ban, channel <b>[delete | lock | rename | unlock]</b>, deafen, kick, logs <b>[add | initialize | remove | view]</b>, purge, role <b>[add | remove]</b>, setnick, slowmode, timeout, unban, undeafen, untimeout, warn</td>
-    <td>afk, announce, botpresence, botsetnick, calculator, crypto, dictionary, gemini, github, guildrename, help, info <b>[channel | client | guild | role | user]</b>, invite, leave, message, news, npm, ping, qrcode, thread, weather, wikipedia</td>
-  </tr>
+	<tr>
+		<td><b>Fun</b></td>
+		<td><b>Moderation</b></td>
+		<td><b>Utility</b></td>
+	</tr>
+	<tr>
+		<td>8ball, achievement, beep, coinflip, color, compliment, diceroll, fact <b>[cat | dog | general | useless]</b>, fortnite, giphy, hypixel, leagueoflegends, lyrics, meme, minecraft, nasa, pokemon, rps, say, spotify, urban, waifu, word, youtube</td>
+		<td>ban, channel <b>[delete | lock | rename | unlock]</b>, deafen, kick, logs <b>[add | initialize | remove | view]</b>, purge, role <b>[add | remove]</b>, setnick, slowmode, timeout, unban, undeafen, untimeout, warn</td>
+		<td>afk, announce, botpresence, botsetnick, calculator, crypto, dictionary, gemini, github, guildrename, help, info <b>[channel | client | guild | role | user]</b>, invite, leave, message, news, npm, ping, qrcode, thread, weather, wikipedia</td>
+	</tr>
 </table>
 <br/>
 
@@ -43,26 +43,26 @@ Node.js version **≥20.18.0** is required
 
 ###### npm Packages
 <table>
-  <tr>
-    <td><a href="https://www.npmjs.com/package/@google/generative-ai">@google/generative-ai@0.21.0</a></td>
-    <td><a href="https://www.npmjs.com/package/chalk">chalk@4.1.2</a></td>
-  </tr>
-  <tr>
-    <td><a href="https://www.npmjs.com/package/discord.js">discord.js@14.16.3</a></td>
-    <td><a href="https://www.npmjs.com/package/dotenv">dotenv@16.4.5</a></td>
-  </tr>
-  <tr>
-    <td><a href="https://www.npmjs.com/package/eslint">eslint@9.12.0</a></td>
-    <td><a href="https://www.npmjs.com/package/mathjs">mathjs@13.2.0</a></td>
-  </tr>
-  <tr>
-    <td><a href="https://www.npmjs.com/package/mongodb">mongodb@6.9.0</a></td>
-    <td><a href="https://www.npmjs.com/package/mongoose">mongoose@8.7.1</a></td>
-  </td>
-  <tr>
-    <td><a href="https://www.npmjs.com/package/node-fetch">node-fetch@2.7.0</a></td>
-    <td></td>
-  </td>
+	<tr>
+		<td><a href="https://www.npmjs.com/package/@google/generative-ai">@google/generative-ai@0.21.0</a></td>
+		<td><a href="https://www.npmjs.com/package/chalk">chalk@4.1.2</a></td>
+	</tr>
+	<tr>
+		<td><a href="https://www.npmjs.com/package/discord.js">discord.js@14.16.3</a></td>
+		<td><a href="https://www.npmjs.com/package/dotenv">dotenv@16.4.5</a></td>
+	</tr>
+	<tr>
+		<td><a href="https://www.npmjs.com/package/eslint">eslint@9.15.0</a></td>
+		<td><a href="https://www.npmjs.com/package/mathjs">mathjs@13.2.2</a></td>
+	</tr>
+	<tr>
+		<td><a href="https://www.npmjs.com/package/mongodb">mongodb@6.10.0</a></td>
+		<td><a href="https://www.npmjs.com/package/mongoose">mongoose@8.8.2</a></td>
+	</td>
+	<tr>
+		<td><a href="https://www.npmjs.com/package/node-fetch">node-fetch@2.7.0</a></td>
+		<td></td>
+	</td>
 </table>
 <br/>
 
@@ -142,7 +142,7 @@ https://discord.com/oauth2/authorize?client_id={CLIENT_ID}&permissions=149729548
 
 ###### OAuth2 URL Scopes & Bot Permissions
 <p align="left">
-    <img src=".github/oauth2.png"/>
+	<img src=".github/oauth2.png"/>
 </p>
 <br/>
 
