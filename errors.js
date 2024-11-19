@@ -1,31 +1,37 @@
 const Discord = require('discord.js');
 
-const guildOnlyCmd = new Discord.EmbedBuilder()         // global.errors[0]
+// global.errors[0]
+const guildOnlyCmd = new Discord.EmbedBuilder()
     .setTitle('Error')
     .setDescription('This command cannot be executed in Direct Messages.')
     .setColor('#ff5555');
 
-const noAPIKey = new Discord.EmbedBuilder()             // global.errors[1]
+// global.errors[1]
+const noAPIKey = new Discord.EmbedBuilder()
     .setTitle('Error')
     .setDescription('No API key found. Please set one in the `.env` file to use this command.')
     .setColor('#ff5555');
 
-const noPermission = new Discord.EmbedBuilder()         // global.errors[2]
+// global.errors[2]
+const noPermission = new Discord.EmbedBuilder()
     .setTitle('Error')
     .setDescription('You have no permission to use this command.')
     .setColor('#ff5555');
 
-const noPrivateDM = new Discord.EmbedBuilder()          // global.errors[3]
+// global.errors[3]
+const noPrivateDM = new Discord.EmbedBuilder()
     .setTitle('Error')
     .setDescription('Cannot send messages to this user. User must enable **Allow direct messages from server members** in `User Settings > Privacy & Safety` to receive Direct Messages.')
     .setColor('#ff5555');
 
-const executeFailCmd = new Discord.EmbedBuilder()       // global.errors[4]
+// global.errors[4]
+const executeFailCmd = new Discord.EmbedBuilder()
     .setTitle('Error')
     .setDescription('There was an error while executing this command.')
     .setColor('#ff5555');
 
-const noLogSchema = new Discord.EmbedBuilder()           // global.errors[5]
+// global.errors[5]
+const noLogSchema = new Discord.EmbedBuilder()
     .setTitle('Error')
     .setDescription('No existing moderation logs found. Guild administrator must run `/log initialize` to use this command.')
     .setColor('#ff5555');
