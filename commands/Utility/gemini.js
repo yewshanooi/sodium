@@ -80,8 +80,10 @@ module.exports = {
     }
 };
 
-// Model Responses: https://cloud.google.com/vertex-ai/generative-ai/docs/model-reference/gemini
-// Model Versions: https://cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions
+/*
+ * Model Responses: https://cloud.google.com/vertex-ai/generative-ai/docs/model-reference/gemini
+ * Model Versions: https://cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions
+ */
 
 /*
  * Use this code block to debug errors:
