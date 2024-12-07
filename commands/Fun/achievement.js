@@ -92,6 +92,7 @@ const achievements = [
     'Very Very Frightening',
     'Sniper Duel',
     'Bullseye',
+    'Isn\'t it Scute?',
     'Minecraft: Trial(s) Edition',
     'Crafters Crafting Crafters',
     'Lighten Up',
@@ -100,7 +101,6 @@ const achievements = [
     'Revaulting',
     'Blowback',
     'Over-Overkill',
-    'Isn\'t it Scute?',
 
     // Husbandry: The world is full of friends and food
     'Husbandry',

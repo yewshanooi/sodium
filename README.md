@@ -52,7 +52,7 @@ Node.js version **≥22.11.0** is required
 	</tr>
 	<tr>
 		<td><a href="https://www.npmjs.com/package/eslint">eslint@9.15.0</a></td>
-		<td><a href="https://www.npmjs.com/package/mathjs">mathjs@13.2.2</a></td>
+		<td><a href="https://www.npmjs.com/package/mathjs">mathjs@14.0.0</a></td>
 	</tr>
 	<tr>
 		<td><a href="https://www.npmjs.com/package/mongodb">mongodb@6.10.0</a></td>
