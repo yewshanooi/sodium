@@ -42,7 +42,7 @@ module.exports = {
                 const description = modalResponse.fields.getTextInputValue('gmiQuery');
 
                 const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY);
-                const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash-002' });
+                const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
 
                 const result = await model.generateContent({
                     contents: [{ role: 'user', parts: [{ text: description }] }],
@@ -55,8 +55,6 @@ module.exports = {
                         { category: HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT, threshold: HarmBlockThreshold.BLOCK_NONE }
                     ]
                 });
-
-                // Due to the lack of proper documentation from Google, error handling for safetySettings might not work as intended.
 
                 if (result.response.candidates[0].finishReason === 'SAFETY' || result.response.candidates[0].finishReason === 'RECITATION') {
                     return modalResponse.editReply({ content: `Error: This response is blocked due to \`${result.response.candidates[0].finishReason}\` violation.` });
