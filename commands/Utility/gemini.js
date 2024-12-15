@@ -42,17 +42,19 @@ module.exports = {
                 const description = modalResponse.fields.getTextInputValue('gmiQuery');
 
                 const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY);
-                const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+                const model = genAI.getGenerativeModel({
+                    model: 'gemini-2.0-flash-exp',
+                    // systemInstruction: 'All questions should be answered comprehensively with details, unless the user requests a concise response specifically. Respond in the same language as the query.',
+                });
 
                 const result = await model.generateContent({
                     contents: [{ role: 'user', parts: [{ text: description }] }],
-                    generationConfig: { temperature: 1.0, topP: 0.95, candidateCount: 1, maxOutputTokens: 1024 },
-                    systemInstruction: { parts: [{ text: 'All questions should be answered comprehensively with details, unless the user requests a concise response specifically. Respond in the same language as the query.' }] },
+                    generationConfig: { temperature: 1, topP: 0.95, topK: 40, candidateCount: 1, maxOutputTokens: 1024 },
                     safetySettings: [
-                        { category: HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT, threshold: HarmBlockThreshold.BLOCK_NONE },
                         { category: HarmCategory.HARM_CATEGORY_HARASSMENT, threshold: HarmBlockThreshold.BLOCK_NONE },
                         { category: HarmCategory.HARM_CATEGORY_HATE_SPEECH, threshold: HarmBlockThreshold.BLOCK_NONE },
-                        { category: HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT, threshold: HarmBlockThreshold.BLOCK_NONE }
+                        { category: HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT, threshold: HarmBlockThreshold.BLOCK_NONE },
+                        { category: HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT, threshold: HarmBlockThreshold.BLOCK_NONE }
                     ]
                 });
 
@@ -66,7 +68,7 @@ module.exports = {
                     .setTitle(`${trim(description, 256)}`)
                     .setDescription(`${trim(result.response.text(), 4096)}`)
                     .setFooter({ text: `Powered by Google` })
-                    .setColor('#4fabff');
+                    .setColor('#669df6');
 
                 return modalResponse.editReply({ embeds: [embed] });
             }
@@ -79,8 +81,8 @@ module.exports = {
 };
 
 /*
- * Model Responses: https://cloud.google.com/vertex-ai/generative-ai/docs/model-reference/gemini
- * Model Versions: https://cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions
+ * Model Responses: https://ai.google.dev/api
+ * Model Versions: https://ai.google.dev/gemini-api/docs/models/gemini
  */
 
 /*
