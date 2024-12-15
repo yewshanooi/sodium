@@ -70,7 +70,10 @@ module.exports = {
                     .setFooter({ text: `Powered by Google` })
                     .setColor('#669df6');
 
-                return modalResponse.editReply({ embeds: [embed] });
+                return modalResponse.editReply({ embeds: [embed] }).then(
+                    console.log(result.response),
+                    console.log(result.response.candidates[0].safetyRatings)
+                );
             }
         }
         catch (err) {
@@ -83,14 +86,4 @@ module.exports = {
 /*
  * Model Responses: https://ai.google.dev/api
  * Model Versions: https://ai.google.dev/gemini-api/docs/models/gemini
- */
-
-/*
- * Use this code block to debug errors:
- *
- * return modalResponse.editReply({ embeds: [embed] }).then(
- *  console.log(result.response),
- *  console.log(result.response.candidates[0].finishReason),
- *  console.log(result.response.candidates[0].safetyRatings)
- * );
  */
