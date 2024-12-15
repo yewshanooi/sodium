@@ -15,7 +15,7 @@
 
 ## Features
 - **Application Commands**, **Buttons**, and **Message Embed**
-- **AI Chatbot** *(powered by Google)*
+- **AI Chatbot** *(powered by Gemini)*
 - **Moderation Logs** *(stored using MongoDB)*
 - **Third Party API** commands *(such as Giphy, Nasa, Wikipedia and more!)*
 - **Watch Together** *(with YouTube Activity)*
