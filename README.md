@@ -17,7 +17,7 @@
 - **Application Commands**, **Buttons**, and **Message Embed**
 - **AI Chatbot** *(powered by Google Gemini)*
 - **Moderation Logs** *(stored using MongoDB Atlas)*
-- **Third Party API** commands *(such as Giphy, Nasa, Wikipedia and more!)*
+- **Third Party API** commands *(such as Giphy, Wikipedia, and more!)*
 - **Watch Together** *(with YouTube activity)*
 <br/>
 
