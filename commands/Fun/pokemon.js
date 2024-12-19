@@ -63,8 +63,8 @@ module.exports = {
 
         return interaction.editReply('Error: No such Pokémon found.');
     }
-        catch (error) {
-            console.error(error);
+        catch (err) {
+            console.error(err);
             return interaction.editReply('Error: An error has occurred while processing your request.');
         }
     }

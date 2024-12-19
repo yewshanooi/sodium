@@ -20,14 +20,31 @@ module.exports = {
             .then(res => res.json())
             .then(body => body.response.hits);
 
-        if (!Song.length) return interaction.editReply({ content: 'Error: No results found.' });
+            if (!Song.length) return interaction.editReply({ content: 'Error: No results found.' });
+
+            function FormatNumber(num) {
+                const nb = new Intl.NumberFormat('en', { notation: 'compact', compactDisplay: 'short' });
+                return nb.format(num);
+            };
 
         const embed = new EmbedBuilder()
             .setTitle(`${Song[0].result.title}`)
             .setDescription(`by ${Song[0].result.artist_names}`)
-            .setImage(`${Song[0].result.song_art_image_thumbnail_url}`)
+            .setImage(`${Song[0].result.song_art_image_url}`)
             .setFooter({ text: 'Powered by Genius' })
             .setColor('#ffff64');
+
+            if (Song[0].result.release_date_with_abbreviated_month_for_display) embed.addFields({ name: 'Release Date', value: `${Song[0].result.release_date_with_abbreviated_month_for_display}`, inline: true });
+
+            if (Song[0].result.stats.concurrents) {
+                if (Song[0].result.stats.hot === true) {
+                    embed.addFields({ name: 'Viewers', value: `🔥 ${FormatNumber(Song[0].result.stats.concurrents)}`, inline: true });
+                } else {
+                    embed.addFields({ name: 'Viewers', value: `${FormatNumber(Song[0].result.stats.concurrents)}`, inline: true });
+                }
+            };
+
+            if (Song[0].result.stats.pageviews) embed.addFields({ name: 'Total Views', value: `${FormatNumber(Song[0].result.stats.pageviews)}`, inline: true });
 
             const button = new ActionRowBuilder()
                 .addComponents(new ButtonBuilder()

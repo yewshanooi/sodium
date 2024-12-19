@@ -32,10 +32,12 @@ module.exports = {
 
             const embed = new EmbedBuilder()
                 .setTitle(`${Hypixel.player.displayname}`)
-                .addFields({ name: 'Network EXP', value: `\`${Hypixel.player.networkExp || '0'}\`` })
-                .addFields({ name: 'Karma', value: `\`${Hypixel.player.karma || '0'}\`` })
-                .addFields({ name: 'Achievement Points', value: `\`${Hypixel.player.achievementPoints || '0'}\`` })
-                .addFields({ name: 'First Joined', value: `\`${firstJoined}\`` })
+                .addFields(
+                    { name: 'Network EXP', value: `\`${Hypixel.player.networkExp || '0'}\`` },
+                    { name: 'Karma', value: `\`${Hypixel.player.karma || '0'}\`` },
+                    { name: 'Achievement Points', value: `\`${Hypixel.player.achievementPoints || '0'}\`` },
+                    { name: 'First Joined', value: `\`${firstJoined}\`` }
+                )
                 .setFooter({ text: 'Powered by Hypixel' })
                 .setColor('#ffb405');
 

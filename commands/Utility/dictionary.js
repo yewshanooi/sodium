@@ -23,10 +23,11 @@ module.exports = {
                 .setTitle(`${Dictionary[0].word}`)
                 .addFields(
                     { name: 'Part of Speech', value: `${capitalizedPartOfSpeech}` },
-                    { name: 'Definition', value: `${Dictionary[0].meanings[0].definitions[0].definition}` },
-                    { name: 'Example', value: `${Dictionary[0].meanings[0].definitions[0].example || 'None'}` }
+                    { name: 'Definition', value: `${Dictionary[0].meanings[0].definitions[0].definition}` }
                 )
                 .setColor(configuration.embedColor);
+
+                if (Dictionary[0].meanings[0].definitions[0].example) embed.addFields({ name: 'Example', value: `${Dictionary[0].meanings[0].definitions[0].example}` });
 
             return interaction.reply({ embeds: [embed] });
         }

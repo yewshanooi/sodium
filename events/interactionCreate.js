@@ -45,8 +45,8 @@ module.exports = async interaction => {
 		const configuration = require('../config.json');
 		await command.execute(interaction, configuration);
 	}
-	catch (error) {
-		console.error(error);
+	catch (err) {
+		console.error(err);
 		await interaction.reply({ embeds: [global.errors[4]] });
 	}
 };

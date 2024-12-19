@@ -42,7 +42,7 @@ module.exports = {
             )
             .setThumbnail(`${Crypto[0].image}`)
             .setFooter({ text: 'Powered by CoinGecko' })
-            .setColor('#8cc63f');
+            .setColor('#8cc540');
 
         return interaction.reply({ embeds: [embed] });
 
