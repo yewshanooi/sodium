@@ -31,8 +31,7 @@ module.exports = {
 				)
 				.setColor(configuration.embedColor);
 			interaction.reply({ embeds: [commandEmbed] });
-		}
-		else {
+		} else {
 			// Primary === 1, Secondary === 2, Success === 3, Danger === 4, Link === 5
 			const buttons = [
 				new ButtonBuilder()
@@ -75,16 +74,14 @@ module.exports = {
 							box.components[2].setDisabled(false);
 						await collected.deferUpdate();
 						interaction.editReply({ embeds: [mainEmbed], components: [box] });
-					}
-						else if (value === 'ctgModeration') {
+					} else if (value === 'ctgModeration') {
 							mainEmbed.data.fields[0] = { name: `Moderation commands [${moderation.map(commandC => commandC.data.name).length}]`, value: moderation.map(commandD => `\`${commandD.data.name}\``).join('\n') };
 							box.components[0].setDisabled(false);
 							box.components[1].setDisabled(true);
 							box.components[2].setDisabled(false);
 						await collected.deferUpdate();
 						interaction.editReply({ embeds: [mainEmbed], components: [box] });
-					}
-						else if (value === 'ctgUtility') {
+					} else if (value === 'ctgUtility') {
 							mainEmbed.data.fields[0] = { name: `Utility commands [${utility.map(commandE => commandE.data.name).length}]`, value: utility.map(commandF => `\`${commandF.data.name}\``).join('\n') };
 							box.components[0].setDisabled(false);
 							box.components[1].setDisabled(false);

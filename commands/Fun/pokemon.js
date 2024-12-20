@@ -39,8 +39,7 @@ module.exports = {
                 const firstType = Pokemon.types[0].type.name.charAt(0).toUpperCase() + Pokemon.types[0].type.name.slice(1);
                 const secondType = Pokemon.types[1].type.name.charAt(0).toUpperCase() + Pokemon.types[1].type.name.slice(1);
                 embed.addFields({ name: 'Type', value: `${firstType}, ${secondType}` });
-            }
-            else if (Pokemon.types.length === 1) {
+            } else if (Pokemon.types.length === 1) {
                 const firstType = Pokemon.types[0].type.name.charAt(0).toUpperCase() + Pokemon.types[0].type.name.slice(1);
                 embed.addFields({ name: 'Type', value: `${firstType}` });
             }
@@ -50,8 +49,7 @@ module.exports = {
                 const firstAbility = Pokemon.abilities[0].ability.name.charAt(0).toUpperCase() + Pokemon.abilities[0].ability.name.slice(1);
                 const secondAbility = Pokemon.abilities[1].ability.name.charAt(0).toUpperCase() + Pokemon.abilities[1].ability.name.slice(1);
                 embed.addFields({ name: 'Ability', value: `${firstAbility}, ${secondAbility}` });
-            }
-            else if (Pokemon.abilities.length === 1) {
+            } else if (Pokemon.abilities.length === 1) {
                 const firstAbility = Pokemon.abilities[0].ability.name.charAt(0).toUpperCase() + Pokemon.abilities[0].ability.name.slice(1);
                 embed.addFields({ name: 'Ability', value: `${firstAbility}` });
             }
@@ -62,8 +60,7 @@ module.exports = {
         }
 
         return interaction.editReply('Error: No such Pokémon found.');
-    }
-        catch (err) {
+    } catch (err) {
             console.error(err);
             return interaction.editReply('Error: An error has occurred while processing your request.');
         }

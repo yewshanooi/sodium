@@ -69,8 +69,7 @@ module.exports = {
 
                 return modalResponse.editReply({ embeds: [embed] });
             }
-        }
-        catch (err) {
+        } catch (err) {
             console.error(err);
         }
 

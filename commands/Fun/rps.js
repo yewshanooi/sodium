@@ -57,8 +57,7 @@ module.exports = {
                     )
                     .setColor(configuration.embedColor);
                 await collected.update({ embeds: [userLostEmbed], components: [buttons] }).then(collector.stop());
-            }
-            else if (collected.customId === botOption) {
+            } else if (collected.customId === botOption) {
                 const tieEmbed = new EmbedBuilder()
                     .setTitle('It\'s a tie!')
                     .addFields(
@@ -67,8 +66,7 @@ module.exports = {
                     )
                     .setColor(configuration.embedColor);
                 await collected.update({ embeds: [tieEmbed], components: [buttons] }).then(collector.stop());
-            }
-            else {
+            } else {
                 const userWonEmbed = new EmbedBuilder()
                     .setTitle('You won!')
                     .addFields(

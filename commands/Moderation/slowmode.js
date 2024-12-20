@@ -19,8 +19,7 @@ module.exports = {
                     .setDescription('Successfully disabled slowmode for current channel')
                     .setColor(configuration.embedColor);
                 interaction.reply({ embeds: [embedFalse] }).then(interaction.channel.setRateLimitPerUser(0));
-            }
-            else {
+            } else {
                 const embedTrue = new EmbedBuilder()
                     .setDescription(`Successfully set current channel's rate limit to **${durationField}** second(s)`)
                     .setColor(configuration.embedColor);

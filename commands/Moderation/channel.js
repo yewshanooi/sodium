@@ -36,8 +36,7 @@ module.exports = {
                     .catch(() => {
                         interaction.reply({ embeds: [global.errors[3]] });
                     });
-            }
-            else {
+            } else {
                 const deleteEmbed = new EmbedBuilder()
                     .setDescription(`Successfully deleted **#${channelField.name}** channel`)
                     .setColor(configuration.embedColor);

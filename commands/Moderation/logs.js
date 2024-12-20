@@ -72,8 +72,7 @@ module.exports = {
                         }
                     }
                 });
-            }
-            catch (err) {
+            } catch (err) {
                 console.error(err);
             }
 
@@ -154,12 +153,10 @@ module.exports = {
                         .setTimestamp();
 
                     return interaction.editReply({ embeds: [removeLog] });
-                }
-                catch (err) {
+                } catch (err) {
                     console.error(err);
                 }
-            }
-            else {
+            } else {
                 return interaction.editReply({ content: 'Error: No log history found.' });
             }
         }
@@ -183,8 +180,7 @@ module.exports = {
                 latestItems.forEach(item => {
                     description += `\n**Type:** ${item.type} \`${item._id.toString()}\`\n**User:** ${item.user.name ? item.user.name : ''} \`${item.user.id}\`\n**By:** ${item.staff.name} \`${item.staff.id}\`\n**Reason:** ${item.reason}\n**Timestamp:** ${item.timestamp}\n`;
                 });
-            }
-            else {
+            } else {
                 description = '*No history found.*';
             }
 

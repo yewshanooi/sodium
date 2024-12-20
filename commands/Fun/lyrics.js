@@ -22,10 +22,10 @@ module.exports = {
 
             if (!Song.length) return interaction.editReply({ content: 'Error: No results found.' });
 
-            function FormatNumber(num) {
+            const formatNumber = function(num) {
                 const nb = new Intl.NumberFormat('en', { notation: 'compact', compactDisplay: 'short' });
                 return nb.format(num);
-            };
+            }
 
         const embed = new EmbedBuilder()
             .setTitle(`${Song[0].result.title}`)
@@ -38,13 +38,13 @@ module.exports = {
 
             if (Song[0].result.stats.concurrents) {
                 if (Song[0].result.stats.hot === true) {
-                    embed.addFields({ name: 'Viewers', value: `🔥 ${FormatNumber(Song[0].result.stats.concurrents)}`, inline: true });
+                    embed.addFields({ name: 'Viewers', value: `🔥 ${formatNumber(Song[0].result.stats.concurrents)}`, inline: true });
                 } else {
-                    embed.addFields({ name: 'Viewers', value: `${FormatNumber(Song[0].result.stats.concurrents)}`, inline: true });
+                    embed.addFields({ name: 'Viewers', value: `${formatNumber(Song[0].result.stats.concurrents)}`, inline: true });
                 }
-            };
+            }
 
-            if (Song[0].result.stats.pageviews) embed.addFields({ name: 'Total Views', value: `${FormatNumber(Song[0].result.stats.pageviews)}`, inline: true });
+            if (Song[0].result.stats.pageviews) embed.addFields({ name: 'Total Views', value: `${formatNumber(Song[0].result.stats.pageviews)}`, inline: true });
 
             const button = new ActionRowBuilder()
                 .addComponents(new ButtonBuilder()

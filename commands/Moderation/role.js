@@ -28,8 +28,7 @@ module.exports = {
 
                 if (roleField === interaction.guild.roles.cache.find(role => role.name === '@everyone')) {
                     interaction.reply({ content: 'Error: This role cannot be added to the user.' });
-                }
-                else {
+                } else {
                     const embed = new EmbedBuilder()
                         .setDescription(`Successfully added **${roleField}** role to **${userField}** user`)
                         .setColor(configuration.embedColor);
@@ -47,8 +46,7 @@ module.exports = {
 
                 if (roleField === interaction.guild.roles.cache.find(role => role.name === '@everyone')) {
                     interaction.reply({ content: 'Error: This role cannot be removed from the user.' });
-                }
-                else {
+                } else {
                     const embed = new EmbedBuilder()
                         .setDescription(`Successfully removed **${roleField}** role from **${userField}** user`)
                         .setColor(configuration.embedColor);

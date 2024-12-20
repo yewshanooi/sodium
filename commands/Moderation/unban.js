@@ -59,8 +59,7 @@ module.exports = {
 					}
 				}
 			});
-		}
-		catch (err) {
+		} catch (err) {
 			console.error(err);
 		}
 

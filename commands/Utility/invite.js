@@ -29,11 +29,9 @@ module.exports = {
             let resultLimitField;
                 if (limitField === 0) {
                     resultLimitField = '`No limit`';
-                }
-                else if (limitField === 1) {
+                } else if (limitField === 1) {
                     resultLimitField = '`1` time';
-                }
-                else {
+                } else {
                     resultLimitField = `\`${limitField}\` times`;
                 }
 

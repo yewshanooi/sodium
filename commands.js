@@ -25,13 +25,11 @@ if (option === 'deploy') {
     rest.put(Routes.applicationGuildCommands(process.env.CLIENT_ID, process.env.GUILD_ID), { body })
         .then(data => console.log(`\nSuccessfully deployed ${chalk.bold(`${data.length}`)} application command(s)\n`))
         .catch(console.error);
-}
-else if (option === 'delete') {
+} else if (option === 'delete') {
     rest.put(Routes.applicationGuildCommands(process.env.CLIENT_ID, process.env.GUILD_ID), { body: [] })
         .then(() => console.log('\nSuccessfully deleted all application commands\n'))
         .catch(console.error);
-}
-else {
+} else {
     console.log(`${chalk.red.bold('[Error] Invalid option. Please use either \'deploy\', \'deploy {command}\', or \'delete\' as an option.')}`);
 }
 

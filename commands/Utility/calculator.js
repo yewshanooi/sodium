@@ -68,8 +68,7 @@ module.exports = {
 					const res = evaluate(data);
 					content = `\`\`\`\n${data}\n= ${res}\`\`\``;
 					data = `${res}`;
-				}
-            catch (err) {
+				} catch (err) {
 					content = '```Error: Something went wrong while trying to evaluate this expression.```';
 					data = '';
 				}

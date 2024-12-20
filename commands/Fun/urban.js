@@ -1,3 +1,4 @@
+/* eslint-disable no-extra-parens */
 const { EmbedBuilder, ButtonBuilder, ActionRowBuilder, SlashCommandBuilder } = require('discord.js');
 const fetch = require('node-fetch');
 
@@ -28,7 +29,7 @@ module.exports = {
             if (!list.length) return interaction.editReply({ content: 'Error: No such definition found.', ephemeral: true });
 
             const [Answer] = list;
-            
+
             const embed = new EmbedBuilder()
                 .setTitle(`${Answer.word}`)
                 .setFooter({ text: 'Powered by Urban Dictionary' })

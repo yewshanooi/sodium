@@ -28,8 +28,7 @@
         "block-scoped-var": "error",
         "block-spacing": "error",
         "brace-style": [
-            "error",
-            "stroustrup"
+            "error"
         ],
         "callback-return": "error",
         "camelcase": "off",
@@ -254,7 +253,7 @@
         ],
         "require-atomic-updates": "error",
         "require-await": "error",
-        "require-jsdoc": "error",
+        "require-jsdoc": "off",
         "require-unicode-regexp": "off",
         "rest-spread-spacing": "error",
         "semi": "error",
