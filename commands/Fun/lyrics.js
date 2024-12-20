@@ -25,7 +25,7 @@ module.exports = {
             const formatNumber = function(num) {
                 const nb = new Intl.NumberFormat('en', { notation: 'compact', compactDisplay: 'short' });
                 return nb.format(num);
-            }
+            };
 
         const embed = new EmbedBuilder()
             .setTitle(`${Song[0].result.title}`)
