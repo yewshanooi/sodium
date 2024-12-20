@@ -22,7 +22,7 @@ module.exports = {
 
             if (!Song.length) return interaction.editReply({ content: 'Error: No results found.' });
 
-            const formatNumber = function(num) {
+            const formatNumber = function (num) {
                 const nb = new Intl.NumberFormat('en', { notation: 'compact', compactDisplay: 'short' });
                 return nb.format(num);
             };
