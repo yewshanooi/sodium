@@ -22,11 +22,11 @@ module.exports = {
             const response = await fetch(`https://api.urbandictionary.com/v0/define?${query}`);
             const data = await response.json();
 
-            if (data.error) return interaction.editReply({ content: `Error: ${data.error}`, ephemeral: true });
+            if (data.error) return interaction.editReply({ content: 'Error: An error has occurred while trying to process your request.' });
 
             const { list } = data;
 
-            if (!list.length) return interaction.editReply({ content: 'Error: No such definition found.', ephemeral: true });
+            if (!list.length) return interaction.editReply({ content: 'Error: No such definition found.' });
 
             const [Answer] = list;
 
