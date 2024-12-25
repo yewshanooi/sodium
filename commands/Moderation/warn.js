@@ -28,7 +28,6 @@ module.exports = {
                 }
 
         const getId = new mongoose.Types.ObjectId();
-        const getTimestamp = new Date();
 
         const embedUserDM = new EmbedBuilder()
             .setTitle('Warn')
@@ -68,8 +67,7 @@ module.exports = {
                             name: interaction.user.username,
                             id: interaction.user.id
                         },
-                        reason: reasonField,
-                        timestamp: getTimestamp
+                        reason: reasonField
                     }
                 }
             });

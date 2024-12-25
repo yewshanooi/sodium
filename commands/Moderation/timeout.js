@@ -40,7 +40,6 @@ module.exports = {
                 if (durationField === 6.048e+8) resultDuration = '1 week';
 
         const getId = new mongoose.Types.ObjectId();
-        const getTimestamp = new Date();
 
         const embed = new EmbedBuilder()
             .setTitle('Timeout')
@@ -70,8 +69,7 @@ module.exports = {
                             name: interaction.user.username,
                             id: interaction.user.id
                         },
-                        reason: reasonField,
-                        timestamp: getTimestamp
+                        reason: reasonField
                     }
                 }
             });

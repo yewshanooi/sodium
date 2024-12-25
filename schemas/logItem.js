@@ -11,7 +11,7 @@ const logItemSchema = new Schema({
         id: String
     },
     reason: String,
-    timestamp: String
+    timestamp: { type: Date, default: Date.now }
 });
 
 module.exports = model('LogItem', logItemSchema, 'logitems');

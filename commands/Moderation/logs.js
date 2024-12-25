@@ -38,7 +38,6 @@ module.exports = {
                 }
 
             const getId = new mongoose.Types.ObjectId();
-            const getTimestamp = new Date();
 
             const addLog = new EmbedBuilder()
                 .setTitle(`${resultType}`)
@@ -67,8 +66,7 @@ module.exports = {
                                 name: interaction.user.username,
                                 id: interaction.user.id
                             },
-                            reason: reasonField,
-                            timestamp: getTimestamp
+                            reason: reasonField
                         }
                     }
                 });

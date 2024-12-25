@@ -26,7 +26,6 @@ module.exports = {
 				}
 
 		const getId = new mongoose.Types.ObjectId();
-		const getTimestamp = new Date();
 
 		const embed = new EmbedBuilder()
 			.setTitle('Unban')
@@ -54,8 +53,7 @@ module.exports = {
                             name: interaction.user.username,
                             id: interaction.user.id
                         },
-						reason: reasonField,
-						timestamp: getTimestamp
+						reason: reasonField
 					}
 				}
 			});
