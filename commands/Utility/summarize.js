@@ -52,3 +52,5 @@ module.exports = {
 
     }
 };
+
+// Alternative models: t5-small, t5-base, distilbart-cnn-6-6
