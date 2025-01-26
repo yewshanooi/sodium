@@ -129,7 +129,9 @@ node index.js    -or-    npm start    -or-    nodemon
 ```
 
 ###### Machine Learning
-1. View this [guide](https://github.com/yewshanooi/huggingface-guide) to download and use pre-trained models locally with Hugging Face's **Transformers** npm package
+1. View this [guide](https://github.com/yewshanooi/huggingface-guide) to use pre-trained models locally with Hugging Face's **transformers** npm package
+> [!NOTE]
+> We suggest using the facebook/bart-large-cnn model for Sodium's summarize command
 
 ###### Bot & Application
 1. Visit [Discord Developer Portal](https://discord.com/developers/applications) to create a new application
