@@ -16,7 +16,7 @@
 ## Features
 - **Application Commands**, **Buttons**, and **Message Embed**
 - **AI Chatbot** *(powered by Google Gemini)*
-- **AI Summarizer** *(powered by Hugging Face Transformers.js)*
+- **AI Summarizer** *(powered by Hugging Face Transformers)*
 - **Moderation Logs** *(stored using MongoDB Atlas)*
 - **Third Party API** commands *(such as Giphy, Wikipedia, and more!)*
 - **Watch Together** *(with YouTube activity)*
@@ -129,7 +129,7 @@ node index.js    -or-    npm start    -or-    nodemon
 ```
 
 ###### Machine Learning
-View [guide](https://github.com/yewshanooi/huggingface-guide) to download and use pre-trained models locally with Hugging Face's Transformers.js library
+1. View this [guide](https://github.com/yewshanooi/huggingface-guide) to download and use pre-trained models locally with Hugging Face's **Transformers** npm package
 
 ###### Bot & Application
 1. Visit [Discord Developer Portal](https://discord.com/developers/applications) to create a new application
