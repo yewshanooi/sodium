@@ -16,6 +16,7 @@
 ## Features
 - **Application Commands**, **Buttons**, and **Message Embed**
 - **AI Chatbot** *(powered by Google Gemini)*
+- **AI Summarizer** *(powered by Hugging Face Transformers.js)*
 - **Moderation Logs** *(stored using MongoDB Atlas)*
 - **Third Party API** commands *(such as Giphy, Wikipedia, and more!)*
 - **Watch Together** *(with YouTube activity)*
@@ -31,7 +32,7 @@
 	<tr>
 		<td>8ball, achievement, beep, coinflip, color, compliment, diceroll, fact <b>[cat | dog | general | useless]</b>, fortnite, giphy, hypixel, leagueoflegends, lyrics, meme, minecraft, nasa, pokemon, rps, say, spotify, urban, waifu, word, youtube</td>
 		<td>ban, channel <b>[delete | lock | rename | unlock]</b>, deafen, kick, logs <b>[add | initialize | remove | view]</b>, purge, role <b>[add | remove]</b>, setnick, slowmode, timeout, unban, undeafen, untimeout, warn</td>
-		<td>afk, announce, botpresence, botsetnick, calculator, crypto, dictionary, gemini, github, guildrename, help, info <b>[channel | client | guild | role | user]</b>, invite, leave, message, news, npm, ping, qrcode, thread, weather, wikipedia</td>
+		<td>afk, announce, botpresence, botsetnick, calculator, crypto, dictionary, gemini, github, guildrename, help, info <b>[channel | client | guild | role | user]</b>, invite, leave, message, news, npm, ping, qrcode, summarize, thread, weather, wikipedia</td>
 	</tr>
 </table>
 <br/>
@@ -44,23 +45,23 @@ Node.js version **≥22.11.0** is required
 <table>
 	<tr>
 		<td><a href="https://www.npmjs.com/package/@google/generative-ai">@google/generative-ai@0.21.0</a></td>
+		<td><a href="https://www.npmjs.com/package/@huggingface/transformers">@huggingface/transformers@3.3.2</a></td>
+	</tr>
+	<tr>
 		<td><a href="https://www.npmjs.com/package/chalk">chalk@4.1.2</a></td>
+		<td><a href="https://www.npmjs.com/package/discord.js">discord.js@14.17.3</a></td>
 	</tr>
 	<tr>
-		<td><a href="https://www.npmjs.com/package/discord.js">discord.js@14.16.3</a></td>
 		<td><a href="https://www.npmjs.com/package/dotenv">dotenv@16.4.7</a></td>
+		<td><a href="https://www.npmjs.com/package/eslint">eslint@9.19.0</a></td>
 	</tr>
 	<tr>
-		<td><a href="https://www.npmjs.com/package/eslint">eslint@9.17.0</a></td>
-		<td><a href="https://www.npmjs.com/package/mathjs">mathjs@14.0.1</a></td>
-	</tr>
-	<tr>
+		<td><a href="https://www.npmjs.com/package/mathjs">mathjs@14.1.0</a></td>
 		<td><a href="https://www.npmjs.com/package/mongodb">mongodb@6.12.0</a></td>
-		<td><a href="https://www.npmjs.com/package/mongoose">mongoose@8.9.0</a></td>
 	</td>
 	<tr>
+		<td><a href="https://www.npmjs.com/package/mongoose">mongoose@8.9.5</a></td>
 		<td><a href="https://www.npmjs.com/package/node-fetch">node-fetch@2.7.0</a></td>
-		<td></td>
 	</td>
 </table>
 <br/>
@@ -121,11 +122,14 @@ node commands.js deploy    -or-    node commands.js deploy {command}
 node commands.js delete
 ```
 7. Run the **index.js** file to start the bot<br/>
-> [!WARNING] 
+> [!TIP]
 > Don't forget to deploy commands before starting the bot, otherwise commands won't appear as they are not updated
 ```
 node index.js    -or-    npm start    -or-    nodemon
 ```
+
+###### Machine Learning
+View [guide](https://github.com/yewshanooi/huggingface-guide) to download and use pre-trained models locally with Hugging Face's Transformers.js library
 
 ###### Bot & Application
 1. Visit [Discord Developer Portal](https://discord.com/developers/applications) to create a new application
