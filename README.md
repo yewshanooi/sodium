@@ -16,7 +16,7 @@
 ## Features
 - **Application Commands**, **Buttons**, and **Message Embed**
 - **AI Chatbot** *(powered by Google Gemini)*
-- **AI Summarizer** *(powered by Hugging Face Transformers)*
+- **Text Summarizer** *(powered by Hugging Face Transformers)*
 - **Moderation Logs** *(stored using MongoDB Atlas)*
 - **Third Party API** commands *(such as Giphy, Wikipedia, and more!)*
 - **Watch Together** *(with YouTube activity)*
@@ -129,9 +129,9 @@ node index.js    -or-    npm start    -or-    nodemon
 ```
 
 ###### Machine Learning
-1. View this [guide](https://github.com/yewshanooi/huggingface-guide) to use pre-trained models locally with Hugging Face's **transformers** npm package
+1. View this [guide](https://github.com/yewshanooi/huggingface-guide) to use pre-trained models locally with the **@huggingface/transformers** npm package
 > [!NOTE]
-> We suggest using the facebook/bart-large-cnn model for Sodium's summarize command
+> We suggest using facebook/bart-large-cnn model for Sodium's summarize command
 
 ###### Bot & Application
 1. Visit [Discord Developer Portal](https://discord.com/developers/applications) to create a new application
