@@ -4,7 +4,7 @@ const { env, pipeline } = require('@huggingface/transformers');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('summarize')
-        .setDescription('Summarize text with BART, a NLP model by Facebook')
+        .setDescription('Summarize text with BART, an NLP model by Facebook')
         .addStringOption(option => option.setName('query').setDescription('Enter a query (max 3072 characters)').setMaxLength(3072).setRequired(true)),
     cooldown: '5',
     category: 'Utility',
@@ -12,7 +12,7 @@ module.exports = {
     async execute (interaction) {
         await interaction.deferReply();
 
-		const queryField = interaction.options.getString('query');
+        const queryField = interaction.options.getString('query');
 
         try {
             env.localModelPath = './models';
