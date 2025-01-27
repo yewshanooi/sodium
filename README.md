@@ -129,7 +129,7 @@ node index.js    -or-    npm start    -or-    nodemon
 ```
 
 ###### Machine Learning
-1. View this [guide](https://github.com/yewshanooi/huggingface-guide) to install pre-trained models locally for the summarize command
+1. View this [guide](https://github.com/yewshanooi/huggingface-guide) to install pre-trained models on device for the summarize command
 > [!TIP]
 > For best results, we suggest using the facebook/bart-large-cnn model
 
