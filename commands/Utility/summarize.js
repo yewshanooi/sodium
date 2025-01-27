@@ -30,7 +30,8 @@ module.exports = {
 
             const result = await pipe(queryField, {
                 min_length: 1,
-                max_length: 614, // 20% of the original text max characters
+                // 20% of the original text max characters
+                max_length: 614
             });
 
             // Summarization runtime timer end
@@ -44,7 +45,7 @@ module.exports = {
                 .setColor('#ff9d00');
 
             return interaction.editReply({ embeds: [embed] });
-      
+
             } catch (err) {
                 console.error(err);
                 return interaction.editReply({ content: 'Error: An error has occurred while trying to process your request.' });
