@@ -1,3 +1,4 @@
+/* eslint-disable no-sync */
 const fs = require('fs');
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const { env, pipeline } = require('@huggingface/transformers');

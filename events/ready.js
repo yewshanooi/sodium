@@ -1,3 +1,4 @@
+/* eslint-disable no-sync */
 const fs = require('fs');
 const chalk = require('chalk');
 
