@@ -5,7 +5,7 @@ const { GoogleGenerativeAI, HarmCategory, HarmBlockThreshold } = require('@googl
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('gemini')
-		.setDescription('Chat with Gemini, an AI powered chatbot by Google'),
+		.setDescription('Chat with Gemini, an AI-powered chatbot by Google'),
 	cooldown: '5',
 	category: 'Utility',
 	guildOnly: false,

@@ -1,10 +1,11 @@
+const fs = require('fs');
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const { env, pipeline } = require('@huggingface/transformers');
 
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('summarize')
-        .setDescription('Summarize text with BART, an NLP model by Facebook')
+        .setDescription('Summarize text on-device using Machine Learning')
         .addStringOption(option => option.setName('query').setDescription('Enter a query (max 3072 characters)').setMaxLength(3072).setRequired(true)),
     cooldown: '5',
     category: 'Utility',
@@ -19,6 +20,8 @@ module.exports = {
             env.allowRemoteModels = false;
 
             const model = "facebook/bart-large-cnn";
+
+            if (!fs.existsSync(`./models/${model}`)) return interaction.editReply({ content: 'Error: The model is unavailable. Please ensure it is properly installed in the correct path.' });
 
             // Summarization runtime timer start
             const start = Date.now();
@@ -41,7 +44,7 @@ module.exports = {
             const embed = new EmbedBuilder()
                 .setTitle('Summarize')
                 .setDescription(`${result[0].summary_text}`)
-                .setFooter({ text: `Model: facebook/bart-large-cnn\nRuntime: ${runtime}s\nPowered by Hugging Face` })
+                .setFooter({ text: `Model: ${model}\nRuntime: ${runtime}s\nPowered by Hugging Face` })
                 .setColor('#ff9d00');
 
             return interaction.editReply({ embeds: [embed] });
