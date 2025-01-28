@@ -13,19 +13,12 @@ module.exports = {
 		const messageField = interaction.options.getString('message');
 		const spoilerField = interaction.options.getString('spoiler');
 
-		if (spoilerField === 'false') {
-			const embed = new EmbedBuilder()
-				.setDescription(`**${interaction.user.username} said:** ${messageField}`)
-				.setColor(configuration.embedColor);
-			interaction.reply({ embeds: [embed] });
-        }
+		const message = spoilerField === 'true' ? `||${messageField}||` : messageField;
 
-		if (spoilerField === 'true') {
-			const embed = new EmbedBuilder()
-                .setDescription(`**${interaction.user.username} said:** ||${messageField}||`)
-                .setColor(configuration.embedColor);
-            interaction.reply({ embeds: [embed] });
-		}
+		const embed = new EmbedBuilder()
+			.setDescription(`**${interaction.user.username} said:** ${message}`)
+			.setColor(configuration.embedColor);
 
+		interaction.reply({ embeds: [embed] });
 	}
 };

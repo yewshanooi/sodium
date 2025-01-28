@@ -1,5 +1,4 @@
-/* eslint-disable no-sync */
-const fs = require('fs');
+const fs = require('fs').promises;
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const { env, pipeline } = require('@huggingface/transformers');
 
@@ -8,7 +7,7 @@ module.exports = {
         .setName('summarize')
         .setDescription('Summarize text on-device using Machine Learning')
         .addStringOption(option => option.setName('query').setDescription('Enter a query (max 3072 characters)').setMaxLength(3072).setRequired(true)),
-    cooldown: '5',
+    cooldown: '10',
     category: 'Utility',
     guildOnly: false,
     async execute (interaction) {
@@ -16,14 +15,18 @@ module.exports = {
 
         const queryField = interaction.options.getString('query');
 
+        const model = "facebook/bart-large-cnn";
+
         try {
-            env.localModelPath = './models';
-            env.allowRemoteModels = false;
+            await fs.access(`./models/${model}`);
+        } catch (err) {
+            return interaction.editReply({ content: 'Error: The model is unavailable. Please ensure it is properly installed in the correct path.' });
+        }
 
-            const model = "facebook/bart-large-cnn";
+        env.localModelPath = './models';
+        env.allowRemoteModels = false;
 
-            if (!fs.existsSync(`./models/${model}`)) return interaction.editReply({ content: 'Error: The model is unavailable. Please ensure it is properly installed in the correct path.' });
-
+        try {
             // Summarization runtime timer start
             const start = Date.now();
 
@@ -39,8 +42,7 @@ module.exports = {
             });
 
             // Summarization runtime timer end
-            const end = Date.now();
-            const runtime = Math.ceil((end - start) / 10) / 100;
+            const runtime = ((Date.now() - start) / 1000).toFixed(2);
 
             const embed = new EmbedBuilder()
                 .setTitle('Summarize')

@@ -1,4 +1,4 @@
-const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
+const { EmbedBuilder, SlashCommandBuilder, MessageFlags } = require('discord.js');
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -17,6 +17,6 @@ module.exports = {
 			const embed = new EmbedBuilder()
 				.setDescription(`Succesfully removed **${amountField}** message(s)`)
 				.setColor(configuration.embedColor);
-			interaction.reply({ embeds: [embed], ephemeral: true }).then(interaction.channel.bulkDelete(amountField, true));
+			interaction.reply({ embeds: [embed], flags: MessageFlags.Ephemeral }).then(interaction.channel.bulkDelete(amountField, true));
 		}
 };

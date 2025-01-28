@@ -1,4 +1,4 @@
-const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
+const { EmbedBuilder, SlashCommandBuilder, MessageFlags } = require('discord.js');
 
 const achievements = [
     // Minecraft: The heart and story of the game
@@ -168,7 +168,7 @@ module.exports = {
 
         userField.send({ embeds: [embed] })
             .then(() => {
-                interaction.reply({ embeds: [successEmbed], ephemeral: true });
+                interaction.reply({ embeds: [successEmbed], flags: MessageFlags.Ephemeral });
             })
             .catch(() => {
                 interaction.reply({ embeds: [global.errors[3]] });

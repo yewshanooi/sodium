@@ -1,4 +1,4 @@
-const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
+const { EmbedBuilder, SlashCommandBuilder, MessageFlags } = require('discord.js');
 const Log = require('../../schemas/log');
 const mongoose = require('mongoose');
 const chalk = require('chalk');
@@ -161,7 +161,7 @@ module.exports = {
 
         // log view Subcommand
         if (interaction.options.getSubcommand() === 'view') {
-            await interaction.deferReply({ ephemeral: true });
+            await interaction.deferReply({ flags: MessageFlags.Ephemeral });
 
             const guildLog = await Log.findOne({ 'guild.id': interaction.guild.id });
                 if (guildLog === null) return interaction.editReply({ embeds: [global.errors[5]] });

@@ -1,10 +1,13 @@
-/* eslint-disable no-sync */
-const fs = require('fs');
+const fs = require('fs').promises;
 const chalk = require('chalk');
 
-module.exports = client => {
+module.exports = async client => {
 	// Warning message for missing ./models folder
-	if (!fs.existsSync('./models')) console.log(`${chalk.yellow.bold('[Warning] Missing ./models folder in the root of the project.')}`);
+	try {
+		await fs.access('./models');
+	} catch (err) {
+		console.log(`${chalk.yellow.bold('[Warning] Missing ./models folder in the root of the project.')}`);
+	}
 
 	// Warning messages for missing Debug, Error, and Warning channel ID fields
 	if (!process.env.DEBUG_CHANNEL_ID) console.log(`${chalk.yellow.bold('[Warning] Missing \'DEBUG_CHANNEL_ID\' field in the .env file.')}`);

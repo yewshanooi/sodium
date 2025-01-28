@@ -1,4 +1,4 @@
-const { EmbedBuilder, Collection, InteractionType } = require('discord.js');
+const { EmbedBuilder, Collection, InteractionType, MessageFlags } = require('discord.js');
 const cooldowns = new Collection();
 
 module.exports = async interaction => {
@@ -34,7 +34,7 @@ module.exports = async interaction => {
 					.setTitle('Cooldown')
 					.setDescription(`Please wait \`${timeLeft.toFixed(1)}\` more second(s) before reusing the **${command.data.name}** command.`)
 					.setColor('#ffaa00');
-				return interaction.reply({ embeds: [inCooldown], ephemeral: true });
+				return interaction.reply({ embeds: [inCooldown], flags: MessageFlags.Ephemeral });
 			}
 		}
 

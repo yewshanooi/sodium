@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 const { EmbedBuilder, SlashCommandBuilder, ActivityType } = require('discord.js');
 
 module.exports = {
