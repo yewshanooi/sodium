@@ -2,6 +2,8 @@ const fs = require('fs').promises;
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const { env, pipeline } = require('@huggingface/transformers');
 
+const activeUsers = new Set();
+
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('summarize')
@@ -12,6 +14,9 @@ module.exports = {
     guildOnly: false,
     async execute (interaction) {
         await interaction.deferReply();
+
+        const userId = interaction.user.id;
+        if (activeUsers.has(userId)) return interaction.editReply({ content: 'Error: You have an ongoing summarization request. Please wait until it finishes.' });
 
         const queryField = interaction.options.getString('query');
 
@@ -27,6 +32,8 @@ module.exports = {
         env.allowRemoteModels = false;
 
         try {
+            activeUsers.add(userId);
+
             // Summarization runtime timer start
             const start = Date.now();
 
@@ -55,6 +62,8 @@ module.exports = {
             } catch (err) {
                 console.error(err);
                 return interaction.editReply({ content: 'Error: An error has occurred while trying to process your request.' });
+            } finally {
+                activeUsers.delete(userId);
         }
 
     }
