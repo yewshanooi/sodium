@@ -4,7 +4,7 @@ const fetch = require('node-fetch');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('pokemon')
-        .setDescription('Search for a Pokémon from PokéAPI')
+        .setDescription('Search for a Pokémon using PokéAPI')
         .addStringOption(option => option.setName('name').setDescription('Enter a pokemon name').setRequired(true)),
     cooldown: '5',
     category: 'Fun',

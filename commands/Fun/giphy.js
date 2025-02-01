@@ -4,7 +4,7 @@ const fetch = require('node-fetch');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('giphy')
-        .setDescription('Search for a GIF from Giphy')
+        .setDescription('Search Giphy for a GIF')
         .addStringOption(option => option.setName('query').setDescription('Enter a query').setRequired(true)),
     cooldown: '5',
     category: 'Fun',

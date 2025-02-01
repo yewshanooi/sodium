@@ -3,7 +3,7 @@ const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('announce')
-        .setDescription('Use the bot to announce something')
+        .setDescription('Use the bot to say something')
         .addStringOption(option => option.setName('title').setDescription('Enter a title').setRequired(true))
         .addStringOption(option => option.setName('description').setDescription('Enter a description').setRequired(true)),
     cooldown: '3',

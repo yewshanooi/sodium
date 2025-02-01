@@ -3,7 +3,7 @@ const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('botsetnick')
-        .setDescription('Change bot\'s nickname in current server')
+        .setDescription('Change bot\'s nickname for current guild')
         .addStringOption(option => option.setName('nickname').setDescription('Enter a nickname (max 32 characters)').setMaxLength(32).setRequired(true)),
     cooldown: '15',
     category: 'Utility',

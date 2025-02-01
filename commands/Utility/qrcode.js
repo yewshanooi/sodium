@@ -3,7 +3,7 @@ const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('qrcode')
-		.setDescription('Generates a QR code from a URL')
+		.setDescription('Generates a QR code from a link')
         .addStringOption(option => option.setName('url').setDescription('Enter a web address').setRequired(true)),
 	cooldown: '10',
 	category: 'Utility',

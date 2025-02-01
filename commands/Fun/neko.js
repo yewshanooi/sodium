@@ -3,8 +3,8 @@ const fetch = require('node-fetch');
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('waifu')
-        .setDescription('Get a random anime girl image from Pixiv'),
+        .setName('neko')
+        .setDescription('Get a random catgirl image from Pixiv'),
     cooldown: '5',
     category: 'Fun',
     guildOnly: false,
@@ -13,7 +13,7 @@ module.exports = {
             .then(res => res.json());
 
         const embed = new EmbedBuilder()
-            .setTitle('Waifu')
+            .setTitle('Neko')
             .setImage(`${Anime.results[0].url}`)
             .setFooter({ text: `Artist: ${Anime.results[0].artist_name}\nPowered by Pixiv` })
             .setColor('#0096fa');

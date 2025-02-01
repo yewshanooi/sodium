@@ -3,7 +3,7 @@ const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 module.exports = {
 	data: new SlashCommandBuilder()
         .setName('afk')
-        .setDescription('Set another user\'s status as AFK')
+        .setDescription('Set another user\'s status as away')
         .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))
         .addStringOption(option => option.setName('option').setDescription('Select whether user is AFK').addChoices({ name: 'Yes', value: 'true' }, { name: 'No', value: 'false' }).setRequired(true)),
     cooldown: '10',

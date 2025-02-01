@@ -11,7 +11,7 @@ const subreddits = [
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('meme')
-        .setDescription('Get new memes from Reddit'),
+        .setDescription('View the latest memes from Reddit'),
     cooldown: '5',
     category: 'Fun',
     guildOnly: false,
