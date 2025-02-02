@@ -14,10 +14,9 @@
 <br/>
 
 ## Features
-- **Application Commands**, **Buttons**, and **Message Embed**
 - **AI Chatbot** *(powered by Google Gemini)*
-- **Text Summarizer** *(powered by Hugging Face Transformers)*
 - **Moderation Logs** *(stored using MongoDB Atlas)*
+- **Text Summarizer** *(powered by Hugging Face Transformers)*
 - **Third Party API** commands *(such as Giphy, Wikipedia, and more!)*
 - **Watch Together** *(with YouTube activity)*
 <br/>
@@ -66,7 +65,7 @@ Node.js version **≥22.0.0** is required
 </table>
 <br/>
 
-## Guide
+## Guides
 ###### Configuration Files
 1. **Clone** this repository to your local drive
 ```sh
