@@ -39,7 +39,7 @@
 
 ## Dependencies
 ###### Node.js
-Node.js version **≥22.11.0** is required
+Node.js version **≥22.0.0** is required
 
 ###### npm Packages
 <table>
