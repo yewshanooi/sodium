@@ -42,7 +42,7 @@ module.exports = {
                 const description = modalResponse.fields.getTextInputValue('gmiQuery');
 
                 const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY);
-                const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash-exp' });
+                const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash' });
 
                 const result = await model.generateContent({
                     contents: [{ role: 'user', parts: [{ text: description }] }],
