@@ -40,39 +40,39 @@ client.on('interactionCreate', reqEvent('interactionCreate'));
 client.once('ready', reqEvent('ready'));
 
 client.on('debug', info => {
-	const debugChannel = client.channels.cache.get(process.env.DEBUG_CHANNEL_ID);
+	const channel = client.channels.cache.get(process.env.CHANNEL_ID);
 
-	if (!debugChannel) return;
+	if (!channel) return;
 
 	// White color embed
 	const debugEmbed = new EmbedBuilder()
 		.setDescription(info)
 		.setColor('#ffffff');
-	debugChannel.send({ embeds: [debugEmbed] });
+	channel.send({ embeds: [debugEmbed] });
 });
 
 client.on('error', info => {
-	const errorChannel = client.channels.cache.get(process.env.ERROR_CHANNEL_ID);
+	const channel = client.channels.cache.get(process.env.CHANNEL_ID);
 
-	if (!errorChannel) return;
+	if (!channel) return;
 
 	// Red color embed
 	const errorEmbed = new EmbedBuilder()
 		.setDescription(info)
 		.setColor('#ff5555');
-	errorChannel.send({ embeds: [errorEmbed] });
+	channel.send({ embeds: [errorEmbed] });
 });
 
 client.on('warn', info => {
-	const warnChannel = client.channels.cache.get(process.env.WARNING_CHANNEL_ID);
+	const channel = client.channels.cache.get(process.env.CHANNEL_ID);
 
-	if (!warnChannel) return;
+	if (!channel) return;
 
 	// Orange color embed
 	const warnEmbed = new EmbedBuilder()
 		.setDescription(info)
 		.setColor('#ffaa00');
-	warnChannel.send({ embeds: [warnEmbed] });
+	channel.send({ embeds: [warnEmbed] });
 });
 
 // MongoDB events

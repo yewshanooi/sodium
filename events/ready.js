@@ -9,10 +9,8 @@ module.exports = async client => {
 		console.log(`${chalk.yellow.bold('[Warning] Missing ./models folder in the root of the project.')}`);
 	}
 
-	// Warning messages for missing Debug, Error, and Warning channel ID fields
-	if (!process.env.DEBUG_CHANNEL_ID) console.log(`${chalk.yellow.bold('[Warning] Missing \'DEBUG_CHANNEL_ID\' field in the .env file.')}`);
-	if (!process.env.ERROR_CHANNEL_ID) console.log(`${chalk.yellow.bold('[Warning] Missing \'ERROR_CHANNEL_ID\' field in the .env file.')}`);
-	if (!process.env.WARNING_CHANNEL_ID) console.log(`${chalk.yellow.bold('[Warning] Missing \'WARNING_CHANNEL_ID\' field in the .env file.')}`);
+	// Warning messages for missing channel ID field
+	if (!process.env.CHANNEL_ID) console.log(`${chalk.yellow.bold('[Warning] Missing \'CHANNEL_ID\' field in the .env file.')}`);
 
 	// Warning messages for missing API keys
 	if (!process.env.FORTNITE_API_KEY) console.log(`${chalk.yellow.bold('[Warning] Missing \'FORTNITE_API_KEY\' field in the .env file.')}`);
