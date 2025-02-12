@@ -44,15 +44,15 @@ Node.js version **≥22.0.0** is required
 <table>
 	<tr>
 		<td><a href="https://www.npmjs.com/package/@google/generative-ai">@google/generative-ai@0.21.0</a></td>
-		<td><a href="https://www.npmjs.com/package/@huggingface/transformers">@huggingface/transformers@3.3.2</a></td>
+		<td><a href="https://www.npmjs.com/package/@huggingface/transformers">@huggingface/transformers@3.3.3</a></td>
 	</tr>
 	<tr>
 		<td><a href="https://www.npmjs.com/package/chalk">chalk@4.1.2</a></td>
-		<td><a href="https://www.npmjs.com/package/discord.js">discord.js@14.17.3</a></td>
+		<td><a href="https://www.npmjs.com/package/discord.js">discord.js@14.18.0</a></td>
 	</tr>
 	<tr>
 		<td><a href="https://www.npmjs.com/package/dotenv">dotenv@16.4.7</a></td>
-		<td><a href="https://www.npmjs.com/package/eslint">eslint@9.19.0</a></td>
+		<td><a href="https://www.npmjs.com/package/eslint">eslint@9.20.1</a></td>
 	</tr>
 	<tr>
 		<td><a href="https://www.npmjs.com/package/mathjs">mathjs@14.2.1</a></td>
