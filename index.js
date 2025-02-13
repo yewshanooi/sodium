@@ -39,41 +39,32 @@ if (!configuration.embedColor) throw new Error(`${chalk.red.bold('[Error] Missin
 client.on('interactionCreate', reqEvent('interactionCreate'));
 client.once('ready', reqEvent('ready'));
 
-client.on('debug', info => {
+function sendLogs(info, color) {
 	const channel = client.channels.cache.get(process.env.CHANNEL_ID);
 
 	if (!channel) return;
 
-	// White color embed
-	const debugEmbed = new EmbedBuilder()
+	const embed = new EmbedBuilder()
 		.setDescription(info)
-		.setColor('#ffffff');
-	channel.send({ embeds: [debugEmbed] });
+		.setColor(color);
+	channel.send({ embeds: [embed] });
+}
+
+client.on('debug', info => {
+	// White color embed
+	sendLogs(info, '#ffffff');
 });
 
 client.on('error', info => {
-	const channel = client.channels.cache.get(process.env.CHANNEL_ID);
-
-	if (!channel) return;
-
 	// Red color embed
-	const errorEmbed = new EmbedBuilder()
-		.setDescription(info)
-		.setColor('#ff5555');
-	channel.send({ embeds: [errorEmbed] });
+	sendLogs(info, '#ff5555');
 });
 
 client.on('warn', info => {
-	const channel = client.channels.cache.get(process.env.CHANNEL_ID);
-
-	if (!channel) return;
-
 	// Orange color embed
-	const warnEmbed = new EmbedBuilder()
-		.setDescription(info)
-		.setColor('#ffaa00');
-	channel.send({ embeds: [warnEmbed] });
+	sendLogs(info, '#ffaa00');
 });
+
 
 // MongoDB events
 mongoose.connection.on('connecting', () => {
