@@ -68,10 +68,7 @@
             "error",
             "as-needed"
         ],
-        "func-style": [
-            "error",
-            "declaration"
-        ],
+        "func-style": "off",
         "function-paren-newline": "error",
         "generator-star-spacing": "error",
         "global-require": "off",
@@ -271,10 +268,7 @@
         "sort-imports": "error",
         "sort-vars": "error",
         "space-before-blocks": "error",
-        "space-before-function-paren": [
-            "error",
-            "never"
-        ],
+        "space-before-function-paren": "off",
         "space-in-parens": [
             "error",
             "never"
