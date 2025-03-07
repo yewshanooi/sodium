@@ -56,7 +56,7 @@ module.exports = {
                 });
 
                 if (result.response.candidates[0].finishReason === 'SAFETY' || result.response.candidates[0].finishReason === 'RECITATION') {
-                    return modalResponse.editReply({ content: `Error: This response is blocked due to \`${result.response.candidates[0].finishReason}\` violation.` });
+                    return modalResponse.editReply({ content: `Error: This response is blocked due to **${result.response.candidates[0].finishReason}** violation.` });
                 }
 
                 const trim = (str, max) => (str.length > max ? `${str.slice(0, max - 3)}...` : str);
