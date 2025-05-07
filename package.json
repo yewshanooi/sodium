@@ -15,15 +15,15 @@
     "node": ">=22.0.0"
   },
   "dependencies": {
-    "@google/generative-ai": "^0.24.0",
-    "@huggingface/transformers": "^3.3.3",
+    "@google/genai": "^0.12.0",
+    "@huggingface/transformers": "^3.5.1",
     "chalk": "^4.1.2",
-    "discord.js": "^14.18.0",
-    "dotenv": "^16.4.7",
-    "eslint": "^9.21.0",
-    "mathjs": "^14.3.1",
-    "mongodb": "^6.14.2",
-    "mongoose": "^8.12.1",
+    "discord.js": "^14.19.3",
+    "dotenv": "^16.5.0",
+    "eslint": "^9.26.0",
+    "mathjs": "^14.4.0",
+    "mongodb": "^6.16.0",
+    "mongoose": "^8.14.1",
     "node-fetch": "^2.7.0"
   }
 }

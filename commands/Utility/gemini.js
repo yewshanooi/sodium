@@ -1,6 +1,6 @@
 /* eslint-disable no-extra-parens */
 const { EmbedBuilder, SlashCommandBuilder, ActionRowBuilder, ModalBuilder, TextInputBuilder, TextInputStyle } = require('discord.js');
-const { GoogleGenerativeAI, HarmCategory, HarmBlockThreshold } = require('@google/generative-ai');
+const { GoogleGenAI, HarmCategory, HarmBlockThreshold } = require('@google/genai');
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -41,29 +41,31 @@ module.exports = {
 
                 const description = modalResponse.fields.getTextInputValue('gmiQuery');
 
-                const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY);
-                const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash' });
+                const ai = new GoogleGenAI({ apiKey: process.env.GOOGLE_API_KEY });
 
-                const result = await model.generateContent({
+                const response = await ai.models.generateContent({
+                    model: 'gemini-2.0-flash',
                     contents: [{ role: 'user', parts: [{ text: description }] }],
                     generationConfig: { temperature: 1, topP: 0.95, topK: 40, candidateCount: 1, maxOutputTokens: 1024 },
                     safetySettings: [
+                        { category: HarmCategory.HARM_CATEGORY_CIVIC_INTEGRITY, threshold: HarmBlockThreshold.BLOCK_NONE },
+                        { category: HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT, threshold: HarmBlockThreshold.BLOCK_NONE },
                         { category: HarmCategory.HARM_CATEGORY_HARASSMENT, threshold: HarmBlockThreshold.BLOCK_NONE },
                         { category: HarmCategory.HARM_CATEGORY_HATE_SPEECH, threshold: HarmBlockThreshold.BLOCK_NONE },
                         { category: HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT, threshold: HarmBlockThreshold.BLOCK_NONE },
-                        { category: HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT, threshold: HarmBlockThreshold.BLOCK_NONE }
+                        { category: HarmCategory.HARM_CATEGORY_UNSPECIFIED, threshold: HarmBlockThreshold.BLOCK_NONE }
                     ]
                 });
 
-                if (result.response.candidates[0].finishReason === 'SAFETY' || result.response.candidates[0].finishReason === 'RECITATION') {
-                    return modalResponse.editReply({ content: `Error: This response is blocked due to **${result.response.candidates[0].finishReason}** violation.` });
+                if (response.candidates[0].finishReason === 'SAFETY' || response.candidates[0].finishReason === 'RECITATION') {
+                    return modalResponse.editReply({ content: `Error: This response is blocked due to **${response.candidates[0].finishReason}** violation.` });
                 }
 
                 const trim = (str, max) => (str.length > max ? `${str.slice(0, max - 3)}...` : str);
 
                 const embed = new EmbedBuilder()
                     .setTitle(`${trim(description, 256)}`)
-                    .setDescription(`${trim(result.response.text(), 4096)}`)
+                    .setDescription(`${trim(response.text, 4096)}`)
                     .setFooter({ text: `Powered by Google` })
                     .setColor('#669df6');
 
@@ -77,8 +79,8 @@ module.exports = {
 };
 
 /*
- * Model Responses: https://ai.google.dev/api
- * Model Versions: https://ai.google.dev/gemini-api/docs/models/gemini
+ * Model Responses: https://ai.google.dev/api?lang=node
+ * Model Versions: https://ai.google.dev/gemini-api/docs/models
  */
 
 /*
