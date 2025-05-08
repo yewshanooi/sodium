@@ -43,7 +43,7 @@ Node.js version **≥22.0.0** is required
 ###### npm Packages
 <table>
 	<tr>
-		<td><a href="https://www.npmjs.com/package/@google/genai">@google/genai@0.12.0</a></td>
+		<td><a href="https://www.npmjs.com/package/@google/genai">@google/genai@0.13.0</a></td>
 		<td><a href="https://www.npmjs.com/package/@huggingface/transformers">@huggingface/transformers@3.5.1</a></td>
 	</tr>
 	<tr>
