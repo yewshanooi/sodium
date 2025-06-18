@@ -2,7 +2,6 @@ const { EmbedBuilder, SlashCommandBuilder, MessageFlags } = require('discord.js'
 
 const achievements = [
     // Minecraft: The heart and story of the game
-    'Minecraft',
     'Stone Age',
     'Getting an Upgrade',
     'Acquire Hardware',
@@ -20,7 +19,6 @@ const achievements = [
     'The End?',
 
     // Nether: Bring summer clothes
-    'Nether',
     'Return to Sender',
     'Those Were the Days',
     'Hidden in the Depths',
@@ -46,7 +44,6 @@ const achievements = [
     'How Did We Get Here?',
 
     // The End: Or the beginning?
-    'The End',
     'Free the End',
     'The Next Generation',
     'Remote Getaway',
@@ -57,7 +54,6 @@ const achievements = [
     'Great View From Up Here',
 
     // Adventure: Adventure, exploration, and combat
-    'Adventure',
     'Voluntary Exile',
     'Is It a Bird?',
     'Monster Hunter',
@@ -101,9 +97,10 @@ const achievements = [
     'Revaulting',
     'Blowback',
     'Over-Overkill',
+    'Heart Transplanter',
+    'Stay Hydrated!',
 
     // Husbandry: The world is full of friends and food
-    'Husbandry',
     'Bee Our Guest',
     'The Parrots and the Bats',
     'You\'ve Got a Friend in Me',
