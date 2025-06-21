@@ -31,16 +31,16 @@ module.exports = {
             if (Wynncraft.Error) return interaction.editReply({ content: 'Error: No player found with that username.' });
 
             let getStatus;
-	            if (Wynncraft.online === true) getStatus = 'Online';
-	            if (Wynncraft.online === false) getStatus = 'Offline';
+                if (Wynncraft.online === true) getStatus = 'Online';
+                if (Wynncraft.online === false) getStatus = 'Offline';
 
             let getRankName;
-                if (Wynncraft.supportRank != null) {
+                if (Wynncraft.supportRank !== null) {
                     getRankName = `[${Wynncraft.supportRank.toUpperCase()}] ${Wynncraft.username}`;
                 } else {
                     getRankName = `${Wynncraft.username}`;
                 }
-            
+
             const firstJoined = new Date(Wynncraft.firstJoin).toLocaleString('en-US', { timeZone: 'UTC' });
             const lastSeen = new Date(Wynncraft.lastJoin).toLocaleString('en-US', { timeZone: 'UTC' });
 
@@ -55,9 +55,9 @@ module.exports = {
                     { name: 'Playtime', value: `\`${Wynncraft.playtime}\` hours`, inline: true },
                     { name: 'Mobs Killed', value: `\`${Wynncraft.globalData.killedMobs}\``, inline: true },
                     { name: 'Chests Found', value: `\`${Wynncraft.globalData.chestsFound}\``, inline: true },
-                    { name: 'Completed Quests', value: `\`${Wynncraft.globalData.completedQuests}\``, inline: true },
-                    { name: 'Completed Dungeons', value: `\`${Wynncraft.globalData.dungeons.total}\``, inline: true },
-                    { name: 'Completed Raids', value: `\`${Wynncraft.globalData.raids.total}\``, inline: true }
+                    { name: 'Quests Completed', value: `\`${Wynncraft.globalData.completedQuests}\``, inline: true },
+                    { name: 'Dungeons Completed', value: `\`${Wynncraft.globalData.dungeons.total}\``, inline: true },
+                    { name: 'Raids Completed', value: `\`${Wynncraft.globalData.raids.total}\``, inline: true }
                 )
                 .setFooter({ text: 'Powered by Wynncraft' })
                 .setColor('#82c63c');
