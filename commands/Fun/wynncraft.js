@@ -35,7 +35,7 @@ module.exports = {
                 if (Wynncraft.online === false) getStatus = 'Offline';
 
             let getRankName;
-                if (Wynncraft.supportRank !== null) {
+                if (Wynncraft.supportRank) {
                     getRankName = `[${Wynncraft.supportRank.toUpperCase()}] ${Wynncraft.username}`;
                 } else {
                     getRankName = `${Wynncraft.username}`;
