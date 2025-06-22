@@ -44,8 +44,12 @@ module.exports = {
                 const ai = new GoogleGenAI({ apiKey: process.env.GOOGLE_API_KEY });
 
                 const response = await ai.models.generateContent({
-                    model: 'gemini-2.0-flash',
+                    model: 'gemini-2.5-flash',
                     contents: [{ role: 'user', parts: [{ text: description }] }],
+
+                    // Grounding with Google Search & Dynamic Thinking
+                    config: { tools: [{ googleSearch: {} }], thinkingConfig: { thinkingBudget: -1 } },
+
                     generationConfig: { temperature: 1, topP: 0.95, topK: 40, candidateCount: 1, maxOutputTokens: 1024 },
                     safetySettings: [
                         { category: HarmCategory.HARM_CATEGORY_CIVIC_INTEGRITY, threshold: HarmBlockThreshold.BLOCK_NONE },
@@ -63,10 +67,50 @@ module.exports = {
 
                 const trim = (str, max) => (str.length > max ? `${str.slice(0, max - 3)}...` : str);
 
+
+                // Add citations to response
+                function addCitations(response) {
+                    let text = response.text;
+                    const supports = response.candidates[0]?.groundingMetadata?.groundingSupports || [];
+                    const chunks = response.candidates[0]?.groundingMetadata?.groundingChunks || [];
+
+                    const references = new Map();
+
+                    // Sort supports by end_index in descending order
+                    const sortedSupports = [...supports].sort(
+                        (a, b) => (b.segment?.endIndex ?? 0) - (a.segment?.endIndex ?? 0),
+                    );
+
+                    for (const support of sortedSupports) {
+                        const endIndex = support.segment?.endIndex;
+                        if (endIndex === undefined || !support.groundingChunkIndices?.length) {
+                            continue;
+                        }
+
+                        for (const i of support.groundingChunkIndices) {
+                            const uri = chunks[i]?.web?.uri;
+                            if (!uri) continue;
+
+                            if (!references.has(uri)) {
+                                references.set(uri, references.size + 1);
+                            }
+                        }
+                    }
+
+                    if (references.size > 0) {
+                        text += `\n\n**References:**\n`;
+                        const referenceLinks = [...references].map(([uri, index]) => `[${index}](${uri})`);
+                        text += referenceLinks.join(', ');
+                    }
+
+                    return text;
+                }
+
+
                 const embed = new EmbedBuilder()
                     .setTitle(`${trim(description, 256)}`)
-                    .setDescription(`${trim(response.text, 4096)}`)
-                    .setFooter({ text: `Powered by Google` })
+                    .setDescription(`${trim(addCitations(response), 4096)}`)
+                    .setFooter({ text: 'Powered by Google' })
                     .setColor('#669df6');
 
                 return modalResponse.editReply({ embeds: [embed] });
