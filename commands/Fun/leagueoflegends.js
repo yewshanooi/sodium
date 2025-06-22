@@ -30,7 +30,7 @@ module.exports = {
 
 			if (!League.accountId) return interaction.editReply({ content: 'Error: No such Summoner found.' });
 
-			const lastUpdated = new Date(League.revisionDate).toLocaleString('en-US', { timeZone: 'UTC' });
+			const lastUpdated = new Date(League.revisionDate).toLocaleString();
 
 		const embed = new EmbedBuilder()
 			.setTitle(`${RiotAccount.gameName}#${RiotAccount.tagLine}`)

@@ -41,8 +41,8 @@ module.exports = {
                     getRankName = `${Wynncraft.username}`;
                 }
 
-            const firstJoined = new Date(Wynncraft.firstJoin).toLocaleString('en-US', { timeZone: 'UTC' });
-            const lastSeen = new Date(Wynncraft.lastJoin).toLocaleString('en-US', { timeZone: 'UTC' });
+            const firstJoined = new Date(Wynncraft.firstJoin).toLocaleString();
+            const lastSeen = new Date(Wynncraft.lastJoin).toLocaleString();
 
             const embed = new EmbedBuilder()
                 .setTitle(`${getRankName}`)

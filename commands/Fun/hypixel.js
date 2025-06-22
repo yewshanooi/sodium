@@ -28,7 +28,7 @@ module.exports = {
             if (Hypixel.success === false) return interaction.editReply({ content: 'Error: There was a problem fetching the player.' });
             if (Hypixel.player === null) return interaction.editReply({ content: 'Error: The player has not joined the server.' });
 
-                const firstJoined = new Date(Hypixel.player.firstLogin).toLocaleString('en-US', { timeZone: 'UTC' });
+                const firstJoined = new Date(Hypixel.player.firstLogin).toLocaleString();
 
             const embed = new EmbedBuilder()
                 .setTitle(`${Hypixel.player.displayname}`)

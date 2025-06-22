@@ -28,11 +28,11 @@ module.exports = {
                 .setDescription(`${Github.description || 'No Description'}`)
                 .addFields(
                     { name: 'Language', value: `\`${Github.language || 'None'}\``, inline: true },
-                    { name: 'Forks', value: `\`${Github.forks_count.toLocaleString()}\``, inline: true },
+                    { name: 'Forks', value: `\`${Github.forks_count}\``, inline: true },
                     { name: 'License', value: `\`${Github.license && Github.license.name || 'None'}\``, inline: true },
-                    { name: 'Open Issues', value: `\`${Github.open_issues.toLocaleString()}\``, inline: true },
-                    { name: 'Watchers', value: `\`${Github.subscribers_count.toLocaleString()}\``, inline: true },
-                    { name: 'Stars', value: `\`${Github.stargazers_count.toLocaleString()}\``, inline: true },
+                    { name: 'Open Issues', value: `\`${Github.open_issues}\``, inline: true },
+                    { name: 'Watchers', value: `\`${Github.subscribers_count}\``, inline: true },
+                    { name: 'Stars', value: `\`${Github.stargazers_count}\``, inline: true },
                     { name: 'Size', value: `\`${size}\``, inline: true }
                 )
                 .setFooter({ text: 'Powered by GitHub' })
