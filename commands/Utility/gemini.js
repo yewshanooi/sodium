@@ -77,30 +77,23 @@ module.exports = {
                     const references = new Map();
 
                     // Sort supports by end_index in descending order
-                    const sortedSupports = [...supports].sort(
-                        (a, b) => (b.segment?.endIndex ?? 0) - (a.segment?.endIndex ?? 0),
-                    );
+                    const sortedSupports = supports.filter(support => support.segment?.endIndex !== undefined && support.groundingChunkIndices?.length)
+                                                   .sort((a, b) => (b.segment.endIndex ?? 0) - (a.segment.endIndex ?? 0));
 
                     for (const support of sortedSupports) {
-                        const endIndex = support.segment?.endIndex;
-                        if (endIndex === undefined || !support.groundingChunkIndices?.length) {
-                            continue;
-                        }
-
                         for (const i of support.groundingChunkIndices) {
                             const uri = chunks[i]?.web?.uri;
-                            if (!uri) continue;
-
-                            if (!references.has(uri)) {
+                            if (uri && !references.has(uri)) {
                                 references.set(uri, references.size + 1);
+                                if (references.size >= 5) break;
                             }
                         }
+                        if (references.size >= 5) break;
                     }
 
                     if (references.size > 0) {
                         text += `\n\n**References:**\n`;
-                        const referenceLinks = [...references].map(([uri, index]) => `[${index}](${uri})`);
-                        text += referenceLinks.join(', ');
+                        text += [...references].map(([uri, index]) => `[${index}](${uri})`).join(', ');
                     }
 
                     return text;
