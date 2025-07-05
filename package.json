@@ -19,7 +19,7 @@
     "@huggingface/transformers": "^3.5.1",
     "chalk": "^4.1.2",
     "discord.js": "^14.19.3",
-    "dotenv": "^16.5.0",
+    "dotenv": "^17.0.1",
     "mathjs": "^14.4.0",
     "mongodb": "^6.16.0",
     "mongoose": "^8.14.1",
