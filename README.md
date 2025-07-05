@@ -8,8 +8,7 @@
 
 <p align="center">
 	<a href="https://skyelements.github.io/commands.html"><strong>Preview</strong></a> ·
-	<a href="https://github.com/yewshanooi/sodium/releases"><strong>Releases</strong></a> ·
-	<a href="https://www.codefactor.io/repository/github/yewshanooi/sodium"><strong>CodeFactor</strong></a>
+	<a href="https://github.com/yewshanooi/sodium/releases"><strong>Releases</strong></a>
 </p>
 <br/>
 
@@ -52,19 +51,15 @@ Node.js version **≥22.0.0** is required
 	</tr>
 	<tr>
 		<td><a href="https://www.npmjs.com/package/dotenv">dotenv@16.5.0</a></td>
-		<td><a href="https://www.npmjs.com/package/eslint">eslint@9.26.0</a></td>
+		<td><a href="https://www.npmjs.com/package/mathjs">mathjs@14.4.0</a></td>
 	</tr>
 	<tr>
-		<td><a href="https://www.npmjs.com/package/mathjs">mathjs@14.4.0</a></td>
 		<td><a href="https://www.npmjs.com/package/mongodb">mongodb@6.16.0</a></td>
-	</td>
-	<tr>
 		<td><a href="https://www.npmjs.com/package/mongoose">mongoose@8.14.1</a></td>
-		<td><a href="https://www.npmjs.com/package/node-fetch">node-fetch@2.7.0</a></td>
 	</td>
 	<tr>
+		<td><a href="https://www.npmjs.com/package/node-fetch">node-fetch@2.7.0</a></td>
 		<td><a href="https://www.npmjs.com/package/uuid">uuid@11.1.0</a></td>
-		<td></td>
 	</td>
 </table>
 <br/>

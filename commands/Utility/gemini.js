@@ -69,10 +69,10 @@ module.exports = {
 
 
                 // Add citations to response
-                function addCitations(response) {
-                    let text = response.text;
-                    const supports = response.candidates[0]?.groundingMetadata?.groundingSupports || [];
-                    const chunks = response.candidates[0]?.groundingMetadata?.groundingChunks || [];
+                function addCitations(res) {
+                    let { text } = res;
+                    const supports = res.candidates[0]?.groundingMetadata?.groundingSupports || [];
+                    const chunks = res.candidates[0]?.groundingMetadata?.groundingChunks || [];
 
                     const references = new Map();
 
