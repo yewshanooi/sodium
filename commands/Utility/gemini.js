@@ -1,4 +1,3 @@
-/* eslint-disable no-extra-parens */
 const { EmbedBuilder, SlashCommandBuilder, ActionRowBuilder, ModalBuilder, TextInputBuilder, TextInputStyle } = require('discord.js');
 const { GoogleGenAI, HarmCategory, HarmBlockThreshold } = require('@google/genai');
 

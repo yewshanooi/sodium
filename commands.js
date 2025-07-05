@@ -1,7 +1,7 @@
 const { REST, Routes } = require('discord.js');
 const fs = require('fs');
-const dotenv = require('dotenv');
-	dotenv.config();
+const dotenvx = require('@dotenvx/dotenvx');
+	dotenvx.config();
 const chalk = require('chalk');
 
 const commands = [];

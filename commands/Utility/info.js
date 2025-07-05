@@ -1,4 +1,3 @@
-/* eslint-disable complexity */
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 
 module.exports = {

@@ -42,15 +42,15 @@ Node.js version **≥22.0.0** is required
 ###### npm Packages
 <table>
 	<tr>
+		<td><a href="https://www.npmjs.com/package/@dotenvx/dotenvx">@dotenvx/dotenvx@1.45.2</a></td>
 		<td><a href="https://www.npmjs.com/package/@google/genai">@google/genai@1.8.0</a></td>
+	</tr>
+	<tr>
 		<td><a href="https://www.npmjs.com/package/@huggingface/transformers">@huggingface/transformers@3.6.1</a></td>
-	</tr>
-	<tr>
 		<td><a href="https://www.npmjs.com/package/chalk">chalk@4.1.2</a></td>
-		<td><a href="https://www.npmjs.com/package/discord.js">discord.js@14.21.0</a></td>
 	</tr>
 	<tr>
-		<td><a href="https://www.npmjs.com/package/dotenv">dotenv@17.0.1</a></td>
+		<td><a href="https://www.npmjs.com/package/discord.js">discord.js@14.21.0</a></td>
 		<td><a href="https://www.npmjs.com/package/mathjs">mathjs@14.5.3</a></td>
 	</tr>
 	<tr>

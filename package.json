@@ -15,11 +15,11 @@
     "node": ">=22.0.0"
   },
   "dependencies": {
+    "@dotenvx/dotenvx": "^1.45.2",
     "@google/genai": "^1.8.0",
     "@huggingface/transformers": "^3.6.1",
     "chalk": "^4.1.2",
     "discord.js": "^14.21.0",
-    "dotenv": "^17.0.1",
     "mathjs": "^14.5.3",
     "mongodb": "^6.16.0",
     "mongoose": "^8.16.1",

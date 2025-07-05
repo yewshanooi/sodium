@@ -9,8 +9,8 @@ global.errors = require('./errors.js');
 // Packages
 const chalk = require('chalk');
 const { Client, Collection, EmbedBuilder, GatewayIntentBits, Partials } = require('discord.js');
-const dotenv = require('dotenv');
-	dotenv.config();
+const dotenvx = require('@dotenvx/dotenvx');
+	dotenvx.config();
 const mongoose = require('mongoose');
 
 
