@@ -75,9 +75,7 @@ cd sodium
 ```
 npm install
 ```
-3. Install the **nodemon** npm package globally
-> [!NOTE]
-> Ignore this step if you already have nodemon installed
+3. Install the **nodemon** npm package globally or skip if you already have nodemon installed
 ```
 npm install -g nodemon
 ```
@@ -108,9 +106,7 @@ NEWS_API_KEY=
 OPENWEATHERMAP_API_KEY=
 RIOTGAMES_API_KEY=
 ```
-6. Run the **commands.js** file to deploy or delete application commands<br/>
-> [!IMPORTANT]
-> Commands are only deployed or deleted for a single guild by default
+6. Run the **commands.js** file to deploy or delete application commands for a single guild by default
 ```
 node commands.js deploy    -or-    node commands.js delete
 ```
