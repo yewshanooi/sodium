@@ -110,12 +110,9 @@ RIOTGAMES_API_KEY=
 ```
 6. Run the **commands.js** file to deploy or delete application commands<br/>
 > [!IMPORTANT]
-> Commands are only deployed or deleted for a single guild by default. You can deploy all commands or a single command, but you can only delete all commands
+> Commands are only deployed or deleted for a single guild by default
 ```
-node commands.js deploy    -or-    node commands.js deploy {command}
-```
-```
-node commands.js delete
+node commands.js deploy    -or-    node commands.js delete
 ```
 7. Run the **index.js** file to start the bot<br/>
 > [!TIP]
