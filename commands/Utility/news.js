@@ -18,6 +18,7 @@ module.exports = {
             .then(res => res.json());
 
             if (News.status === 'error') return interaction.reply({ content: 'Error: There was an error getting the latest news.' });
+            if (News.articles.length === 0) return interaction.reply({ content: 'Error: The selected source doesn\'t have any article.' });
 
         const embed = new EmbedBuilder()
             .setTitle('News')
