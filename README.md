@@ -42,20 +42,20 @@ Node.js version **≥22.0.0** is required
 ###### npm Packages
 <table>
 	<tr>
-		<td><a href="https://www.npmjs.com/package/@dotenvx/dotenvx">@dotenvx/dotenvx@1.47.6</a></td>
-		<td><a href="https://www.npmjs.com/package/@google/genai">@google/genai@1.9.0</a></td>
+		<td><a href="https://www.npmjs.com/package/@dotenvx/dotenvx">@dotenvx/dotenvx@1.48.4</a></td>
+		<td><a href="https://www.npmjs.com/package/@google/genai">@google/genai@1.12.0</a></td>
 	</tr>
 	<tr>
-		<td><a href="https://www.npmjs.com/package/@huggingface/transformers">@huggingface/transformers@3.6.3</a></td>
+		<td><a href="https://www.npmjs.com/package/@huggingface/transformers">@huggingface/transformers@3.7.1</a></td>
 		<td><a href="https://www.npmjs.com/package/chalk">chalk@4.1.2</a></td>
 	</tr>
 	<tr>
 		<td><a href="https://www.npmjs.com/package/discord.js">discord.js@14.21.0</a></td>
-		<td><a href="https://www.npmjs.com/package/mathjs">mathjs@14.5.3</a></td>
+		<td><a href="https://www.npmjs.com/package/mathjs">mathjs@14.6.0</a></td>
 	</tr>
 	<tr>
-		<td><a href="https://www.npmjs.com/package/mongodb">mongodb@6.16.0</a></td>
-		<td><a href="https://www.npmjs.com/package/mongoose">mongoose@8.16.3</a></td>
+		<td><a href="https://www.npmjs.com/package/mongodb">mongodb@6.18.0</a></td>
+		<td><a href="https://www.npmjs.com/package/mongoose">mongoose@8.17.0</a></td>
 	</td>
 	<tr>
 		<td><a href="https://www.npmjs.com/package/node-fetch">node-fetch@2.7.0</a></td>
