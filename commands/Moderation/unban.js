@@ -1,6 +1,5 @@
-const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
-const Log = require('../../schemas/log');
-const mongoose = require('mongoose');
+const { EmbedBuilder, SlashCommandBuilder, PermissionFlagsBits } = require('discord.js');
+const { getGuildLog, addLogItem } = require('../../scheme.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -12,11 +11,11 @@ module.exports = {
 	category: 'Moderation',
 	guildOnly: true,
     async execute (interaction) {
-		const guildLog = await Log.findOne({ 'guild.id': interaction.guild.id });
-			if (guildLog === null) return interaction.reply({ embeds: [global.errors[5]] });
+		const guildLog = await getGuildLog(interaction.client, interaction.guild.id);
+		if (guildLog === null) return interaction.reply({ embeds: [global.errors[5]] });
 
-		if (!interaction.guild.members.me.permissions.has('BanMembers')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Ban Members** permission in `Server Settings > Roles` to use this command.' });
-		if (!interaction.member.permissions.has('BanMembers')) return interaction.reply({ embeds: [global.errors[2]] });
+		if (!interaction.guild.members.me.permissions.has(PermissionFlagsBits.BanMembers)) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Ban Members** permission in `Server Settings > Roles` to use this command.' });
+		if (!interaction.member.permissions.has(PermissionFlagsBits.BanMembers)) return interaction.reply({ embeds: [global.errors[2]] });
 
 			const userIdField = interaction.options.getString('user_id');
 
@@ -25,7 +24,8 @@ module.exports = {
 					reasonField = 'None';
 				}
 
-		const getId = new mongoose.Types.ObjectId();
+		const userPlaceholder = { id: userIdField, username: 'Unknown User' };
+		const getId = await addLogItem(interaction.client, interaction.guild.id, 'Unban', userPlaceholder, interaction.user, reasonField);
 
 		const embed = new EmbedBuilder()
 			.setTitle('Unban')
@@ -37,29 +37,6 @@ module.exports = {
 			)
 			.setTimestamp()
 			.setColor('#ff0000');
-
-		try {
-			await Log.findOneAndUpdate({
-				'guild.id': interaction.guild.id
-			}, {
-				$push: {
-					items: {
-						_id: getId,
-						type: 'Unban',
-						user: {
-                            id: userIdField
-                        },
-                        staff: {
-                            name: interaction.user.username,
-                            id: interaction.user.id
-                        },
-						reason: reasonField
-					}
-				}
-			});
-		} catch (err) {
-			console.error(err);
-		}
 
 		interaction.guild.members.unban(userIdField)
 			.then(() => {

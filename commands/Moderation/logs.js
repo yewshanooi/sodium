@@ -1,6 +1,5 @@
-const { EmbedBuilder, SlashCommandBuilder, MessageFlags } = require('discord.js');
-const Log = require('../../schemas/log');
-const mongoose = require('mongoose');
+const { EmbedBuilder, SlashCommandBuilder, PermissionFlagsBits, MessageFlags } = require('discord.js');
+const { getGuildLog, addLogItem, initializeGuildLog, removeLogItem } = require('../../scheme');
 const chalk = require('chalk');
 
 module.exports = {
@@ -19,14 +18,12 @@ module.exports = {
 	category: 'Moderation',
 	guildOnly: true,
 	async execute (interaction, configuration) {
-        if (!interaction.member.permissions.has('Administrator')) return interaction.editReply({ embeds: [global.errors[2]] });
-
+        if (!interaction.member.permissions.has(PermissionFlagsBits.Administrator)) return interaction.reply({ embeds: [global.errors[2]] });
+        const guildLog = await getGuildLog(interaction.client, interaction.guild.id);
         // log add Subcommand
         if (interaction.options.getSubcommand() === 'add') {
             await interaction.deferReply();
-
-            const guildLog = await Log.findOne({ 'guild.id': interaction.guild.id });
-                if (guildLog === null) return interaction.editReply({ embeds: [global.errors[5]] });
+			if (guildLog === null) return interaction.editReply({ embeds: [global.errors[5]] });
 
             const typeField = interaction.options.getString('type');
                 const resultType = typeField.charAt(0).toUpperCase() + typeField.slice(1);
@@ -37,7 +34,7 @@ module.exports = {
                     reasonField = 'None';
                 }
 
-            const getId = new mongoose.Types.ObjectId();
+            const getId = await addLogItem(interaction.client, interaction.guild.id, resultType, userField.user, interaction.user, reasonField);
 
             const addLog = new EmbedBuilder()
                 .setTitle(`${resultType}`)
@@ -50,38 +47,12 @@ module.exports = {
                 .setTimestamp()
                 .setColor(configuration.embedColor);
 
-            try {
-                await Log.findOneAndUpdate({
-                    'guild.id': interaction.guild.id
-                }, {
-                    $push: {
-                        items: {
-                            _id: getId,
-                            type: resultType,
-                            user: {
-                                name: userField.user.username,
-                                id: userField.user.id
-                            },
-                            staff: {
-                                name: interaction.user.username,
-                                id: interaction.user.id
-                            },
-                            reason: reasonField
-                        }
-                    }
-                });
-            } catch (err) {
-                console.error(err);
-            }
-
             return interaction.editReply({ embeds: [addLog] });
         }
 
         // log initialize Subcommand
         if (interaction.options.getSubcommand() === 'initialize') {
             await interaction.deferReply();
-
-            let guildLog = await Log.findOne({ 'guild.id': interaction.guild.id });
 
             if (guildLog) {
                 const logAlreadyExist = new EmbedBuilder()
@@ -90,81 +61,52 @@ module.exports = {
                     .setColor('#ff5555');
 
                 return interaction.editReply({ embeds: [logAlreadyExist] });
-            }
+            } else {
+                await initializeGuildLog(interaction.client, interaction);
 
-            if (!guildLog) {
-                guildLog = await new Log({
-                    _id: new mongoose.Types.ObjectId(),
-                    guild: {
-                        name: interaction.guild.name,
-                        id: interaction.guild.id
-                    },
-                    items: []
-                });
+				console.log(`${chalk.white.bold(`[MongoDB] Initialized moderation logs for ${interaction.guild.name} (${interaction.guild.id})`)}`);
 
-                await guildLog.save().then(() => {
-                    console.log(`${chalk.white.bold(`[MongoDB] Initialized moderation logs for ${interaction.guild.name} (${interaction.guild.id})`)}`);
+				const createLog = new EmbedBuilder()
+					.setTitle('Logs')
+					.setDescription(`Successfully initialized moderation logs for **${interaction.guild.name}**`)
+					.setColor(configuration.embedColor)
+					.setTimestamp();
 
-                    const createLog = new EmbedBuilder()
-                        .setTitle('Logs')
-                        .setDescription(`Successfully initialized moderation logs for **${interaction.guild.name}**`)
-                        .setColor(configuration.embedColor)
-                        .setTimestamp();
-
-                    interaction.editReply({ embeds: [createLog] });
-                })
-                .catch(console.error);
-
-                return [guildLog];
+				return interaction.editReply({ embeds: [createLog] });
             }
         }
 
         // log remove Subcommand
         if (interaction.options.getSubcommand() === 'remove') {
             await interaction.deferReply();
-
-            const guildLog = await Log.findOne({ 'guild.id': interaction.guild.id });
-                if (guildLog === null) return interaction.editReply({ embeds: [global.errors[5]] });
+            if (guildLog === null) return interaction.editReply({ embeds: [global.errors[5]] });
 
             if (guildLog.items.length > 0) {
-                const logIdField = interaction.options.getString('log_id');
-                    if (!mongoose.Types.ObjectId.isValid(logIdField)) return interaction.editReply({ content: 'Error: Log ID is invalid.' });
+				const logIdField = interaction.options.getString('log_id');
+				
+				const wasRemoved = await removeLogItem(interaction.client, interaction.guild.id, logIdField);
 
-                    const idFound = guildLog.items.some(item => item._id.toString() === logIdField);
-                        if (!idFound) return interaction.editReply({ content: 'Error: No log entry found with that ID.' });
+				if (wasRemoved) {
+					const removeLog = new EmbedBuilder()
+						.setTitle('Logs')
+						.setDescription(`Successfully removed log entry with ID of **${logIdField}**`)
+						.setColor(configuration.embedColor)
+						.setTimestamp();
 
-                try {
-                    await Log.updateOne({
-                        'guild.id': interaction.guild.id
-                    }, {
-                        $pull: {
-                            items: {
-                                _id: logIdField
-                            }
-                        }
-                    });
-
-                    const removeLog = new EmbedBuilder()
-                        .setTitle('Logs')
-                        .setDescription(`Successfully removed log entry with ID of **${logIdField}**`)
-                        .setColor(configuration.embedColor)
-                        .setTimestamp();
-
-                    return interaction.editReply({ embeds: [removeLog] });
-                } catch (err) {
-                    console.error(err);
-                }
-            } else {
-                return interaction.editReply({ content: 'Error: No log history found.' });
-            }
+					return interaction.editReply({ embeds: [removeLog] });
+				} else {
+					return interaction.editReply({ content: 'Error: No log entry found with that ID.' });
+				}
+			} else {
+				return interaction.editReply({ content: 'Error: No log history found.' });
+			}
         }
 
         // log view Subcommand
         if (interaction.options.getSubcommand() === 'view') {
             await interaction.deferReply({ flags: MessageFlags.Ephemeral });
-
-            const guildLog = await Log.findOne({ 'guild.id': interaction.guild.id });
-                if (guildLog === null) return interaction.editReply({ embeds: [global.errors[5]] });
+            
+            if (guildLog === null) return interaction.editReply({ embeds: [global.errors[5]] });
 
             const viewLog = new EmbedBuilder()
                 .setTitle('Logs')
@@ -173,18 +115,18 @@ module.exports = {
             // Display 10 latest items from the log
             const latestItems = guildLog.items.slice(-10);
 
-            let description = '';
-            if (latestItems.length > 0) {
-                latestItems.forEach(item => {
-                    description += `\n**Type:** ${item.type} \`${item._id.toString()}\`\n**User:** ${item.user.name ? item.user.name : ''} \`${item.user.id}\`\n**By:** ${item.staff.name} \`${item.staff.id}\`\n**Reason:** ${item.reason}\n**Timestamp:** ${item.timestamp}\n`;
-                });
-            } else {
-                description = '*No history found.*';
-            }
+			let description = '';
+			if (latestItems.length > 0) {
+				latestItems.forEach(item => {
+					description += `\n**Type:** ${item.type} \`${item._id}\`\n**User:** ${item.user.name ? item.user.name : ''} \`${item.user.id}\`\n**By:** ${item.staff.name} \`${item.staff.id}\`\n**Reason:** ${item.reason}\n**Timestamp:** ${item.timestamp}\n`;
+				});
+			} else {
+				description = '*No history found.*';
+			}
 
-            viewLog.setDescription(description);
+			viewLog.setDescription(description);
 
-            return interaction.editReply({ embeds: [viewLog] });
+			return interaction.editReply({ embeds: [viewLog] });
         }
 
 	}

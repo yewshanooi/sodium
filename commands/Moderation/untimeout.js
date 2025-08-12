@@ -1,6 +1,5 @@
-const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
-const Log = require('../../schemas/log');
-const mongoose = require('mongoose');
+const { EmbedBuilder, SlashCommandBuilder, PermissionFlagsBits } = require('discord.js');
+const { getGuildLog, addLogItem } = require('../../scheme.js');
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -12,11 +11,11 @@ module.exports = {
     category: 'Moderation',
     guildOnly: true,
     async execute (interaction) {
-        const guildLog = await Log.findOne({ 'guild.id': interaction.guild.id });
-            if (guildLog === null) return interaction.reply({ embeds: [global.errors[5]] });
+        const guildLog = await getGuildLog(interaction.client, interaction.guild.id);
+        if (guildLog === null) return interaction.reply({ embeds: [global.errors[5]] });
 
-        if (!interaction.guild.members.me.permissions.has('ModerateMembers')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Moderate Members** permission in `Server Settings > Roles` to use this command.' });
-        if (!interaction.member.permissions.has('ModerateMembers')) return interaction.reply({ embeds: [global.errors[2]] });
+        if (!interaction.guild.members.me.permissions.has(PermissionFlagsBits.ModerateMembers)) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Moderate Members** permission in `Server Settings > Roles` to use this command.' });
+        if (!interaction.member.permissions.has(PermissionFlagsBits.ModerateMembers)) return interaction.reply({ embeds: [global.errors[2]] });
 
             const userField = interaction.options.getMember('user');
                 if (userField.user.bot === true) return interaction.reply({ content: 'Error: You cannot untimeout a bot.' });
@@ -29,7 +28,7 @@ module.exports = {
                     reasonField = 'None';
                 }
 
-        const getId = new mongoose.Types.ObjectId();
+        const getId = await addLogItem(interaction.client, interaction.guild.id, 'Untimeout', userField.user, interaction.user, reasonField, null);
 
         const embed = new EmbedBuilder()
             .setTitle('Untimeout')
@@ -41,30 +40,6 @@ module.exports = {
             )
             .setTimestamp()
             .setColor('#ff0000');
-
-        try {
-            await Log.findOneAndUpdate({
-                'guild.id': interaction.guild.id
-            }, {
-                $push: {
-                    items: {
-                        _id: getId,
-                        type: 'Untimeout',
-                        user: {
-                            name: userField.user.username,
-                            id: userField.user.id
-                        },
-                        staff: {
-                            name: interaction.user.username,
-                            id: interaction.user.id
-                        },
-                        reason: reasonField
-                    }
-                }
-            });
-        } catch (err) {
-            console.error(err);
-        }
 
         return interaction.reply({ embeds: [embed] }).then(userField.timeout(null));
     }

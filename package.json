@@ -20,9 +20,8 @@
     "@huggingface/transformers": "^3.7.1",
     "chalk": "^4.1.2",
     "discord.js": "^14.21.0",
+    "five.db": "^0.0.9",
     "mathjs": "^14.6.0",
-    "mongodb": "^6.18.0",
-    "mongoose": "^8.17.0",
     "node-fetch": "^2.7.0",
     "uuid": "^11.1.0"
   }

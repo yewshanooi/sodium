@@ -1,6 +1,5 @@
-const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
-const Log = require('../../schemas/log');
-const mongoose = require('mongoose');
+const { EmbedBuilder, SlashCommandBuilder, PermissionFlagsBits } = require('discord.js');
+const { getGuildLog, addLogItem } = require('../../scheme.js');
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -12,25 +11,25 @@ module.exports = {
 	category: 'Moderation',
 	guildOnly: true,
 	async execute (interaction) {
-		const guildLog = await Log.findOne({ 'guild.id': interaction.guild.id });
-			if (guildLog === null) return interaction.reply({ embeds: [global.errors[5]] });
+		const guildLog = await getGuildLog(interaction.client, interaction.guild.id);
+		if (guildLog === null) return interaction.reply({ embeds: [global.errors[5]] });
 
-        if (!interaction.guild.members.me.permissions.has('KickMembers')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Kick Members** permission in `Server Settings > Roles` to use this command.' });
-		if (!interaction.member.permissions.has('KickMembers')) return interaction.reply({ embeds: [global.errors[2]] });
+        if (!interaction.guild.members.me.permissions.has(PermissionFlagsBits.KickMembers)) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Kick Members** permission in `Server Settings > Roles` to use this command.' });
+		if (!interaction.member.permissions.has(PermissionFlagsBits.KickMembers)) return interaction.reply({ embeds: [global.errors[2]] });
 
 			const userField = interaction.options.getMember('user');
 				if (userField.user.bot === true) return interaction.reply({ content: 'Error: You cannot kick a bot.' });
 				if (userField === interaction.member) return interaction.reply({ content: 'Error: You cannot kick yourself.' });
 
 				if (userField.id === interaction.guild.ownerId) return interaction.reply({ content: 'Error: You cannot kick a Guild Owner.' });
-				if (userField.permissions.has('Administrator')) return interaction.reply({ content: 'Error: You cannot kick a user with Administrator permission.' });
+				if (userField.permissions.has(PermissionFlagsBits.Administrator)) return interaction.reply({ content: 'Error: You cannot kick a user with Administrator permission.', ephemeral: true });
 
 			let reasonField = interaction.options.getString('reason');
 				if (!reasonField) {
 					reasonField = 'None';
 				}
 
-		const getId = new mongoose.Types.ObjectId();
+		const getId = await addLogItem(interaction.client, interaction.guild.id, 'Kick', userField.user, interaction.user, reasonField);
 
 		const embed = new EmbedBuilder()
 			.setTitle('Kick')
@@ -42,30 +41,6 @@ module.exports = {
 			)
 			.setTimestamp()
 			.setColor('#ff0000');
-
-		try {
-			await Log.findOneAndUpdate({
-				'guild.id': interaction.guild.id
-			}, {
-				$push: {
-					items: {
-						_id: getId,
-						type: 'Kick',
-                        user: {
-                            name: userField.user.username,
-                            id: userField.user.id
-                        },
-                        staff: {
-                            name: interaction.user.username,
-                            id: interaction.user.id
-                        },
-						reason: reasonField
-					}
-				}
-			});
-		} catch (err) {
-			console.error(err);
-		}
 
 		return interaction.reply({ embeds: [embed] }).then(userField.kick(userField));
 	}
