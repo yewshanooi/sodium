@@ -1,4 +1,4 @@
-const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
+const { EmbedBuilder, SlashCommandBuilder, PermissionsBitField } = require('discord.js');
 const Guild = require('../../schemas/guild');
 const mongoose = require('mongoose');
 
@@ -15,8 +15,8 @@ module.exports = {
 		const guildDB = await Guild.findOne({ 'guild.id': interaction.guild.id });
 			if (!guildDB) return interaction.reply({ embeds: [global.errors[5]] });
 
-		if (!interaction.guild.members.me.permissions.has('BanMembers')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Ban Members** permission in `Server Settings > Roles` to use this command.' });
-		if (!interaction.member.permissions.has('BanMembers')) return interaction.reply({ embeds: [global.errors[2]] });
+		if (!interaction.guild.members.me.permissions.has(PermissionsBitField.Flags.BanMembers)) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Ban Members** permission in `Server Settings > Roles` to use this command.' });
+		if (!interaction.member.permissions.has(PermissionsBitField.Flags.BanMembers)) return interaction.reply({ embeds: [global.errors[2]] });
 
 			const userIdField = interaction.options.getString('user_id');
 

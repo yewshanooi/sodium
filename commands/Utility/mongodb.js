@@ -1,4 +1,4 @@
-const { EmbedBuilder, SlashCommandBuilder, ActionRowBuilder, ButtonBuilder } = require('discord.js');
+const { EmbedBuilder, SlashCommandBuilder, ActionRowBuilder, ButtonBuilder, PermissionsBitField } = require('discord.js');
 const Guild = require('../../schemas/guild');
 const mongoose = require('mongoose');
 const chalk = require('chalk');
@@ -13,7 +13,7 @@ module.exports = {
 	category: 'Utility',
 	guildOnly: true,
 	async execute (interaction, configuration) {
-		if (!interaction.member.permissions.has('Administrator')) return interaction.editReply({ embeds: [global.errors[2]] });
+		if (!interaction.member.permissions.has(PermissionsBitField.Flags.Administrator)) return interaction.editReply({ embeds: [global.errors[2]] });
 
 		// mongodb initialize Subcommand
 		if (interaction.options.getSubcommand() === 'initialize') {

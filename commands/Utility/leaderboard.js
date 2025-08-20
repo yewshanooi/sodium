@@ -1,4 +1,4 @@
-const { EmbedBuilder, SlashCommandBuilder, ActionRowBuilder, ButtonBuilder } = require('discord.js');
+const { EmbedBuilder, SlashCommandBuilder, ActionRowBuilder, ButtonBuilder, PermissionsBitField } = require('discord.js');
 const Guild = require('../../schemas/guild');
 const mongoose = require('mongoose');
 
@@ -19,7 +19,7 @@ module.exports = {
     category: 'Utility',
     guildOnly: true,
     async execute (interaction, configuration) {
-        if (!interaction.member.permissions.has('ManageMessages')) return interaction.editReply({ embeds: [global.errors[2]] });
+        if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageMessages)) return interaction.editReply({ embeds: [global.errors[2]] });
 
         // leaderboard add {amount} {user} Subcommand
         if (interaction.options.getSubcommand() === 'add') {

@@ -1,4 +1,4 @@
-const { EmbedBuilder, SlashCommandBuilder, ActivityType } = require('discord.js');
+const { EmbedBuilder, SlashCommandBuilder, ActivityType, PermissionsBitField } = require('discord.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -11,7 +11,7 @@ module.exports = {
     category: 'Utility',
     guildOnly: true,
     execute (interaction, configuration) {
-        if (!interaction.member.permissions.has('Administrator')) return interaction.reply({ embeds: [global.errors[2]] });
+        if (!interaction.member.permissions.has(PermissionsBitField.Flags.Administrator)) return interaction.reply({ embeds: [global.errors[2]] });
 
             const activityField = interaction.options.getString('activity');
 
