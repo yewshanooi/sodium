@@ -19,7 +19,7 @@ module.exports = {
     category: 'Utility',
     guildOnly: true,
     async execute (interaction, configuration) {
-        if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageMessages)) return interaction.editReply({ embeds: [global.errors[2]] });
+        if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageMessages)) return interaction.reply({ embeds: [global.errors[2]], ephemeral: true });
 
         // leaderboard add {amount} {user} Subcommand
         if (interaction.options.getSubcommand() === 'add') {
