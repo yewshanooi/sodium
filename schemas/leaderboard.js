@@ -5,7 +5,7 @@ const leaderboardSchema = new Schema({
         name: { type: String, default: null },
         id: String
     },
-    points: { type: Number, default: null }
+    points: { type: Number, default: 0 }
 });
 
 module.exports = model('Leaderboard', leaderboardSchema, 'leaderboards');
