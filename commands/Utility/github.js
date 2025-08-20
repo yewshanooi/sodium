@@ -44,14 +44,15 @@ module.exports = {
             const githubDevURL = `https://github.dev/${Github.full_name}`;
 
                 const buttons = new ActionRowBuilder()
-                    .addComponents(new ButtonBuilder()
-                        .setURL(`${Github.html_url}`)
-                        .setLabel('View repository')
-                        .setStyle('Link'))
-                    .addComponents(new ButtonBuilder()
-                        .setURL(`${githubDevURL}`)
-                        .setLabel('Edit on github.dev')
-                        .setStyle('Link'));
+                    .addComponents(
+                        new ButtonBuilder()
+                            .setURL(`${Github.html_url}`)
+                            .setLabel('View repository')
+                            .setStyle('Link'),
+                        new ButtonBuilder()
+                            .setURL(`${githubDevURL}`)
+                            .setLabel('Edit on github.dev')
+                            .setStyle('Link'));
 
             return interaction.reply({ embeds: [embed], components: [buttons] });
       }

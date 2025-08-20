@@ -14,7 +14,7 @@
 
 ## Features
 - **AI Chatbot** *(powered by Google Gemini)*
-- **Moderation Logs** *(stored using MongoDB Atlas)*
+- **Moderation Logs & Leaderboard** *(stored using MongoDB Atlas)*
 - **Text Summarizer** *(powered by Hugging Face Transformers)*
 - **Third Party API** commands *(such as Giphy, Wikipedia, and more!)*
 - **Watch Together** *(with YouTube activity)*
@@ -29,8 +29,8 @@
 	</tr>
 	<tr>
 		<td>8ball, achievement, beep, coinflip, color, compliment, diceroll, fact <b>[cat | dog | general | useless]</b>, fortnite, giphy, hypixel, leagueoflegends, lyrics, meme, minecraft, nasa, neko, pokemon, rps, say, spotify, urban, word, wynncraft, youtube</td>
-		<td>ban, channel <b>[delete | lock | rename | unlock]</b>, deafen, kick, logs <b>[add | initialize | remove | view]</b>, purge, role <b>[add | remove]</b>, setnick, slowmode, timeout, unban, undeafen, untimeout, warn</td>
-		<td>afk, announce, botpresence, botsetnick, calculator, crypto, dictionary, gemini, github, guildrename, help, info <b>[channel | client | guild | role | user]</b>, invite, leave, message, news, npm, ping, qrcode, summarize, thread, weather, wikipedia</td>
+		<td>ban, channel <b>[delete | lock | rename | unlock]</b>, deafen, kick, logs <b>[add | remove | reset | view]</b>, purge, role <b>[add | remove]</b>, setnick, slowmode, timeout, unban, undeafen, untimeout, warn</td>
+		<td>afk, announce, botpresence, botsetnick, calculator, crypto, dictionary, gemini, github, guildrename, help, info <b>[channel | client | guild | role | user]</b>, invite, leaderboard <b>[add | remove | reset | view]</b>, leave, message, mongodb <b>[initialize | delete]</b>, news, npm, ping, qrcode, summarize, thread, weather, wikipedia</td>
 	</tr>
 </table>
 <br/>
@@ -42,11 +42,11 @@ Node.js version **≥22.0.0** is required
 ###### npm Packages
 <table>
 	<tr>
-		<td><a href="https://www.npmjs.com/package/@dotenvx/dotenvx">@dotenvx/dotenvx@1.48.4</a></td>
-		<td><a href="https://www.npmjs.com/package/@google/genai">@google/genai@1.12.0</a></td>
+		<td><a href="https://www.npmjs.com/package/@dotenvx/dotenvx">@dotenvx/dotenvx@1.49.0</a></td>
+		<td><a href="https://www.npmjs.com/package/@google/genai">@google/genai@1.15.0</a></td>
 	</tr>
 	<tr>
-		<td><a href="https://www.npmjs.com/package/@huggingface/transformers">@huggingface/transformers@3.7.1</a></td>
+		<td><a href="https://www.npmjs.com/package/@huggingface/transformers">@huggingface/transformers@3.7.2</a></td>
 		<td><a href="https://www.npmjs.com/package/chalk">chalk@4.1.2</a></td>
 	</tr>
 	<tr>
@@ -55,7 +55,7 @@ Node.js version **≥22.0.0** is required
 	</tr>
 	<tr>
 		<td><a href="https://www.npmjs.com/package/mongodb">mongodb@6.18.0</a></td>
-		<td><a href="https://www.npmjs.com/package/mongoose">mongoose@8.17.0</a></td>
+		<td><a href="https://www.npmjs.com/package/mongoose">mongoose@8.17.2</a></td>
 	</td>
 	<tr>
 		<td><a href="https://www.npmjs.com/package/node-fetch">node-fetch@2.7.0</a></td>
@@ -153,4 +153,4 @@ THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ###### Contributors
 - [yewshanooi](https://github.com/yewshanooi)
-- [Manzanitabot123](https://github.com/Manzanitabot123)
+- [Manz-bot](https://github.com/Manz-bot)

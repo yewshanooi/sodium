@@ -31,9 +31,9 @@ const executeFailCmd = new Discord.EmbedBuilder()
     .setColor('#ff5555');
 
 // global.errors[5]
-const noLogSchema = new Discord.EmbedBuilder()
+const noGuildDB = new Discord.EmbedBuilder()
     .setTitle('Error')
-    .setDescription('No existing moderation logs found. Guild administrator must run `/logs initialize` to use this command.')
+    .setDescription('No existing database found. Guild administrator must run `/mongodb initialize` to use this command.')
     .setColor('#ff5555');
 
-module.exports = [guildOnlyCmd, noAPIKey, noPermission, noPrivateDM, executeFailCmd, noLogSchema];
+module.exports = [guildOnlyCmd, noAPIKey, noPermission, noPrivateDM, executeFailCmd, noGuildDB];

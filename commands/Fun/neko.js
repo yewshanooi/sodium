@@ -19,14 +19,15 @@ module.exports = {
             .setColor('#0096fa');
 
             const buttons = new ActionRowBuilder()
-                .addComponents(new ButtonBuilder()
-                    .setURL(`${Anime.results[0].artist_href}`)
-                    .setLabel('View artist')
-                    .setStyle('Link'))
-                .addComponents(new ButtonBuilder()
-                    .setURL(`${Anime.results[0].source_url}`)
-                    .setLabel('View source')
-                    .setStyle('Link'));
+                .addComponents(
+                    new ButtonBuilder()
+                        .setURL(`${Anime.results[0].artist_href}`)
+                        .setLabel('View artist')
+                        .setStyle('Link'),
+                    new ButtonBuilder()
+                        .setURL(`${Anime.results[0].source_url}`)
+                        .setLabel('View source')
+                        .setStyle('Link'));
 
             return interaction.reply({ embeds: [embed], components: [buttons] });
         }

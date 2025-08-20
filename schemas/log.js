@@ -1,13 +1,17 @@
 const { Schema, model } = require('mongoose');
-const logItemSchema = require('./logItem').schema;
-
 const logSchema = new Schema({
     _id: Schema.Types.ObjectId,
-    guild: {
+    type: String,
+    user: {
+        name: { type: String, default: null },
+        id: String
+    },
+    staff: {
         name: String,
         id: String
     },
-    items: [logItemSchema]
+    reason: String,
+    timestamp: { type: Date, default: Date.now }
 });
 
 module.exports = model('Log', logSchema, 'logs');
