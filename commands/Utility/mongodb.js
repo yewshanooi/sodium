@@ -46,7 +46,7 @@ module.exports = {
 				})
 				.catch(console.error);
 
-				return [guildDB];
+				
 			}
 		}
 
