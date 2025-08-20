@@ -54,27 +54,16 @@ module.exports = {
             .setFooter({ text: 'Powered by NewsAPI' })
             .setColor('#1a73e8');
 
-            const buttons = new ActionRowBuilder()
-                .addComponents(new ButtonBuilder()
-                    .setURL(News.articles[0].url)
-                    .setLabel('Article 1')
-                    .setStyle('Link'))
-                .addComponents(new ButtonBuilder()
-                    .setURL(News.articles[1].url)
-                    .setLabel('Article 2')
-                    .setStyle('Link'))
-                .addComponents(new ButtonBuilder()
-                    .setURL(News.articles[2].url)
-                    .setLabel('Article 3')
-                    .setStyle('Link'))
-                .addComponents(new ButtonBuilder()
-                    .setURL(News.articles[3].url)
-                    .setLabel('Article 4')
-                    .setStyle('Link'))
-                .addComponents(new ButtonBuilder()
-                    .setURL(News.articles[4].url)
-                    .setLabel('Article 5')
-                    .setStyle('Link'));
+            const buttons = new ActionRowBuilder();
+
+            News.articles.slice(0, 5).forEach((article, index) => {
+                buttons.addComponents(
+                    new ButtonBuilder()
+                        .setURL(article.url)
+                        .setLabel(`Article ${index + 1}`)
+                        .setStyle('Link')
+                );
+            });
 
         return interaction.reply({ embeds: [embed], components: [buttons] });
     }

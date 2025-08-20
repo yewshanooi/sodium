@@ -1,5 +1,5 @@
-const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
-const Log = require('../../schemas/log');
+const { EmbedBuilder, SlashCommandBuilder, PermissionsBitField } = require('discord.js');
+const Guild = require('../../schemas/guild');
 const mongoose = require('mongoose');
 
 module.exports = {
@@ -13,11 +13,11 @@ module.exports = {
     category: 'Moderation',
     guildOnly: true,
     async execute (interaction) {
-        const guildLog = await Log.findOne({ 'guild.id': interaction.guild.id });
-            if (guildLog === null) return interaction.reply({ embeds: [global.errors[5]] });
+        const guildDB = await Guild.findOne({ 'guild.id': interaction.guild.id });
+            if (!guildDB) return interaction.reply({ embeds: [global.errors[5]] });
 
-        if (!interaction.guild.members.me.permissions.has('ModerateMembers')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Moderate Members** permission in `Server Settings > Roles` to use this command.' });
-        if (!interaction.member.permissions.has('ModerateMembers')) return interaction.reply({ embeds: [global.errors[2]] });
+        if (!interaction.guild.members.me.permissions.has(PermissionsBitField.Flags.ModerateMembers)) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Moderate Members** permission in `Server Settings > Roles` to use this command.' });
+        if (!interaction.member.permissions.has(PermissionsBitField.Flags.ModerateMembers)) return interaction.reply({ embeds: [global.errors[2]] });
 
             const userField = interaction.options.getMember('user');
             const durationField = interaction.options.getInteger('duration');
@@ -54,11 +54,11 @@ module.exports = {
             .setColor('#ff0000');
 
         try {
-            await Log.findOneAndUpdate({
+            await Guild.findOneAndUpdate({
                 'guild.id': interaction.guild.id
             }, {
                 $push: {
-                    items: {
+                    logs: {
                         _id: getId,
                         type: 'Timeout',
                         user: {

@@ -1,4 +1,4 @@
-const { EmbedBuilder, ButtonBuilder, ActionRowBuilder, SlashCommandBuilder } = require('discord.js');
+const { EmbedBuilder, ButtonBuilder, ActionRowBuilder, SlashCommandBuilder, PermissionsBitField } = require('discord.js');
 const fetch = require('node-fetch');
 
 module.exports = {
@@ -9,7 +9,7 @@ module.exports = {
     category: 'Fun',
     guildOnly: true,
     execute (interaction) {
-        if (!interaction.guild.members.me.permissions.has('CreateInstantInvite')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Create Instant Invite** permission in `Server Settings > Roles` to use this command.' });
+        if (!interaction.guild.members.me.permissions.has(PermissionsBitField.Flags.CreateInstantInvite)) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Create Instant Invite** permission in `Server Settings > Roles` to use this command.' });
         if (!interaction.member.voice.channel) return interaction.reply({ content: 'Error: You must join a voice channel to use this command.' });
 
         fetch(`https://discord.com/api/v10/channels/${interaction.member.voice.channel.id}/invites`, {

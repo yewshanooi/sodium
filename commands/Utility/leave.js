@@ -1,4 +1,4 @@
-const { EmbedBuilder, ButtonBuilder, ActionRowBuilder, SlashCommandBuilder } = require('discord.js');
+const { EmbedBuilder, ButtonBuilder, ActionRowBuilder, SlashCommandBuilder, PermissionsBitField } = require('discord.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -8,7 +8,7 @@ module.exports = {
     category: 'Utility',
     guildOnly: true,
 	execute (interaction, configuration) {
-        if (!interaction.member.permissions.has('Administrator')) return interaction.reply({ embeds: [global.errors[2]] });
+        if (!interaction.member.permissions.has(PermissionsBitField.Flags.Administrator)) return interaction.reply({ embeds: [global.errors[2]] });
 
         const confirmationEmbed = new EmbedBuilder()
             .setTitle('Leave')
@@ -16,22 +16,15 @@ module.exports = {
             .setColor(configuration.embedColor);
 
         const buttons = new ActionRowBuilder()
-            .addComponents(new ButtonBuilder()
-                .setCustomId('optYes')
-                .setLabel('Yes')
-                .setStyle('Success'))
-            .addComponents(new ButtonBuilder()
-                .setCustomId('optNo')
-                .setLabel('No')
-                .setStyle('Danger'));
-
-            const leftEmbed = new EmbedBuilder()
-                .setDescription('Successfully left the guild. We hope to see you again next time!')
-                .setColor('#00aa00');
-
-            const cancelEmbed = new EmbedBuilder()
-                .setDescription('You have cancelled the leave request.')
-                .setColor('#ff5555');
+            .addComponents(
+                new ButtonBuilder()
+                    .setCustomId('optYes')
+                    .setLabel('Yes')
+                    .setStyle('Success'),
+                new ButtonBuilder()
+                    .setCustomId('optNo')
+                    .setLabel('No')
+                    .setStyle('Danger'));
 
         interaction.reply({ embeds: [confirmationEmbed], components: [buttons] });
 
@@ -39,19 +32,38 @@ module.exports = {
             const collector = interaction.channel.createMessageComponentCollector({
                 filter,
                 max: 1,
-                // 30 seconds timeout
-                time: 30000
+                time: 30000 // 30 seconds timeout
             });
 
             collector.on('collect', co => {
                 if (co.customId === 'optYes') {
-                    co.update({ embeds: [leftEmbed], components: [] });
+                    const yesEmbed = new EmbedBuilder()
+                        .setTitle('Leave')
+                        .setDescription('Successfully left the guild. We hope to see you again next time!')
+                        .setColor(configuration.embedColor)
+                        .setTimestamp();
+
+                    co.update({ embeds: [yesEmbed], components: [] });
                     interaction.guild.leave();
                 }
                 if (co.customId === 'optNo') {
-                    co.update({ embeds: [cancelEmbed], components: [] }).then(collector.stop());
+                    const noEmbed = new EmbedBuilder()
+                        .setDescription('You have cancelled the leave request.')
+                        .setColor('#ff5555');
+
+                    co.update({ embeds: [noEmbed], components: [] }).then(collector.stop());
                 }
             });
 
+            collector.on('end', (__, reason) => {
+                if (reason === 'time') {
+                    interaction.editReply({ embeds: [
+                        new EmbedBuilder()
+                            .setTitle('Leave')
+                            .setDescription('Command has ended. Retype `/leave` to request again.')
+                            .setColor(configuration.embedColor)
+                    ], components: [] });
+                }
+            });
         }
 };

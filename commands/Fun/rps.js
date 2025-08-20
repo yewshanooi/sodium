@@ -15,18 +15,19 @@ module.exports = {
             .setColor(configuration.embedColor);
 
         const buttons = new ActionRowBuilder()
-            .addComponents(new ButtonBuilder()
-                .setCustomId('Rock')
-                .setLabel('Rock')
-                .setStyle('Secondary'))
-            .addComponents(new ButtonBuilder()
-                .setCustomId('Paper')
-                .setLabel('Paper')
-                .setStyle('Secondary'))
-            .addComponents(new ButtonBuilder()
-                .setCustomId('Scissors')
-                .setLabel('Scissors')
-                .setStyle('Secondary'));
+            .addComponents(
+                new ButtonBuilder()
+                    .setCustomId('Rock')
+                    .setLabel('Rock')
+                    .setStyle('Secondary'),
+                new ButtonBuilder()
+                    .setCustomId('Paper')
+                    .setLabel('Paper')
+                    .setStyle('Secondary'),
+                new ButtonBuilder()
+                    .setCustomId('Scissors')
+                    .setLabel('Scissors')
+                    .setStyle('Secondary'));
 
         interaction.reply({ embeds: [embed], components: [buttons] });
 

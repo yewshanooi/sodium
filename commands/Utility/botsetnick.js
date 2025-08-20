@@ -1,4 +1,4 @@
-const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
+const { EmbedBuilder, SlashCommandBuilder, PermissionsBitField } = require('discord.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -9,8 +9,8 @@ module.exports = {
     category: 'Utility',
     guildOnly: true,
 	execute (interaction, configuration) {
-        if (!interaction.guild.members.me.permissions.has('ManageNicknames')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Manage Nicknames** permission in `Server Settings > Roles` to use this command.' });
-        if (!interaction.member.permissions.has('ManageNicknames')) return interaction.reply({ embeds: [global.errors[2]] });
+        if (!interaction.guild.members.me.permissions.has(PermissionsBitField.Flags.ManageNicknames)) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Manage Nicknames** permission in `Server Settings > Roles` to use this command.' });
+        if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageNicknames)) return interaction.reply({ embeds: [global.errors[2]] });
 
         const nicknameField = interaction.options.getString('nickname');
 

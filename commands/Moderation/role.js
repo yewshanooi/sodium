@@ -1,4 +1,4 @@
-const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
+const { EmbedBuilder, SlashCommandBuilder, PermissionsBitField } = require('discord.js');
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -14,8 +14,8 @@ module.exports = {
     category: 'Moderation',
     guildOnly: true,
     execute (interaction, configuration) {
-        if (!interaction.guild.members.me.permissions.has('ManageRoles')) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Manage Roles** permission in `Server Settings > Roles` to use this command.' });
-        if (!interaction.member.permissions.has('ManageRoles')) return interaction.reply({ embeds: [global.errors[2]] });
+        if (!interaction.guild.members.me.permissions.has(PermissionsBitField.Flags.ManageRoles)) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Manage Roles** permission in `Server Settings > Roles` to use this command.' });
+        if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageRoles)) return interaction.reply({ embeds: [global.errors[2]] });
 
         // role add Subcommand
         if (interaction.options.getSubcommand() === 'add') {
