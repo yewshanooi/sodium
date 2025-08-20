@@ -190,7 +190,7 @@ module.exports = {
                             .setColor(configuration.embedColor)
                         ], components: [] });
                     }
-                interaction.editReply({ components: [] });
+                }
             });
         }
 
