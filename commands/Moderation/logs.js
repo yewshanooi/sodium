@@ -188,8 +188,7 @@ module.exports = {
                             .setTitle('Logs')
                             .setDescription('Command has ended. Retype `/logs reset` to request again.')
                             .setColor(configuration.embedColor)
-                        ], components: [] });
-                    }
+                    ], components: [] });
                 }
             });
         }

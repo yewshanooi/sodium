@@ -19,7 +19,7 @@ module.exports = {
     category: 'Utility',
     guildOnly: true,
     async execute (interaction, configuration) {
-        if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageMessages)) return interaction.reply({ embeds: [global.errors[2]], ephemeral: true });
+        if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageMessages)) return interaction.reply({ embeds: [global.errors[2]] });
 
         // leaderboard add {amount} {user} Subcommand
         if (interaction.options.getSubcommand() === 'add') {
@@ -189,10 +189,7 @@ module.exports = {
                             .setTitle('Leaderboard')
                             .setDescription('Command has ended. Retype `/leaderboard reset` to request again.')
                             .setColor(configuration.embedColor)
-                        ], components: [] });
-                    }
-                } else {
-                    interaction.editReply({ components: [] });
+                    ], components: [] });
                 }
             });
         }

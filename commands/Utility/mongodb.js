@@ -119,9 +119,6 @@ module.exports = {
 							.setColor(configuration.embedColor)
 					], components: [] });
 				}
-				} else {
-					interaction.editReply({ components: [] });
-				}
 			});
 		}
 

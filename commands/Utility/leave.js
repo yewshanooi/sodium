@@ -62,12 +62,8 @@ module.exports = {
                             .setTitle('Leave')
                             .setDescription('Command has ended. Retype `/leave` to request again.')
                             .setColor(configuration.embedColor)
-                        ], components: [] });
-                    }
-                } else {
-                    interaction.editReply({ components: [] });
+                    ], components: [] });
                 }
             });
-
         }
 };
