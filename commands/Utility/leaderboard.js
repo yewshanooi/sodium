@@ -29,11 +29,12 @@ module.exports = {
                 if (!guildDB) return interaction.editReply({ embeds: [global.errors[5]] });
 
             const amountField = interaction.options.getInteger('amount');
-            let userField = interaction.options.getMember('user');
+                if (amountField <= 0) return interaction.editReply({ content: 'Error: Amount must be a positive number greater than zero.' });
 
-            if (!userField) {
-                userField = interaction.member;
-            }
+            let userField = interaction.options.getMember('user');
+                if (!userField) {
+                    userField = interaction.member;
+                }
 
             const addLeaderboard = new EmbedBuilder()
                 .setTitle('Leaderboard')
@@ -83,11 +84,12 @@ module.exports = {
                 if (!guildDB) return interaction.editReply({ embeds: [global.errors[5]] });
 
             const amountField = interaction.options.getInteger('amount');
-            let userField = interaction.options.getMember('user');
+                if (amountField <= 0) return interaction.editReply({ content: 'Error: Amount must be a positive number greater than zero.' });
 
-            if (!userField) {
-                userField = interaction.member;
-            }
+            let userField = interaction.options.getMember('user');
+                if (!userField) {
+                    userField = interaction.member;
+                }
 
             const userEntry = guildDB.leaderboards.find(entry => entry.user.id === userField.user.id);
 

@@ -212,11 +212,13 @@ module.exports = {
 
                 const viewSingleLog = new EmbedBuilder()
                     .setTitle('Logs')
-                    .setDescription(`**Type:** ${logEntry.type} \`${logEntry._id.toString()}\`
+                    .setDescription(
+                        `**Type:** ${logEntry.type} \`${logEntry._id.toString()}\`
                         **User:** ${logEntry.user.name ? logEntry.user.name : ''} \`${logEntry.user.id}\`
                         **By:** ${logEntry.staff.name} \`${logEntry.staff.id}\`
                         **Reason:** ${logEntry.reason}
-                        **Timestamp:** ${logEntry.timestamp}`)
+                        **Timestamp:** ${logEntry.timestamp}`
+                    )
                     .setColor(configuration.embedColor);
 
                 return interaction.editReply({ embeds: [viewSingleLog] });
