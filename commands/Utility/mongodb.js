@@ -13,7 +13,7 @@ module.exports = {
 	category: 'Utility',
 	guildOnly: true,
 	async execute (interaction, configuration) {
-		if (!interaction.member.permissions.has(PermissionsBitField.Flags.Administrator)) return interaction.editReply({ embeds: [global.errors[2]] });
+		if (!interaction.member.permissions.has(PermissionsBitField.Flags.Administrator)) return interaction.reply({ embeds: [global.errors[2]] });
 
 		// mongodb initialize Subcommand
 		if (interaction.options.getSubcommand() === 'initialize') {
