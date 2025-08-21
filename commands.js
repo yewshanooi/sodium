@@ -4,6 +4,7 @@ const path = require('path');
 const dotenvx = require('@dotenvx/dotenvx');
 	dotenvx.config();
 const chalk = require('chalk');
+const config = require("./config.json");
 
 const slashCommands = [];
 
@@ -19,7 +20,12 @@ function readCommands(dir, client) {
             const command = require(filePath);
 
             if (command.apis && Array.isArray(command.apis)) {
-                const missing = command.apis.filter(api => !process.env[api] || (api === "LAVALINK" && !client.config.lavalink.enabled));
+                const missing = command.apis.filter(api => {
+                    if (api === "ENABLE_LAVALINK") {
+                        return !config.lavalink.enabled;
+                    }
+                    return !process.env[api];
+                });
 
                 if (missing.length > 0) {
                     console.log(`${chalk.yellow(`[COMMAND SKIPPED] ${command.data?.name || file.name}: require -> ${missing.join(", ")}`)}`);
@@ -53,9 +59,7 @@ if (require.main === module) {
             Routes.applicationGuildCommands(process.env.CLIENT_ID, process.env.GUILD_ID),
             { body: slashCommands }
         )
-            .then(data => console.log(
-                `\nSuccessfully deployed ${chalk.bold(`${data.length}`)} command(s)\n`
-            ))
+            .then(data => console.log(`\nSuccessfully deployed ${chalk.bold(`${data.length}`)} command(s)\n`))
             .catch(console.error);
 
     } else if (option === 'delete') {
