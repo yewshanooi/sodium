@@ -2,6 +2,7 @@ const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const fetch = require('node-fetch');
 
 module.exports = {
+	apis: ['RIOTGAMES_API_KEY'],
 	data: new SlashCommandBuilder()
 		.setName('leagueoflegends')
 		.setDescription('Get a player\'s League of Legends details from Riot Games')

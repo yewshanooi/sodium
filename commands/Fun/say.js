@@ -9,7 +9,7 @@ module.exports = {
 	cooldown: '3',
 	category: 'Fun',
 	guildOnly: true,
-	execute (interaction, configuration) {
+	execute (interaction, client) {
 		const messageField = interaction.options.getString('message');
 		const spoilerField = interaction.options.getString('spoiler');
 
@@ -17,7 +17,7 @@ module.exports = {
 
 		const embed = new EmbedBuilder()
 			.setDescription(`**${interaction.user.username} said:** ${message}`)
-			.setColor(configuration.embedColor);
+			.setColor(client.config.embedColor);
 
 		interaction.reply({ embeds: [embed] });
 	}

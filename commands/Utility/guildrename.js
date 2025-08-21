@@ -8,7 +8,7 @@ module.exports = {
     cooldown: '20',
     category: 'Utility',
     guildOnly: true,
-    execute (interaction, configuration) {
+    execute (interaction, client) {
         if (!interaction.guild.members.me.permissions.has(PermissionsBitField.Flags.ManageGuild)) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Manage Guild** permission in `Server Settings > Roles` to use this command.' });
         if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageGuild)) return interaction.reply({ embeds: [global.errors[2]] });
 
@@ -16,7 +16,7 @@ module.exports = {
 
         const embed = new EmbedBuilder()
             .setDescription(`Successfully renamed guild to **${nameField}**`)
-            .setColor(configuration.embedColor);
+            .setColor(client.config.embedColor);
         interaction.reply({ embeds: [embed] }).then(interaction.guild.setName(nameField));
     }
 };

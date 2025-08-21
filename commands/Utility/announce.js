@@ -9,7 +9,7 @@ module.exports = {
     cooldown: '3',
     category: 'Utility',
     guildOnly: true,
-    execute (interaction, configuration) {
+    execute (interaction, client) {
         const titleField = interaction.options.getString('title');
         const descriptionField = interaction.options.getString('description');
 
@@ -17,7 +17,7 @@ module.exports = {
             .setAuthor({ name: `${interaction.user.username}`, iconURL: `${interaction.user.displayAvatarURL({ size: 64 })}` })
             .setTitle(titleField)
             .setDescription(descriptionField)
-            .setColor(configuration.embedColor);
+            .setColor(client.config.embedColor);
 
         interaction.reply({ embeds: [embed] });
     }

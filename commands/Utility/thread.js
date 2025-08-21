@@ -9,7 +9,7 @@ module.exports = {
     cooldown: '10',
     category: 'Utility',
     guildOnly: true,
-    async execute (interaction, configuration) {
+    async execute (interaction, client) {
         if (!interaction.guild.members.me.permissions.has(PermissionsBitField.Flags.ManageThreads)) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Manage Threads** permission in `Server Settings > Roles` to use this command.' });
         if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageThreads)) return interaction.reply({ embeds: [global.errors[2]] });
 
@@ -32,7 +32,7 @@ module.exports = {
                 { name: 'Name', value: `${thread.name}` },
                 { name: 'Archive After', value: `\`${resultDuration}\`` }
             )
-            .setColor(configuration.embedColor);
+            .setColor(client.config.embedColor);
 
         interaction.reply({ embeds: [embed] });
     }

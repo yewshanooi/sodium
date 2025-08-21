@@ -2,21 +2,34 @@ const { EmbedBuilder, ButtonBuilder, ActionRowBuilder, SlashCommandBuilder } = r
 const fetch = require('node-fetch');
 
 module.exports = {
+    apis: ['GENIUS_API_KEY'],
     data: new SlashCommandBuilder()
         .setName('lyrics')
-        .setDescription('Get a song\'s lyrics from Genius')
-        .addStringOption(option => option.setName('song').setDescription('Enter a song name').setRequired(true)),
-    cooldown: '5',
-    category: 'Fun',
+        .setDescription('Get the lyrics for the currently playing song or a specific song.')
+        .addStringOption(option => option.setName('song').setDescription('Enter a song name').setRequired(false)),
+    cooldown: '15',
+    category: 'Music',
     guildOnly: false,
-    async execute (interaction) {
+    async execute (interaction, client) {
         await interaction.deferReply();
 
         if (!process.env.GENIUS_API_KEY) return interaction.editReply({ embeds: [global.errors[1]] });
 
-        const songField = interaction.options.getString('song');
+        const player = client.manager?.get(interaction.guild.id);
+        const songTitleOption = interaction.options.getString('song');
+        
+        let SongTitle = '';
+        if (songTitleOption) {
+            SongTitle = songTitleOption;
+        } else if (player && player.queue.current) {
+            SongTitle = player.queue.current.title;
+        } else {
+            return interaction.editReply({ content: 'No se está reproduciendo ninguna canción ni has proporcionado un título para buscar.' });
+        }
 
-        const Song = await fetch(`https://api.genius.com/search?q=${encodeURIComponent(songField)}&access_token=${process.env.GENIUS_API_KEY}`)
+        SongTitle = SongTitle.replace(/lyrics|lyric|lyrical|official music video|\(official music video\)|audio|feat|feat.|prod by|official|video|official video|official video hd|official hd video|offical video music|\(offical video music\)|extended|hd|(\[+\])/gi, "");
+
+        const Song = await fetch(`https://api.genius.com/search?q=${encodeURIComponent(SongTitle)}&access_token=${process.env.GENIUS_API_KEY}`)
             .then(res => res.json())
             .then(body => body.response.hits);
 

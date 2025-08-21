@@ -2,6 +2,7 @@ const { EmbedBuilder, SlashCommandBuilder, ActionRowBuilder, ModalBuilder, TextI
 const { GoogleGenAI, HarmCategory, HarmBlockThreshold } = require('@google/genai');
 
 module.exports = {
+    apis: ['GOOGLE_API_KEY'],
 	data: new SlashCommandBuilder()
 		.setName('gemini')
 		.setDescription('Chat with Gemini, an AI-powered chatbot by Google'),

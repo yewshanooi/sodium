@@ -31,7 +31,7 @@ module.exports = {
     cooldown: '3',
     category: 'Fun',
     guildOnly: false,
-    execute (interaction, configuration) {
+    execute (interaction, client) {
         const questionField = interaction.options.getString('question');
 
         const embed = new EmbedBuilder()
@@ -40,7 +40,7 @@ module.exports = {
                 { name: 'Question', value: `${questionField}` },
                 { name: 'Answer', value: `${answers[Math.floor(Math.random() * answers.length)]}` }
             )
-            .setColor(configuration.embedColor);
+            .setColor(client.config.embedColor);
         interaction.reply({ embeds: [embed] });
     }
 };

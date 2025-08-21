@@ -2,6 +2,7 @@ const { EmbedBuilder, ButtonBuilder, ActionRowBuilder, SlashCommandBuilder } = r
 const fetch = require('node-fetch');
 
 module.exports = {
+    apis: ['HYPIXEL_API_KEY'],
 	data: new SlashCommandBuilder()
         .setName('hypixel')
         .setDescription('Get a Minecraft player\'s stats from Hypixel Network')

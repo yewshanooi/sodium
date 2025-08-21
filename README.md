@@ -80,22 +80,28 @@ npm install
 npm install -g nodemon
 ```
 4. Create a new file named **config.json** and fill it with your own information<br/>
-> [!WARNING]
-> The embedColor field is required
 ```
 {
-  "embedColor": ""
+  "embedColor": "",
+  "channelID": "",
+  "lavalink": {
+    "enabled": true,
+    "nodes": [],
+    "spotify": false
+  }
 }
 ```
 5. Create a new file named **.env** and fill it with your own variables<br/>
 > [!WARNING]
-> The TOKEN, MONGODB_TOKEN, CLIENT_ID, and GUILD_ID fields are required, while the rest are optional. With missing fields, certain features might not work as intended
+> The TOKEN, CLIENT_ID, and GUILD_ID fields are required, while the rest are optional. With missing fields, certain features might not work as intended
 ```
 TOKEN=
-MONGODB_TOKEN=
 CLIENT_ID=
 GUILD_ID=
-CHANNEL_ID=
+# --------------------------
+# API KEYS (Optional)
+# --------------------------
+MONGODB_TOKEN=
 FORTNITE_API_KEY=
 GENIUS_API_KEY=
 GIPHY_API_KEY=
@@ -105,16 +111,18 @@ NASA_API_KEY=
 NEWS_API_KEY=
 OPENWEATHERMAP_API_KEY=
 RIOTGAMES_API_KEY=
+FAKEYOU_USERNAME=
+FAKEYOU_PASSWORD=
+SPOTIFY_CLIENT_ID=
+SPOTIFY_CLIENT_SECRET=
 ```
 6. Run the **commands.js** file to deploy or delete application commands for a single guild by default
 ```
-node commands.js deploy    -or-    node commands.js delete
+npm run commands	-or-	node commands.js deploy    -or-    node commands.js delete
 ```
 7. Run the **index.js** file to start the bot<br/>
-> [!TIP]
-> Don't forget to deploy commands before starting the bot, otherwise commands won't appear as they are not updated
 ```
-node index.js    -or-    npm start    -or-    nodemon
+npm start    -or-    node index.js    -or-    nodemon
 ```
 
 ###### Machine Learning

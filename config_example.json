@@ -1,0 +1,10 @@
+{
+  "embedColor": "Random",
+  "logsChannelID": "",
+  "lavalink": {
+    "enabled": false,
+    "nodes": [
+    ],
+    "spotify": false
+  }
+}

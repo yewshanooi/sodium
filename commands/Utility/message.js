@@ -9,7 +9,7 @@ module.exports = {
     cooldown: '8',
     category: 'Utility',
     guildOnly: true,
-    execute (interaction, configuration) {
+    execute (interaction, client) {
 		const userField = interaction.options.getUser('user');
             if (userField === interaction.client.user) return interaction.reply({ content: 'Error: You cannot send a message to the bot.' });
             if (userField.bot === true) return interaction.reply({ content: 'Error: You cannot send a message to a bot.' });
@@ -21,11 +21,11 @@ module.exports = {
             const embed = new EmbedBuilder()
                 .setTitle('Message')
                 .setDescription(`${messageField}\n\n*from \`${interaction.user.username}\`*`)
-                .setColor(configuration.embedColor);
+                .setColor(client.config.embedColor);
 
             const successEmbed = new EmbedBuilder()
                 .setDescription(`Successfully send message to ${userField}`)
-                .setColor(configuration.embedColor);
+                .setColor(client.config.embedColor);
 
         userField.send({ embeds: [embed] })
             .then(() => {

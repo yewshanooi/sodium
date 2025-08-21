@@ -8,7 +8,7 @@ module.exports = {
 	cooldown: '0',
 	category: 'Utility',
 	guildOnly: false,
-	execute (interaction, configuration) {
+	execute (interaction, client) {
 		const { commands } = interaction.client;
         const commandField = interaction.options.getString('command');
 
@@ -29,7 +29,7 @@ module.exports = {
 					{ name: 'Guild Only', value: `\`${resultGuildOnly}\``, inline: true },
 					{ name: 'Cooldown', value: `\`${command.cooldown}\` second(s)` }
 				)
-				.setColor(configuration.embedColor);
+				.setColor(client.config.embedColor);
 			interaction.reply({ embeds: [commandEmbed] });
 		} else {
 			// Primary === 1, Secondary === 2, Success === 3, Danger === 4, Link === 5
@@ -58,7 +58,7 @@ module.exports = {
 					.setTitle('Help')
 					.setDescription('💡 *To get more info on a specific command use `/help {command}`*')
 					.addFields({ name: `There are ${commands.map(command => command.data.name).length} commands available`, value: 'Click on any of the buttons to see the commands' })
-					.setColor(configuration.embedColor);
+					.setColor(client.config.embedColor);
 
 				interaction.reply({ embeds: [mainEmbed], components: [box] }).then(int => {
 					// 180 seconds timeout
@@ -97,7 +97,7 @@ module.exports = {
 								new EmbedBuilder()
 									.setTitle('Help')
 									.setDescription('Command has ended. Retype `/help` to get another one.')
-									.setColor(configuration.embedColor)
+									.setColor(client.config.embedColor)
 								], components: [] });
 							}
 						interaction.editReply({ components: [] });

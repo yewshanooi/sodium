@@ -2,6 +2,7 @@ const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const fetch = require('node-fetch');
 
 module.exports = {
+    apis: ['FORTNITE_API_KEY'],
 	data: new SlashCommandBuilder()
         .setName('fortnite')
         .setDescription('Get a Fortnite player\'s stats from Fortnite-API')

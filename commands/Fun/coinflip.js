@@ -7,7 +7,7 @@ module.exports = {
     cooldown: '3',
     category: 'Fun',
     guildOnly: false,
-    execute (interaction, configuration) {
+    execute (interaction, client) {
         const coinFlip = Math.floor(Math.random() * 2);
         let resultCoinFlip;
             if (coinFlip === 1) resultCoinFlip = 'heads';
@@ -15,12 +15,12 @@ module.exports = {
 
         const embed = new EmbedBuilder()
             .setDescription('*Flipping coin..*')
-            .setColor(configuration.embedColor);
+            .setColor(client.config.embedColor);
         interaction.reply({ embeds: [embed], fetchReply: true }).then(() => {
             const newEmbed = new EmbedBuilder()
                 .setTitle('Coin Flip')
                 .setDescription(`${interaction.user} flipped **${resultCoinFlip}**`)
-                .setColor(configuration.embedColor);
+                .setColor(client.config.embedColor);
             interaction.editReply({ embeds: [newEmbed] });
         });
 

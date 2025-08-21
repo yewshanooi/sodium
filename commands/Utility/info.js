@@ -15,7 +15,7 @@ module.exports = {
     cooldown: '3',
     category: 'Utility',
     guildOnly: true,
-    execute (interaction, configuration) {
+    execute (interaction, client) {
         const channelField = interaction.options.getChannel('channel');
         const roleField = interaction.options.getRole('role');
         const userField = interaction.options.getUser('user');
@@ -50,7 +50,7 @@ module.exports = {
                     { name: 'Age-Restricted', value: `\`${resultNsfw}\``, inline: true },
                     { name: 'Rate Limit', value: `\`${channelField.rateLimitPerUser || '0'}\` second(s)`, inline: true }
                 )
-                .setColor(configuration.embedColor);
+                .setColor(client.config.embedColor);
             return interaction.reply({ embeds: [channelEmbed] });
         }
 
@@ -68,14 +68,14 @@ module.exports = {
                 .setTitle(`${interaction.client.user.username}`)
                 .addFields(
                     { name: 'ID', value: `\`${interaction.client.user.id}\``, inline: true },
-                    { name: 'Embed Color (HEX)', value: `\`#${configuration.embedColor}\``, inline: true },
+                    { name: 'Embed Color (HEX)', value: `\`#${client.config.embedColor}\``, inline: true },
                     { name: 'Creation Date & Time', value: `\`${interaction.client.user.createdAt}\`` },
                     { name: 'Users', value: `\`${interaction.client.users.cache.size}\``, inline: true },
                     { name: 'Channels', value: `\`${interaction.client.channels.cache.size}\``, inline: true },
                     { name: 'Guilds', value: `\`${interaction.client.guilds.cache.size}\``, inline: true },
                     { name: 'Uptime', value: `\`${days}\` day(s), \`${hours}\` hour(s), \`${minutes}\` minute(s), \`${seconds}\` second(s)` }
                 )
-                .setColor(configuration.embedColor);
+                .setColor(client.config.embedColor);
             return interaction.reply({ embeds: [clientEmbed] });
         }
 
@@ -135,7 +135,7 @@ module.exports = {
                     { name: 'Verification Level', value: `\`${resultVerificationLevel}\``, inline: true },
                     { name: 'Explicit Image Filter', value: `\`${resultExplicitContentFilter}\``, inline: true }
                 )
-                .setColor(configuration.embedColor);
+                .setColor(client.config.embedColor);
             return interaction.reply({ embeds: [guildEmbed] });
         }
 
@@ -165,7 +165,7 @@ module.exports = {
                     { name: 'Mentionable', value: `\`${resultMentionable}\``, inline: true },
                     { name: 'Display Separately', value: `\`${resultHoist}\``, inline: true }
                 )
-                .setColor(configuration.embedColor);
+                .setColor(client.config.embedColor);
             return interaction.reply({ embeds: [roleEmbed] });
         }
 
@@ -193,7 +193,7 @@ module.exports = {
                     { name: 'Role Color (HEX)', value: `\`${memberUserField.displayHexColor}\``, inline: true },
                     { name: 'Joined Guild At', value: `\`${memberUserField.joinedAt}\`` }
                 )
-                .setColor(configuration.embedColor);
+                .setColor(client.config.embedColor);
             return interaction.reply({ embeds: [userEmbed] });
         }
 

@@ -13,7 +13,7 @@ module.exports = {
     cooldown: '5',
     category: 'Moderation',
     guildOnly: true,
-    execute (interaction, configuration) {
+    execute (interaction, client) {
         if (!interaction.guild.members.me.permissions.has(PermissionsBitField.Flags.ManageRoles)) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Manage Roles** permission in `Server Settings > Roles` to use this command.' });
         if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageRoles)) return interaction.reply({ embeds: [global.errors[2]] });
 
@@ -31,7 +31,7 @@ module.exports = {
                 } else {
                     const embed = new EmbedBuilder()
                         .setDescription(`Successfully added **${roleField}** role to **${userField}** user`)
-                        .setColor(configuration.embedColor);
+                        .setColor(client.config.embedColor);
                     interaction.reply({ embeds: [embed] }).then(userField.roles.add(roleField.id));
                 }
         }
@@ -49,7 +49,7 @@ module.exports = {
                 } else {
                     const embed = new EmbedBuilder()
                         .setDescription(`Successfully removed **${roleField}** role from **${userField}** user`)
-                        .setColor(configuration.embedColor);
+                        .setColor(client.config.embedColor);
                     interaction.reply({ embeds: [embed] }).then(userField.roles.remove(roleField.id));
                 }
         }

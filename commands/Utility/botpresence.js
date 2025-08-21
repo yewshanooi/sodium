@@ -10,7 +10,7 @@ module.exports = {
     cooldown: '25',
     category: 'Utility',
     guildOnly: true,
-    execute (interaction, configuration) {
+    execute (interaction, client) {
         if (!interaction.member.permissions.has(PermissionsBitField.Flags.Administrator)) return interaction.reply({ embeds: [global.errors[2]] });
 
             const activityField = interaction.options.getString('activity');
@@ -39,7 +39,7 @@ module.exports = {
                         { name: 'Type', value: `\`${typeField}\``, inline: true },
                         { name: 'Status', value: `\`${resultStatus}\``, inline: true }
                     )
-                    .setColor(configuration.embedColor);
+                    .setColor(client.config.embedColor);
 
                 if (typeField === 'Streaming') {
                     embed.addFields({ name: 'Stream Link', value: `${linkField}` });

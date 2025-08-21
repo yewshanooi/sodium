@@ -8,7 +8,7 @@ module.exports = {
     cooldown: '15',
     category: 'Moderation',
     guildOnly: true,
-    execute (interaction, configuration) {
+    execute (interaction, client) {
         if (!interaction.guild.members.me.permissions.has(PermissionsBitField.Flags.ManageChannels)) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Manage Channels** permission in `Server Settings > Roles` to use this command.' });
         if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageChannels)) return interaction.reply({ embeds: [global.errors[2]] });
 
@@ -17,12 +17,12 @@ module.exports = {
             if (durationField === 0) {
                 const embedFalse = new EmbedBuilder()
                     .setDescription('Successfully disabled slowmode for current channel')
-                    .setColor(configuration.embedColor);
+                    .setColor(client.config.embedColor);
                 interaction.reply({ embeds: [embedFalse] }).then(interaction.channel.setRateLimitPerUser(0));
             } else {
                 const embedTrue = new EmbedBuilder()
                     .setDescription(`Successfully set current channel's rate limit to **${durationField}** second(s)`)
-                    .setColor(configuration.embedColor);
+                    .setColor(client.config.embedColor);
                 interaction.reply({ embeds: [embedTrue] }).then(interaction.channel.setRateLimitPerUser(durationField));
             }
         }

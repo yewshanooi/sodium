@@ -12,7 +12,7 @@ module.exports = {
 	cooldown: '15',
 	category: 'Utility',
 	guildOnly: true,
-	async execute (interaction, configuration) {
+	async execute (interaction, client) {
 		if (!interaction.member.permissions.has(PermissionsBitField.Flags.Administrator)) return interaction.reply({ embeds: [global.errors[2]] });
 
 		// mongodb initialize Subcommand
@@ -39,7 +39,7 @@ module.exports = {
 					const createDatabase = new EmbedBuilder()
 						.setTitle('MongoDB')
 						.setDescription(`Successfully initialized database for **${interaction.guild.name}**`)
-						.setColor(configuration.embedColor)
+						.setColor(client.config.embedColor)
 						.setTimestamp();
 
 					interaction.editReply({ embeds: [createDatabase] });
@@ -60,7 +60,7 @@ module.exports = {
 			const deleteDatabase = new EmbedBuilder()
 				.setTitle('MongoDB')
 				.setDescription('Are you sure you want to delete the database for this guild?')
-				.setColor(configuration.embedColor);
+				.setColor(client.config.embedColor);
 
 			const buttons = new ActionRowBuilder()
 				.addComponents(
@@ -92,7 +92,7 @@ module.exports = {
 						const yesEmbed = new EmbedBuilder()
 							.setTitle('MongoDB')
 							.setDescription('Successfully deleted the database for this guild.')
-							.setColor(configuration.embedColor)
+							.setColor(client.config.embedColor)
 							.setTimestamp();
 
 						await co.update({ embeds: [yesEmbed], components: [] });
@@ -116,7 +116,7 @@ module.exports = {
 						new EmbedBuilder()
 							.setTitle('MongoDB')
 							.setDescription('Command has ended. Retype `/mongodb delete` to request again.')
-							.setColor(configuration.embedColor)
+							.setColor(client.config.embedColor)
 					], components: [] });
 				}
 			});

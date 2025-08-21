@@ -2,6 +2,7 @@ const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const fetch = require('node-fetch');
 
 module.exports = {
+    apis: ['OPENWEATHERMAP_API_KEY'],
     data: new SlashCommandBuilder()
         .setName('weather')
         .setDescription('Get the current weather information for a city')

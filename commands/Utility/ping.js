@@ -7,10 +7,11 @@ module.exports = {
 	cooldown: '3',
 	category: 'Utility',
 	guildOnly: false,
-	execute (interaction, configuration) {
+	execute (interaction, client) {
+		console.log(client.config);
 		const embed = new EmbedBuilder()
 			.setDescription('*Calculating latency..*')
-			.setColor(configuration.embedColor);
+			.setColor(client.config.embedColor);
 		interaction.reply({ embeds: [embed], fetchReply: true }).then(itr => {
 			const timestamp = itr.createdTimestamp - interaction.createdTimestamp;
 			const newEmbed = new EmbedBuilder()
@@ -19,7 +20,7 @@ module.exports = {
 					{ name: 'API Latency', value: `\`${timestamp}\`ms` },
 					{ name: 'WebSocket Latency', value: `\`${interaction.client.ws.ping}\`ms` }
 				)
-				.setColor(configuration.embedColor);
+				.setColor(client.config.embedColor);
 			interaction.editReply({ embeds: [newEmbed] });
 		});
 

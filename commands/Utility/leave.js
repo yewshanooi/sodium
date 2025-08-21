@@ -2,18 +2,18 @@ const { EmbedBuilder, ButtonBuilder, ActionRowBuilder, SlashCommandBuilder, Perm
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('leave')
+        .setName('leave_server')
         .setDescription('Remove the bot from the current guild'),
     cooldown: '15',
     category: 'Utility',
     guildOnly: true,
-	execute (interaction, configuration) {
+	execute (interaction, client) {
         if (!interaction.member.permissions.has(PermissionsBitField.Flags.Administrator)) return interaction.reply({ embeds: [global.errors[2]] });
 
         const confirmationEmbed = new EmbedBuilder()
             .setTitle('Leave')
             .setDescription(`Are you sure you want to remove ${interaction.client.user}?`)
-            .setColor(configuration.embedColor);
+            .setColor(client.config.embedColor);
 
         const buttons = new ActionRowBuilder()
             .addComponents(
@@ -40,7 +40,7 @@ module.exports = {
                     const yesEmbed = new EmbedBuilder()
                         .setTitle('Leave')
                         .setDescription('Successfully left the guild. We hope to see you again next time!')
-                        .setColor(configuration.embedColor)
+                        .setColor(client.config.embedColor)
                         .setTimestamp();
 
                     co.update({ embeds: [yesEmbed], components: [] });
@@ -61,7 +61,7 @@ module.exports = {
                         new EmbedBuilder()
                             .setTitle('Leave')
                             .setDescription('Command has ended. Retype `/leave` to request again.')
-                            .setColor(configuration.embedColor)
+                            .setColor(client.config.embedColor)
                     ], components: [] });
                 }
             });

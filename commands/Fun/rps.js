@@ -7,12 +7,12 @@ module.exports = {
     cooldown: '3',
     category: 'Fun',
     guildOnly: false,
-    async execute (interaction, configuration) {
+    async execute (interaction, client) {
 
         const embed = new EmbedBuilder()
             .setTitle('Rock Paper Scissors')
             .setDescription('Choose an option')
-            .setColor(configuration.embedColor);
+            .setColor(client.config.embedColor);
 
         const buttons = new ActionRowBuilder()
             .addComponents(
@@ -56,7 +56,7 @@ module.exports = {
                         { name: 'Your choice', value: `${collected.customId}` },
                         { name: 'My choice', value: `${botOption}` }
                     )
-                    .setColor(configuration.embedColor);
+                    .setColor(client.config.embedColor);
                 await collected.update({ embeds: [userLostEmbed], components: [buttons] }).then(collector.stop());
             } else if (collected.customId === botOption) {
                 const tieEmbed = new EmbedBuilder()
@@ -65,7 +65,7 @@ module.exports = {
                         { name: 'Your choice', value: `${collected.customId}` },
                         { name: 'My choice', value: `${botOption}` }
                     )
-                    .setColor(configuration.embedColor);
+                    .setColor(client.config.embedColor);
                 await collected.update({ embeds: [tieEmbed], components: [buttons] }).then(collector.stop());
             } else {
                 const userWonEmbed = new EmbedBuilder()
@@ -74,7 +74,7 @@ module.exports = {
                         { name: 'Your choice', value: `${collected.customId}` },
                         { name: 'My choice', value: `${botOption}` }
                     )
-                    .setColor(configuration.embedColor);
+                    .setColor(client.config.embedColor);
                 await collected.update({ embeds: [userWonEmbed], components: [buttons] }).then(collector.stop());
                 }
             });
@@ -85,7 +85,7 @@ module.exports = {
                     new EmbedBuilder()
                         .setTitle('Rock Paper Scissors')
                         .setDescription('You took too long! You can try again whenever you want.')
-                        .setColor(configuration.embedColor)
+                        .setColor(client.config.embedColor)
                     ], components: [buttons] });
                 }
             });

@@ -7,17 +7,17 @@ module.exports = {
     cooldown: '3',
     category: 'Fun',
     guildOnly: false,
-	execute (interaction, configuration) {
+	execute (interaction, client) {
         const diceRoll = Math.floor(Math.random() * 6 + 1);
 
         const embed = new EmbedBuilder()
             .setDescription('*Rolling dice..*')
-            .setColor(configuration.embedColor);
+            .setColor(client.config.embedColor);
         interaction.reply({ embeds: [embed], fetchReply: true }).then(() => {
             const newEmbed = new EmbedBuilder()
                 .setTitle('Dice Roll')
                 .setDescription(`${interaction.user} rolled a **${diceRoll}**!`)
-                .setColor(configuration.embedColor);
+                .setColor(client.config.embedColor);
             interaction.editReply({ embeds: [newEmbed] });
         });
 

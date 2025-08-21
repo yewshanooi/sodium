@@ -18,7 +18,7 @@ module.exports = {
 	cooldown: '5',
 	category: 'Moderation',
 	guildOnly: true,
-	async execute (interaction, configuration) {
+	async execute (interaction, client) {
         if (!interaction.member.permissions.has(PermissionsBitField.Flags.Administrator)) return interaction.reply({ embeds: [global.errors[2]] });
 
         // logs add {type} {user} {reason} Subcommand
@@ -48,7 +48,7 @@ module.exports = {
                     { name: 'Reason', value: `${reasonField}` }
                 )
                 .setTimestamp()
-                .setColor(configuration.embedColor);
+                .setColor(client.config.embedColor);
 
             try {
                 await Guild.findOneAndUpdate({
@@ -105,7 +105,7 @@ module.exports = {
                     const removeLog = new EmbedBuilder()
                         .setTitle('Logs')
                         .setDescription(`Successfully removed log entry with ID of **${logIdField}**`)
-                        .setColor(configuration.embedColor)
+                        .setColor(client.config.embedColor)
                         .setTimestamp();
 
                     return interaction.editReply({ embeds: [removeLog] });
@@ -127,7 +127,7 @@ module.exports = {
             const resetLog = new EmbedBuilder()
                 .setTitle('Logs')
                 .setDescription('Are you sure you want to reset all log entries for this guild?')
-                .setColor(configuration.embedColor);
+                .setColor(client.config.embedColor);
 
             const buttons = new ActionRowBuilder()
                 .addComponents(
@@ -163,7 +163,7 @@ module.exports = {
                         const yesEmbed = new EmbedBuilder()
                             .setTitle('Logs')
                             .setDescription('Successfully reset all log entries for this guild.')
-                            .setColor(configuration.embedColor)
+                            .setColor(client.config.embedColor)
                             .setTimestamp();
 
                         await co.update({ embeds: [yesEmbed], components: [] });
@@ -187,7 +187,7 @@ module.exports = {
                         new EmbedBuilder()
                             .setTitle('Logs')
                             .setDescription('Command has ended. Retype `/logs reset` to request again.')
-                            .setColor(configuration.embedColor)
+                            .setColor(client.config.embedColor)
                     ], components: [] });
                 }
             });
@@ -219,14 +219,14 @@ module.exports = {
                         **Reason:** ${logEntry.reason}
                         **Timestamp:** ${logEntry.timestamp}`
                     )
-                    .setColor(configuration.embedColor);
+                    .setColor(client.config.embedColor);
 
                 return interaction.editReply({ embeds: [viewSingleLog] });
             } else {
                 // Display 10 latest items from the log
                 const viewLog = new EmbedBuilder()
                     .setTitle('Logs')
-                    .setColor(configuration.embedColor);
+                    .setColor(client.config.embedColor);
 
                 const latestItems = guildDB.logs.slice(-10);
 

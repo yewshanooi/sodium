@@ -18,7 +18,7 @@ module.exports = {
     cooldown: '5',
     category: 'Utility',
     guildOnly: true,
-    async execute (interaction, configuration) {
+    async execute (interaction, client) {
         if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageGuild)) return interaction.reply({ embeds: [global.errors[2]] });
 
         // leaderboard add {amount} {user} Subcommand
@@ -39,7 +39,7 @@ module.exports = {
             const addLeaderboard = new EmbedBuilder()
                 .setTitle('Leaderboard')
                 .setDescription(`Added **+${amountField}** points to ${userField.user.username}`)
-                .setColor(configuration.embedColor)
+                .setColor(client.config.embedColor)
                 .setTimestamp();
 
             try {
@@ -100,7 +100,7 @@ module.exports = {
             const removeLeaderboard = new EmbedBuilder()
                 .setTitle('Leaderboard')
                 .setDescription(`Removed **-${amountField}** points from ${userField.user.username}`)
-                .setColor(configuration.embedColor)
+                .setColor(client.config.embedColor)
                 .setTimestamp();
 
             try {
@@ -130,7 +130,7 @@ module.exports = {
             const resetLeaderboard = new EmbedBuilder()
                 .setTitle('Leaderboard')
                 .setDescription('Are you sure you want to reset the leaderboard for this guild?')
-                .setColor(configuration.embedColor);
+                .setColor(client.config.embedColor);
 
             const buttons = new ActionRowBuilder()
                 .addComponents(
@@ -166,7 +166,7 @@ module.exports = {
                         const yesEmbed = new EmbedBuilder()
                             .setTitle('Leaderboard')
                             .setDescription('The leaderboard has been successfully reset.')
-                            .setColor(configuration.embedColor)
+                            .setColor(client.config.embedColor)
                             .setTimestamp();
 
                         await co.update({ embeds: [yesEmbed], components: [] });
@@ -190,7 +190,7 @@ module.exports = {
                         new EmbedBuilder()
                             .setTitle('Leaderboard')
                             .setDescription('Command has ended. Retype `/leaderboard reset` to request again.')
-                            .setColor(configuration.embedColor)
+                            .setColor(client.config.embedColor)
                     ], components: [] });
                 }
             });
@@ -213,7 +213,7 @@ module.exports = {
                 const userEmbed = new EmbedBuilder()
                     .setTitle('Leaderboard')
                     .addFields({ name: `${userField.user.username}`, value: `${userEntry.points} points` })
-                    .setColor(configuration.embedColor)
+                    .setColor(client.config.embedColor)
                     .setTimestamp();
 
                 return interaction.editReply({ embeds: [userEmbed] });
@@ -227,7 +227,7 @@ module.exports = {
                 const emptyLeaderboard = new EmbedBuilder()
                     .setTitle('Leaderboard')
                     .setDescription('*No history found.*')
-                    .setColor(configuration.embedColor);
+                    .setColor(client.config.embedColor);
 
                 return interaction.editReply({ embeds: [emptyLeaderboard] });
             }
@@ -240,7 +240,7 @@ module.exports = {
                         value: `${entry.points} points`
                     }))
                 )
-                .setColor(configuration.embedColor)
+                .setColor(client.config.embedColor)
                 .setTimestamp();
 
             return interaction.editReply({ embeds: [viewLeaderboard] });

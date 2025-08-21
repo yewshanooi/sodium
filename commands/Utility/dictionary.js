@@ -9,7 +9,7 @@ module.exports = {
     cooldown: '5',
     category: 'Utility',
     guildOnly: false,
-    async execute (interaction, configuration) {
+    async execute (interaction, client) {
         const queryField = interaction.options.getString('query');
 
         const Dictionary = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${queryField}`)
@@ -25,7 +25,7 @@ module.exports = {
                     { name: 'Part of Speech', value: `${capitalizedPartOfSpeech}` },
                     { name: 'Definition', value: `${Dictionary[0].meanings[0].definitions[0].definition}` }
                 )
-                .setColor(configuration.embedColor);
+                .setColor(client.config.embedColor);
 
                 if (Dictionary[0].meanings[0].definitions[0].example) embed.addFields({ name: 'Example', value: `${Dictionary[0].meanings[0].definitions[0].example}` });
 

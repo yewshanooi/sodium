@@ -2,6 +2,7 @@ const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const fetch = require('node-fetch');
 
 module.exports = {
+    apis: ['GIPHY_API_KEY'],
     data: new SlashCommandBuilder()
         .setName('giphy')
         .setDescription('Search Giphy for a GIF')

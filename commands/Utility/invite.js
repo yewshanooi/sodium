@@ -9,7 +9,7 @@ module.exports = {
     cooldown: '15',
     category: 'Utility',
     guildOnly: true,
-    async execute (interaction, configuration) {
+    async execute (interaction, client) {
         if (!interaction.guild.members.me.permissions.has(PermissionsBitField.Flags.CreateInstantInvite)) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Create Instant Invite** permission in `Server Settings > Roles` to use this command.' });
         if (!interaction.member.permissions.has(PermissionsBitField.Flags.CreateInstantInvite)) return interaction.reply({ embeds: [global.errors[2]] });
 
@@ -49,7 +49,7 @@ module.exports = {
                     { name: 'Duration', value: `${resultDurationField}`, inline: true },
                     { name: 'Limit', value: `${resultLimitField}`, inline: true }
                 )
-                .setColor(configuration.embedColor);
+                .setColor(client.config.embedColor);
 
             interaction.reply({ embeds: [embed] });
         }

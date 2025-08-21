@@ -9,7 +9,7 @@ module.exports = {
     cooldown: '3',
     category: 'Fun',
     guildOnly: false,
-    async execute (interaction, configuration) {
+    async execute (interaction, client) {
         const amountField = interaction.options.getInteger('amount');
 
         const Word = await fetch(`https://random-word-api.vercel.app/api?words=${amountField}&type=capitalized`)
@@ -19,7 +19,7 @@ module.exports = {
 
             const embed = new EmbedBuilder()
                 .setDescription(wordList)
-                .setColor(configuration.embedColor);
+                .setColor(client.config.embedColor);
 
             if (amountField === 1) {
                 embed.setTitle('Word');

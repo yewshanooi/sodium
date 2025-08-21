@@ -2,6 +2,7 @@ const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, SlashCommandBuilder } = r
 const fetch = require('node-fetch');
 
 module.exports = {
+    apis: ['NEWS_API_KEY'],
     data: new SlashCommandBuilder()
         .setName('news')
         .setDescription('Get the latest news from multiple sources')

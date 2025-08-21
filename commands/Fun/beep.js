@@ -7,10 +7,10 @@ module.exports = {
 	cooldown: '3',
 	category: 'Fun',
 	guildOnly: false,
-	execute (interaction, configuration) {
+	execute (interaction, client) {
 		const embed = new EmbedBuilder()
 			.setDescription('**Boop!** ✨')
-			.setColor(configuration.embedColor);
+			.setColor(client.config.embedColor);
 		interaction.reply({ embeds: [embed] });
 	}
 };

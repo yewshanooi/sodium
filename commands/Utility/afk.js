@@ -9,7 +9,7 @@ module.exports = {
     cooldown: '10',
     category: 'Utility',
     guildOnly: true,
-    execute (interaction, configuration) {
+    execute (interaction, client) {
         if (!interaction.guild.members.me.permissions.has(PermissionsBitField.Flags.ManageNicknames)) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Manage Nicknames** permission in `Server Settings > Roles` to use this command.' });
         if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageNicknames)) return interaction.reply({ embeds: [global.errors[2]] });
 
@@ -25,14 +25,14 @@ module.exports = {
                 if (optionField === 'true') {
                     const successEmbed = new EmbedBuilder()
                         .setDescription(`**${userField.username}** is now AFK`)
-                        .setColor(configuration.embedColor);
+                        .setColor(client.config.embedColor);
 
                     interaction.reply({ embeds: [successEmbed] }).then(memberUserField.setNickname(`[AFK] ${userField.displayName}`));
                 }
                 if (optionField === 'false') {
                     const successEmbed = new EmbedBuilder()
                         .setDescription(`**${userField.username}** is no longer AFK`)
-                        .setColor(configuration.embedColor);
+                        .setColor(client.config.embedColor);
 
                     interaction.reply({ embeds: [successEmbed] }).then(memberUserField.setNickname(userField.displayName));
                 }

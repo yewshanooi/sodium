@@ -2,6 +2,7 @@ const { EmbedBuilder, ButtonBuilder, ActionRowBuilder, SlashCommandBuilder } = r
 const fetch = require('node-fetch');
 
 module.exports = {
+    apis: ['NASA_API_KEY'],
     data: new SlashCommandBuilder()
         .setName('nasa')
         .setDescription('View the Astronomy Picture of the Day (APOD) from NASA'),

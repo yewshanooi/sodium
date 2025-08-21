@@ -12,7 +12,7 @@ module.exports = {
     cooldown: '5',
     category: 'Fun',
     guildOnly: false,
-    async execute (interaction, configuration) {
+    async execute (interaction, client) {
         await interaction.deferReply();
 
         // fact cat Subcommand
@@ -23,7 +23,7 @@ module.exports = {
             const catEmbed = new EmbedBuilder()
                 .setTitle('Cat Fact')
                 .setDescription(`${catFact.fact}`)
-                .setColor(configuration.embedColor);
+                .setColor(client.config.embedColor);
 
             return interaction.editReply({ embeds: [catEmbed] });
         }
@@ -36,7 +36,7 @@ module.exports = {
             const dogEmbed = new EmbedBuilder()
                 .setTitle('Dog Fact')
                 .setDescription(`${dogFact.data[0].attributes.body}`)
-                .setColor(configuration.embedColor);
+                .setColor(client.config.embedColor);
 
             return interaction.editReply({ embeds: [dogEmbed] });
         }
@@ -49,7 +49,7 @@ module.exports = {
             const generalEmbed = new EmbedBuilder()
                 .setTitle('General Fact')
                 .setDescription(`${generalFact.fact}`)
-                .setColor(configuration.embedColor);
+                .setColor(client.config.embedColor);
 
             return interaction.editReply({ embeds: [generalEmbed] });
         }
@@ -62,7 +62,7 @@ module.exports = {
             const uselessEmbed = new EmbedBuilder()
                 .setTitle('Useless Fact')
                 .setDescription(`${uselessFact.text}`)
-                .setColor(configuration.embedColor);
+                .setColor(client.config.embedColor);
 
             return interaction.editReply({ embeds: [uselessEmbed] });
         }

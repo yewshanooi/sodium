@@ -13,7 +13,7 @@ module.exports = {
     cooldown: '15',
     category: 'Moderation',
     guildOnly: true,
-	execute (interaction, configuration) {
+	execute (interaction, client) {
         if (!interaction.guild.members.me.permissions.has(PermissionsBitField.Flags.ManageChannels)) return interaction.reply({ content: 'Error: Bot permission denied. Enable **Manage Channels** permission in `Server Settings > Roles` to use this command.' });
         if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageChannels)) return interaction.reply({ embeds: [global.errors[2]] });
 
@@ -27,7 +27,7 @@ module.exports = {
             if (channelField === interaction.channel) {
                 const userDmEmbed = new EmbedBuilder()
                     .setDescription(`Successfully deleted **#${channelField.name}** channel in **${interaction.guild.name}** guild`)
-                    .setColor(configuration.embedColor);
+                    .setColor(client.config.embedColor);
 
                 interaction.user.send({ embeds: [userDmEmbed] })
                     .then(() => {
@@ -39,7 +39,7 @@ module.exports = {
             } else {
                 const deleteEmbed = new EmbedBuilder()
                     .setDescription(`Successfully deleted **#${channelField.name}** channel`)
-                    .setColor(configuration.embedColor);
+                    .setColor(client.config.embedColor);
 
                 interaction.reply({ embeds: [deleteEmbed] }).then(channelField.delete());
             }
@@ -49,7 +49,7 @@ module.exports = {
         if (interaction.options.getSubcommand() === 'lock') {
             const lockEmbed = new EmbedBuilder()
                 .setDescription(`Successfully locked ${currentChannel} channel`)
-                .setColor(configuration.embedColor);
+                .setColor(client.config.embedColor);
 
             interaction.reply({ embeds: [lockEmbed] }).then(interaction.guild.roles.cache.forEach(roles => {
                 currentChannel.permissionOverwrites.edit(roles, { SendMessages: false, AddReactions: false, CreatePublicThreads: false });
@@ -60,7 +60,7 @@ module.exports = {
         if (interaction.options.getSubcommand() === 'rename') {
             const renameEmbed = new EmbedBuilder()
                 .setDescription(`Successfully renamed channel to **${nameField}**`)
-                .setColor(configuration.embedColor);
+                .setColor(client.config.embedColor);
             interaction.reply({ embeds: [renameEmbed] }).then(interaction.channel.setName(nameField));
         }
 
@@ -68,7 +68,7 @@ module.exports = {
         if (interaction.options.getSubcommand() === 'unlock') {
             const unlockEmbed = new EmbedBuilder()
                 .setDescription(`Successfully unlocked ${currentChannel} channel`)
-                .setColor(configuration.embedColor);
+                .setColor(client.config.embedColor);
 
             interaction.reply({ embeds: [unlockEmbed] }).then(interaction.guild.roles.cache.forEach(roles => {
                 currentChannel.permissionOverwrites.edit(roles, { SendMessages: true, AddReactions: true, CreatePublicThreads: true });

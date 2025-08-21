@@ -112,7 +112,7 @@ module.exports = {
     cooldown: '8',
     category: 'Fun',
     guildOnly: true,
-    execute (interaction, configuration) {
+    execute (interaction, client) {
         const userField = interaction.options.getUser('user');
             if (userField === interaction.client.user) return interaction.reply({ content: 'Error: You cannot send a compliment to the bot.' });
             if (userField.bot === true) return interaction.reply({ content: 'Error: You cannot send a compliment to a bot.' });
@@ -122,11 +122,11 @@ module.exports = {
         const embed = new EmbedBuilder()
             .setTitle('Compliment')
             .setDescription(`${compliments[Math.floor(Math.random() * compliments.length)]}\n\n*from \`${interaction.user.username}\`*`)
-            .setColor(configuration.embedColor);
+            .setColor(client.config.embedColor);
 
         const successEmbed = new EmbedBuilder()
             .setDescription(`Successfully send compliment to ${userField}`)
-            .setColor(configuration.embedColor);
+            .setColor(client.config.embedColor);
 
         userField.send({ embeds: [embed] })
             .then(() => {
