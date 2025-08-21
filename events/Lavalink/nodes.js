@@ -1,21 +1,23 @@
+const chalk = require('chalk');
+
 module.exports = {
     name: 'lavalink',
     events: {
         nodeConnect: (client, node) => {
-        console.log(node.options.host, "[🟢] Lavalink / Node Connected!", node.options.retryDelay);
+        console.log(node.options.host, chalk.greenBright.bold("[🟢] Lavalink / Node Connected!"), node.options.retryDelay);
         },
         nodeCreate: (client, node) => {
-            console.log("[🟢] Lavalink / Node Player Created!");
+            console.log(chalk.greenBright.bold("[🟢] Lavalink / Node Player Created!"));
         },
         nodeDisconnect: (client, node, reason) => {
-            console.log(node.options.host, "[🔴] Lavalink / Node Disconnected. Reason:", reason);
+            console.log(node.options.host, chalk.redBright.bold("[🔴] Lavalink / Node Disconnected. Reason:"), reason);
         },
         nodeError: (client, node, error) => {
             if (error.message.includes("Unexpected op")) return;
-            console.log("[🔴] Lavalink / Node Error! Reason:", error.message);
+            console.log(chalk.redBright.bold("[🔴] Lavalink / Node Error! Reason:"), error.message);
         },
         nodeReconnect: (client, node) => {
-            console.log("[🟡] Lavalink / Node Reconnecting...");
+            console.log(chalk.yellowBright.bold("[🟡] Lavalink / Node Reconnecting..."));
         }
     }
 };

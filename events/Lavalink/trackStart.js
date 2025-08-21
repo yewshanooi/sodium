@@ -5,11 +5,11 @@ module.exports = {
   async execute(client, player, track, payload) {
     player.set("autoplay", false);
 
-    // Actualiza la actividad del bot para mostrar la información de la canción
+    // Update the bot activity to show the song information
     client.user.setActivity(track.title, { 
         type: ActivityType.Playing,
-        details: track.title, // Título de la canción
-        state: `${track.author||"XD"} | ${convertTime(track.duration)}`,  // Nombre del canal/artista
+        details: track.title, // Song title
+        state: `${track.author||"Unknow"} | ${convertTime(track.duration)}`,  // Channel/Artist name
     });
     console.log(`Playing: ${track.title} by ${track.author} (${track.uri})`);
     const embed = new EmbedBuilder()

@@ -8,7 +8,6 @@ module.exports = {
 	category: 'Utility',
 	guildOnly: false,
 	execute (interaction, client) {
-		console.log(client.config);
 		const embed = new EmbedBuilder()
 			.setDescription('*Calculating latency..*')
 			.setColor(client.config.embedColor);

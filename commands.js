@@ -28,7 +28,7 @@ function readCommands(dir, client) {
                 });
 
                 if (missing.length > 0) {
-                    console.log(`${chalk.yellow(`[COMMAND SKIPPED] ${command.data?.name || file.name}: require -> ${missing.join(", ")}`)}`);
+                    console.log(`${chalk.yellow(`[COMMAND] ${file.parentPath.split('\\').pop()} > ${command.data?.name || file.name}: require -> ${missing.join(", ")}`)}`);
                     continue;
                 }
             }
@@ -38,7 +38,7 @@ function readCommands(dir, client) {
                 if (client) {
                     client.commands.set(command.data.name, command);
                 }
-                console.log(`${chalk.green(`[COMMAND LOADED] ${command.data.name}`)}`);
+                console.log(`${chalk.green(`[COMMAND] ${file.parentPath.split('\\').pop()} > ${command.data.name}`)}`);
             } else {
                 console.log(`${chalk.red(`[WARNING] Missing "data" or "execute" in ${filePath}`)}`);
             }

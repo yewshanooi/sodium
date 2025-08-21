@@ -13,10 +13,10 @@ const mongoose = require('mongoose');
 const FakeYou = require("fakeyouapi.js");
 const { Manager } = require("erela.js");
 const Spotify = require("erela.js-spotify");
-
 DefaultWebSocketManagerOptions.identifyProperties.browser = 'Discord iOS';
 const client = global.client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers, GatewayIntentBits.GuildModeration, GatewayIntentBits.GuildIntegrations, GatewayIntentBits.GuildWebhooks, GatewayIntentBits.GuildInvites, GatewayIntentBits.GuildVoiceStates, GatewayIntentBits.GuildPresences, GatewayIntentBits.GuildMessages, GatewayIntentBits.GuildMessageReactions, GatewayIntentBits.GuildMessageTyping, GatewayIntentBits.DirectMessages, GatewayIntentBits.DirectMessageReactions, GatewayIntentBits.DirectMessageTyping], partials: [Partials.Channel] });
 
+module.exports = client;
 client.commands = new Collection();
 client.config = require("./config.json");
 const managerConfig = {
@@ -50,10 +50,11 @@ process.on('uncaughtException', error => console.log(error));
 // Load commands from commands.js
 readCommands(path.join(__dirname, 'commands'), client);
 
-// Error messages for missing Client Token, MongoDB Token, Client ID, Guild ID, and embedColor fields
+// Error messages for missing Client Token, MongoDB Token, Client ID and Guild ID
 if (!process.env.TOKEN) throw new Error(`${chalk.red.bold('[Error] Missing \'TOKEN\' field in the .env file.')}`);
 if (!process.env.CLIENT_ID) throw new Error(`${chalk.red.bold('[Error] Missing \'CLIENT_ID\' field in the .env file.')}`);
 if (!process.env.GUILD_ID) throw new Error(`${chalk.red.bold('[Error] Missing \'GUILD_ID\' field in the .env file.')}`);
+if (!process.env.MONGODB_TOKEN) throw new Error(`${chalk.red.bold('[Error] Missing \'MONGODB_TOKEN\' field in the .env file.')}`);
 
 // Discord events
 readdirSync('./events/Client/').forEach(file => {
@@ -69,18 +70,25 @@ readdirSync('./events/Client/').forEach(file => {
 // Lavalink v3 events
 readdirSync('./events/Lavalink/').forEach(file => {
     const event = require(path.join(__dirname, 'events/Lavalink', file));
-    console.log(`[LAVA] Event: ${event.name}`);
-
     if (event.events) {
         // multi-event
         for (const [eventName, handler] of Object.entries(event.events)) {
             client.manager.on(eventName, (...args) => handler(client, ...args));
-            console.log(`   ↳ Registered Lavalink event: ${eventName}`);
+            console.log(`[LAVA] Event: ${eventName}`);
         }
     } else {
         // single event
         client.manager.on(event.name, (...args) => event.execute(client, ...args));
-        console.log(`   ↳ Registered Lavalink event: ${event.name}`);
+        console.log(`[LAVA] Event: ${event.name}`);
+    }
+});
+
+// MongoDB events
+readdirSync('./events/MongoDB/').forEach(file => {
+    const event = require(path.join(__dirname, 'events/MongoDB', file));
+    for (const [eventName, handler] of Object.entries(event.events)) {
+        mongoose.connection.on(eventName, (...args) => handler(...args));
+        console.log(`[MONGODB] Event: ${eventName}`);
     }
 });
 
@@ -111,44 +119,24 @@ client.on('warn', info => {
 	sendLogs(info, '#ffaa00');
 });
 
-
-// MongoDB events
-mongoose.connection.on('connecting', () => {
-	console.log(`${chalk.greenBright.bold('[MongoDB] Connecting to database')}`);
-});
-
-mongoose.connection.on('connected', () => {
-	console.log(`${chalk.greenBright.bold('[MongoDB] Successfully connected to database')}`);
-});
-
-mongoose.connection.on('disconnected', () => {
-	console.log(`${chalk.redBright.bold('[MongoDB] Error: Disconnected from database')}`);
-});
-
-mongoose.connection.on('error', err => {
-	console.log(`${chalk.redBright.bold('[MongoDB] Error: There was a problem connecting to database')}\n`, err);
-});
-
-
-client.login(process.env.TOKEN);
-
 // Asynchronous process
 (async () => {
-	if (!process.env.MONGODB_TOKEN) console.log(`${chalk.yellow.bold('[Warning] Missing \'MONGODB_TOKEN\' field in the .env file.')}`);
-	await mongoose.connect(process.env.MONGODB_TOKEN).catch(console.error);
 
 	try {
-        console.log("Connecting to FakeYou...");
+        await mongoose.connect(process.env.MONGODB_TOKEN).catch(console.error);
+
         const fy = new FakeYou.Client({
             usernameOrEmail: process.env.FAKEYOU_USERNAME,
             password: process.env.FAKEYOU_PASSWORD
         });
         await fy.start();
         client.fy = fy;
-        console.log("Successfully connected to FakeYou.");
+        console.log(`${chalk.greenBright.bold('[FakeYou] Successfully connected to FakeYou API.')}`);
     } catch (error) {
-        console.error("An error occurred during startup:", error);
+        console.log(`${chalk.redBright.bold('An error occurred during startup:')}`, error);
     }
 })();
+
+client.login(process.env.TOKEN);
 
 /* Get lavalink nodes: https://lavalink.darrennathanael.com/  Credits: Darren Nathanael*/

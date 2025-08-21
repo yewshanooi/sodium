@@ -63,6 +63,7 @@ module.exports = {
 					}
 				}
 			});
+			await userField.send(`Hi **${userField.user.username}!**, you have been kicked from the server **${interaction.guild.name}**. ${reasonField ? "\nReason: " + reasonField : ""}`);
 		} catch (err) {
 			console.error(err);
 		}

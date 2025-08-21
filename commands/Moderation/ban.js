@@ -19,6 +19,7 @@ module.exports = {
         if (!interaction.member.permissions.has(PermissionsBitField.Flags.BanMembers)) return interaction.reply({ embeds: [global.errors[2]] });
 
             const userField = interaction.options.getMember('user');
+                if (!userField) return interaction.editReply({ content: 'The user does not exist in the server.', ephemeral: true });
                 if (userField.user.bot === true) return interaction.reply({ content: 'Error: You cannot ban a bot.' });
                 if (userField === interaction.member) return interaction.reply({ content: 'Error: You cannot ban yourself.' });
 
@@ -63,6 +64,7 @@ module.exports = {
                     }
                 }
             });
+            await userField.send(`Hi **${userField.user.username}!**, you have been banned from the server **${interaction.guild.name}**. ${reasonField ? "\nReason: " + reasonField : ""}`);
         } catch (err) {
             console.error(err);
         }

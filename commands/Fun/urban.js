@@ -31,13 +31,18 @@ module.exports = {
 
             const embed = new EmbedBuilder()
                 .setTitle(`${Answer.word}`)
+                .setAuthor({
+						name: 'Urban Dictionary',
+						url: 'https://urbandictionary.com',
+						iconURL: 'https://i.imgur.com/vdoosDm.png'
+				})
                 .setFooter({ text: 'Powered by Urban Dictionary' })
                 .setColor('#1b2936');
 
                 if (Answer.definition) embed.addFields({ name: 'Definition', value: `${trim(Answer.definition, 1024)}` });
                 if (Answer.example) embed.addFields({ name: 'Example', value: `${trim(Answer.example, 1024)}` });
 
-                embed.addFields({ name: 'Rating', value: `▲ ${Answer.thumbs_up} ▼ ${Answer.thumbs_down}` });
+                //embed.addFields({ name: 'Rating', value: `▲ ${Answer.thumbs_up} ▼ ${Answer.thumbs_down}` });
 
             const button = new ActionRowBuilder()
                 .addComponents(new ButtonBuilder()

@@ -16,7 +16,6 @@ module.exports = {
                 .setDescription('The voice channel you want the bot to join.')
                 .addChannelTypes(ChannelType.GuildVoice)
                 .setRequired(false)),
-    
     cooldown: '5',
     category: 'Music',
     guildOnly: true,

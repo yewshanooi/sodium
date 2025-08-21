@@ -113,37 +113,50 @@ npm install -g nodemon
         "host": "localhost",
         "port": 2333,
         "password": "youshallnotpass",
-        "secure": false,
-        "identifier": "local-node"
+        "secure": false
       }
     ],
     "spotify": true
   }
 }
-
 ```
 5. Create a new file named **.env** and fill it with your own variables<br/>
 > [!WARNING]
-> The TOKEN, CLIENT_ID, and GUILD_ID fields are required, while the rest are optional. With missing fields, certain features might not work as intended
+> The TOKEN, MONGODB_TOKEN, CLIENT_ID, and GUILD_ID fields are required, while the rest are optional. With missing fields, certain features might not work as intended
 ```
+# https://discord.com/developers/applications
 TOKEN=
 CLIENT_ID=
 GUILD_ID=
-# --------------------------
-# API KEYS (Optional)
-# --------------------------
+
+# Example: MONGODB_TOKEN= mongodb+srv://<user>:<password>@<domain>.mongodb.net/
 MONGODB_TOKEN=
+
+# _______________ API AND TOKENS KEYS (Optional) _______________
+# https://fortniteapi.com/
 FORTNITE_API_KEY=
+# https://docs.genius.com/
 GENIUS_API_KEY=
+# https://developers.giphy.com/
 GIPHY_API_KEY=
+# https://aistudio.google.com/apikey
 GOOGLE_API_KEY=
+# https://hypixel.net/
 HYPIXEL_API_KEY=
+# https://api.nasa.gov/
 NASA_API_KEY=
+# https://newsapi.org/
 NEWS_API_KEY=
+# https://openweathermap.org/api
 OPENWEATHERMAP_API_KEY=
+# https://developer.riotgames.com/
 RIOTGAMES_API_KEY=
+# https://developer.valvesoftware.com/wiki/Steam_Web_API
+STEAM_API_KEY=
+# https://www.fakeyou.com/
 FAKEYOU_USERNAME=
 FAKEYOU_PASSWORD=
+# https://developer.spotify.com/documentation/web-api
 SPOTIFY_CLIENT_ID=
 SPOTIFY_CLIENT_SECRET=
 ```

@@ -14,18 +14,16 @@ module.exports = {
     guildOnly: false,
     async execute (interaction, client) {
         await interaction.deferReply();
-
+        let embed;
         // fact cat Subcommand
         if (interaction.options.getSubcommand() === 'cat') {
             const catFact = await fetch('https://catfact.ninja/fact')
                 .then(res => res.json());
 
-            const catEmbed = new EmbedBuilder()
+            embed = new EmbedBuilder()
                 .setTitle('Cat Fact')
                 .setDescription(`${catFact.fact}`)
                 .setColor(client.config.embedColor);
-
-            return interaction.editReply({ embeds: [catEmbed] });
         }
 
         // fact dog Subcommand
@@ -33,12 +31,10 @@ module.exports = {
             const dogFact = await fetch('https://dogapi.dog/api/v2/facts')
                 .then(res => res.json());
 
-            const dogEmbed = new EmbedBuilder()
+            embed = new EmbedBuilder()
                 .setTitle('Dog Fact')
                 .setDescription(`${dogFact.data[0].attributes.body}`)
                 .setColor(client.config.embedColor);
-
-            return interaction.editReply({ embeds: [dogEmbed] });
         }
 
         // fact general Subcommand
@@ -46,12 +42,10 @@ module.exports = {
             const generalFact = await fetch('https://nekos.life/api/v2/fact')
                 .then(res => res.json());
 
-            const generalEmbed = new EmbedBuilder()
+            embed = new EmbedBuilder()
                 .setTitle('General Fact')
                 .setDescription(`${generalFact.fact}`)
                 .setColor(client.config.embedColor);
-
-            return interaction.editReply({ embeds: [generalEmbed] });
         }
 
         // fact useless Subcommand
@@ -59,14 +53,20 @@ module.exports = {
             const uselessFact = await fetch('https://uselessfacts.jsph.pl/api/v2/facts/random?language=en')
                 .then(res => res.json());
 
-            const uselessEmbed = new EmbedBuilder()
+            embed = new EmbedBuilder()
                 .setTitle('Useless Fact')
                 .setDescription(`${uselessFact.text}`)
                 .setColor(client.config.embedColor);
-
-            return interaction.editReply({ embeds: [uselessEmbed] });
         }
+        if (process.env.GIPHY_API_KEY) {
+            const randomGif = Math.floor(Math.random() * 19);
+            const Gif = await fetch(
+                `https://api.giphy.com/v1/gifs/search?api_key=${process.env.GIPHY_API_KEY}&q=${encodeURIComponent(interaction.options.getSubcommand())}&limit=1&offset=${randomGif}`
+            ).then(res => res.json()).then(body => body.data[0]);
 
+            if (Gif) embed.setThumbnail(Gif.images.original.url);
+        }
+        return interaction.editReply({ embeds: [embed] });
     }
 };
 

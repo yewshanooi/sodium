@@ -1,10 +1,16 @@
 {
   "embedColor": "Random",
-  "logsChannelID": "",
+  "channelID": "",
   "lavalink": {
-    "enabled": false,
+    "enabled": true,
     "nodes": [
+      {
+        "host": "localhost",
+        "port": 2333,
+        "password": "youshallnotpass",
+        "secure": false
+      }
     ],
-    "spotify": false
+    "spotify": true
   }
 }

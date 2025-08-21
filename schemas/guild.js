@@ -9,7 +9,17 @@ const guildSchema = new Schema({
         id: String
     },
     leaderboards: [leaderboardSchema],
-    logs: [logSchema]
+    logs: [logSchema],
+    steam: [
+        {
+            steamid: String,
+            discord_id: String
+        }
+    ],
+    language: {
+        type: String,
+        default: 'en'
+    }
 });
 
 module.exports = model('Guild', guildSchema, 'guilds');
