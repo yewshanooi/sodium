@@ -12,12 +12,20 @@
 </p>
 <br/>
 
+## ✨ What’s New
+
+Simple **music player** powered by Lavalink v3
+Queue up tracks, playlists, and radio-length sessions with buttery-smooth seeking, looping, shuffling, and rock-solid reconnection. Built on erela.js with first-class Spotify & YouTube support.
+
 ## Features
 - **AI Chatbot** *(powered by Google Gemini)*
 - **Moderation Logs & Leaderboard** *(stored using MongoDB Atlas)*
 - **Text Summarizer** *(powered by Hugging Face Transformers)*
 - **Third Party API** commands *(such as Giphy, Wikipedia, and more!)*
 - **Watch Together** *(with YouTube activity)*
+- 🎵 **Music (New)** Lavalink v3 backend for low-latency playback
+*Supports YouTube, Spotify, SoundCloud & direct URLs*
+<sub>*Spotify search/playlist import requires erela.js-spotify + API keys.</sub>
 <br/>
 
 ## Commands
@@ -26,11 +34,13 @@
 		<td><b>Fun</b></td>
 		<td><b>Moderation</b></td>
 		<td><b>Utility</b></td>
+		<td><b>Music</b></td>
 	</tr>
 	<tr>
 		<td>8ball, achievement, beep, coinflip, color, compliment, diceroll, fact <b>[cat | dog | general | useless]</b>, fortnite, giphy, hypixel, leagueoflegends, lyrics, meme, minecraft, nasa, neko, pokemon, rps, say, spotify, urban, word, wynncraft, youtube</td>
 		<td>ban, channel <b>[delete | lock | rename | unlock]</b>, deafen, kick, logs <b>[add | remove | reset | view]</b>, purge, role <b>[add | remove]</b>, setnick, slowmode, timeout, unban, undeafen, untimeout, warn</td>
 		<td>afk, announce, botpresence, botsetnick, calculator, crypto, dictionary, gemini, github, guildrename, help, info <b>[channel | client | guild | role | user]</b>, invite, leaderboard <b>[add | remove | reset | view]</b>, leave, message, mongodb <b>[initialize | delete]</b>, news, npm, ping, qrcode, summarize, thread, weather, wikipedia</td>
+		<td>clearqueue, join, leave, loop, lyrics, nowplaying, pause, play, queue, remove, resume, shuffle, skip, skipto, stop, volume</td>
 	</tr>
 </table>
 <br/>
@@ -41,26 +51,38 @@ Node.js version **≥22.0.0** is required
 
 ###### npm Packages
 <table>
-	<tr>
-		<td><a href="https://www.npmjs.com/package/@dotenvx/dotenvx">@dotenvx/dotenvx@1.49.0</a></td>
-		<td><a href="https://www.npmjs.com/package/@google/genai">@google/genai@1.15.0</a></td>
-	</tr>
-	<tr>
-		<td><a href="https://www.npmjs.com/package/@huggingface/transformers">@huggingface/transformers@3.7.2</a></td>
-		<td><a href="https://www.npmjs.com/package/chalk">chalk@4.1.2</a></td>
-	</tr>
-	<tr>
-		<td><a href="https://www.npmjs.com/package/discord.js">discord.js@14.21.0</a></td>
-		<td><a href="https://www.npmjs.com/package/mathjs">mathjs@14.6.0</a></td>
-	</tr>
-	<tr>
-		<td><a href="https://www.npmjs.com/package/mongodb">mongodb@6.18.0</a></td>
-		<td><a href="https://www.npmjs.com/package/mongoose">mongoose@8.17.2</a></td>
-	</td>
-	<tr>
-		<td><a href="https://www.npmjs.com/package/node-fetch">node-fetch@2.7.0</a></td>
-		<td><a href="https://www.npmjs.com/package/uuid">uuid@11.1.0</a></td>
-	</td>
+  <tr>
+    <td><a href="https://www.npmjs.com/package/@dotenvx/dotenvx">@dotenvx/dotenvx@1.49.0</a></td>
+    <td><a href="https://www.npmjs.com/package/@google/genai">@google/genai@1.15.0</a></td>
+  </tr>
+  <tr>
+    <td><a href="https://www.npmjs.com/package/@huggingface/transformers">@huggingface/transformers@3.7.2</a></td>
+    <td><a href="https://www.npmjs.com/package/chalk">chalk@4.1.2</a></td>
+  </tr>
+  <tr>
+    <td><a href="https://www.npmjs.com/package/delay">delay@6.0.0</a></td>
+    <td><a href="https://www.npmjs.com/package/discord.js">discord.js@14.21.0</a></td>
+  </tr>
+  <tr>
+    <td><a href="https://www.npmjs.com/package/erela.js">erela.js@2.4.0</a></td>
+    <td><a href="https://www.npmjs.com/package/erela.js-spotify">erela.js-spotify@1.2.0</a></td>
+  </tr>
+  <tr>
+    <td><a href="https://www.npmjs.com/package/fakeyouapi.js">fakeyouapi.js@1.1.9</a></td>
+    <td><a href="https://www.npmjs.com/package/lodash">lodash@4.17.21</a></td>
+  </tr>
+  <tr>
+    <td><a href="https://www.npmjs.com/package/mathjs">mathjs@14.6.0</a></td>
+    <td><a href="https://www.npmjs.com/package/mongodb">mongodb@6.18.0</a></td>
+  </tr>
+  <tr>
+    <td><a href="https://www.npmjs.com/package/mongoose">mongoose@8.17.2</a></td>
+    <td><a href="https://www.npmjs.com/package/node-fetch">node-fetch@2.7.0</a></td>
+  </tr>
+  <tr>
+    <td><a href="https://www.npmjs.com/package/pretty-ms">pretty-ms@9.2.0</a></td>
+    <td><a href="https://www.npmjs.com/package/uuid">uuid@11.1.0</a></td>
+  </tr>
 </table>
 <br/>
 
@@ -86,10 +108,19 @@ npm install -g nodemon
   "channelID": "",
   "lavalink": {
     "enabled": true,
-    "nodes": [],
-    "spotify": false
+    "nodes": [
+      {
+        "host": "localhost",
+        "port": 2333,
+        "password": "youshallnotpass",
+        "secure": false,
+        "identifier": "local-node"
+      }
+    ],
+    "spotify": true
   }
 }
+
 ```
 5. Create a new file named **.env** and fill it with your own variables<br/>
 > [!WARNING]
