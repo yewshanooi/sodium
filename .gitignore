@@ -8,7 +8,7 @@ node_modules/
 .env
 
 # Configuration information
-config.json
+config.ts
 
 # Package manifest
 package-lock.json
