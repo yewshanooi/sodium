@@ -14,7 +14,7 @@
 
 ## ✨ What’s New
 
-Simple **music player** powered by Lavalink v3
+Simple **music player** powered by Lavalink v4
 Queue up tracks, playlists, and radio-length sessions with buttery-smooth seeking, looping, shuffling, and rock-solid reconnection. Built on erela.js with first-class Spotify & YouTube support.
 
 ## Features
@@ -23,7 +23,7 @@ Queue up tracks, playlists, and radio-length sessions with buttery-smooth seekin
 - **Text Summarizer** *(powered by Hugging Face Transformers)*
 - **Third Party API** commands *(such as Giphy, Wikipedia, and more!)*
 - **Watch Together** *(with YouTube activity)*
-- 🎵 **Music (New)** Lavalink v3 backend for low-latency playback
+- 🎵 **Music (New)** Lavalink v4 backend for low-latency playback
 *Supports YouTube, Spotify, SoundCloud & direct URLs*
 <sub>*Spotify search/playlist import requires erela.js-spotify + API keys.</sub>
 <br/>
@@ -39,8 +39,8 @@ Queue up tracks, playlists, and radio-length sessions with buttery-smooth seekin
 	<tr>
 		<td>8ball, achievement, beep, coinflip, color, compliment, diceroll, fact <b>[cat | dog | general | useless]</b>, fortnite, giphy, hypixel, leagueoflegends, lyrics, meme, minecraft, nasa, neko, pokemon, rps, say, spotify, urban, word, wynncraft, youtube</td>
 		<td>ban, channel <b>[delete | lock | rename | unlock]</b>, deafen, kick, logs <b>[add | remove | reset | view]</b>, purge, role <b>[add | remove]</b>, setnick, slowmode, timeout, unban, undeafen, untimeout, warn</td>
-		<td>afk, announce, botpresence, botsetnick, calculator, crypto, dictionary, gemini, github, guildrename, help, info <b>[channel | client | guild | role | user]</b>, invite, leaderboard <b>[add | remove | reset | view]</b>, leave, message, mongodb <b>[initialize | delete]</b>, news, npm, ping, qrcode, summarize, thread, weather, wikipedia</td>
-		<td>clearqueue, join, leave, loop, lyrics, nowplaying, pause, play, queue, remove, resume, shuffle, skip, skipto, stop, volume</td>
+    <td>afk, announce, botpresence, botsetnick, calculator, crypto, dictionary, eval, example, floweryTts, gemini, github, guildrename, help, info <b>[channel | client | guild | role | user]</b>, invite, leaderboard <b>[add | remove | reset | view]</b>, leave, message, mongodb <b>[initialize | delete]</b>, news, npm, ping, qrcode, sound, steam, summarize, thread, tts, voices, weather, wikipedia</td>
+		<td>addUnresolved, audioOutput, equalizer, filter, join, lavaSearch, listqueue, localfile, loop, pause, play, reconnectSync, resume, resumeFixed, seek, skip, stop, stopPlaying, volume</td>
 	</tr>
 </table>
 <br/>
@@ -50,41 +50,33 @@ Queue up tracks, playlists, and radio-length sessions with buttery-smooth seekin
 Node.js version **≥22.0.0** is required
 
 ###### npm Packages
-<table>
-  <tr>
-    <td><a href="https://www.npmjs.com/package/@dotenvx/dotenvx">@dotenvx/dotenvx@1.49.0</a></td>
-    <td><a href="https://www.npmjs.com/package/@google/genai">@google/genai@1.15.0</a></td>
-  </tr>
-  <tr>
-    <td><a href="https://www.npmjs.com/package/@huggingface/transformers">@huggingface/transformers@3.7.2</a></td>
-    <td><a href="https://www.npmjs.com/package/chalk">chalk@4.1.2</a></td>
-  </tr>
-  <tr>
-    <td><a href="https://www.npmjs.com/package/delay">delay@6.0.0</a></td>
-    <td><a href="https://www.npmjs.com/package/discord.js">discord.js@14.21.0</a></td>
-  </tr>
-  <tr>
-    <td><a href="https://www.npmjs.com/package/erela.js">erela.js@2.4.0</a></td>
-    <td><a href="https://www.npmjs.com/package/erela.js-spotify">erela.js-spotify@1.2.0</a></td>
-  </tr>
-  <tr>
-    <td><a href="https://www.npmjs.com/package/fakeyouapi.js">fakeyouapi.js@1.1.9</a></td>
-    <td><a href="https://www.npmjs.com/package/lodash">lodash@4.17.21</a></td>
-  </tr>
-  <tr>
-    <td><a href="https://www.npmjs.com/package/mathjs">mathjs@14.6.0</a></td>
-    <td><a href="https://www.npmjs.com/package/mongodb">mongodb@6.18.0</a></td>
-  </tr>
-  <tr>
-    <td><a href="https://www.npmjs.com/package/mongoose">mongoose@8.17.2</a></td>
-    <td><a href="https://www.npmjs.com/package/node-fetch">node-fetch@2.7.0</a></td>
-  </tr>
-  <tr>
-    <td><a href="https://www.npmjs.com/package/pretty-ms">pretty-ms@9.2.0</a></td>
-    <td><a href="https://www.npmjs.com/package/uuid">uuid@11.1.0</a></td>
-  </tr>
-</table>
-<br/>
+###### npm Packages
+| Package | Version |
+|---|---|
+| [@google/genai](https://www.npmjs.com/package/@google/genai) | 1.15.0 |
+| [@redis/client](https://www.npmjs.com/package/@redis/client) | 1.6.0 |
+| [@types/node](https://www.npmjs.com/package/@types/node) | 22.15.18 |
+| [@types/ws](https://www.npmjs.com/package/@types/ws) | 8.18.1 |
+| [chalk](https://www.npmjs.com/package/chalk) | 4.1.2 |
+| [discord.js](https://www.npmjs.com/package/discord.js) | 14.22.1 |
+| [dotenv](https://www.npmjs.com/package/dotenv) | 16.5.0 |
+| [fakeyouapi.js](https://www.npmjs.com/package/fakeyouapi.js) | 1.1.9 |
+| [lavalink-client](https://www.npmjs.com/package/lavalink-client) | 2.6.0 |
+| [mathjs](https://www.npmjs.com/package/mathjs) | 14.6.0 |
+| [mongodb](https://www.npmjs.com/package/mongodb) | 6.18.0 |
+| [mongoose](https://www.npmjs.com/package/mongoose) | 8.17.2 |
+| [node-fetch](https://www.npmjs.com/package/node-fetch) | 3.3.2 |
+| [redis](https://www.npmjs.com/package/redis) | 4.7.0 |
+| [ts-node](https://www.npmjs.com/package/ts-node) | 10.9.2 |
+| [uuid](https://www.npmjs.com/package/uuid) | 11.1.0 |
+| [ws](https://www.npmjs.com/package/ws) | 8.18.2 |
+
+###### devDependencies
+| Package | Version |
+|---|---|
+| [tsconfig-paths](https://www.npmjs.com/package/tsconfig-paths) | 4.2.0 |
+| [tslib](https://www.npmjs.com/package/tslib) | 2.8.1 |
+| [typescript](https://www.npmjs.com/package/typescript) | 5.8.3 |
 
 ## Guides
 ###### Configuration Files
@@ -101,31 +93,45 @@ npm install
 ```
 npm install -g nodemon
 ```
-4. Create a new file named **config.json** and fill it with your own information<br/>
+4. Create a new file named **config.ts** and fill it with your own information<br/>
 ```
-{
-  "embedColor": "",
-  "channelID": "",
-  "lavalink": {
-    "enabled": true,
-    "nodes": [
-      {
-        "host": "localhost",
-        "port": 2333,
-        "password": "youshallnotpass",
-        "secure": false
-      }
-    ],
-    "spotify": true
-  }
+import { ActivityType } from "discord.js"; import { config } from "dotenv";config();
+export const envConfig = {
+    embedColor: "Random",
+    activity: { name: `Test /help with Sodium Bot`, type: ActivityType.Custom, url: null }, 
+    status: 'online',
+    token: process.env.DISCORD_TOKEN as string,
+    clientId: process.env.CLIENT_ID as string,
+    mongodb: process.env.MONGODB_TOKEN as string,
+    redis: {
+        url: process.env.REDIS_URL as string,
+        password: process.env.REDIS_PASSWORD as string
+    },
+    useJSONStore: !process.env.REDIS_URL ? true : false,
+    devGuild: process.env.GUILD_ID as string || null,
+    lavalink: {
+        enabled: true, // https://lavalink-list.appujet.site/
+        nodes: [
+            {
+                authorization: "youshallnotpass", // password
+                host: "localhost",
+                port: 2333,
+                id: "SodiumBot",
+                secure: false,
+                // sessionId: "lsvunq8h8bxx0m9w", // The sessionId is automatic but you have to add the sessionId in order to resume the session for the node, and then to recover the players listen to nodeManager#resumed.
+            },
+        ]
+    },
+    logsChannelID: ""
 }
+
 ```
 5. Create a new file named **.env** and fill it with your own variables<br/>
 > [!WARNING]
 > The TOKEN, MONGODB_TOKEN, CLIENT_ID, and GUILD_ID fields are required, while the rest are optional. With missing fields, certain features might not work as intended
 ```
 # https://discord.com/developers/applications
-TOKEN=
+DISCORD_TOKEN=
 CLIENT_ID=
 GUILD_ID=
 
@@ -159,14 +165,19 @@ FAKEYOU_PASSWORD=
 # https://developer.spotify.com/documentation/web-api
 SPOTIFY_CLIENT_ID=
 SPOTIFY_CLIENT_SECRET=
+# If no redis URL is provided, the bot is configured to use a custom json store for queue data
+REDIS_URL=
+REDIS_PASSWORD=
+
+# Lavalink Nodes and more must be configured in config.ts
 ```
 6. Run the **commands.js** file to deploy or delete application commands for a single guild by default
 ```
-npm run commands	-or-	node commands.js deploy    -or-    node commands.js delete
+npm run deploy    -or-    npm run delete
 ```
 7. Run the **index.js** file to start the bot<br/>
 ```
-npm start    -or-    node index.js    -or-    nodemon
+npm start    -or-    ts-node index.ts    -or-    nodemon
 ```
 
 ###### Machine Learning

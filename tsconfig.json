@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "lib": [
+      "ESNext", "DOM"
+    ],
+    "target": "ESNext",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "outDir": "dist",
+    "resolveJsonModule": true,
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "sourceMap": true,
+    "types": [ "node", "ws" ]
+  },
+  "include": ["**/*.ts"]
+  ,
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}

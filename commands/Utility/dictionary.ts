@@ -1,0 +1,35 @@
+import { EmbedBuilder, SlashCommandBuilder } from "discord.js";
+import type { Command } from "../../Utils/types/Client";
+import fetch from 'node-fetch';
+
+export default {
+    data: new SlashCommandBuilder()
+        .setName('dictionary')
+        .setDescription('Search the dictionary for a definition')
+        .addStringOption(option => option.setName('query').setDescription('Enter a query').setRequired(true)),
+    cooldown: 5,
+    category: 'Utility',
+    guildOnly: false,
+    execute: async (client, interaction) => {
+        const queryField = interaction.options.getString('query');
+
+        const Dictionary: any = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${queryField}`)
+            .then(res => res.json());
+
+            if (!Dictionary[0]) return interaction.reply({ content: 'Error: No definition found with that query.' });
+
+            const capitalizedPartOfSpeech = Dictionary[0].meanings[0].partOfSpeech.charAt(0).toUpperCase() + Dictionary[0].meanings[0].partOfSpeech.slice(1);
+
+            const embed = new EmbedBuilder()
+                .setTitle(`${Dictionary[0].word}`)
+                .addFields(
+                    { name: 'Part of Speech', value: `${capitalizedPartOfSpeech}` },
+                    { name: 'Definition', value: `${Dictionary[0].meanings[0].definitions[0].definition}` }
+                )
+                .setColor(client.embedColor as any);
+
+                if (Dictionary[0].meanings[0].definitions[0].example) embed.addFields({ name: 'Example', value: `${Dictionary[0].meanings[0].definitions[0].example}` });
+
+            return interaction.reply({ embeds: [embed] });
+        }
+} as Command;
