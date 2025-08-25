@@ -163,8 +163,9 @@ export function PlayerEvents(client:BotClient) {
     const msg = await channel.send({ embeds: [embed], components: [row] });
     messagesMap.set(player.guildId, msg);
     })
-    .on("trackEnd", (player, track, payload) => {
+    .on("trackEnd", async(player, track, payload) => {
         disableButtons(player);
+        try{await updatePlayerEmbed(player.guildId!, "⏹️ Finished");}catch{};
         logPlayer(client, player, "[LAVALINK] Finished Playing", track?.info?.title)
         client.user.setPresence({ activities: [envConfig.activity], status: envConfig.status as any });
     })
@@ -174,8 +175,9 @@ export function PlayerEvents(client:BotClient) {
     .on("trackStuck", (player, track, payload) => {
         logPlayer(client, player, "[LAVALINK] Got Stuck while Playing", track?.info?.title, "STUCKED DATA:", payload)
     })
-    .on("queueEnd", (player, track, payload) => {
+    .on("queueEnd", async(player, track, payload) => {
         disableButtons(player);
+        try{await updatePlayerEmbed(player.guildId!, "⏹️ Finished");}catch{};
         logPlayer(client, player, "[LAVALINK] No more tracks in the queue, after playing", track?.info?.title || track)
         /*sendPlayerMessage(client, player, {
             embeds: [
@@ -234,7 +236,7 @@ export function PlayerEvents(client:BotClient) {
   async function disableButtons(player: Player) {
     const msg = messagesMap.get(player.guildId);
     if (!msg || !msg.editable) return;
-
+    
     const existingRow = msg.components[0] as ActionRow<MessageActionRowComponent>;
     if (!existingRow) return;
 

@@ -1,18 +1,19 @@
-const fs = require('fs').promises;
-const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
-const { env, pipeline } = require('@huggingface/transformers');
+import { promises } from "fs";
+import { EmbedBuilder, SlashCommandBuilder, PermissionsBitField, TextChannel } from "discord.js";
+import { env, pipeline } from '@huggingface/transformers';
+import type { Command } from "../../Utils/types/Client";
 
 const activeUsers = new Set();
 
-module.exports = {
+export default {
     data: new SlashCommandBuilder()
         .setName('summarize')
         .setDescription('Summarize text on-device using Machine Learning')
         .addStringOption(option => option.setName('query').setDescription('Enter a query (max 3072 characters)').setMaxLength(3072).setRequired(true)),
-    cooldown: '10',
+    cooldown: 10,
     category: 'Utility',
-    guildOnly: false,
-    async execute (interaction) {
+    guildOnly: true,
+    execute: async (client, interaction) => {
         await interaction.deferReply();
 
         const userId = interaction.user.id;
@@ -23,7 +24,7 @@ module.exports = {
         const model = "facebook/bart-large-cnn";
 
         try {
-            await fs.access(`./models/${model}`);
+            await promises.access(`./models/${model}`);
         } catch (err) {
             return interaction.editReply({ content: 'Error: The model is unavailable. Please ensure it is properly installed in the correct path.' });
         }
@@ -67,6 +68,6 @@ module.exports = {
         }
 
     }
-};
+} as Command;
 
 // Alternative models: t5-small, t5-base, distilbart-cnn-6-6

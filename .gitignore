@@ -12,3 +12,9 @@ config.ts
 
 # Package manifest
 package-lock.json
+
+# player data
+playerData.json
+
+# Queue data
+queueData.json

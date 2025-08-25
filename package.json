@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "@google/genai": "^1.15.0",
+    "@huggingface/transformers": "^3.7.2",
     "@redis/client": "^1.6.0",
     "@types/node": "^22.15.18",
     "@types/ws": "^8.18.1",
