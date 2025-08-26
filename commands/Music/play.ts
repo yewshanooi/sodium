@@ -10,10 +10,11 @@ const autocompleteMap = new Map();
 
 export default {
     apis: ['ENABLE_LAVALINK'],
+    gemini: true,
     data: new SlashCommandBuilder()
         .setName("play")
-        .setDescription("Play Music")
-        .addStringOption(o => o.setName("query").setDescription("What to play?").setAutocomplete(true).setRequired(true))
+        .setDescription("Play music in a voice channel")
+        .addStringOption(o => o.setName("query").setDescription("What music do you want to play?").setAutocomplete(true).setRequired(true))
         .addStringOption(o => o.setName("source").setDescription("From which Source you want to play?").setRequired(false).setChoices(
             { name: "Youtube", value: "ytsearch" }, // Requires plugin on lavalink: https://github.com/lavalink-devs/youtube-source
             { name: "Youtube Music", value: "ytmsearch" }, // Requires plugin on lavalink: https://github.com/lavalink-devs/youtube-source

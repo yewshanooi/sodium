@@ -9,6 +9,7 @@ import type { Command } from "../../Utils/types/Client";
 
 export default {
     apis: ["GENIUS_API_KEY"],
+    gemini: true,
     data: new SlashCommandBuilder()
         .setName("lyrics")
         .setDescription("Get the lyrics for the currently playing song or a specific song.")

@@ -14,9 +14,9 @@ async function readCommands(dir: string, client: BotClient) {
 
         if (stat.isDirectory()) {
             await readCommands(filePath, client);
-        } else if (file.endsWith(".ts") || !file.endsWith(".js")) {
-            if (file === "commandLoader.ts") continue;
-            
+        } else if (file.endsWith(".ts") || file.endsWith(".js")) {
+            if (file === "commandLoader.ts"||file === "commandLoader.js") continue;
+
             const command = await import(filePath).then(v => v.default) as Command;
             const parentFolder = basename(dirname(filePath));
             if (command.apis && Array.isArray(command.apis)) {

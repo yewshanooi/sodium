@@ -18,3 +18,7 @@ playerData.json
 
 # Queue data
 queueData.json
+
+# Directories
+models/
+dist/

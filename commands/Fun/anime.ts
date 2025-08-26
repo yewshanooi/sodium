@@ -59,7 +59,7 @@ export default {
                     sub.setName('avatar').setDescription('Random anime avatar')
                 )
         ),
-
+    gemini: true,
     cooldown: 5,
     category: 'Fun',
     guildOnly: false,

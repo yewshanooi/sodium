@@ -5,6 +5,7 @@ import type { Command } from "../../Utils/types/Client";
 
 export default {
     apis: ['ENABLE_LAVALINK'],
+    gemini: true,
     data: new SlashCommandBuilder()
         .setName("skip").setDescription("Skip the current track")
         .addIntegerOption(o => o.setName("skipto").setDescription("to which song to skip to?").setRequired(false)),

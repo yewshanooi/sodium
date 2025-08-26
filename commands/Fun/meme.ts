@@ -18,6 +18,7 @@ export default {
         .addSubcommand(sub =>
             sub.setName('anime')
                 .setDescription('Get an anime meme')),
+    gemini: true,
     cooldown: 5,
     category: 'Fun',
     guildOnly: false,

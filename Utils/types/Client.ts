@@ -11,6 +11,7 @@ import FakeYou from "fakeyouapi.js";
 
 import type { LavalinkManager, MiniMap } from "lavalink-client";
 import type { JSONStore } from "../classes";
+import { BlobOptions } from "buffer";
 
 export class ExtendedClient extends Client {
     public errors = errors;
@@ -29,6 +30,7 @@ export interface CustomRequester {
 export interface Command {
     apis: Array<string>,
     data: SlashCommandBuilder | SlashCommandOptionsOnlyBuilder;
+    gemini: boolean | false;
     cooldown: number | 0;
     category: string;
     guildOnly: boolean;
@@ -41,8 +43,9 @@ type subCommandAutocomplete = { [subCommandName: string]: AutoCompleteExecuteFN 
 export interface SubCommand {
     data: SlashCommandSubcommandBuilder | SlashCommandSubcommandGroupBuilder | SlashCommandSubcommandsOnlyBuilder;
     execute: subCommandExecute;
-    guildOnly: boolean;
-    cooldown: number | 0;
+    gemini?: boolean | false;
+    guildOnly?: boolean;
+    cooldown?: number | 0;
     autocomplete?: subCommandAutocomplete;
 }
 

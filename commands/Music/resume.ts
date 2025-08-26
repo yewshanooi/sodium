@@ -5,6 +5,7 @@ import type { Command } from "../../Utils/types/Client";
 
 export default {
     apis: ['ENABLE_LAVALINK'],
+    gemini: true,
     data: new SlashCommandBuilder()
         .setName("resume").setDescription("Resume the player"),
     cooldown: 5,

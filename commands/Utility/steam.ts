@@ -7,6 +7,7 @@ import fetch from 'node-fetch';
 
 export default {
 	apis: ["STEAM_API_KEY"],
+	gemini: true,
 	data: new SlashCommandBuilder()
 		.setName('steam')
 		.setDescription('Steam commands: link your SteamID or show a profile')

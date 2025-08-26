@@ -15,8 +15,8 @@ function readCommands(dir: string) {
 
         if (stat.isDirectory()) {
             readCommands(filePath);
-        } else if (file.endsWith(".ts") || !file.endsWith(".js")) {
-            if (file === "commandLoader.ts") continue;
+        } else if (file.endsWith(".ts") || file.endsWith(".js")) {
+            if (file === "commandLoader.ts" || file === "commandLoader.js") continue;
 
             const command = require(filePath)?.default;
             if (command.apis && Array.isArray(command.apis)) {

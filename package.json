@@ -12,7 +12,8 @@
   "scripts": {
     "start": "npx ts-node index.ts",
     "deploy": "npx ts-node commands.ts deploy",
-    "delete": "npx ts-node commands.ts delete"
+    "delete": "npx ts-node commands.ts delete",
+    "to-javascript": "npx tsc"
   },
   "engines": {
     "node": ">=22.0.0"

@@ -5,6 +5,7 @@ import type { Command } from "../../Utils/types/Client";
 
 export default {
     apis: ['ENABLE_LAVALINK'],
+    gemini: true,
     data: new SlashCommandBuilder()
         .setName("volume").setDescription("Change the Volume of the Player")
         .addIntegerOption(o => o.setName("percentage").setDescription("To what Volume do you want to change").setMaxValue(200).setMinValue(0).setRequired(true))

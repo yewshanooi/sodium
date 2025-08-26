@@ -8,6 +8,7 @@ export default {
         .addStringOption(option => option.setName('activity').setDescription('Enter an activity').setRequired(true))
         .addStringOption(option => option.setName('type').setDescription('Select a type').addChoices({ name: 'Playing', value: 'Playing' }, { name: 'Streaming', value: 'Streaming' }, { name: 'Listening', value: 'Listening' }, { name: 'Watching', value: 'Watching' }, { name: 'Competing', value: 'Competing' }, { name: 'Custom', value: 'Custom' }).setRequired(true))
         .addStringOption(option => option.setName('status').setDescription('Select a status').addChoices({ name: 'Online', value: 'online' }, { name: 'Idle', value: 'idle' }, { name: 'Do Not Disturb', value: 'dnd' }, { name: 'Invisible', value: 'invisible' }).setRequired(false)),
+    gemini: true,
     cooldown: 25,
     category: 'Utility',
     guildOnly: true,

@@ -7,6 +7,7 @@ export default {
         .setName('minecraft')
         .setDescription('Get a Minecraft player\'s details from Mojang Studios')
         .addStringOption(option => option.setName('username').setDescription('Enter a username').setRequired(true)),
+    gemini: true,
     cooldown: 5,
     category: 'Fun',
     guildOnly: false,

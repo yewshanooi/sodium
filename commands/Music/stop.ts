@@ -5,6 +5,7 @@ import type { Command } from "../../Utils/types/Client";
 
 export default {
     apis: ['ENABLE_LAVALINK'],
+    gemini: true,
     data: new SlashCommandBuilder()
         .setName("stop").setDescription("Stops the player & leaves the voice"),
     cooldown: 5,

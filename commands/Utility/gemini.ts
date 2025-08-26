@@ -8,6 +8,7 @@ import {
 } from "discord.js";
 import type { Command } from "../../Utils/types/Client";
 import { GoogleGenAI, HarmCategory, HarmBlockThreshold } from '@google/genai';
+import { generateGeminiContent } from "../../Utils/geminiHelper";
 
 const sessions = new Map<string, { history: any[], messages: string[] }>();
 
@@ -20,6 +21,7 @@ export default {
     category: 'Utility',
     guildOnly: false,
     execute: async (client, interaction) => {
+        const MAX_HISTORY_MESSAGES = 8;
         if (!process.env.GOOGLE_API_KEY) {
             return interaction.reply("API key missing");
         }
@@ -38,7 +40,15 @@ export default {
         }
 
         // Crear sesión
-        sessions.set(channelId, { history: [], messages: [] });
+        sessions.set(channelId, { 
+            history: [{
+                role: "user",
+                parts: [{ 
+                    text: "Eres un bot de Discord llamado Grasabot. Responde a mis preguntas de forma natural y conversacional. Si el contexto lo amerita, añade un emoji o varios emojis de reacción usando el formato especial <emojis:😞:🌧️> para usarlos en Discord como Unicode. Por ejemplo, si una respuesta es graciosa, añade <emojis:🤣>. Si gustas pueden añadir emojis durante el texto/mensaje final"
+                }]
+            }], 
+            messages: [] 
+        });
 
         const row = new ActionRowBuilder<ButtonBuilder>().addComponents(
             new ButtonBuilder()
@@ -56,19 +66,21 @@ export default {
             components: [row]
         });
 
+        
         sessions.get(channelId)!.messages.push(startMsg.id);
 
         const channel = interaction.channel;
 
         const msgCollector = channel.createMessageCollector({
             filter: m => !m.author.bot,
-            idle: 300000
+            idle: 900000
         });
 
         msgCollector.on("collect", async msg => {
             const session = sessions.get(channelId);
             if (!session) return msgCollector.stop();
-
+            if (typeof msg.content === 'string' && msg.content.startsWith('/')) return;
+            
             (msg.channel as TextChannel).sendTyping();
 
             // Añadir mensaje del usuario al historial
@@ -76,27 +88,27 @@ export default {
 
             let response: any;
             let text: string;
-
+            let allEmojis: string[] = [];
+            const emojiRegex = /<emojis:([^>]+)>/g;
             try {
-                response = await ai.models.generateContent({
-                    model: "gemini-2.5-flash",
-                    contents: session.history,
-                    config: { tools: [{ googleSearch: {} }], thinkingConfig: { thinkingBudget: -1 } },
-                    generationConfig: { temperature: 1, topP: 0.95, topK: 40, candidateCount: 1, maxOutputTokens: 1024 },
-                    safetySettings: [
-                        { category: HarmCategory.HARM_CATEGORY_CIVIC_INTEGRITY, threshold: HarmBlockThreshold.BLOCK_NONE },
-                        { category: HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT, threshold: HarmBlockThreshold.BLOCK_NONE },
-                        { category: HarmCategory.HARM_CATEGORY_HARASSMENT, threshold: HarmBlockThreshold.BLOCK_NONE },
-                        { category: HarmCategory.HARM_CATEGORY_HATE_SPEECH, threshold: HarmBlockThreshold.BLOCK_NONE },
-                        { category: HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT, threshold: HarmBlockThreshold.BLOCK_NONE },
-                        { category: HarmCategory.HARM_CATEGORY_UNSPECIFIED, threshold: HarmBlockThreshold.BLOCK_NONE }
-                    ]
-                } as any);
+                let message = msg.content.replace(/<@!?(\d+)>/g, (match, userId) => {
+                    const member = msg.guild?.members.cache.get(userId);
+                    if (member) { return `${member.nickname ?? member.user.username}`; } return match;
+                })
+                response = await generateGeminiContent(ai, session.history, message, msg.attachments.toJSON(), client, interaction as any);
 
                 if (response.candidates[0].finishReason === 'SAFETY' || response.candidates[0].finishReason === 'RECITATION') {
                     text = `Error: This response is blocked due to **${response.candidates[0].finishReason}** violation.`;
                 } else {
                     text = response.candidates?.[0]?.content?.parts?.[0]?.text || "⚠️ No response received.";
+                    
+                    let matches = [...text.matchAll(emojiRegex)];
+                    for (const match of matches) {
+                        const raw = match[1];
+                        const emojis = raw.split(":").filter(e => e.trim() !== "");
+                        allEmojis.push(...emojis);
+                        text = text.replace(match[0], "").trim();
+                    }
                 }
             } catch (err) {
                 console.error("Gemini error:", err);
@@ -105,6 +117,12 @@ export default {
 
             // Guardar respuesta en historial
             session.history.push({ role: "model", parts: [{ text }] });
+
+            if (session.history.length > MAX_HISTORY_MESSAGES + 1) {
+                const initialInstruction = session.history[0];
+                const recentHistory = session.history.slice(session.history.length - MAX_HISTORY_MESSAGES);
+                session.history = [initialInstruction, ...recentHistory];
+            }
 
             // 🔹 Quitar botones de todos los mensajes anteriores
             for (const id of session.messages) {
@@ -147,12 +165,19 @@ export default {
 
                 return modelText;
             }
-
+            
+            if (allEmojis.length > 0) {
+                for (const emoji of allEmojis) {
+                    try {
+                        await msg.react(emoji);
+                    } catch (reactError) {
+                        console.log(`Failed to react with emoji '${emoji}':`, reactError);
+                    }
+                }
+            }
             const embed = new EmbedBuilder()
-                .setTitle(trim(msg.content, 256))
-                .setDescription(trim(addCitations(response), 4096))
-                .setFooter({ text: 'Powered by Google' })
-                .setColor('#669df6');
+                .setDescription(trim(text, 4096)) // Usa la variable 'text' ya limpia
+                .setColor(client.embedColor as any);
 
             const replyMsg = await msg.reply({
                 embeds: [embed],
@@ -171,7 +196,7 @@ export default {
             sessions.delete(channelId);
             msgCollector.stop();
             await btn.update({
-                embeds: [new EmbedBuilder().setDescription("✅ Conversation closed").setColor("Red")],
+                embeds: [new EmbedBuilder().setDescription("✅ Conversation closed").setColor("Red").setFooter({ text: 'Powered by Google' })],
                 components: []
             });
         });

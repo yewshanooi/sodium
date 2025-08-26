@@ -4,9 +4,10 @@ import type { CommandInteractionOptionResolver } from "discord.js";
 
 export default {
     apis: ["ENABLE_LAVALINK", "FAKEYOU_USERNAME", "FAKEYOU_PASSWORD"],
+    gemini: true,
     data: new SlashCommandBuilder()
         .setName('tts')
-        .setDescription('Generates a TTS audio and adds it to the queue.')
+        .setDescription('Generates a TTS audio and adds it to the queue. Voices with /voices')
         .addStringOption(option =>
             option.setName('voice')
                 .setDescription('Voice model to speak with (ID). Use /voices to list available voices.')

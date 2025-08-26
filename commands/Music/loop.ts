@@ -5,6 +5,7 @@ import type { Command } from "../../Utils/types/Client";
 
 export default {
     apis: ['ENABLE_LAVALINK'],
+    gemini: true,
     data: new SlashCommandBuilder()
         .setName("loop").setDescription("Set the Repeat Mode")
         .addStringOption(o => o.setName("repeatmode").setDescription("What do you want to do?").setRequired(true).setChoices({ name: "Off", value: "off" }, { name: "Track", value: "track" }, { name: "Queue", value: "queue" })),

@@ -6,6 +6,7 @@ export default {
         .setName('help')
         .setDescription('View a specific command or all available commands')
         .addStringOption(option => option.setName('command').setDescription('Enter a command')),
+    gemini: true,
     cooldown: 0,
     category: 'Utility',
     guildOnly: false,
