@@ -53,7 +53,7 @@ module.exports = {
                     { name: 'First Joined', value: `\`${firstJoined}\`` },
                     { name: 'Last Seen', value: `\`${lastSeen}\`` },
                     { name: 'Playtime', value: `\`${Wynncraft.playtime}\` hours`, inline: true },
-                    { name: 'Mobs Killed', value: `\`${Wynncraft.globalData.killedMobs}\``, inline: true },
+                    { name: 'Mobs Killed', value: `\`${Wynncraft.globalData.mobsKilled}\``, inline: true },
                     { name: 'Chests Found', value: `\`${Wynncraft.globalData.chestsFound}\``, inline: true },
                     { name: 'Quests Completed', value: `\`${Wynncraft.globalData.completedQuests}\``, inline: true },
                     { name: 'Dungeons Completed', value: `\`${Wynncraft.globalData.dungeons.total}\``, inline: true },

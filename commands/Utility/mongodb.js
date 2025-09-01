@@ -45,8 +45,6 @@ module.exports = {
 					interaction.editReply({ embeds: [createDatabase] });
 				})
 				.catch(console.error);
-
-				
 			}
 		}
 

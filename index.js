@@ -37,7 +37,7 @@ if (!configuration.embedColor) throw new Error(`${chalk.red.bold('[Error] Missin
 
 // Discord events
 client.on('interactionCreate', reqEvent('interactionCreate'));
-client.once('ready', reqEvent('ready'));
+client.once('clientReady', reqEvent('ready'));
 
 function sendLogs(info, color) {
 	const channel = client.channels.cache.get(process.env.CHANNEL_ID);
