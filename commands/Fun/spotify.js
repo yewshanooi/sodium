@@ -32,12 +32,12 @@ module.exports = {
                     trackAuthor = trackAuthor.replace(/;/g, ',');
 
                 const embed = new EmbedBuilder()
-                    .setTitle(trackName)
+                    .setTitle(`${trackName}`)
                     .addFields(
                         { name: 'Artist', value: `${trackAuthor}` },
                         { name: 'Album', value: `${trackAlbum}` }
                     )
-                    .setThumbnail(trackImage)
+                    .setThumbnail(`${trackImage}`)
                     .setFooter({ text: 'Powered by Spotify' })
                     .setColor('#1ed760');
                 interaction.reply({ embeds: [embed] });

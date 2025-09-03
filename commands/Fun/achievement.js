@@ -29,7 +29,6 @@ const achievements = [
     'This Boat Has Legs',
     'Uneasy Alliance',
     'War Pigs',
-    'Country Lode, Take Me Home',
     'Cover Me in Debris',
     'Spooky Scary Skeleton',
     'Into Fire',
@@ -54,7 +53,9 @@ const achievements = [
     'Great View From Up Here',
 
     // Adventure: Adventure, exploration, and combat
+    'Heart Transplanter',
     'Voluntary Exile',
+    'Country Lode, Take Me Home',
     'Is It a Bird?',
     'Monster Hunter',
     'The Power of Books',
@@ -97,10 +98,9 @@ const achievements = [
     'Revaulting',
     'Blowback',
     'Over-Overkill',
-    'Heart Transplanter',
-    'Stay Hydrated!',
 
     // Husbandry: The world is full of friends and food
+    'Stay Hydrated!',
     'Bee Our Guest',
     'The Parrots and the Bats',
     'You\'ve Got a Friend in Me',
@@ -136,7 +136,9 @@ const achievements = [
     'I Voted!',
     'Pro Voter',
     'Poisonous Potato Saga',
-    'Non Plus Ultra'
+    'Non Plus Ultra',
+    'You Need a Mint',
+    'Down the Hatch'
 ];
 
 module.exports = {

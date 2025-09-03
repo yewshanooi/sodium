@@ -18,8 +18,9 @@ module.exports = {
 		const message = spoilerField === 'true' ? `||${descriptionField}||` : descriptionField;
 
 		const embed = new EmbedBuilder()
-			.setTitle(titleField)
-			.setDescription(`**${interaction.user.username} said:** ${message}`)
+			.setAuthor({ name: `${interaction.user.username}`, iconURL: `${interaction.user.displayAvatarURL({ size: 64 })}` })
+			.setTitle(`${titleField}`)
+			.setDescription(`${message}`)
 			.setColor(configuration.embedColor);
 
 		interaction.reply({ embeds: [embed] });

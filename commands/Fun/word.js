@@ -18,7 +18,7 @@ module.exports = {
             const wordList = Word.join('\n');
 
             const embed = new EmbedBuilder()
-                .setDescription(wordList)
+                .setDescription(`${wordList}`)
                 .setColor(configuration.embedColor);
 
             if (amountField === 1) {
