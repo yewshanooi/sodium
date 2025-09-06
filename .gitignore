@@ -14,5 +14,5 @@ config.json
 package-lock.json
 
 # Lavalink music manager
-music/logs/
-music/plugins/
+music/*
+!music/application.yml

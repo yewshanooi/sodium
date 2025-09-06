@@ -120,15 +120,19 @@ RIOTGAMES_API_KEY=
 ```
 node commands.js deploy    -or-    node commands.js delete
 ```
-7. Set up the host, port, and password in the **.env** file, then run the **Lavalink.jar** file to start the music manager
-```
-cd .\music; java -jar Lavalink.jar
-```
-8. Run the **index.js** file to start the bot<br/>
+7. Run the **index.js** file to start the bot<br/>
 > [!TIP]
 > Don't forget to deploy commands before starting the bot, otherwise commands won't appear as they are not updated
 ```
 node index.js    -or-    npm start    -or-    nodemon
+```
+
+###### Music Streaming
+1. Visit [lavalink-devs/Lavalink](https://github.com/lavalink-devs/Lavalink/releases), download the latest **Lavalink.jar** and place it in the music folder
+
+2. Set up the host, port, and password in the **.env** file, then run the **Lavalink.jar** file to start the music manager
+```
+cd .\music; java -jar Lavalink.jar
 ```
 
 ###### Machine Learning
