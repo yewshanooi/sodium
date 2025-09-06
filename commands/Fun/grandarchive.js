@@ -12,7 +12,7 @@ module.exports = {
 	async execute (interaction, configuration) {
 		await interaction.deferReply();
 
-        const name = interaction.options.getString('name');
+        const nameField = interaction.options.getString('name');
             function slugify(item) {
                 return item
                     .normalize('NFKD')
@@ -22,7 +22,7 @@ module.exports = {
                     .replace(/^-+|-+$/g, '');
             }
 
-            const formatted = slugify(name);
+            const formatted = slugify(nameField);
 
         const GrandArchive = await fetch(`https://api.gatcg.com/cards/${formatted}`)
             .then(res => res.json());

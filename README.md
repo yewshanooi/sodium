@@ -15,6 +15,7 @@
 ## Features
 - **AI Chatbot** *(powered by Google Gemini)*
 - **Moderation Logs & Leaderboard** *(stored using MongoDB Atlas)*
+- **Music Streaming** *(powered by Lavalink)*
 - **Text Summarizer** *(powered by Hugging Face Transformers)*
 - **Third Party API** commands *(such as Giphy, Wikipedia, and more!)*
 - **Watch Together** *(with YouTube activity)*
@@ -25,11 +26,13 @@
 	<tr>
 		<td><b>Fun</b></td>
 		<td><b>Moderation</b></td>
+		<td><b>Music</b></td>
 		<td><b>Utility</b></td>
 	</tr>
 	<tr>
 		<td>8ball, achievement, beep, coinflip, color, compliment, diceroll, fact <b>[cat | dog | general | useless]</b>, fortnite, giphy, grandarchive, hypixel, leagueoflegends, lyrics, meme, minecraft, mtg, nasa, neko, pokemon, rps, spotify, urban, word, wynncraft, youtube</td>
 		<td>ban, channel <b>[delete | lock | rename | unlock]</b>, deafen, kick, logs <b>[add | remove | reset | view]</b>, purge, role <b>[add | remove]</b>, setnick, slowmode, timeout, unban, undeafen, untimeout, warn</td>
+		<td>loop, nowplaying, pause, play, queue, resume, skip, stop</td>
 		<td>afk, botpresence, botsetnick, calculator, crypto, dictionary, gemini, github, guildrename, help, info <b>[channel | client | guild | role | user]</b>, invite, leaderboard <b>[add | remove | reset | view]</b>, leave, message, mongodb <b>[initialize | delete]</b>, news, npm, ping, qrcode, say, summarize, thread, weather, wikipedia</td>
 	</tr>
 </table>
@@ -58,8 +61,12 @@ Node.js version **≥22.0.0** is required
 		<td><a href="https://www.npmjs.com/package/mongoose">mongoose@8.18.0</a></td>
 	</td>
 	<tr>
+		<td><a href="https://www.npmjs.com/package/moonlink.js">moonlink.js@4.60.4</a></td>
 		<td><a href="https://www.npmjs.com/package/node-fetch">node-fetch@2.7.0</a></td>
+	</td>
+	<tr>
 		<td><a href="https://www.npmjs.com/package/uuid">uuid@11.1.0</a></td>
+		<td></td>
 	</td>
 </table>
 <br/>
@@ -93,6 +100,9 @@ npm install -g nodemon
 ```
 TOKEN=
 MONGODB_TOKEN=
+LAVALINK_HOST=
+LAVALINK_PORT=
+LAVALINK_PASSWORD=
 CLIENT_ID=
 GUILD_ID=
 CHANNEL_ID=
@@ -110,7 +120,11 @@ RIOTGAMES_API_KEY=
 ```
 node commands.js deploy    -or-    node commands.js delete
 ```
-7. Run the **index.js** file to start the bot<br/>
+7. Set up the host, port, and password in the **.env** file, then run the **Lavalink.jar** file to start the music manager
+```
+cd .\music; java -jar Lavalink.jar
+```
+8. Run the **index.js** file to start the bot<br/>
 > [!TIP]
 > Don't forget to deploy commands before starting the bot, otherwise commands won't appear as they are not updated
 ```

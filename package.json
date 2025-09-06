@@ -23,6 +23,7 @@
     "mathjs": "^14.6.0",
     "mongodb": "^6.19.0",
     "mongoose": "^8.18.0",
+    "moonlink.js": "^4.60.4",
     "node-fetch": "^2.7.0",
     "uuid": "^11.1.0"
   }

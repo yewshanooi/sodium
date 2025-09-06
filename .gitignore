@@ -12,3 +12,7 @@ config.json
 
 # Package manifest
 package-lock.json
+
+# Lavalink music manager
+music/logs/
+music/plugins/

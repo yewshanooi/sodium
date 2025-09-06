@@ -12,9 +12,9 @@ module.exports = {
 	async execute (interaction) {
 		await interaction.deferReply();
 
-        const name = interaction.options.getString('name');
+        const nameField = interaction.options.getString('name');
 
-        const Scryfall = await fetch(`https://api.scryfall.com/cards/search?q=${encodeURIComponent(name)}+%28game%3Apaper%29`)
+        const Scryfall = await fetch(`https://api.scryfall.com/cards/search?q=${encodeURIComponent(nameField)}+%28game%3Apaper%29`)
             .then(res => res.json());
 
             if (Scryfall.status === 404) return interaction.editReply('Error: No card found. Please try again.');

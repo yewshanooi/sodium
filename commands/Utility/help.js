@@ -43,6 +43,10 @@ module.exports = {
 					.setLabel('Moderation')
 					.setStyle(2),
 				new ButtonBuilder()
+					.setCustomId('ctgMusic')
+					.setLabel('Music')
+					.setStyle(2),
+				new ButtonBuilder()
 					.setCustomId('ctgUtility')
 					.setLabel('Utility')
 					.setStyle(2)
@@ -52,6 +56,7 @@ module.exports = {
 
 				const fun = commands.filter(cmd => cmd.category === 'Fun');
 				const moderation = commands.filter(cmd => cmd.category === 'Moderation');
+				const music = commands.filter(cmd => cmd.category === 'Music');
 				const utility = commands.filter(cmd => cmd.category === 'Utility');
 
 				const mainEmbed = new EmbedBuilder()
@@ -72,6 +77,7 @@ module.exports = {
 							box.components[0].setDisabled(true);
 							box.components[1].setDisabled(false);
 							box.components[2].setDisabled(false);
+							box.components[3].setDisabled(false);
 						await collected.deferUpdate();
 						interaction.editReply({ embeds: [mainEmbed], components: [box] });
 					} else if (value === 'ctgModeration') {
@@ -79,13 +85,23 @@ module.exports = {
 							box.components[0].setDisabled(false);
 							box.components[1].setDisabled(true);
 							box.components[2].setDisabled(false);
+							box.components[3].setDisabled(false);
 						await collected.deferUpdate();
 						interaction.editReply({ embeds: [mainEmbed], components: [box] });
-					} else if (value === 'ctgUtility') {
-							mainEmbed.data.fields[0] = { name: `Utility commands [${utility.map(commandE => commandE.data.name).length}]`, value: utility.map(commandF => `\`${commandF.data.name}\``).join('\n') };
+					} else if (value === 'ctgMusic') {
+							mainEmbed.data.fields[0] = { name: `Music commands [${music.map(commandE => commandE.data.name).length}]`, value: music.map(commandF => `\`${commandF.data.name}\``).join('\n') };
 							box.components[0].setDisabled(false);
 							box.components[1].setDisabled(false);
 							box.components[2].setDisabled(true);
+							box.components[3].setDisabled(false);
+						await collected.deferUpdate();
+						interaction.editReply({ embeds: [mainEmbed], components: [box] });
+					} else if (value === 'ctgUtility') {
+							mainEmbed.data.fields[0] = { name: `Utility commands [${utility.map(commandG => commandG.data.name).length}]`, value: utility.map(commandH => `\`${commandH.data.name}\``).join('\n') };
+							box.components[0].setDisabled(false);
+							box.components[1].setDisabled(false);
+							box.components[2].setDisabled(false);
+							box.components[3].setDisabled(true);
 						await collected.deferUpdate();
 						interaction.editReply({ embeds: [mainEmbed], components: [box] });
 					}

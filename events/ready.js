@@ -23,5 +23,17 @@ module.exports = async client => {
 	if (!process.env.OPENWEATHERMAP_API_KEY) console.log(`${chalk.yellow.bold('[Warning] Missing \'OPENWEATHERMAP_API_KEY\' field in the .env file.')}`);
 	if (!process.env.RIOTGAMES_API_KEY) console.log(`${chalk.yellow.bold('[Warning] Missing \'RIOTGAMES_API_KEY\' field in the .env file.')}`);
 
+	// Initialize the music manager with client user ID
+	try {
+		if (client.manager && typeof client.manager.init === 'function') {
+			client.manager.init(client.user.id);
+			console.log(`${chalk.blueBright.bold('[Moonlink.js] Successfully connected to music manager')}`);
+		} else {
+			console.log(`${chalk.redBright.bold('[Moonlink.js] Error: Music manager is not available')}`);
+		}
+	} catch (err) {
+		console.error(`${chalk.redBright.bold('[Moonlink.js] Error: There was a problem initializing the music manager')}\n`, err);
+	}
+
 	console.log(`\nConnected to Discord as ${chalk.bold(`${client.user.username}`)}\nServing ${chalk.bold(`${client.users.cache.size}`)} user(s) and ${chalk.bold(`${client.channels.cache.size}`)} channel(s) in ${chalk.bold(`${client.guilds.cache.size}`)} guild(s) with ${chalk.bold(`${client.commands.size}`)} available command(s)\n`);
 };
