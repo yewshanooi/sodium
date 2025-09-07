@@ -33,11 +33,11 @@ module.exports = {
 
                 const embed = new EmbedBuilder()
                     .setTitle(`${trackName}`)
+                    .setThumbnail(`${trackImage}`)
                     .addFields(
                         { name: 'Artist', value: `${trackAuthor}` },
                         { name: 'Album', value: `${trackAlbum}` }
                     )
-                    .setThumbnail(`${trackImage}`)
                     .setFooter({ text: 'Powered by Spotify' })
                     .setColor('#1ed760');
                 interaction.reply({ embeds: [embed] });

@@ -22,12 +22,12 @@ module.exports = {
 			player.pause();
 
 			const embed = new EmbedBuilder()
-				.setTitle('Paused playback')
+				.setTitle('Paused player')
 				.setColor(configuration.embedColor);
 
 			return interaction.editReply({ embeds: [embed] });
 		} catch {
-			return interaction.editReply({ content: 'Error: Failed to pause the track.' });
+			return interaction.editReply({ content: 'Error: Failed to pause the player.' });
 		}
 
 	}

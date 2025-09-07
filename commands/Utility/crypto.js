@@ -32,6 +32,7 @@ module.exports = {
 
         const embed = new EmbedBuilder()
             .setTitle(`${Crypto[0].name} (${uppercaseSymbol})`)
+            .setThumbnail(`${Crypto[0].image}`)
             .setDescription(`\`${price}\` **(${priceChange}%)**`)
             .addFields(
                 { name: 'Low (24h)', value: `\`${low}\``, inline: true },
@@ -40,7 +41,6 @@ module.exports = {
                 { name: 'Volume', value: `\`${volume}\`` },
                 { name: 'Market Cap', value: `\`${marketCap}\` **(${marketCapChange}%)**` }
             )
-            .setThumbnail(`${Crypto[0].image}`)
             .setFooter({ text: 'Powered by CoinGecko' })
             .setColor('#8cc540');
 

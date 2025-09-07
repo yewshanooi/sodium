@@ -12,6 +12,7 @@ updates:
     ignore:
       - dependency-name: "chalk"
       - dependency-name: "node-fetch"
+      - dependency-name: "uuid"
 
   - package-ecosystem: "github-actions"
     directory: "/"

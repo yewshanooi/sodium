@@ -26,11 +26,11 @@ module.exports = {
 
             const embed = new EmbedBuilder()
                 .setTitle(`#${Pokemon.id} ${capitalizedName}`)
+                .setThumbnail(`${Pokemon.sprites.other['official-artwork'].front_default}`)
                 .addFields(
                     { name: 'Height', value: `\`${heightInCM}\` cm` },
                     { name: 'Weight', value: `\`${weightInKG}\` kg` }
                 )
-                .setThumbnail(`${Pokemon.sprites.other['official-artwork'].front_default}`)
                 .setFooter({ text: 'Powered by PokéAPI' })
                 .setColor('#ef5350');
 

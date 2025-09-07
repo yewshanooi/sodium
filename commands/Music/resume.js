@@ -22,12 +22,12 @@ module.exports = {
 			player.resume();
 
 			const embed = new EmbedBuilder()
-				.setTitle('Resumed playback')
+				.setTitle('Resumed player')
 				.setColor(configuration.embedColor);
 
 			return interaction.editReply({ embeds: [embed] });
 		} catch {
-			return interaction.editReply({ content: 'Error: Failed to resume the track.' });
+			return interaction.editReply({ content: 'Error: Failed to resume the player.' });
 		}
 
 	}

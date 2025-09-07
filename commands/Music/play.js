@@ -39,7 +39,7 @@ module.exports = {
 
             return interaction.editReply({ embeds: [embed] });
         } catch (err) {
-            return interaction.editReply({ content: 'Error: There was an error trying to play the song.' });
+            return interaction.editReply({ content: 'Error: There was an error trying to play the track.' });
         }
     },
 };

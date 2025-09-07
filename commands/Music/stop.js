@@ -23,12 +23,12 @@ module.exports = {
 			if (player.queue && typeof player.queue.clear === 'function') player.queue.clear();
 
 			const embed = new EmbedBuilder()
-				.setTitle('Stopped playback & cleared the queue')
+				.setTitle('Stopped player & cleared the queue')
 				.setColor(configuration.embedColor);
 
 			return interaction.editReply({ embeds: [embed] });
 		} catch {
-			return interaction.editReply({ content: 'Error: Failed to stop the track and clear the queue.' });
+			return interaction.editReply({ content: 'Error: Failed to stop the player.' });
 		}
 
 	}
