@@ -3,7 +3,7 @@ const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('resume')
-		.setDescription('Resume current song'),
+		.setDescription('Resume current track'),
 	cooldown: '3',
 	category: 'Music',
 	guildOnly: true,

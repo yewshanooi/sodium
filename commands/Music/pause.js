@@ -3,7 +3,7 @@ const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('pause')
-		.setDescription('Pause current song'),
+		.setDescription('Pause current track'),
 	cooldown: '3',
 	category: 'Music',
 	guildOnly: true,

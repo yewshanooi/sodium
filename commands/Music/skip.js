@@ -3,7 +3,7 @@ const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('skip')
-		.setDescription('Skip current song'),
+		.setDescription('Skip current track'),
 	cooldown: '3',
 	category: 'Music',
 	guildOnly: true,

@@ -3,7 +3,7 @@ const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('loop')
-		.setDescription('Loop current song')
+		.setDescription('Loop the player')
 		.addStringOption(option => option.setName('option').setDescription('Select an option').addChoices({ name: 'Track', value: 'track' }, { name: 'Queue', value: 'queue' }, { name: 'Off', value: 'off' }).setRequired(true)),
 	cooldown: '3',
 	category: 'Music',

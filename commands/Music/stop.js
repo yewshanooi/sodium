@@ -3,7 +3,7 @@ const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('stop')
-		.setDescription('Stop current song'),
+		.setDescription('Stop the player and clear the queue'),
 	cooldown: '3',
 	category: 'Music',
 	guildOnly: true,

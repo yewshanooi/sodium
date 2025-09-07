@@ -3,7 +3,7 @@ const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('queue')
-		.setDescription('View song queue'),
+		.setDescription('View player queue'),
 	cooldown: '3',
 	category: 'Music',
 	guildOnly: true,
