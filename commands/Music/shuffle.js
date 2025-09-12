@@ -2,8 +2,8 @@ const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('skip')
-		.setDescription('Skip the current song'),
+		.setName('shuffle')
+		.setDescription('Shuffle the queue'),
 	cooldown: '3',
 	category: 'Music',
 	guildOnly: true,
@@ -13,21 +13,20 @@ module.exports = {
 		const client = interaction.client;
 		const player = client.manager.players.get(interaction.guild.id);
 			if (!player) return interaction.editReply({ content: 'Error: There is no music player available.' });
-			if (!player.current) return interaction.editReply({ content: 'Error: No music is playing.' });
+			if (player.queue.size <= 1) return interaction.editReply({ content: 'Error: There is only one track in the queue.' });
 
 		if (interaction.member.voice.channel.id !== player.voiceChannelId) return interaction.editReply({ content: 'Error: You must be in the same voice channel as the bot.' });
 
 		try {
-			player.skip();
+			player.queue.shuffle();
 
 			const embed = new EmbedBuilder()
-				.setTitle('Skipped')
-				.setDescription(`${player.current.title}`)
+				.setTitle('Queue shuffled')
 				.setColor(configuration.embedColor);
 
-            return interaction.editReply({ embeds: [embed] });
+			return interaction.editReply({ embeds: [embed] });
 		} catch {
-			return interaction.editReply({ content: 'Error: Failed to skip the track.' });
+			return interaction.editReply({ content: 'Error: Failed to shuffle the queue.' });
 		}
 
 	}

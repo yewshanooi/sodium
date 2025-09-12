@@ -3,7 +3,7 @@ const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('pause')
-		.setDescription('Pause current track'),
+		.setDescription('Pause the current song'),
 	cooldown: '3',
 	category: 'Music',
 	guildOnly: true,
@@ -15,7 +15,6 @@ module.exports = {
 			if (!player) return interaction.editReply({ content: 'Error: There is no music player available.' });
 			if (player.paused) return interaction.editReply({ content: 'Error: The player is already paused.' });
 
-		if (!interaction.member.voice.channel) return interaction.editReply({ content: 'Error: You must join a voice channel to use this command.' });
 		if (interaction.member.voice.channel.id !== player.voiceChannelId) return interaction.editReply({ content: 'Error: You must be in the same voice channel as the bot.' });
 
 		try {

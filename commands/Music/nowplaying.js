@@ -3,7 +3,7 @@ const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('nowplaying')
-		.setDescription('View current track details'),
+		.setDescription('Show information about the current track'),
 	cooldown: '3',
 	category: 'Music',
 	guildOnly: true,

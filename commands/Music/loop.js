@@ -3,7 +3,7 @@ const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('loop')
-		.setDescription('Loop the player')
+		.setDescription('Set the loop mode')
 		.addStringOption(option => option.setName('option').setDescription('Select an option').addChoices({ name: 'Track', value: 'track' }, { name: 'Queue', value: 'queue' }, { name: 'Off', value: 'off' }).setRequired(true)),
 	cooldown: '3',
 	category: 'Music',
@@ -16,7 +16,6 @@ module.exports = {
 			if (!player) return interaction.editReply({ content: 'Error: There is no music player available.' });
 		const optionField = interaction.options.getString('option');
 
-		if (!interaction.member.voice.channel) return interaction.editReply({ content: 'Error: You must join a voice channel to use this command.' });
 		if (interaction.member.voice.channel.id !== player.voiceChannelId) return interaction.editReply({ content: 'Error: You must be in the same voice channel as the bot.' });
 
 		switch (optionField) {
@@ -25,7 +24,7 @@ module.exports = {
 
 				const embedOff = new EmbedBuilder()
 					.setTitle('Loop disabled')
-					.setColor(configuration.embedColor)
+					.setColor(configuration.embedColor);
 
 				return interaction.editReply({ embeds: [embedOff] });
 
@@ -34,7 +33,7 @@ module.exports = {
 
 				const embedTrack = new EmbedBuilder()
 					.setTitle('Track loop enabled')
-					.setColor(configuration.embedColor)
+					.setColor(configuration.embedColor);
 
 				return interaction.editReply({ embeds: [embedTrack] });
 
@@ -43,7 +42,7 @@ module.exports = {
 
 				const embedQueue = new EmbedBuilder()
 					.setTitle('Queue loop enabled')
-					.setColor(configuration.embedColor)
+					.setColor(configuration.embedColor);
 
 				return interaction.editReply({ embeds: [embedQueue] });
 		}

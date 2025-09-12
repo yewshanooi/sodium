@@ -3,8 +3,8 @@ const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('play')
-        .setDescription('Search a song to play or enter a YouTube URL')
-        .addStringOption(option => option.setName('query').setDescription('Enter a song name or link').setRequired(true)),
+        .setDescription('Play a song')
+        .addStringOption(option => option.setName('query').setDescription('Enter a song name or YouTube link').setRequired(true)),
     cooldown: '3',
     category: 'Music',
     guildOnly: true,
@@ -20,6 +20,7 @@ module.exports = {
             guildId: interaction.guild.id,
             voiceChannelId: interaction.member.voice.channel.id,
             textChannelId: interaction.channel.id,
+            volume: 100,
             autoPlay: true,
         });
 

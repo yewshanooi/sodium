@@ -16,13 +16,13 @@
   },
   "dependencies": {
     "@dotenvx/dotenvx": "^1.49.0",
-    "@google/genai": "^1.16.0",
+    "@google/genai": "^1.19.0",
     "@huggingface/transformers": "^3.7.2",
     "chalk": "^4.1.2",
     "discord.js": "^14.22.1",
-    "mathjs": "^14.6.0",
+    "mathjs": "^14.7.0",
     "mongodb": "^6.19.0",
-    "mongoose": "^8.18.0",
+    "mongoose": "^8.18.1",
     "moonlink.js": "^4.60.4",
     "node-fetch": "^2.7.0",
     "uuid": "^11.1.0"

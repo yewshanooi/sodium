@@ -3,7 +3,7 @@ const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('stop')
-		.setDescription('Stop the player and clear the queue'),
+		.setDescription('Stop playback and clear the queue'),
 	cooldown: '3',
 	category: 'Music',
 	guildOnly: true,
@@ -14,7 +14,6 @@ module.exports = {
 		const player = client.manager.players.get(interaction.guild.id);
 			if (!player) return interaction.editReply({ content: 'Error: There is no music player available.' });
 
-		if (!interaction.member.voice.channel) return interaction.editReply({ content: 'Error: You must join a voice channel to use this command.' });
 		if (interaction.member.voice.channel.id !== player.voiceChannelId) return interaction.editReply({ content: 'Error: You must be in the same voice channel as the bot.' });
 
 		try {
