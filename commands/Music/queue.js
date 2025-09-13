@@ -41,13 +41,13 @@ module.exports = {
 
 			embed.addFields({
 				name: 'Up Next:',
-				value: tracks.slice(0, 10).join('\n'),
+				value: tracks.slice(0, 5).join('\n'),
 			});
 
-			if (player.queue.size > 10) {
+			if (player.queue.size > 5) {
 				embed.addFields({
 					name: 'And more...',
-					value: `${player.queue.size - 10} more tracks in the queue`,
+					value: `${player.queue.size - 5} more tracks in the queue`,
 				});
 			}
 		}
