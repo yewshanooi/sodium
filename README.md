@@ -124,7 +124,7 @@ node commands.js deploy    -or-    node commands.js delete
 > [!TIP]
 > Don't forget to deploy commands before starting the bot, otherwise commands won't appear as they are not updated
 ```
-node index.js    -or-    npm start    -or-    nodemon
+npm start    -or-    npm run dev
 ```
 
 ###### Music Streaming
@@ -132,7 +132,7 @@ node index.js    -or-    npm start    -or-    nodemon
 
 2. Set up the host, port, and password in the **.env** file, then run the **Lavalink.jar** file to start the music manager
 ```
-cd .\music; java -jar Lavalink.jar
+npm run lavalink
 ```
 
 ###### Machine Learning
