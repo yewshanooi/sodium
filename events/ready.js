@@ -9,6 +9,11 @@ module.exports = async client => {
 		console.log(`${chalk.yellow.bold('[Warning] Missing ./models folder in the root of the project.')}`);
 	}
 
+	// Warning messages for missing Lavalink keys
+	if (!process.env.LAVALINK_HOST) console.log(`${chalk.yellow.bold('[Warning] Missing \'LAVALINK_HOST\' field in the .env file.')}`);
+	if (!process.env.LAVALINK_PORT) console.log(`${chalk.yellow.bold('[Warning] Missing \'LAVALINK_PORT\' field in the .env file.')}`);
+	if (!process.env.LAVALINK_PASSWORD) console.log(`${chalk.yellow.bold('[Warning] Missing \'LAVALINK_PASSWORD\' field in the .env file.')}`);
+
 	// Warning messages for missing channel ID field
 	if (!process.env.CHANNEL_ID) console.log(`${chalk.yellow.bold('[Warning] Missing \'CHANNEL_ID\' field in the .env file.')}`);
 
@@ -27,7 +32,7 @@ module.exports = async client => {
 	try {
 		if (client.manager && typeof client.manager.init === 'function') {
 			client.manager.init(client.user.id);
-			console.log(`${chalk.blueBright.bold('[Moonlink.js] Successfully connected to music manager')}`);
+			console.log(`${chalk.blueBright.bold('[Moonlink.js] Successfully initialized music manager')}`);
 		} else {
 			console.log(`${chalk.redBright.bold('[Moonlink.js] Error: Music manager is not available')}`);
 		}

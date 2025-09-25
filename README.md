@@ -45,7 +45,7 @@ Node.js version **≥22.0.0** is required
 ###### npm Packages
 <table>
 	<tr>
-		<td><a href="https://www.npmjs.com/package/@dotenvx/dotenvx">@dotenvx/dotenvx@1.49.0</a></td>
+		<td><a href="https://www.npmjs.com/package/@dotenvx/dotenvx">@dotenvx/dotenvx@1.51.0</a></td>
 		<td><a href="https://www.npmjs.com/package/@google/genai">@google/genai@1.19.0</a></td>
 	</tr>
 	<tr>
@@ -54,11 +54,11 @@ Node.js version **≥22.0.0** is required
 	</tr>
 	<tr>
 		<td><a href="https://www.npmjs.com/package/discord.js">discord.js@14.22.1</a></td>
-		<td><a href="https://www.npmjs.com/package/mathjs">mathjs@14.7.0</a></td>
+		<td><a href="https://www.npmjs.com/package/mathjs">mathjs@14.8.0</a></td>
 	</tr>
 	<tr>
 		<td><a href="https://www.npmjs.com/package/mongodb">mongodb@6.19.0</a></td>
-		<td><a href="https://www.npmjs.com/package/mongoose">mongoose@8.18.1</a></td>
+		<td><a href="https://www.npmjs.com/package/mongoose">mongoose@8.18.2</a></td>
 	</td>
 	<tr>
 		<td><a href="https://www.npmjs.com/package/moonlink.js">moonlink.js@4.60.4</a></td>

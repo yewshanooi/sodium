@@ -36,4 +36,10 @@ const noGuildDB = new Discord.EmbedBuilder()
     .setDescription('No existing database found. Guild administrator must run `/mongodb initialize` to use this command.')
     .setColor('#ff5555');
 
-module.exports = [guildOnlyCmd, noAPIKey, noPermission, noPrivateDM, executeFailCmd, noGuildDB];
+// global.errors[6]
+const noLavalinkKeys = new Discord.EmbedBuilder()
+    .setTitle('Error')
+    .setDescription('No Lavalink keys found. Please set one in the `.env` file to use this command.')
+    .setColor('#ff5555');
+
+module.exports = [guildOnlyCmd, noAPIKey, noPermission, noPrivateDM, executeFailCmd, noGuildDB, noLavalinkKeys];

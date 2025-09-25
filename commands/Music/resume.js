@@ -10,6 +10,8 @@ module.exports = {
 	async execute (interaction, configuration) {
 		await interaction.deferReply();
 
+		if (!process.env.LAVALINK_HOST || !process.env.LAVALINK_PORT || !process.env.LAVALINK_PASSWORD) return interaction.editReply({ embeds: [global.errors[6]] });
+
 		const client = interaction.client;
 		const player = client.manager.players.get(interaction.guild.id);
 			if (!player) return interaction.editReply({ content: 'Error: There is no music player available.' });
