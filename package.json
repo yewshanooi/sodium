@@ -22,7 +22,7 @@
     "@huggingface/transformers": "^3.7.2",
     "chalk": "^4.1.2",
     "discord.js": "^14.22.1",
-    "mathjs": "^14.8.0",
+    "mathjs": "^15.0.0",
     "mongodb": "^6.19.0",
     "mongoose": "^8.18.2",
     "moonlink.js": "^4.60.4",
