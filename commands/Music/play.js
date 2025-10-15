@@ -8,7 +8,7 @@ module.exports = {
     cooldown: '3',
     category: 'Music',
     guildOnly: true,
-    async execute(interaction, configuration) {
+    async execute (interaction, configuration) {
         await interaction.deferReply();
 
         if (!process.env.LAVALINK_HOST || !process.env.LAVALINK_PORT || !process.env.LAVALINK_PASSWORD) return interaction.editReply({ embeds: [global.errors[6]] });
@@ -23,7 +23,6 @@ module.exports = {
             voiceChannelId: interaction.member.voice.channel.id,
             textChannelId: interaction.channel.id,
             volume: 100,
-            autoPlay: true,
         });
 
         try {
@@ -44,5 +43,6 @@ module.exports = {
         } catch (err) {
             return interaction.editReply({ content: 'Error: There was an error trying to play the track.' });
         }
+
     },
 };

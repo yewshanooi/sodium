@@ -17,6 +17,7 @@ module.exports = {
 			if (!player) return interaction.editReply({ content: 'Error: There is no music player available.' });
 			if (!player.current) return interaction.editReply({ content: 'Error: No music is playing.' });
 		const track = player.current;
+		const volume = player.volume;
 
 		const formatDuration = (ms) => {
 			if (!ms || isNaN(ms)) return '00:00';
@@ -28,6 +29,7 @@ module.exports = {
 		};
 
 		const loopType = player.loop.charAt(0).toUpperCase() + player.loop.slice(1);
+		const autoplayStatus = player.autoPlay ? 'Enabled' : 'Disabled';
 
 		const embed = new EmbedBuilder()
 			.setTitle('Now Playing')
@@ -35,8 +37,10 @@ module.exports = {
 			.setDescription(track.url ? `[${track.title}](${track.url})` : track.title)
 			.addFields(
 				{ name: 'Author', value: `${track.author || 'Not available'}`, inline: true },
-				{ name: 'Loop', value: `${loopType}`, inline: true },
-				{ name: 'Duration', value: `\`${formatDuration(track.position)} / ${formatDuration(track.duration)}\`` }
+				{ name: 'Duration', value: `\`${formatDuration(track.position)} / ${formatDuration(track.duration)}\``, inline: true },
+				{ name: 'Volume', value: `${volume}%` },
+				{ name: 'Autoplay', value: `${autoplayStatus}`, inline: true },
+				{ name: 'Loop', value: `${loopType}`, inline: true }
 			)
 			.setColor(configuration.embedColor);
 

@@ -119,6 +119,9 @@ module.exports = {
 					.setColor(configuration.embedColor);
 
 				return interaction.editReply({ embeds: [embedKaraoke] });
+
+			default:
+				return interaction.editReply({ content: 'Error: Invalid filter option selected.' });
 		}
 
 	}

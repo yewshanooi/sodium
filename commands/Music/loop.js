@@ -8,7 +8,7 @@ module.exports = {
 	cooldown: '3',
 	category: 'Music',
 	guildOnly: true,
-	async execute(interaction, configuration) {
+	async execute (interaction, configuration) {
 		await interaction.deferReply();
 
 		if (!process.env.LAVALINK_HOST || !process.env.LAVALINK_PORT || !process.env.LAVALINK_PASSWORD) return interaction.editReply({ embeds: [global.errors[6]] });
@@ -47,6 +47,10 @@ module.exports = {
 					.setColor(configuration.embedColor);
 
 				return interaction.editReply({ embeds: [embedQueue] });
+
+			default:
+				return interaction.editReply({ content: 'Error: Invalid loop option selected.' });
 		}
+
 	}
 };

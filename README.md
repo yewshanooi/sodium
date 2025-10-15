@@ -32,7 +32,7 @@
 	<tr>
 		<td>8ball, achievement, beep, coinflip, color, compliment, diceroll, fact <b>[cat | dog | general | useless]</b>, fortnite, giphy, grandarchive, hypixel, leagueoflegends, lyrics, meme, minecraft, mtg, nasa, neko, pokemon, rps, spotify, urban, word, wynncraft, youtube</td>
 		<td>ban, channel <b>[delete | lock | rename | unlock]</b>, deafen, kick, logs <b>[add | remove | reset | view]</b>, purge, role <b>[add | remove]</b>, setnick, slowmode, timeout, unban, undeafen, untimeout, warn</td>
-		<td>filter, loop, nowplaying, pause, play, queue, resume, seek, shuffle, skip, stop, volume</td>
+		<td>autoplay, filter, loop, nowplaying, pause, play, queue, resume, seek, shuffle, skip, stop, volume</td>
 		<td>afk, botpresence, botsetnick, calculator, crypto, dictionary, gemini, github, guildrename, help, info <b>[channel | client | guild | role | user]</b>, invite, leaderboard <b>[add | remove | reset | view]</b>, leave, message, mongodb <b>[initialize | delete]</b>, news, npm, ping, qrcode, say, summarize, thread, weather, wikipedia</td>
 	</tr>
 </table>
@@ -46,22 +46,22 @@ Node.js version **≥22.0.0** is required
 <table>
 	<tr>
 		<td><a href="https://www.npmjs.com/package/@dotenvx/dotenvx">@dotenvx/dotenvx@1.51.0</a></td>
-		<td><a href="https://www.npmjs.com/package/@google/genai">@google/genai@1.19.0</a></td>
+		<td><a href="https://www.npmjs.com/package/@google/genai">@google/genai@1.25.0</a></td>
 	</tr>
 	<tr>
-		<td><a href="https://www.npmjs.com/package/@huggingface/transformers">@huggingface/transformers@3.7.2</a></td>
+		<td><a href="https://www.npmjs.com/package/@huggingface/transformers">@huggingface/transformers@3.7.5</a></td>
 		<td><a href="https://www.npmjs.com/package/chalk">chalk@4.1.2</a></td>
 	</tr>
 	<tr>
-		<td><a href="https://www.npmjs.com/package/discord.js">discord.js@14.22.1</a></td>
-		<td><a href="https://www.npmjs.com/package/mathjs">mathjs@14.8.0</a></td>
+		<td><a href="https://www.npmjs.com/package/discord.js">discord.js@14.23.2</a></td>
+		<td><a href="https://www.npmjs.com/package/mathjs">mathjs@15.0.0</a></td>
 	</tr>
 	<tr>
-		<td><a href="https://www.npmjs.com/package/mongodb">mongodb@6.19.0</a></td>
-		<td><a href="https://www.npmjs.com/package/mongoose">mongoose@8.18.2</a></td>
+		<td><a href="https://www.npmjs.com/package/mongodb">mongodb@6.20.0</a></td>
+		<td><a href="https://www.npmjs.com/package/mongoose">mongoose@8.19.1</a></td>
 	</td>
 	<tr>
-		<td><a href="https://www.npmjs.com/package/moonlink.js">moonlink.js@4.60.4</a></td>
+		<td><a href="https://www.npmjs.com/package/moonlink.js">moonlink.js@4.60.18</a></td>
 		<td><a href="https://www.npmjs.com/package/node-fetch">node-fetch@2.7.0</a></td>
 	</td>
 	<tr>
