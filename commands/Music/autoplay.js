@@ -25,7 +25,7 @@ module.exports = {
                 player.set('autoplay', true);
 
                 const embedEnable = new EmbedBuilder()
-                    .setTitle('Autoplay Enabled')
+                    .setTitle('Autoplay enabled')
                     .setColor(configuration.embedColor);
 
                 return interaction.editReply({ embeds: [embedEnable] });
@@ -33,7 +33,7 @@ module.exports = {
                 player.set('autoplay', false);
 
                 const embedDisable = new EmbedBuilder()
-                    .setTitle('Autoplay Disabled')
+                    .setTitle('Autoplay disabled')
                     .setColor(configuration.embedColor);
 
                 return interaction.editReply({ embeds: [embedDisable] });
