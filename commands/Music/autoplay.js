@@ -22,7 +22,7 @@ module.exports = {
 
         try {
             if (optionField === 'enable') {
-                player.set('autoplay', true);
+                player.setAutoPlay(true);
 
                 const embedEnable = new EmbedBuilder()
                     .setTitle('Autoplay enabled')
@@ -30,7 +30,7 @@ module.exports = {
 
                 return interaction.editReply({ embeds: [embedEnable] });
             } else if (optionField === 'disable') {
-                player.set('autoplay', false);
+                player.setAutoPlay(false);
 
                 const embedDisable = new EmbedBuilder()
                     .setTitle('Autoplay disabled')

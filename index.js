@@ -32,8 +32,6 @@ client.manager = new Manager({
 		const guild = client.guilds.cache.get(guildId);
 		if (guild) guild.shard.send(JSON.parse(payload));
 	},
-	defaultVolume: 100,
-	autoPlay: true,
 });
 
 const commandsFolder = fs.readdirSync('./commands');
