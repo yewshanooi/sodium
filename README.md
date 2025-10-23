@@ -2,7 +2,7 @@
 	<a href="https://skyelements.github.io/sodium.html">
 		<img src=".github/images/sodium.png" height="128">
 		<h1 align="center">Sodium</h1>
-		<p align="center">Open source discord bot with application commands and a user-friendly interface</p>
+		<p align="center">Multipurpose discord bot with application commands and a user-friendly interface</p>
 	</a>
 </p>
 
