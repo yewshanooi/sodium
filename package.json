@@ -18,10 +18,10 @@
   },
   "dependencies": {
     "@dotenvx/dotenvx": "^1.51.0",
-    "@google/genai": "^1.26.0",
+    "@google/genai": "^1.28.0",
     "@huggingface/transformers": "^3.7.6",
     "chalk": "^4.1.2",
-    "discord.js": "^14.23.2",
+    "discord.js": "^14.24.1",
     "mathjs": "^15.0.0",
     "mongodb": "^6.20.0",
     "mongoose": "^8.19.2",
