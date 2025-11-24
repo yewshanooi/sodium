@@ -24,7 +24,7 @@
     "discord.js": "^14.24.1",
     "mathjs": "^15.0.0",
     "mongodb": "^6.20.0",
-    "mongoose": "^8.19.2",
+    "mongoose": "^9.0.0",
     "moonlink.js": "^4.60.18",
     "node-fetch": "^2.7.0",
     "uuid": "^11.1.0"
