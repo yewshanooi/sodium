@@ -1,5 +1,31 @@
-const { EmbedBuilder, SlashCommandBuilder, ActionRowBuilder, ModalBuilder, TextInputBuilder, TextInputStyle } = require('discord.js');
+const { EmbedBuilder, SlashCommandBuilder, ModalBuilder, TextInputBuilder, TextInputStyle, LabelBuilder, TextDisplayBuilder } = require('discord.js');
 const { GoogleGenAI, HarmCategory, HarmBlockThreshold } = require('@google/genai');
+
+const randomQueries = [
+    // What..? questions
+    'What is the meaning of life?',
+    'What are the latest advancements in AI?',
+    'What are some tips for improving mental health?',
+    'What is the future of renewable energy?',
+    'What are the benefits of meditation?',
+    'What are the top trends in technology for the next decade?',
+    'What are the best practices for personal productivity?',
+    'What are the benefits of space exploration?',
+    'What are the key principles of effective leadership?',
+
+    // Can..? questions
+    'Can you explain quantum mechanics in simple terms?',
+    'Can you explain the theory of relativity?',
+    'Can you explain how the internet works?',
+    'Can you explain the concept of quantum computing?',
+
+    // How..? questions
+    'How does blockchain technology work?',
+    'How do black holes work?',
+    'How can we combat climate change effectively?',
+    'How do vaccines work?',
+    'How does the human immune system function?'
+];
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -15,16 +41,22 @@ module.exports = {
             .setCustomId(`gmiModal-${interaction.id}`)
             .setTitle('Gemini');
 
-        const queryField = new TextInputBuilder()
+        const queryInput = new TextInputBuilder()
             .setCustomId('gmiQuery')
-            .setLabel('Prompt')
-            .setPlaceholder('Enter a prompt here')
+            .setPlaceholder(randomQueries[Math.floor(Math.random() * randomQueries.length)])
             .setStyle(TextInputStyle.Paragraph)
             .setMaxLength(1024)
             .setRequired(true);
 
-        const actionRow = new ActionRowBuilder().addComponents(queryField);
-            modal.addComponents(actionRow);
+        const queryLabel = new LabelBuilder()
+            .setLabel('Prompt')
+            .setTextInputComponent(queryInput);
+
+        const disclaimer = new TextDisplayBuilder().setContent(
+            '-# Gemini can make mistakes, so double-check it'
+        );
+
+        modal.addLabelComponents(queryLabel).addTextDisplayComponents(disclaimer);
 
         await interaction.showModal(modal);
 
@@ -69,33 +101,31 @@ module.exports = {
 
                 // Add citations to response
                 function addCitations(res) {
-                    let { text } = res;
-                    const supports = res.candidates[0]?.groundingMetadata?.groundingSupports || [];
-                    const chunks = res.candidates[0]?.groundingMetadata?.groundingChunks || [];
+                    const { text: originalText, candidates } = res;
+                    const supports = candidates[0]?.groundingMetadata?.groundingSupports || [];
+                    const chunks = candidates[0]?.groundingMetadata?.groundingChunks || [];
 
                     const references = new Map();
+                    supports
+                        .filter(support => support.segment?.endIndex !== undefined && support.groundingChunkIndices?.length)
+                        .sort((a, b) => (b.segment.endIndex ?? 0) - (a.segment.endIndex ?? 0))
+                        .forEach(support => {
+                            support.groundingChunkIndices.forEach(i => {
+                                const uri = chunks[i]?.web?.uri;
+                                if (uri && references.size < 3 && !references.has(uri)) {
+                                    references.set(uri, references.size + 1);
+                                }
+                            });
+                        });
 
-                    // Sort supports by end_index in descending order
-                    const sortedSupports = supports.filter(support => support.segment?.endIndex !== undefined && support.groundingChunkIndices?.length)
-                                                   .sort((a, b) => (b.segment.endIndex ?? 0) - (a.segment.endIndex ?? 0));
+                    const referencesText = references.size ? `\n\n**References:**\n${[...references].map(([uri, index]) => `[${index}](${uri})`).join(', ')}` : '';
 
-                    for (const support of sortedSupports) {
-                        for (const i of support.groundingChunkIndices) {
-                            const uri = chunks[i]?.web?.uri;
-                            if (uri && !references.has(uri)) {
-                                references.set(uri, references.size + 1);
-                                if (references.size >= 5) break;
-                            }
-                        }
-                        if (references.size >= 5) break;
-                    }
+                    // Ensure response text fits within description limit
+                    const maxLength = 4096;
+                    const availableLength = maxLength - referencesText.length;
+                    const trimmedText = originalText.length > availableLength ? `${originalText.slice(0, availableLength - 3)}...` : originalText;
 
-                    if (references.size > 0) {
-                        text += `\n\n**References:**\n`;
-                        text += [...references].map(([uri, index]) => `[${index}](${uri})`).join(', ');
-                    }
-
-                    return text;
+                    return trimmedText + referencesText;
                 }
 
 
