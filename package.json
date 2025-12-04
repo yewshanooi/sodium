@@ -18,7 +18,6 @@
   },
   "dependencies": {
     "@dotenvx/dotenvx": "^1.51.0",
-<<<<<<< HEAD
     "@google/genai": "^1.31.0",
     "@huggingface/transformers": "^3.8.1",
     "chalk": "^4.1.2",
@@ -26,15 +25,6 @@
     "mathjs": "^15.1.0",
     "mongodb": "^6.21.0",
     "mongoose": "^8.20.1",
-=======
-    "@google/genai": "^1.28.0",
-    "@huggingface/transformers": "^3.7.6",
-    "chalk": "^4.1.2",
-    "discord.js": "^14.24.1",
-    "mathjs": "^15.0.0",
-    "mongodb": "^6.20.0",
-    "mongoose": "^8.19.2",
->>>>>>> 3dd8b72e8dd2e26ca278e94ab23322a9603777d2
     "moonlink.js": "^4.60.18",
     "node-fetch": "^2.7.0",
     "uuid": "^11.1.0"
