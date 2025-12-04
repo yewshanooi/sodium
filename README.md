@@ -1,5 +1,5 @@
 <p align="center">
-	<a href="https://skyelements.github.io/sodium.html">
+	<a href="https://skyelements.vercel.app/sodium">
 		<img src=".github/images/sodium.png" height="128">
 		<h1 align="center">Sodium</h1>
 		<p align="center">Multipurpose discord bot with application commands and a user-friendly interface</p>
@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-	<a href="https://skyelements.github.io/commands.html"><strong>Preview</strong></a> ·
+	<a href="https://skyelements.vercel.app/commands"><strong>Preview</strong></a> ·
 	<a href="https://github.com/yewshanooi/sodium/releases"><strong>Releases</strong></a>
 </p>
 <br/>
