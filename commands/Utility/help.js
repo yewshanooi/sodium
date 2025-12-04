@@ -114,9 +114,8 @@ module.exports = {
 									.setTitle('Help')
 									.setDescription('Command has ended. Retype `/help` to get another one.')
 									.setColor(configuration.embedColor)
-								], components: [] });
-							}
-						interaction.editReply({ components: [] });
+							], components: [] });
+						}
 					});
 				});
 
