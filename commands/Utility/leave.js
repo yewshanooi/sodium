@@ -55,15 +55,27 @@ module.exports = {
                 }
             });
 
-            collector.on('end', (__, reason) => {
+            collector.on('end', async (__, reason) => {
                 if (reason === 'time') {
-                    interaction.editReply({ embeds: [
-                        new EmbedBuilder()
-                            .setTitle('Leave')
-                            .setDescription('Command has ended. Retype `/leave` to request again.')
-                            .setColor(configuration.embedColor)
-                    ], components: [] });
+                    try {
+                        await interaction.editReply({ embeds: [
+                            new EmbedBuilder()
+                                .setTitle('Leave')
+                                .setDescription('Command has ended. Retype `/leave` to request again.')
+                                .setColor(configuration.embedColor)
+                        ], components: [] });
+                    } catch (error) {
+                        if (error.code === 10008) {
+                            await interaction.followUp({ embeds: [
+                                new EmbedBuilder()
+                                    .setTitle('Leave')
+                                    .setDescription('Command has ended. Retype `/leave` to request again.')
+                                    .setColor(configuration.embedColor)
+                            ]});
+                        }
+                    }
                 }
             });
+
         }
 };

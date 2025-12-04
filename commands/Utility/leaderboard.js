@@ -184,16 +184,28 @@ module.exports = {
                 }
             });
 
-            collector.on('end', (__, reason) => {
+            collector.on('end', async (__, reason) => {
                 if (reason === 'time') {
-                    interaction.editReply({ embeds: [
-                        new EmbedBuilder()
-                            .setTitle('Leaderboard')
-                            .setDescription('Command has ended. Retype `/leaderboard reset` to request again.')
-                            .setColor(configuration.embedColor)
-                    ], components: [] });
+                    try {
+                        await interaction.editReply({ embeds: [
+                            new EmbedBuilder()
+                                .setTitle('Leaderboard')
+                                .setDescription('Command has ended. Retype `/leaderboard reset` to request again.')
+                                .setColor(configuration.embedColor)
+                        ], components: [] });
+                    } catch (error) {
+                        if (error.code === 10008) {
+                            await interaction.followUp({ embeds: [
+                                new EmbedBuilder()
+                                    .setTitle('Leaderboard')
+                                    .setDescription('Command has ended. Retype `/leaderboard reset` to request again.')
+                                    .setColor(configuration.embedColor)
+                            ]});
+                        }
+                    }
                 }
             });
+
         }
 
         // leaderboard view {user} Subcommand
