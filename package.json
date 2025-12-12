@@ -1,6 +1,6 @@
 {
   "name": "sodium",
-  "version": "1.8.5",
+  "version": "1.8.6",
   "description": "Multipurpose discord bot with application commands and a user-friendly interface",
   "main": "index.js",
   "author": "Ooi Yew Shan",
@@ -18,14 +18,14 @@
   },
   "dependencies": {
     "@dotenvx/dotenvx": "^1.51.0",
-    "@google/genai": "^1.31.0",
+    "@google/genai": "^1.33.0",
     "@huggingface/transformers": "^3.8.1",
     "chalk": "^4.1.2",
     "discord.js": "^14.25.1",
     "mathjs": "^15.1.0",
     "mongodb": "^7.0.0",
-    "mongoose": "^9.0.0",
-    "moonlink.js": "^4.60.18",
+    "mongoose": "^9.0.1",
+    "moonlink.js": "^4.60.21",
     "node-fetch": "^2.7.0",
     "uuid": "^11.1.0"
   }

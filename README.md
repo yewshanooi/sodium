@@ -46,7 +46,7 @@ Node.js version **≥22.0.0** is required
 <table>
 	<tr>
 		<td><a href="https://www.npmjs.com/package/@dotenvx/dotenvx">@dotenvx/dotenvx@1.51.0</a></td>
-		<td><a href="https://www.npmjs.com/package/@google/genai">@google/genai@1.31.0</a></td>
+		<td><a href="https://www.npmjs.com/package/@google/genai">@google/genai@1.33.0</a></td>
 	</tr>
 	<tr>
 		<td><a href="https://www.npmjs.com/package/@huggingface/transformers">@huggingface/transformers@3.8.1</a></td>
@@ -58,10 +58,10 @@ Node.js version **≥22.0.0** is required
 	</tr>
 	<tr>
 		<td><a href="https://www.npmjs.com/package/mongodb">mongodb@7.0.0</a></td>
-		<td><a href="https://www.npmjs.com/package/mongoose">mongoose@9.0.0</a></td>
+		<td><a href="https://www.npmjs.com/package/mongoose">mongoose@9.0.1</a></td>
 	</td>
 	<tr>
-		<td><a href="https://www.npmjs.com/package/moonlink.js">moonlink.js@4.60.18</a></td>
+		<td><a href="https://www.npmjs.com/package/moonlink.js">moonlink.js@4.60.21</a></td>
 		<td><a href="https://www.npmjs.com/package/node-fetch">node-fetch@2.7.0</a></td>
 	</td>
 	<tr>
