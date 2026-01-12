@@ -25,7 +25,7 @@
     "mathjs": "^15.1.0",
     "mongodb": "^7.0.0",
     "mongoose": "^9.0.1",
-    "moonlink.js": "^4.60.21",
+    "moonlink.js": "^5.0.0",
     "node-fetch": "^2.7.0",
     "uuid": "^11.1.0"
   }
