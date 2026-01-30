@@ -45,8 +45,8 @@ Node.js version **≥22.0.0** is required
 ###### npm Packages
 <table>
 	<tr>
-		<td><a href="https://www.npmjs.com/package/@dotenvx/dotenvx">@dotenvx/dotenvx@1.51.0</a></td>
-		<td><a href="https://www.npmjs.com/package/@google/genai">@google/genai@1.33.0</a></td>
+		<td><a href="https://www.npmjs.com/package/@dotenvx/dotenvx">@dotenvx/dotenvx@1.52.0</a></td>
+		<td><a href="https://www.npmjs.com/package/@google/genai">@google/genai@1.38.0</a></td>
 	</tr>
 	<tr>
 		<td><a href="https://www.npmjs.com/package/@huggingface/transformers">@huggingface/transformers@3.8.1</a></td>
@@ -58,10 +58,10 @@ Node.js version **≥22.0.0** is required
 	</tr>
 	<tr>
 		<td><a href="https://www.npmjs.com/package/mongodb">mongodb@7.0.0</a></td>
-		<td><a href="https://www.npmjs.com/package/mongoose">mongoose@9.0.1</a></td>
+		<td><a href="https://www.npmjs.com/package/mongoose">mongoose@9.1.5</a></td>
 	</td>
 	<tr>
-		<td><a href="https://www.npmjs.com/package/moonlink.js">moonlink.js@4.60.21</a></td>
+		<td><a href="https://www.npmjs.com/package/moonlink.js">moonlink.js@5.0.0</a></td>
 		<td><a href="https://www.npmjs.com/package/node-fetch">node-fetch@2.7.0</a></td>
 	</td>
 	<tr>
@@ -158,8 +158,7 @@ https://discord.com/oauth2/authorize?client_id={CLIENT_ID}&permissions=149729548
 </p>
 <br/>
 
-## Attributions
-###### License
+## License
 This project is licensed under the **MIT License**
 ```
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
@@ -168,7 +167,3 @@ IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMA
 WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR 
 THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ```
-
-###### Contributors
-- [yewshanooi](https://github.com/yewshanooi)
-- [Manz-bot](https://github.com/Manz-bot)
